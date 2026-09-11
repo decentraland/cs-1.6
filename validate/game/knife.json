@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-10T19:59:05.226Z",
+  "checks": [
+    "Shift+3 equips the visible knife and hides firearm ammunition",
+    "server range rejects distant swing; primary damage is 20 then 15 while chained",
+    "F frontal stab deals 65 body damage and credits a Knife kill",
+    "aligned rear stab applies the 3x backstab multiplier and scoreboard kill"
+  ],
+  "primaryHealth": [
+    100,
+    80,
+    65
+  ],
+  "backstabHealth": 0
+}

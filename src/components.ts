@@ -4,7 +4,7 @@ import { Schemas, engine } from '@dcl/sdk/ecs'
 export const PlayerHealth = engine.defineComponent('PlayerHealth', {
   current: Schemas.Int,
   max: Schemas.Int,
-  armor: Schemas.Int,
+  armor: Schemas.Float,
   maxArmor: Schemas.Int
 })
 
@@ -22,16 +22,25 @@ export const PlayerTeam = engine.defineComponent('PlayerTeam', {
 // Weapon data
 export const Weapon = engine.defineComponent('Weapon', {
   name: Schemas.String,
+  revision: Schemas.Int,
+  readyAt: Schemas.Double,
   damage: Schemas.Int,
   ammoClip: Schemas.Int,
   maxAmmoClip: Schemas.Int,
   ammoReserve: Schemas.Int,
   maxAmmoReserve: Schemas.Int,
   fireRate: Schemas.Float, // seconds between shots
-  lastShotTime: Schemas.Float,
+  lastShotTime: Schemas.Double,
+  lastShotId: Schemas.Int,
+  lastFiredShotId: Schemas.Int,
   isReloading: Schemas.Boolean,
   reloadTime: Schemas.Float,
-  reloadStartTime: Schemas.Float
+  reloadStartTime: Schemas.Double
+})
+
+export const PlayerInventory = engine.defineComponent('PlayerInventory', {
+  active: Schemas.String,
+  items: Schemas.Array(Schemas.Map({id:Schemas.String,clip:Schemas.Int,reserve:Schemas.Int}))
 })
 
 // Money system
@@ -44,6 +53,19 @@ export const PlayerStats = engine.defineComponent('PlayerStats', {
   kills: Schemas.Int,
   deaths: Schemas.Int,
   assists: Schemas.Int
+})
+
+export const PlayerEquipment = engine.defineComponent('PlayerEquipment', {
+  bombSelected: Schemas.Boolean,
+  defuseKit: Schemas.Boolean,
+  helmet: Schemas.Boolean
+})
+
+export const BombObjective = engine.defineComponent('BombObjective', {
+  phase: Schemas.String, carrier: Schemas.String, planter: Schemas.String,
+  defuser: Schemas.String, site: Schemas.String, position: Schemas.Vector3,
+  actionStarted: Schemas.Double, actionEnds: Schemas.Double,
+  explodeAt: Schemas.Double, progress: Schemas.Float, round: Schemas.Int
 })
 
 // Bomb component (for terrorists)
@@ -121,9 +143,9 @@ export const PlayerAddress = engine.defineComponent('PlayerAddress', {
   address: Schemas.String
 })
 
-// Player collider (attached to avatar, used for hit detection)
-export const PlayerCollider = engine.defineComponent('PlayerCollider', {
-  playerAddress: Schemas.String // Which player this collider belongs to
+export const PlayerPose = engine.defineComponent('PlayerPose', {
+  position: Schemas.Vector3,
+  valid: Schemas.Boolean
 })
 
 // Crosshair state (for dynamic crosshair expansion)
@@ -139,9 +161,10 @@ export const CrosshairState = engine.defineComponent('CrosshairState', {
 
 // Damage feedback (for visual damage indication)
 export const DamageFeedback = engine.defineComponent('DamageFeedback', {
-  intensity: Schemas.Float, // 0-1, how much red overlay to show
-  lastDamageTime: Schemas.Float,
-  previousHealth: Schemas.Int // Track health to detect damage
+  front: Schemas.Float,
+  right: Schemas.Float,
+  rear: Schemas.Float,
+  left: Schemas.Float
 })
 
 // Match leaderboard (singleton entity, server-authoritative, top 10 players)
@@ -154,4 +177,28 @@ export const MatchLeaderboard = engine.defineComponent('MatchLeaderboard', {
       deaths: Schemas.Int
     })
   )
+})
+
+export const Practice = engine.defineComponent('Practice', {
+  mode: Schemas.String,
+  roster: Schemas.Array(Schemas.Map({ address: Schemas.String, team: Schemas.Int, eligibleRound: Schemas.Int, connected: Schemas.Boolean })),
+  phase: Schemas.String,
+  owner: Schemas.String,
+  remaining: Schemas.Int,
+  timeLeft: Schemas.Int,
+  round: Schemas.Int,
+  ctScore: Schemas.Int,
+  tScore: Schemas.Int,
+  maxWins: Schemas.Int,
+  matchOver: Schemas.Boolean,
+  botKills: Schemas.Array(Schemas.Int),
+  botDeaths: Schemas.Array(Schemas.Int),
+  kills: Schemas.Int
+})
+
+export const Bot = engine.defineComponent('Bot', {
+  index: Schemas.Int,
+  health: Schemas.Int,
+  name: Schemas.String,
+  alive: Schemas.Boolean
 })

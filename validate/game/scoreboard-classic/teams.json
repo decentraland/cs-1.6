@@ -1,0 +1,121 @@
+{
+  "date": "2026-09-10T15:48:41.370Z",
+  "checks": [
+    "explicit teams, shared freeze, original spawns",
+    "team player counts, local row highlight, teammate-only bomb status",
+    "human shot, both clients agree on CT score, dead input blocked",
+    "automatic round respawn and opposing scored win"
+  ],
+  "spawns": [
+    {
+      "x": 51.61083,
+      "y": 6.6126676,
+      "z": 46.70173
+    },
+    {
+      "x": 85.74417,
+      "y": 13.439334,
+      "z": 131.18173
+    }
+  ],
+  "ctWin": {
+    "shooter": [
+      "Counter-Terrorists Win!",
+      "0x2e83e3ee...   USP   0xa786cdad...",
+      "Counter-Strike 1.6 - de_dust2",
+      "Score",
+      "Deaths",
+      "Latency",
+      "Terrorists   -   1 player",
+      "0",
+      "-",
+      "0xa786cdad...",
+      "Dead",
+      "0",
+      "1",
+      "-",
+      "Counter-Terrorists   -   1 player",
+      "1",
+      "-",
+      "0x2e83e3ee...",
+      "1",
+      "0",
+      "-"
+    ],
+    "victim": [
+      "0x2e83e3ee...   USP   0xa786cdad...",
+      "Counter-Terrorists Win!",
+      "Free Chase Cam — Click: next / Shift+click: previous",
+      "Counter-Strike 1.6 - de_dust2",
+      "Score",
+      "Deaths",
+      "Latency",
+      "Terrorists   -   1 player",
+      "0",
+      "-",
+      "0xa786cdad...",
+      "Dead",
+      "0",
+      "1",
+      "-",
+      "Counter-Terrorists   -   1 player",
+      "1",
+      "-",
+      "0x2e83e3ee...",
+      "1",
+      "0",
+      "-"
+    ]
+  },
+  "tWin": {
+    "shooter": [
+      "C4   4 Select | 3 Drop",
+      "Terrorists Win!",
+      "0xa786cdad...   Glock-18   0x2e83e3ee...",
+      "1",
+      "-",
+      "Counter-Strike 1.6 - de_dust2",
+      "Score",
+      "Deaths",
+      "Latency",
+      "Terrorists   -   1 player",
+      "1",
+      "-",
+      "0xa786cdad...",
+      "Bomb",
+      "1",
+      "1",
+      "-",
+      "Counter-Terrorists   -   1 player",
+      "1",
+      "-",
+      "0x2e83e3ee...",
+      "Dead",
+      "1"
+    ],
+    "victim": [
+      "0xa786cdad...   Glock-18   0x2e83e3ee...",
+      "Terrorists Win!",
+      "Free Chase Cam — Click: next / Shift+click: previous",
+      "Counter-Strike 1.6 - de_dust2",
+      "Score",
+      "Deaths",
+      "Latency",
+      "Terrorists   -   1 player",
+      "1",
+      "-",
+      "0xa786cdad...",
+      "1",
+      "1",
+      "-",
+      "Counter-Terrorists   -   1 player",
+      "1",
+      "-",
+      "0x2e83e3ee...",
+      "Dead",
+      "1",
+      "1",
+      "-"
+    ]
+  }
+}

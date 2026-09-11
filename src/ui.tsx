@@ -1,611 +1,86 @@
 import ReactEcs, { Label, UiEntity, ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
-import { engine } from '@dcl/sdk/ecs'
-import {
-  PlayerHealth,
-  PlayerTeam,
-  Team,
-  Weapon,
-  CrosshairState,
-  DamageFeedback,
-  Dead,
-  PlayerStats,
-  PlayerAddress,
-  MatchLeaderboard
-} from './components'
-import { isLocalPlayerReady, getLocalPlayerEntity, isConnected, getConnectionTime } from './client'
+import { engine, inputSystem, InputAction, UiCanvasInformation } from '@dcl/sdk/ecs'
+import { PlayerHealth, Weapon, DamageFeedback, CrosshairState, Dead } from './components'
+import { getLocalPlayerEntity } from './client'
+import { getPractice } from './practice'
+import { myProfile } from '@dcl/sdk/network'
+import { room } from './index'
+import { Scoreboard } from './scoreboard-ui'
+import { getBomb } from './bomb'
+import { hasBombSelected } from './bomb-client'
+import { BombHud } from './bomb-ui'
+import { Hud } from './hud'
+import { Radar } from './radar-ui'
+import { BuyHud } from './buy-ui'
+import { PlayerMoney } from './components'
+import { getSpectatorTarget, isDeathTransitioning, isSpectating } from './spectator'
+import { PainCompass } from './pain-ui'
+import { profileByName } from './weapon-profiles'
+import { TeamMenu } from './team-menu-ui'
 
-// Find local player entity
-function getLocalPlayer() {
-  const localEntity = getLocalPlayerEntity()
-  if (!localEntity) return null
-
-  const health = PlayerHealth.getOrNull(localEntity)
-  const team = PlayerTeam.getOrNull(localEntity)
-
-  if (!health || !team) return null
-  return { health, team }
-}
-
-function getPlayerWeapon() {
-  const localEntity = getLocalPlayerEntity()
-  if (!localEntity) return null
-  return Weapon.getOrNull(localEntity)
-}
-
-function getCrosshairState() {
-  const localEntity = getLocalPlayerEntity()
-  if (!localEntity) return null
-  return CrosshairState.getOrNull(localEntity)
-}
-
-function getDamageFeedback() {
-  const localEntity = getLocalPlayerEntity()
-  if (!localEntity) return null
-  return DamageFeedback.getOrNull(localEntity)
-}
-
-function isPlayerDead() {
-  const localEntity = getLocalPlayerEntity()
-  if (!localEntity) return false
-  return Dead.has(localEntity)
-}
+const amber = Color4.create(1, 0.68, 0.2, 0.85)
+const green = Color4.create(0.2, 1, 0.2, 1)
+let lastKill = ''
+let killUntil = 0
+let notice = ''
+let noticeUntil = 0
 
 export function setupUI() {
-  ReactEcsRenderer.setUiRenderer(() => {
-    const playerReady = isLocalPlayerReady()
-
-    return (
-      <UiEntity
-        uiTransform={{
-          width: '100%',
-          height: '100%',
-          positionType: 'absolute'
-        }}
-      >
-        {!playerReady && <LoadingScreen />}
-
-        {playerReady && (
-          <UiEntity
-            uiTransform={{
-              width: '100%',
-              height: '100%',
-              positionType: 'absolute'
-            }}
-          >
-            {/* Health & Armor - Bottom Left */}
-            <HealthDisplay />
-
-            {/* Ammo - Bottom Right */}
-            <AmmoDisplay />
-
-            {/* Team Indicator - Top Left */}
-            <TeamDisplay />
-
-            {/* Crosshair - Center */}
-            <Crosshair />
-
-            {/* Damage Overlay - Full Screen */}
-            <DamageOverlay />
-
-            {/* Death Overlay - Full Screen Gray */}
-            <DeathOverlay />
-
-            {/* Leaderboard - Top Right */}
-            <Leaderboard />
-
-            {/* Connection Notification - Top Center */}
-            <ConnectionNotification />
-          </UiEntity>
-        )}
-      </UiEntity>
-    )
+  room.onMessage('practiceHit', (data) => {
+    if (data.killed) { lastKill = `Player   AK-47   ${data.name}`; killUntil = Date.now() + 5000 }
   })
+  room.onMessage('playerKill', data => {
+    lastKill = `${data.killer}   ${data.weapon}   ${data.victim}`; killUntil = Date.now() + 5000
+  })
+  room.onMessage('matchNotice', data => {
+    if (data.address === myProfile.userId?.toLowerCase()) { notice = data.message; noticeUntil = Date.now() + 5000 }
+  })
+  ReactEcsRenderer.setUiRenderer(() => <GameUI />, { virtualWidth: 0, virtualHeight: 0, screenInset: 'none' })
 }
 
-function HealthDisplay() {
-  const player = getLocalPlayer()
-  if (!player) return null
+function GameUI() {
+  const canvas = UiCanvasInformation.getOrNull(engine.RootEntity)
+  const width = canvas?.width ?? 1280
+  const height = canvas?.height ?? 720
+  const player = getLocalPlayerEntity()
+  const health = player !== null ? PlayerHealth.getOrNull(player) : undefined
+  const weapon = player !== null ? Weapon.getOrNull(player) : undefined
+  const weaponProfile=weapon&&profileByName(weapon.name)
+  const feedback = player !== null ? DamageFeedback.getOrNull(player) : undefined
+  const practice = getPractice()
+  const seat = practice?.roster.find(seat => seat.address === myProfile.userId?.toLowerCase() && seat.connected)
+  const teams = practice?.mode === 'teams'
+  const playingSeat = seat?.team === 1 || seat?.team === 2
+  const spectated = getSpectatorTarget()
+  const result = ['won', 'lost', 'draw'].includes(practice?.phase ?? '')
+  const scoreboard = inputSystem.isPressed(InputAction.IA_ACTION_3) || !!practice?.matchOver
+  const gap = 5 + Math.round((player !== null ? CrosshairState.getOrNull(player)?.spread ?? 0 : 0) * 15)
+  const active = practice?.phase === 'live' || practice?.phase === 'freeze'
+  const menuOpen = !practice || practice.matchOver || practice.phase === 'ready' || practice.phase === 'waiting' || (teams && !seat)
+  const time = practice?.timeLeft ?? 120
+  const title = practice?.phase === 'won' ? 'Counter-Terrorists Win!' : practice?.phase === 'lost' ? 'Terrorists Win!' : practice?.phase === 'draw' ? 'Round Draw!' : 'Counter-Strike'
 
-  const health = player.health
-  const healthPercent = (health.current / health.max) * 100
-
-  return (
-    <UiEntity
-      uiTransform={{
-        width: 200,
-        height: 80,
-        position: { left: 40, bottom: 40 },
-        positionType: 'absolute'
-      }}
-      uiBackground={{ color: Color4.create(0, 0, 0, 0.7) }}
-    >
-      {/* Health */}
-      <UiEntity
-        uiTransform={{
-          width: '90%',
-          height: 30,
-          margin: { top: 5, left: 5 }
-        }}
-      >
-        <Label
-          value={`HP: ${health.current}`}
-          fontSize={18}
-          color={healthPercent > 50 ? Color4.Green() : healthPercent > 25 ? Color4.Yellow() : Color4.Red()}
-          uiTransform={{ width: '100%', height: '100%' }}
-        />
-      </UiEntity>
-
-      {/* Armor */}
-      <UiEntity
-        uiTransform={{
-          width: '90%',
-          height: 30,
-          margin: { top: 5, left: 5 }
-        }}
-      >
-        <Label
-          value={`ARMOR: ${health.armor}`}
-          fontSize={14}
-          color={Color4.create(0.5, 0.7, 1, 1)}
-          uiTransform={{ width: '100%', height: '100%' }}
-        />
-      </UiEntity>
-    </UiEntity>
-  )
-}
-
-function AmmoDisplay() {
-  const weapon = getPlayerWeapon()
-  if (!weapon) return null
-
-  return (
-    <UiEntity
-      uiTransform={{
-        width: 380,
-        height: 80,
-        position: { right: 40, bottom: 40 },
-        positionType: 'absolute'
-      }}
-      uiBackground={{ color: Color4.create(0, 0, 0, 0.7) }}
-    >
-      {/* Weapon Name */}
-      <UiEntity
-        uiTransform={{
-          width: '95%',
-          height: 25,
-          margin: { top: 5, left: 10 }
-        }}
-      >
-        <Label
-          value={weapon.name}
-          fontSize={14}
-          color={Color4.White()}
-          uiTransform={{ width: '100%', height: '100%' }}
-        />
-      </UiEntity>
-
-      {/* Ammo and Reloading in a row */}
-      <UiEntity
-        uiTransform={{
-          width: '95%',
-          height: 35,
-          margin: { top: 5, left: 10 },
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-start'
-        }}
-      >
-        <Label
-          value={`${weapon.ammoClip} / ${weapon.ammoReserve}`}
-          fontSize={24}
-          color={weapon.ammoClip === 0 ? Color4.Red() : weapon.ammoClip < 10 ? Color4.Yellow() : Color4.White()}
-          uiTransform={{ width: 'auto', height: '100%', margin: { right: 15 } }}
-        />
-
-        {/* Reloading indicator - in same row */}
-        {weapon.isReloading && (
-          <Label
-            value="RELOADING..."
-            fontSize={14}
-            color={Color4.Yellow()}
-            uiTransform={{ width: 'auto', height: '100%' }}
-          />
-        )}
-      </UiEntity>
-    </UiEntity>
-  )
-}
-
-function TeamDisplay() {
-  const player = getLocalPlayer()
-  if (!player) return null
-
-  const teamName = player.team.team === Team.TERRORIST ? 'TERRORIST' : 'COUNTER-TERRORIST'
-  const teamColor = player.team.team === Team.TERRORIST ? Color4.create(1, 0.5, 0, 1) : Color4.create(0, 0.5, 1, 1)
-
-  return (
-    <UiEntity
-      uiTransform={{
-        width: 180,
-        height: 40,
-        position: { top: 200, left: 20 },
-        positionType: 'absolute'
-      }}
-      uiBackground={{ color: Color4.create(0, 0, 0, 0.7) }}
-    >
-      <Label
-        value={teamName}
-        fontSize={16}
-        color={teamColor}
-        uiTransform={{ width: '100%', height: '100%' }}
-        textAlign="middle-center"
-      />
-    </UiEntity>
-  )
-}
-
-function Crosshair() {
-  const crosshairState = getCrosshairState()
-
-  // Base gap and line size
-  const baseGap = 5
-  const lineLength = 10
-  const lineThickness = 2
-  const centerDotSize = 2
-
-  // Calculate dynamic gap based on spread (0 = tight, 1 = max spread)
-  const spread = crosshairState ? crosshairState.spread : 0
-  const gap = baseGap + spread * 15 // Expands up to 20 pixels from center
-
-  return (
-    <UiEntity
-      uiTransform={{
-        width: 100,
-        height: 100,
-        position: { top: '50%', left: '50%' },
-        margin: { top: -50, left: -50 },
-        positionType: 'absolute'
-      }}
-    >
-      {/* Top line */}
-      <UiEntity
-        uiTransform={{
-          width: lineThickness,
-          height: lineLength,
-          position: { top: '50%', left: '50%' },
-          margin: { top: -(gap + lineLength), left: -lineThickness / 2 },
-          positionType: 'absolute'
-        }}
-        uiBackground={{ color: Color4.White() }}
-      />
-
-      {/* Bottom line */}
-      <UiEntity
-        uiTransform={{
-          width: lineThickness,
-          height: lineLength,
-          position: { top: '50%', left: '50%' },
-          margin: { top: gap, left: -lineThickness / 2 },
-          positionType: 'absolute'
-        }}
-        uiBackground={{ color: Color4.White() }}
-      />
-
-      {/* Left line */}
-      <UiEntity
-        uiTransform={{
-          width: lineLength,
-          height: lineThickness,
-          position: { top: '50%', left: '50%' },
-          margin: { top: -lineThickness / 2, left: -(gap + lineLength) },
-          positionType: 'absolute'
-        }}
-        uiBackground={{ color: Color4.White() }}
-      />
-
-      {/* Right line */}
-      <UiEntity
-        uiTransform={{
-          width: lineLength,
-          height: lineThickness,
-          position: { top: '50%', left: '50%' },
-          margin: { top: -lineThickness / 2, left: gap },
-          positionType: 'absolute'
-        }}
-        uiBackground={{ color: Color4.White() }}
-      />
-
-      {/* Center dot */}
-      <UiEntity
-        uiTransform={{
-          width: centerDotSize,
-          height: centerDotSize,
-          position: { top: '50%', left: '50%' },
-          margin: { top: -centerDotSize / 2, left: -centerDotSize / 2 },
-          positionType: 'absolute'
-        }}
-        uiBackground={{ color: Color4.White() }}
-      />
-    </UiEntity>
-  )
-}
-
-function DamageOverlay() {
-  const feedback = getDamageFeedback()
-
-  // Don't show if no damage or intensity is 0
-  if (!feedback || feedback.intensity <= 0) return null
-
-  return (
-    <UiEntity
-      uiTransform={{
-        width: '100%',
-        height: '100%',
-        positionType: 'absolute'
-      }}
-      uiBackground={{
-        color: Color4.create(1, 0, 0, feedback.intensity * 0.5) // Red overlay, max 50% opacity
-      }}
-    />
-  )
-}
-
-function DeathOverlay() {
-  const isDead = isPlayerDead()
-
-  // Don't show if player is alive
-  if (!isDead) return null
-
-  return (
-    <UiEntity
-      uiTransform={{
-        width: '100%',
-        height: '100%',
-        positionType: 'absolute'
-      }}
-      uiBackground={{
-        color: Color4.create(0.2, 0.2, 0.2, 0.8) // Gray overlay, 80% opacity
-      }}
-    >
-      {/* Death message */}
-      <UiEntity
-        uiTransform={{
-          width: 400,
-          height: 100,
-          position: { top: '40%', left: '50%' },
-          margin: { left: -200, top: -50 },
-          positionType: 'absolute'
-        }}
-      >
-        <Label
-          value="YOU DIED"
-          fontSize={48}
-          color={Color4.White()}
-          uiTransform={{ width: '100%', height: '100%' }}
-          textAlign="middle-center"
-        />
-      </UiEntity>
-
-      {/* Respawn message */}
-      <UiEntity
-        uiTransform={{
-          width: 400,
-          height: 50,
-          position: { top: '50%', left: '50%' },
-          margin: { left: -200, top: 0 },
-          positionType: 'absolute'
-        }}
-      >
-        <Label
-          value="Respawning in 5 seconds..."
-          fontSize={18}
-          color={Color4.create(0.8, 0.8, 0.8, 1)}
-          uiTransform={{ width: '100%', height: '100%' }}
-          textAlign="middle-center"
-        />
-      </UiEntity>
-    </UiEntity>
-  )
-}
-
-function LoadingScreen() {
-  return (
-    <UiEntity
-      uiTransform={{
-        width: '100%',
-        height: '100%',
-        positionType: 'absolute'
-      }}
-      uiBackground={{
-        color: Color4.create(0.1, 0.1, 0.1, 0.95)
-      }}
-    >
-      {/* Loading message */}
-      <UiEntity
-        uiTransform={{
-          width: 400,
-          height: 100,
-          position: { top: '45%', left: '50%' },
-          margin: { left: -200, top: -50 },
-          positionType: 'absolute'
-        }}
-      >
-        <Label
-          value="CONNECTING..."
-          fontSize={36}
-          color={Color4.White()}
-          uiTransform={{ width: '100%', height: '100%' }}
-          textAlign="middle-center"
-        />
-      </UiEntity>
-
-      {/* Subtext */}
-      <UiEntity
-        uiTransform={{
-          width: 400,
-          height: 50,
-          position: { top: '52%', left: '50%' },
-          margin: { left: -200, top: 0 },
-          positionType: 'absolute'
-        }}
-      >
-        <Label
-          value="Waiting for server assignment..."
-          fontSize={16}
-          color={Color4.Gray()}
-          uiTransform={{ width: '100%', height: '100%' }}
-          textAlign="middle-center"
-        />
-      </UiEntity>
-    </UiEntity>
-  )
-}
-
-function ConnectionNotification() {
-  const connected = isConnected()
-  const connTime = getConnectionTime()
-  const currentTime = Date.now() / 1000
-
-  // Show notification for 3 seconds after connection
-  const timeSinceConnection = currentTime - connTime
-  const showNotification = connected && timeSinceConnection < 3
-
-  if (!showNotification) return null
-
-  // Fade out effect (opacity decreases in last second)
-  const opacity = timeSinceConnection > 2 ? 1 - (timeSinceConnection - 2) : 1
-
-  return (
-    <UiEntity
-      uiTransform={{
-        width: 300,
-        height: 50,
-        position: { top: 100, left: '50%' },
-        margin: { left: -150 },
-        positionType: 'absolute'
-      }}
-      uiBackground={{ color: Color4.create(0.1, 0.5, 0.1, 0.9 * opacity) }}
-    >
-      <Label
-        value="Connected to server"
-        fontSize={20}
-        color={Color4.create(1, 1, 1, opacity)}
-        uiTransform={{ width: '100%', height: '100%' }}
-        textAlign="middle-center"
-      />
-    </UiEntity>
-  )
-}
-
-function Leaderboard() {
-  // Get leaderboard data from singleton MatchLeaderboard entity
-  let topPlayers: Array<{ address: string; name: string; kills: number; deaths: number }> = []
-
-  // Find the MatchLeaderboard entity
-  for (const [_, leaderboard] of engine.getEntitiesWith(MatchLeaderboard)) {
-    topPlayers = [...leaderboard.players]
-    break // Only one leaderboard entity
-  }
-
-  return (
-    <UiEntity
-      uiTransform={{
-        width: 280,
-        height: 200,
-        position: { top: 80, right: 40 },
-        positionType: 'absolute',
-        flexDirection: 'column'
-      }}
-      uiBackground={{ color: Color4.create(0, 0, 0, 0.8) }}
-    >
-      {/* Title */}
-      <UiEntity
-        uiTransform={{
-          width: '100%',
-          height: 30,
-          margin: { top: 5 }
-        }}
-      >
-        <Label
-          value="LEADERBOARD"
-          fontSize={16}
-          color={Color4.Yellow()}
-          uiTransform={{ width: '100%', height: '100%' }}
-          textAlign="middle-center"
-        />
-      </UiEntity>
-
-      {/* Headers */}
-      <UiEntity
-        uiTransform={{
-          width: '100%',
-          height: 20,
-          margin: { top: 35, left: 0 },
-          flexDirection: 'row',
-        }}
-      >
-        <Label
-          value="Player"
-          fontSize={12}
-          color={Color4.Gray()}
-          uiTransform={{ width: '80%', margin: { left: 20 } }}
-          textAlign="middle-left"
-        />
-        <Label
-          value="K"
-          fontSize={12}
-          color={Color4.Gray()}
-          uiTransform={{ width: '10%' }}
-          // uiTransform={{ width: 40, height: '100%', positionType: 'absolute', position: { left: 140 } }}
-          textAlign="middle-center"
-        />
-        <Label
-          value="D"
-          fontSize={12}
-          color={Color4.Gray()}
-          uiTransform={{ width: '10%' }}
-          // uiTransform={{ width: 40, height: '100%', positionType: 'absolute', position: { left: 180 } }}
-          textAlign="middle-center"
-        />
-      </UiEntity>
-
-      {/* Player rows */}
-      {topPlayers.map((player) => (
-        <UiEntity
-          key={player.address}
-          uiTransform={{
-            width: '100%',
-            height: 22,
-            margin: { top: 16 }
-          }}
-        >
-          {/* Player name */}
-          <Label
-            value={player.name}
-            fontSize={11}
-            color={Color4.White()}
-            uiTransform={{ width: '80%', margin: { left: 20 } }}
-            textAlign="middle-left"
-          />
-          {/* Kills */}
-          <Label
-            value={`${player.kills}`}
-            fontSize={11}
-            color={Color4.Green()}
-            uiTransform={{ width: '10%' }}
-            textAlign="middle-center"
-          />
-          {/* Deaths */}
-          <Label
-            value={`${player.deaths}`}
-            fontSize={11}
-            color={Color4.Red()}
-            uiTransform={{ width: '10%' }}
-            textAlign="middle-center"
-          />
-        </UiEntity>
-      ))}
-    </UiEntity>
-  )
+  return <UiEntity uiTransform={{ width, height, positionType: 'absolute', position: { left: 0, top: 0 } }}>
+    <Hud width={width} height={height} health={health?.current ?? 100} armor={health?.armor ?? 0} clip={weapon?.ammoClip ?? 30} reserve={weapon?.ammoReserve ?? 90} money={player !== null ? PlayerMoney.getOrNull(player)?.amount ?? 800 : 800} seconds={time} hideTime={getBomb()?.phase === 'planted'} hideAmmo={weaponProfile?.kind==='knife'} />
+    <Radar width={width} />
+    <BombHud width={width} />
+    <BuyHud />
+    {active && !isSpectating() && <Label value={`${weapon?.name ?? ''}   2: Primary   Shift+2: Pistol   Shift+3: Knife`} color={amber} fontSize={14} uiTransform={{positionType:'absolute',position:{right:22,bottom:95},width:470,height:24}} />}
+    {active && player !== null && !Dead.has(player) && !hasBombSelected() && <UiEntity uiTransform={{ positionType: 'absolute', position: { left: '50%', top: '50%' }, width: 1, height: 1 }}>
+      {[-1, 1].map((side) => <UiEntity key={`h${side}`} uiTransform={{ positionType: 'absolute', position: { left: side < 0 ? -gap - 10 : gap, top: 0 }, width: 10, height: 2 }} uiBackground={{ color: green }} />)}
+      {[-1, 1].map((side) => <UiEntity key={`v${side}`} uiTransform={{ positionType: 'absolute', position: { left: 0, top: side < 0 ? -gap - 10 : gap }, width: 2, height: 10 }} uiBackground={{ color: green }} />)}
+    </UiEntity>}
+    {practice?.phase === 'freeze' && <Label value="Prepare to fight!" color={amber} fontSize={20} uiTransform={{ positionType: 'absolute', position: { top: '35%', left: '35%' }, width: '30%', height: 35 }} />}
+    {lastKill && Date.now() < killUntil && <Label value={lastKill} color={amber} fontSize={17} textAlign="middle-right" uiTransform={{ positionType: 'absolute', position: { right: 22, top: 20 }, width: 450, height: 30 }} />}
+    <PainCompass width={width} height={height} health={health?.current ?? 100} directions={feedback} />
+    {menuOpen && <TeamMenu width={width} height={height} />}
+    {notice && Date.now() < noticeUntil && <Label value={notice} color={amber} fontSize={18} uiTransform={{ positionType: 'absolute', position: { left: '25%', top: '25%' }, width: '50%', height: 40 }} />}
+    {teams && playingSeat && player !== null && Dead.has(player) && active && <Label value="Waiting for the next round" color={amber} fontSize={20} uiTransform={{ positionType: 'absolute', position: { top: '40%', left: '30%' }, width: '40%', height: 40 }} />}
+    {spectated && <Label value={`Spectating: ${spectated.name} (${spectated.health})`} color={amber} fontSize={18} uiTransform={{ positionType: 'absolute', position: { bottom: 130, left: '20%' }, width: '60%', height: 28 }} />}
+    {isSpectating() && !isDeathTransitioning() && <Label value="Free Chase Cam — Click: next / Shift+click: previous" color={amber} fontSize={15} uiTransform={{ positionType: 'absolute', position: { bottom: 102, left: '20%' }, width: '60%', height: 26 }} />}
+    {result && <Label value={title} color={amber} fontSize={22} uiTransform={{ positionType: 'absolute', position: { top: '35%', left: '25%' }, width: '50%', height: 35 }} />}
+    {scoreboard && <Scoreboard width={width} height={height} />}
+    {active && !teams && <Label value={`Enemies left: ${practice?.remaining ?? 3}`} color={amber} fontSize={15} uiTransform={{ positionType: 'absolute', position: { left: 22, top: 142 }, width: 180, height: 25 }} />}
+  </UiEntity>
 }

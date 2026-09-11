@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-10T13:11:31.898Z",
+  "address": "0x0c2c8a83847212a3451de6bf1cb245fddc7cff8b",
+  "row": [
+    "0x0c2c8a83...",
+    "Dead",
+    "2",
+    "0"
+  ],
+  "checks": [
+    "same guest tab resumed after heartbeat expiry",
+    "same-address stats retained: zero kills, two deaths",
+    "rejoin stays dead until next round",
+    "next-round health restored"
+  ],
+  "note": "The first lifecycle-resume attempt left the tab hidden; bringing the same tab to front restored UI updates."
+}

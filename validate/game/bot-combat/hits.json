@@ -1,0 +1,190 @@
+{
+  "date": "2026-09-10T16:39:25.604Z",
+  "checks": [
+    "live AK damage replaces fixed health subtraction",
+    "actual bullet effects and bot weapon kill feed are visible",
+    "bot kill still ends the round"
+  ],
+  "health": [
+    {
+      "time": 0,
+      "value": 100
+    },
+    {
+      "time": 2866,
+      "value": 65,
+      "damage": 35
+    },
+    {
+      "time": 2965,
+      "value": 30,
+      "damage": 35
+    },
+    {
+      "time": 3066,
+      "value": 0,
+      "damage": 30
+    }
+  ],
+  "effects": [
+    {
+      "time": 2965,
+      "position": {
+        "x": 94.6,
+        "y": 10.992559,
+        "z": 51.896458
+      },
+      "material": {
+        "gltf": null,
+        "material": {
+          "pbr": {
+            "albedoColor": {
+              "a": 1,
+              "b": 0.5,
+              "g": 0.5,
+              "r": 0.5
+            },
+            "alphaTest": null,
+            "alphaTexture": null,
+            "bumpTexture": null,
+            "castShadows": null,
+            "directIntensity": null,
+            "emissiveColor": {
+              "b": 0.3,
+              "g": 0.3,
+              "r": 0.3
+            },
+            "emissiveIntensity": 1,
+            "emissiveTexture": null,
+            "metallic": null,
+            "reflectivityColor": null,
+            "roughness": null,
+            "specularIntensity": null,
+            "texture": null,
+            "transparencyMode": null
+          }
+        }
+      }
+    },
+    {
+      "time": 2965,
+      "position": {
+        "x": 88,
+        "y": 9.4546,
+        "z": 50
+      },
+      "material": {
+        "gltf": null,
+        "material": {
+          "pbr": {
+            "albedoColor": {
+              "a": 1,
+              "b": 0,
+              "g": 1,
+              "r": 1
+            },
+            "alphaTest": null,
+            "alphaTexture": null,
+            "bumpTexture": null,
+            "castShadows": null,
+            "directIntensity": null,
+            "emissiveColor": {
+              "b": 0,
+              "g": 1,
+              "r": 1
+            },
+            "emissiveIntensity": 2,
+            "emissiveTexture": null,
+            "metallic": null,
+            "reflectivityColor": null,
+            "roughness": null,
+            "specularIntensity": null,
+            "texture": null,
+            "transparencyMode": null
+          }
+        }
+      }
+    },
+    {
+      "time": 3066,
+      "position": {
+        "x": 88,
+        "y": 9.4546,
+        "z": 50
+      },
+      "material": {
+        "gltf": null,
+        "material": {
+          "pbr": {
+            "albedoColor": {
+              "a": 1,
+              "b": 0,
+              "g": 1,
+              "r": 1
+            },
+            "alphaTest": null,
+            "alphaTexture": null,
+            "bumpTexture": null,
+            "castShadows": null,
+            "directIntensity": null,
+            "emissiveColor": {
+              "b": 0,
+              "g": 1,
+              "r": 1
+            },
+            "emissiveIntensity": 2,
+            "emissiveTexture": null,
+            "metallic": null,
+            "reflectivityColor": null,
+            "roughness": null,
+            "specularIntensity": null,
+            "texture": null,
+            "transparencyMode": null
+          }
+        }
+      }
+    },
+    {
+      "time": 3066,
+      "position": {
+        "x": 94.6,
+        "y": 10.980258,
+        "z": 51.850414
+      },
+      "material": {
+        "gltf": null,
+        "material": {
+          "pbr": {
+            "albedoColor": {
+              "a": 1,
+              "b": 0.5,
+              "g": 0.5,
+              "r": 0.5
+            },
+            "alphaTest": null,
+            "alphaTexture": null,
+            "bumpTexture": null,
+            "castShadows": null,
+            "directIntensity": null,
+            "emissiveColor": {
+              "b": 0.3,
+              "g": 0.3,
+              "r": 0.3
+            },
+            "emissiveIntensity": 1,
+            "emissiveTexture": null,
+            "metallic": null,
+            "reflectivityColor": null,
+            "roughness": null,
+            "specularIntensity": null,
+            "texture": null,
+            "transparencyMode": null
+          }
+        }
+      }
+    }
+  ],
+  "killFeed": [
+    "Guerilla   AK-47   0xa1fccce5..."
+  ]
+}

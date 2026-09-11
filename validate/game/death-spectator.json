@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-10T20:26:29.749Z",
+  "handoffMs": 2833,
+  "corpse": {
+    "x": 91.90432,
+    "y": 8.305461,
+    "z": 50.404324
+  },
+  "initialCamera": {
+    "x": 91.90432,
+    "y": 9.2610855,
+    "z": 50.404324
+  },
+  "fallenCamera": {
+    "x": 91.90432,
+    "y": 9.005461,
+    "z": 50.404324
+  },
+  "firstTarget": "Spectating: BOT Guerilla (100)",
+  "cycledTarget": "Spectating: BOT Phoenix (100)",
+  "hitHealth": 65,
+  "hitCameraRadians": 0.0010222926391031276,
+  "checks": [
+    "directional CS pain sprite",
+    "impact sound",
+    "hitgroup and armor-dependent camera punch",
+    "camera fall and 80-degree roll rules",
+    "three-second observer handoff",
+    "hidden first-person weapon meshes",
+    "living bot chase",
+    "click-to-cycle without firing"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-10T17:40:32.359Z",
+  "site": "B",
+  "planter": "BOT Guerilla",
+  "plantedAt": {
+    "x": 104.24356,
+    "y": 10.106,
+    "z": 40.756443
+  },
+  "spawned": [
+    {
+      "id": "573",
+      "name": "BOT Arctic",
+      "position": {
+        "x": 90,
+        "y": 8.9713,
+        "z": 48
+      }
+    },
+    {
+      "id": "66054",
+      "name": "BOT Guerilla",
+      "position": {
+        "x": 88,
+        "y": 8.0546,
+        "z": 50
+      }
+    },
+    {
+      "id": "66055",
+      "name": "BOT Phoenix",
+      "position": {
+        "x": 85,
+        "y": 6.9335,
+        "z": 54
+      }
+    }
+  ],
+  "atPlant": [
+    {
+      "id": "573",
+      "name": "BOT Arctic",
+      "position": {
+        "x": 73.21094,
+        "y": 8.616123,
+        "z": 86.28906
+      }
+    },
+    {
+      "id": "66054",
+      "name": "BOT Guerilla",
+      "position": {
+        "x": 104.24356,
+        "y": 10.026,
+        "z": 40.756443
+      }
+    },
+    {
+      "id": "66055",
+      "name": "BOT Phoenix",
+      "position": {
+        "x": 39.968178,
+        "y": 9.096656,
+        "z": 51.5
+      }
+    }
+  ],
+  "defenseMovement": [
+    {
+      "name": "BOT Arctic",
+      "metres": 6.011485699640662
+    },
+    {
+      "name": "BOT Guerilla",
+      "metres": 3.7203944746923407
+    },
+    {
+      "name": "BOT Phoenix",
+      "metres": 5.73264807932392
+    }
+  ]
+}

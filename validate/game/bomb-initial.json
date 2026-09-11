@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-10T13:37:06.017Z",
+  "checks": [
+    "release cancels partial plant",
+    "plant observed in 3558ms",
+    "plant survives elimination of last Terrorist",
+    "cancelled defuse resets progress; full defuse awards CT",
+    "plant observed in 3491ms",
+    "B-site explosion damages nearby players and awards T"
+  ],
+  "defuseMs": 10436,
+  "fuseMs": 44829
+}

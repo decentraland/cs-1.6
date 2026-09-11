@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-10T14:51:10.788Z",
+  "checks": [
+    "original starting pistols/reserves; holding each pistol fires one bullet",
+    "earned money buys team rifles; purchased guns include no reserve; caliber ammo prices; rifle automatic fire",
+    "primary/secondary switching retains magazines; switching cancels reload; selected gun reloads with its own duration",
+    "death removes purchased rifle and restores default pistol; surviving T retains rifle and ammo"
+  ],
+  "rifleHold": {
+    "ct": 23,
+    "t": 24
+  }
+}

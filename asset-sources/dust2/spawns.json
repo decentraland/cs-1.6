@@ -1,0 +1,202 @@
+[
+  {
+    "origin": "448 2464 -88",
+    "angles": "0 255 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "352 2464 -88",
+    "angles": "0 255 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "256 2464 -88",
+    "angles": "0 255 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "448 2112 -88",
+    "angles": "0 72 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "160 2464 -88",
+    "angles": "0 255 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "352 2112 -88",
+    "angles": "0 72 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "256 2112 -88",
+    "angles": "0 72 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "160 2112 -88",
+    "angles": "0 105 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "64 2112 -88",
+    "angles": "0 105 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "-96 2240 -88",
+    "angles": "0 305 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "448 2240 -88",
+    "angles": "0 41 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "352 2240 -88",
+    "angles": "0 333 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "256 2240 -88",
+    "angles": "0 178 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "160 2240 -88",
+    "angles": "0 186 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "544 2240 -64",
+    "angles": "0 200 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "544 2128 -64",
+    "angles": "0 200 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "160 2368 -88",
+    "angles": "0 255 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "256 2368 -88",
+    "angles": "0 255 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "352 2368 -88",
+    "angles": "0 255 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "448 2368 -88",
+    "angles": "0 255 0",
+    "classname": "info_player_start"
+  },
+  {
+    "origin": "-832 -704 176",
+    "angles": "0 159 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-832 -800 176",
+    "angles": "0 10 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-832 -896 192",
+    "angles": "0 159 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-736 -896 192",
+    "angles": "0 170 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-736 -800 176",
+    "angles": "0 356 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-736 -704 176",
+    "angles": "0 0 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-640 -896 192",
+    "angles": "0 43 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-640 -800 176",
+    "angles": "0 22 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-640 -704 176",
+    "angles": "0 170 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-544 -896 192",
+    "angles": "0 43 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-544 -800 176",
+    "angles": "0 165 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-544 -704 176",
+    "angles": "0 43 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-448 -896 176",
+    "angles": "0 43 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-448 -800 160",
+    "angles": "0 43 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-448 -704 160",
+    "angles": "0 43 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-928 -720 176",
+    "angles": "0 140 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-928 -816 176",
+    "angles": "0 140 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-1024 -800 176",
+    "angles": "0 21 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-1024 -704 176",
+    "angles": "0 140 0",
+    "classname": "info_player_deathmatch"
+  },
+  {
+    "origin": "-1024 -896 192",
+    "angles": "0 140 0",
+    "classname": "info_player_deathmatch"
+  }
+]

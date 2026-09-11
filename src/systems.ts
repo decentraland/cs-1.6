@@ -1,106 +1,55 @@
 import { engine, Entity } from '@dcl/sdk/ecs'
-import { Weapon } from './components'
+import { Weapon, Dead, PlayerAddress } from './components'
+import { isServer } from '@dcl/sdk/network'
+import { finishReload, startReload } from './combat-rules'
+import { resetPlayerAccuracy } from './server'
 
-// Weapon presets
-export const WEAPON_PRESETS = {
-  AK47: {
-    name: 'AK-47',
-    damage: 36,
-    maxAmmoClip: 30,
-    maxAmmoReserve: 90,
-    fireRate: 0.1,
-    reloadTime: 2.5,
-    cost: 2700
-  },
-  M4A4: {
-    name: 'M4A4',
-    damage: 33,
-    maxAmmoClip: 30,
-    maxAmmoReserve: 90,
-    fireRate: 0.09,
-    reloadTime: 3.1,
-    cost: 3100
-  },
-  AWP: {
-    name: 'AWP',
-    damage: 115,
-    maxAmmoClip: 10,
-    maxAmmoReserve: 30,
-    fireRate: 1.5,
-    reloadTime: 3.7,
-    cost: 4750
-  },
-  DEAGLE: {
-    name: 'Desert Eagle',
-    damage: 53,
-    maxAmmoClip: 7,
-    maxAmmoReserve: 35,
-    fireRate: 0.4,
-    reloadTime: 2.2,
-    cost: 700
-  },
-  GLOCK: {
-    name: 'Glock-18',
-    damage: 28,
-    maxAmmoClip: 20,
-    maxAmmoReserve: 120,
-    fireRate: 0.15,
-    reloadTime: 2.2,
-    cost: 200
-  }
-}
+import { GunId, GUNS } from './weapon-profiles'
+import { PlayerInventory } from './components'
 
-export function giveWeapon(player: Entity, weaponType: keyof typeof WEAPON_PRESETS) {
-  const preset = WEAPON_PRESETS[weaponType]
-  Weapon.createOrReplace(player, {
-    name: preset.name,
-    damage: preset.damage,
-    ammoClip: preset.maxAmmoClip,
-    maxAmmoClip: preset.maxAmmoClip,
-    ammoReserve: preset.maxAmmoReserve,
-    maxAmmoReserve: preset.maxAmmoReserve,
-    fireRate: preset.fireRate,
-    lastShotTime: 0,
-    isReloading: false,
-    reloadTime: preset.reloadTime,
-    reloadStartTime: 0
+export function equipGun(player: Entity, id: GunId, clip: number, reserve: number) {
+  const previous=Weapon.getOrNull(player),gun=GUNS[id]
+  Weapon.createOrReplace(player,{
+    name:gun.name,revision:(previous?.revision ?? 0)+1,readyAt:Date.now()/1000+.75,
+    damage:gun.damage,ammoClip:clip,maxAmmoClip:gun.clip,ammoReserve:reserve,maxAmmoReserve:gun.reserve,
+    fireRate:gun.fireRate,lastShotTime:0,lastShotId:previous?.lastShotId ?? 0,lastFiredShotId:previous?.lastFiredShotId ?? 0,
+    isReloading:false,reloadTime:gun.reloadTime,reloadStartTime:0
   })
+  resetPlayerAccuracy(PlayerAddress.getOrNull(player)?.address ?? '')
+}
+export function equipKnife(player: Entity) {
+  const previous=Weapon.getOrNull(player)
+  Weapon.createOrReplace(player,{
+    name:'Knife',revision:(previous?.revision ?? 0)+1,readyAt:Date.now()/1000+.75,
+    damage:0,ammoClip:0,maxAmmoClip:0,ammoReserve:0,maxAmmoReserve:0,
+    fireRate:.35,lastShotTime:0,lastShotId:previous?.lastShotId ?? 0,lastFiredShotId:previous?.lastFiredShotId ?? 0,
+    isReloading:false,reloadTime:0,reloadStartTime:0
+  })
+  resetPlayerAccuracy(PlayerAddress.getOrNull(player)?.address ?? '')
+}
+export function storeActiveGun(player: Entity) {
+  const weapon=Weapon.getOrNull(player),inventory=PlayerInventory.getMutableOrNull(player)
+  if(!weapon||!inventory)return
+  const gun=Object.values(GUNS).find(profile=>profile.name===weapon.name)
+  const item=gun&&inventory.items.find(candidate=>candidate.id===gun.id)
+  if(item){item.clip=weapon.ammoClip;item.reserve=weapon.ammoReserve}
+}
+export function giveWeapon(player: Entity, _weaponType: 'AK47') {
+  if(!isServer())return
+  PlayerInventory.createOrReplace(player,{active:'ak47',items:[{id:'ak47',clip:30,reserve:90}]})
+  equipGun(player,'ak47',30,90)
 }
 
-// Weapon system - handles reloading
-export function weaponSystem(dt: number) {
-  const currentTime = Date.now() / 1000
-
+export function weaponSystem() {
+  if (!isServer()) return
+  const now = Date.now() / 1000
   for (const [entity, weapon] of engine.getEntitiesWith(Weapon)) {
-    // Handle reloading
-    if (weapon.isReloading) {
-      const reloadProgress = currentTime - weapon.reloadStartTime
-      if (reloadProgress >= weapon.reloadTime) {
-        // Reload complete - now we need to mutate
-        const mutableWeapon = Weapon.getMutable(entity)
-        const ammoNeeded = weapon.maxAmmoClip - weapon.ammoClip
-        const ammoToReload = Math.min(ammoNeeded, weapon.ammoReserve)
-
-        mutableWeapon.ammoClip += ammoToReload
-        mutableWeapon.ammoReserve -= ammoToReload
-        mutableWeapon.isReloading = false
-      }
+    if (Dead.has(entity)) continue
+    if (weapon.maxAmmoClip > 0 && weapon.ammoClip === 0 && !weapon.isReloading && now - weapon.lastShotTime >= weapon.fireRate) {
+      if (startReload(Weapon.getMutable(entity), now, true)) resetPlayerAccuracy(PlayerAddress.getOrNull(entity)?.address ?? '')
     }
+    if (!weapon.isReloading) continue
+    if (now - weapon.reloadStartTime + 1e-6 < weapon.reloadTime) continue
+    finishReload(Weapon.getMutable(entity), now)
   }
-}
-
-export function reload(player: Entity) {
-  const weapon = Weapon.getOrNull(player)
-  if (!weapon) return
-
-  // Already reloading or mag is full
-  if (weapon.isReloading || weapon.ammoClip === weapon.maxAmmoClip) return
-
-  // No ammo to reload
-  if (weapon.ammoReserve <= 0) return
-
-  // Now we need to mutate
-  const mutableWeapon = Weapon.getMutable(player)
-  mutableWeapon.isReloading = true
-  mutableWeapon.reloadStartTime = Date.now() / 1000
 }

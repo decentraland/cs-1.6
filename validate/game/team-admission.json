@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-10T13:00:41.884Z",
+  "checks": [
+    "resumed after verified late admission, disconnect result, and queued spawn",
+    "new guest requires explicit admission and waits for next round",
+    "new guest receives next-round spawn"
+  ],
+  "initialAttempt": {
+    "passed": [
+      "live late join remains dead and cannot fire",
+      "disconnect expiry resolves round",
+      "queued late join spawns at next round"
+    ],
+    "stoppedAt": "New-tab Runtime.evaluate ran before its execution context existed; continued on the same opened tab."
+  },
+  "identityNote": "New tab generated a new guest address. This does not establish same-address stat recovery."
+}

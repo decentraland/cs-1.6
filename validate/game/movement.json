@@ -1,0 +1,40 @@
+{
+  "run": {
+    "speed": 5.438007984031929,
+    "settings": {
+      "doubleJumpHeight": null,
+      "glidingFallingSpeed": null,
+      "glidingSpeed": null,
+      "hardLandingCooldown": 0,
+      "jogSpeed": 5.525,
+      "jumpHeight": 1.125,
+      "runJumpHeight": 1.125,
+      "runSpeed": 5.525,
+      "walkSpeed": 5.525
+    },
+    "velocity": {
+      "x": -5.525,
+      "y": -1.8503287,
+      "z": 0
+    }
+  },
+  "walk": {
+    "speed": 2.866349999999983,
+    "settings": {
+      "doubleJumpHeight": null,
+      "glidingFallingSpeed": null,
+      "glidingSpeed": null,
+      "hardLandingCooldown": 0,
+      "jogSpeed": 2.873,
+      "jumpHeight": 1.125,
+      "runJumpHeight": 1.125,
+      "runSpeed": 2.873,
+      "walkSpeed": 2.873
+    },
+    "velocity": {
+      "x": -2.873,
+      "y": -0.9043856,
+      "z": 0
+    }
+  }
+}

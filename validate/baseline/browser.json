@@ -1,0 +1,31 @@
+{
+  "url": "http://127.0.0.1:8123/?realm=http%3A%2F%2Flocalhost%3A8004&position=6%2C3&isPreview=true",
+  "crossOriginIsolated": true,
+  "transport": "engine_console_command",
+  "sceneStats": "scene: 'SDK7 Scene Template'\nhash: b64-L1VzZXJzL2JvZWRvL0RvY3VtZW50cy9EZWNlbnRyYWxhbmQvY3MtMS42LUJvZWRvLU1hY0Jvb2stUHJvLmxvY2Fs\ntick: 9562\nentities: 40\nstatus: running\nbroken: false\nin_flight: false",
+  "position": "(96.640274, 10.026001, 54.207687)",
+  "recentLogs": "[65.94] Log: LOG {\"globalOrigin\":{\"x\":24.385887145996094,\"y\":12.449527740478516,\"z\":52.566341400146484},\"direction\":{\"x\":0.92669677734375,\"y\":-0.17034912109375,\"z\":0.3349609375},\"hits\":[],\"tickNumber\":3830}\n[65.94] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9267015634530784,\"y\":-0.17034713538965462,\"z\":0.3349718655484128},\"timestamp\":1789031009235}\n[66.79] Log: LOG {\"globalOrigin\":{\"x\":23.60641860961914,\"y\":12.006942749023438,\"z\":56.6292724609375},\"direction\":{\"x\":0.97723388671875,\"y\":-0.0794677734375,\"z\":-0.19659423828125},\"hits\":[],\"tickNumber\":3881}\n[66.79] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9772572145714127,\"y\":-0.07949259427206457,\"z\":-0.19659479288374737},\"timestamp\":1789031010084}\n[66.89] Log: LOG {\"globalOrigin\":{\"x\":23.7125301361084,\"y\":12.022805213928223,\"z\":56.79275131225586},\"direction\":{\"x\":0.98004150390625,\"y\":-0.08477783203125,\"z\":-0.1796875},\"hits\":[],\"tickNumber\":3887}\n[66.89] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9800635724727228,\"y\":-0.08476763398929954,\"z\":-0.1796941375436396},\"timestamp\":1789031010184}\n[67.40] Log: LOG {\"globalOrigin\":{\"x\":23.925447463989258,\"y\":12.215143203735352,\"z\":53.79111862182617},\"direction\":{\"x\":0.9896240234375,\"y\":-0.12261962890625,\"z\":0.0745849609375},\"hits\":[],\"tickNumber\":3918}\n[67.40] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9896490915923324,\"y\":-0.12259389844090851,\"z\":0.07460299110240665},\"timestamp\":1789031010701}\n[67.50] Log: LOG {\"globalOrigin\":{\"x\":23.917728424072266,\"y\":12.222480773925781,\"z\":53.56868362426758},\"direction\":{\"x\":0.986083984375,\"y\":-0.125,\"z\":0.1097412109375},\"hits\":[],\"tickNumber\":3924}\n[67.50] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9860632760750727,\"y\":-0.125024044630476,\"z\":0.10976448623548729},\"timestamp\":1789031010801}\n[67.61] Log: LOG {\"globalOrigin\":{\"x\":23.886491775512695,\"y\":12.224123001098633,\"z\":53.869781494140625},\"direction\":{\"x\":0.985107421875,\"y\":-0.12554931640625,\"z\":0.1175537109375},\"hits\":[],\"tickNumber\":3930}\n[67.61] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9850970486021803,\"y\":-0.12556334902896538,\"z\":0.11754824533492912},\"timestamp\":1789031010901}\n[67.94] Log: LOG {\"globalOrigin\":{\"x\":23.49063491821289,\"y\":12.009941101074219,\"z\":56.5075798034668},\"direction\":{\"x\":0.988037109375,\"y\":-0.08642578125,\"z\":-0.1278076171875},\"hits\":[],\"tickNumber\":3950}\n[67.94] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9880267442965106,\"y\":-0.08641204168004979,\"z\":-0.12781308779220857},\"timestamp\":1789031011234}\n[68.04] Log: LOG {\"globalOrigin\":{\"x\":23.42711067199707,\"y\":11.9879150390625,\"z\":56.27055358886719},\"direction\":{\"x\":0.97943115234375,\"y\":-0.0792236328125,\"z\":-0.18548583984375},\"hits\":[],\"tickNumber\":3956}\n[68.04] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9794452328446589,\"y\":-0.07919856357115096,\"z\":-0.18551139889893417},\"timestamp\":1789031011334}\n[80.16] Log: LOG {\"globalOrigin\":{\"x\":57.96745300292969,\"y\":11.83599853515625,\"z\":73.15288543701172},\"direction\":{\"x\":0.9984130859375,\"y\":0.03497314453125,\"z\":0.044677734375},\"hits\":[],\"tickNumber\":4676}\n[80.16] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9983889943046276,\"y\":0.03495075745220788,\"z\":0.044698344275191246},\"timestamp\":1789031023458}\n[80.56] Log: LOG {\"globalOrigin\":{\"x\":61.229408264160156,\"y\":11.83599853515625,\"z\":73.42163848876953},\"direction\":{\"x\":0.9976806640625,\"y\":-0.0255126953125,\"z\":0.06304931640625},\"hits\":[],\"tickNumber\":4700}\n[80.56] Log: LOG [CLIENT] >>> Sending playerShoot: {\"direction\":{\"x\":0.9976864782090232,\"y\":-0.025489130589543274,\"z\":0.06302501162932068},\"timestamp\":1789031023858}",
+  "models": [
+    {
+      "id": "514",
+      "src": "assets/scene/de_dust2_-_cs_map.glb",
+      "loadState": 4,
+      "animationCount": 0,
+      "attached": false
+    },
+    {
+      "id": "516",
+      "src": "assets/scene/m4a1.glb",
+      "loadState": 4,
+      "animationCount": 28,
+      "attached": true
+    },
+    {
+      "id": "526",
+      "src": "assets/scene/m4a1.glb",
+      "loadState": 4,
+      "animationCount": 28,
+      "attached": true
+    }
+  ]
+}

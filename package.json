@@ -7,13 +7,18 @@
     "deploy": "sdk-commands deploy",
     "build": "sdk-commands build",
     "upgrade-sdk": "npm install --save-dev @dcl/sdk@latest",
-    "upgrade-sdk:next": "npm install --save-dev @dcl/sdk@next"
+    "upgrade-sdk:next": "npm install --save-dev @dcl/sdk@next",
+    "server-logs": "sdk-commands sdk-server-logs",
+    "validate": "npm test && node validate/assets.mjs && npm run build",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "test:game": "node validate/game.mjs"
   },
   "devDependencies": {
-    "@dcl/sdk": "https://sdk-team-cdn.decentraland.org/@dcl/js-sdk-toolchain/branch/feat/authorative-server/dcl-sdk-7.14.1-19638055000.commit-0226f51.tgz"
+    "@dcl/sdk": "7.27.1-33533530571.commit-451d001",
+    "@dcl/js-runtime": "7.27.1-33533530571.commit-451d001"
   },
   "engines": {
-    "node": ">=16.0.0",
+    "node": ">=22.18.0",
     "npm": ">=6.0.0"
   },
   "prettier": {

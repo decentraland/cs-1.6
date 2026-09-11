@@ -1,0 +1,107 @@
+{
+  "date": "2026-09-10T13:07:21.800Z",
+  "hud": {
+    "initial": {
+      "health": 100,
+      "armor": 0,
+      "clip": 30,
+      "reserve": 90,
+      "money": 800,
+      "seconds": 120
+    },
+    "victory": {
+      "health": 90,
+      "armor": 0,
+      "clip": 20,
+      "reserve": 90,
+      "money": 800,
+      "seconds": 5
+    },
+    "restart": {
+      "health": 100,
+      "armor": 0,
+      "clip": 30,
+      "reserve": 90,
+      "money": 800,
+      "seconds": 120
+    },
+    "defeat": {
+      "health": 0,
+      "armor": 0,
+      "clip": 30,
+      "reserve": 90,
+      "money": 800,
+      "seconds": 5
+    }
+  },
+  "initial": [
+    "Enemies left: 3"
+  ],
+  "victory": [
+    "Arctic",
+    "Dead",
+    "0",
+    "1",
+    "Guerilla",
+    "Dead",
+    "0",
+    "1",
+    "Phoenix",
+    "Dead",
+    "0",
+    "1",
+    "Counter-Terrorists — 1",
+    "",
+    "",
+    "",
+    "0x2af05b92...",
+    "",
+    "3",
+    "0",
+    "Counter-Terrorists Win!",
+    "Player   AK-47   Guerilla",
+    "Deaths",
+    "",
+    "Terrorists — 0",
+    "Score",
+    "",
+    "",
+    "Round 1",
+    "de_dust2"
+  ],
+  "restart": [
+    "Enemies left: 3"
+  ],
+  "defeat": [
+    "",
+    "1",
+    "1",
+    "Guerilla",
+    "",
+    "0",
+    "Counter-Terrorists — 1",
+    "1",
+    "Phoenix",
+    "",
+    "0",
+    "1",
+    "",
+    "0x2af05b92...",
+    "Dead",
+    "3",
+    "",
+    "Terrorists Win!",
+    "1",
+    "",
+    "Terrorists — 1",
+    "",
+    "",
+    "Deaths",
+    "Arctic",
+    "",
+    "Score",
+    "de_dust2",
+    "Round 2"
+  ],
+  "scene": "scene: 'SDK7 Scene Template'\nhash: b64-L3ByaXZhdGUvdG1wL2NzMTYtc29sby1yZWdyZXNzaW9uLUJvZWRvLU1hY0Jvb2stUHJvLmxvY2Fs\ntick: 6529\nentities: 101\nstatus: running\nbroken: false\nin_flight: false"
+}

@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-10T20:39:18.109Z",
+  "firstAssignment": "Terrorists",
+  "secondAssignment": "Counter-Terrorists",
+  "firstLoadout": "Glock-18",
+  "secondLoadout": "USP",
+  "checks": [
+    "first player is assigned to Terrorists on a tie",
+    "second player is assigned to Counter-Terrorists",
+    "balanced teams start freeze time"
+  ]
+}

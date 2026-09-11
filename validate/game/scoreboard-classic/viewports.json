@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-10T15:51:25.952Z",
+  "checks": [
+    {
+      "width": 1280,
+      "height": 720,
+      "panelWidth": 780,
+      "panelHeight": 510,
+      "columns": [
+        "Score",
+        "Deaths",
+        "Latency"
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "panelWidth": 832,
+      "panelHeight": 544,
+      "columns": [
+        "Score",
+        "Deaths",
+        "Latency"
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "panelWidth": 1170,
+      "panelHeight": 765,
+      "columns": [
+        "Score",
+        "Deaths",
+        "Latency"
+      ]
+    }
+  ]
+}

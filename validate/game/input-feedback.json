@@ -1,0 +1,259 @@
+{
+  "date": "2026-09-10T12:27:32.887Z",
+  "feedbackDelayMs": 400,
+  "firstKickMs": 116,
+  "firstAnimationMs": 116,
+  "firstImpactMs": 783,
+  "diagonalSpeed": 2.870234523606573,
+  "runningGap": 17,
+  "samples": [
+    {
+      "ms": 116,
+      "pitch": 0.011976904430668572,
+      "fireAnimation": true,
+      "impact": false
+    },
+    {
+      "ms": 199,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": false
+    },
+    {
+      "ms": 282,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": false
+    },
+    {
+      "ms": 365,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": false
+    },
+    {
+      "ms": 451,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": false
+    },
+    {
+      "ms": 534,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": false
+    },
+    {
+      "ms": 616,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": false
+    },
+    {
+      "ms": 699,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": false
+    },
+    {
+      "ms": 783,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": true
+    },
+    {
+      "ms": 866,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": true
+    },
+    {
+      "ms": 949,
+      "pitch": 0,
+      "fireAnimation": true,
+      "impact": true
+    }
+  ],
+  "motion": [
+    {
+      "label": "walk-forward",
+      "ms": 1789043250751,
+      "gap": 5,
+      "position": {
+        "x": 94.98579,
+        "y": 10.025991,
+        "z": 52
+      }
+    },
+    {
+      "label": "walk-forward",
+      "ms": 1789043250851,
+      "gap": 5,
+      "position": {
+        "x": 94.84139,
+        "y": 10.025991,
+        "z": 52
+      }
+    },
+    {
+      "label": "walk-forward",
+      "ms": 1789043250953,
+      "gap": 5,
+      "position": {
+        "x": 94.60484,
+        "y": 10.026001,
+        "z": 52
+      }
+    },
+    {
+      "label": "walk-forward",
+      "ms": 1789043251052,
+      "gap": 5,
+      "position": {
+        "x": 94.31875,
+        "y": 10.025998,
+        "z": 52
+      }
+    },
+    {
+      "label": "walk-forward",
+      "ms": 1789043251151,
+      "gap": 5,
+      "position": {
+        "x": 94.02988,
+        "y": 9.97397,
+        "z": 52
+      }
+    },
+    {
+      "label": "walk-diagonal",
+      "ms": 1789043251252,
+      "gap": 5,
+      "position": {
+        "x": 93.74257,
+        "y": 9.87786,
+        "z": 52.007652
+      }
+    },
+    {
+      "label": "walk-diagonal",
+      "ms": 1789043251352,
+      "gap": 5,
+      "position": {
+        "x": 93.48445,
+        "y": 9.788839,
+        "z": 52.14784
+      }
+    },
+    {
+      "label": "walk-diagonal",
+      "ms": 1789043251453,
+      "gap": 5,
+      "position": {
+        "x": 93.26814,
+        "y": 9.71702,
+        "z": 52.332348
+      }
+    },
+    {
+      "label": "walk-diagonal",
+      "ms": 1789043251552,
+      "gap": 5,
+      "position": {
+        "x": 93.06086,
+        "y": 9.64815,
+        "z": 52.53078
+      }
+    },
+    {
+      "label": "walk-diagonal",
+      "ms": 1789043251651,
+      "gap": 5,
+      "position": {
+        "x": 92.85547,
+        "y": 9.577863,
+        "z": 52.73377
+      }
+    },
+    {
+      "label": "walk-diagonal",
+      "ms": 1789043251751,
+      "gap": 5,
+      "position": {
+        "x": 92.65099,
+        "y": 9.510164,
+        "z": 52.937595
+      }
+    },
+    {
+      "label": "walk-diagonal",
+      "ms": 1789043251851,
+      "gap": 5,
+      "position": {
+        "x": 92.4503,
+        "y": 9.443622,
+        "z": 53.138115
+      }
+    },
+    {
+      "label": "walk-diagonal",
+      "ms": 1789043251951,
+      "gap": 5,
+      "position": {
+        "x": 92.24529,
+        "y": 9.374754,
+        "z": 53.34308
+      }
+    },
+    {
+      "label": "walk-forward-again",
+      "ms": 1789043252051,
+      "gap": 5,
+      "position": {
+        "x": 92.02226,
+        "y": 9.301462,
+        "z": 53.551327
+      }
+    },
+    {
+      "label": "walk-forward-again",
+      "ms": 1789043252151,
+      "gap": 5,
+      "position": {
+        "x": 91.759315,
+        "y": 9.217791,
+        "z": 53.62379
+      }
+    },
+    {
+      "label": "walk-forward-again",
+      "ms": 1789043252251,
+      "gap": 5,
+      "position": {
+        "x": 91.47338,
+        "y": 9.122091,
+        "z": 53.64659
+      }
+    },
+    {
+      "label": "walk-forward-again",
+      "ms": 1789043252351,
+      "gap": 5,
+      "position": {
+        "x": 91.185005,
+        "y": 9.02534,
+        "z": 53.65283
+      }
+    },
+    {
+      "label": "walk-forward-again",
+      "ms": 1789043252450,
+      "gap": 5,
+      "position": {
+        "x": 90.89722,
+        "y": 8.929329,
+        "z": 53.654503
+      }
+    }
+  ]
+}

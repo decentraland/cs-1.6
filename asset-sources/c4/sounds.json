@@ -1,0 +1,65 @@
+[
+  {
+    "file": "c4_beep1.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 1.501,
+    "sha256": "afce45457f73331e116e6b1b6596d57e59d3bd40352c1b99284aec0166eacaa5"
+  },
+  {
+    "file": "c4_beep2.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 1.501,
+    "sha256": "6a6d5a7b9eca859811e4917acb000a4a501c05611bd718f811a341f749fc63aa"
+  },
+  {
+    "file": "c4_beep3.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 1.501,
+    "sha256": "15b482ced6391b0e369b14656cacf937a74cb345060d4376175a57bdb2bfaf0a"
+  },
+  {
+    "file": "c4_beep4.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 1.501,
+    "sha256": "e1c253472c98c811978a7703c2f2dc9065ef7f9cdd8c43ff1fdd702435fbc480"
+  },
+  {
+    "file": "c4_beep5.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 1.501,
+    "sha256": "d0081aac58745a11b809bc64bfd066a82bca10f9c98b882b739a3b0d60808de0"
+  },
+  {
+    "file": "c4_plant.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 0.162,
+    "sha256": "982c6c1d931cf26c7eed1b0129cfa35cae0384d6f875f1b89519557093bbfe1b"
+  },
+  {
+    "file": "c4_disarm.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 0.557,
+    "sha256": "beec0d6971c4f266218e1839d87c63065b7fd6cbdc94846a1944dfee924e75bf"
+  },
+  {
+    "file": "c4_disarmed.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 0.243,
+    "sha256": "fc9ddd991c9bd10043d519d8d9a0d09c735183e06f4d8e654618dc0b4f3cdaad"
+  },
+  {
+    "file": "c4_explode1.wav",
+    "rate": 22050,
+    "channels": 1,
+    "seconds": 3.74,
+    "sha256": "2eae6ca69fb20ee96a729ab481f2c45d926ad568f7398d4dbe8f28c1bc29b474"
+  }
+]

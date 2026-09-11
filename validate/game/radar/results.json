@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-10T16:06:36.277Z",
+  "checks": [
+    "128px radar; CT sees one teammate and T sees no enemies",
+    "teammate marker rotates ahead to right with camera yaw",
+    "dropped C4 flashes for T only",
+    "death hides own radar and removes dead teammate from survivor radar"
+  ],
+  "ahead": {
+    "width": 128,
+    "height": 128,
+    "markers": [
+      {
+        "x": 0,
+        "y": -4,
+        "parts": [
+          {
+            "color": {
+              "a": 1,
+              "b": 1,
+              "g": 1,
+              "r": 1
+            },
+            "width": 4,
+            "height": 4
+          }
+        ]
+      }
+    ]
+  },
+  "right": {
+    "width": 128,
+    "height": 128,
+    "markers": [
+      {
+        "x": 4,
+        "y": 0,
+        "parts": [
+          {
+            "color": {
+              "a": 1,
+              "b": 1,
+              "g": 1,
+              "r": 1
+            },
+            "width": 4,
+            "height": 4
+          }
+        ]
+      }
+    ]
+  }
+}

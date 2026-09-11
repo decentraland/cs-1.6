@@ -1,0 +1,120 @@
+{
+  "date": "2026-09-10T12:56:47.810Z",
+  "checks": [
+    "explicit teams, shared freeze, original spawns",
+    "human shot, both clients agree on CT score, dead input blocked",
+    "automatic round respawn and opposing scored win"
+  ],
+  "spawns": [
+    {
+      "x": 51.61083,
+      "y": 6.6126676,
+      "z": 46.70173
+    },
+    {
+      "x": 85.74417,
+      "y": 13.439335,
+      "z": 131.18173
+    }
+  ],
+  "ctWin": {
+    "shooter": [
+      "0xf1dae302...",
+      "Dead",
+      "0",
+      "1",
+      "Counter-Terrorists — 1",
+      "",
+      "",
+      "",
+      "0x794a27be...",
+      "",
+      "1",
+      "0",
+      "Counter-Terrorists Win!",
+      "0x794a27be...   AK-47   0xf1dae302...",
+      "de_dust2",
+      "Deaths",
+      "Score",
+      "Terrorists — 0",
+      "Round 1",
+      "",
+      "",
+      ""
+    ],
+    "victim": [
+      "",
+      "",
+      "0xf1dae302...",
+      "Dead",
+      "0",
+      "1",
+      "Counter-Terrorists — 1",
+      "",
+      "",
+      "",
+      "0x794a27be...",
+      "",
+      "1",
+      "0",
+      "Counter-Terrorists Win!",
+      "0x794a27be...   AK-47   0xf1dae302...",
+      "de_dust2",
+      "Deaths",
+      "Score",
+      "Terrorists — 0",
+      "Round 1",
+      ""
+    ]
+  },
+  "tWin": {
+    "shooter": [
+      "Terrorists — 1",
+      "",
+      "0xf1dae302...",
+      "",
+      "1",
+      "1",
+      "",
+      "Counter-Terrorists — 1",
+      "",
+      "",
+      "0x794a27be...",
+      "",
+      "1",
+      "Terrorists Win!",
+      "1",
+      "Dead",
+      "",
+      "de_dust2",
+      "0xf1dae302...   AK-47   0x794a27be...",
+      "Score",
+      "Round 2",
+      "Deaths"
+    ],
+    "victim": [
+      "",
+      "1",
+      "1",
+      "",
+      "Counter-Terrorists — 1",
+      "",
+      "",
+      "0x794a27be...",
+      "",
+      "1",
+      "Terrorists Win!",
+      "1",
+      "Dead",
+      "0xf1dae302...",
+      "de_dust2",
+      "0xf1dae302...   AK-47   0x794a27be...",
+      "Score",
+      "Round 2",
+      "Deaths",
+      "Terrorists — 1",
+      "",
+      ""
+    ]
+  }
+}

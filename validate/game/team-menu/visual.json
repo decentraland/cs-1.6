@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-10T20:34:32.881Z",
+  "compactLayout": {
+    "width": 800,
+    "height": 450,
+    "scale": 0.9375,
+    "outer": {
+      "left": 118.75,
+      "top": 18.75,
+      "width": 562.5,
+      "height": 412.5
+    }
+  },
+  "wideLayout": {
+    "width": 1280,
+    "height": 720,
+    "scale": 1.5,
+    "outer": {
+      "left": 190,
+      "top": 30,
+      "width": 900,
+      "height": 660
+    }
+  },
+  "checks": [
+    "exact visible team labels and Dust II briefing",
+    "resource coordinates at 800×450 and 1280×720",
+    "original logo",
+    "practice button starts freeze time"
+  ]
+}

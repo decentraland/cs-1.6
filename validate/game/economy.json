@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-10T14:21:44.537Z",
+  "checks": [
+    "starting $800; kit $200; vest $650; insufficient funds and owned kit rejected",
+    "purchased kit defuses in five seconds; next-round rewards; survivor equipment retained",
+    "helmet prices; armor absorbs rifle hits; kill reward; death clears equipment; survivor money accumulates",
+    "survivor ammo retained; reload and $80 ammo purchase replenish reserve",
+    "buy menu restricted to own spawn zone"
+  ],
+  "kitDefuseMs": 5543,
+  "armoredHit": {
+    "health": 73,
+    "armor": 96,
+    "clip": 30,
+    "reserve": 90,
+    "money": 2850,
+    "seconds": 115
+  }
+}

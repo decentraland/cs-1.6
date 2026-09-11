@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-10T19:18:07.326Z",
+  "checks": [
+    "manual drop and proximity pickup",
+    "original clipped B corner rejects planting",
+    "release cancels partial plant",
+    "plant observed in 3486ms",
+    "plant survives elimination of last Terrorist",
+    "cancelled defuse resets progress; full defuse awards CT and three defuser frags",
+    "defuse works at reference hull-center use radius",
+    "plant observed in 3466ms",
+    "B-site explosion damages nearby players, awards T, and gives the planter three frags"
+  ],
+  "defuseMs": 10402,
+  "defuserScore": 4,
+  "beepWaves": [
+    "assets/sounds/c4/c4_beep2.wav",
+    "assets/sounds/c4/c4_beep1.wav",
+    "assets/sounds/c4/c4_beep3.wav",
+    "assets/sounds/c4/c4_beep4.wav",
+    "assets/sounds/c4/c4_beep5.wav"
+  ],
+  "fuseMs": 44737,
+  "planterScore": 3
+}
