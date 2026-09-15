@@ -58,7 +58,9 @@ test('vanilla AK integer accuracy changes after shot six, not three perfect bull
 })
 
 test('walking stays below the spread threshold but still has moving recoil', () => {
-  const still = freshAccuracy(), walking = freshAccuracy(), running = freshAccuracy()
+  const still = freshAccuracy(),
+    walking = freshAccuracy(),
+    running = freshAccuracy()
   const standSpread = akSpread(still, 100, 0, true)
   const walkSpread = akSpread(walking, 100, 221 * 0.025 * 0.52, true)
   const runSpread = akSpread(running, 100, 221 * 0.025, true)
@@ -76,7 +78,7 @@ test('full-auto recoil climbs, is capped, changes lateral direction, and recover
   const state = freshAccuracy()
   for (let i = 0; i < 30; i++) {
     akSpread(state, 100 + i * 0.0955, 0, true)
-    kickBack(state, 0, true, false, () => i === 15 ? 0 : 0.5)
+    kickBack(state, 0, true, false, () => (i === 15 ? 0 : 0.5))
     assert.ok(state.pitch <= 5.75)
     assert.ok(Math.abs(state.yaw) <= 1.75)
   }

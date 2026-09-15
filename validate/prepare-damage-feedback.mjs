@@ -13,4 +13,6 @@ const production = 'fireRate: profile.fireRate'
 assert.ok(source.includes(production), 'expected production bot fire interval')
 source = source.replace(production, 'fireRate: 0.5')
 await writeFile(path, source)
-console.log('Isolated fixture: bot shots spaced to 500 ms for pain-sprite capture; damage and feedback remain unchanged.')
+console.log(
+  'Isolated fixture: bot shots spaced to 500 ms for pain-sprite capture; damage and feedback remain unchanged.'
+)

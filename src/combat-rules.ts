@@ -21,8 +21,12 @@ export function finishReload(weapon: WeaponState, now: number): boolean {
   return true
 }
 
+export function canReload(weapon: Readonly<WeaponState>, alive: boolean): boolean {
+  return alive && !weapon.isReloading && weapon.ammoClip < weapon.maxAmmoClip && weapon.ammoReserve > 0
+}
+
 export function startReload(weapon: WeaponState, now: number, alive: boolean): boolean {
-  if (!alive || weapon.isReloading || weapon.ammoClip >= weapon.maxAmmoClip || weapon.ammoReserve <= 0) return false
+  if (!canReload(weapon, alive)) return false
   weapon.isReloading = true
   weapon.reloadStartTime = now
   return true
@@ -34,7 +38,12 @@ export function claimShot(weapon: WeaponState, shotId: number): ShotRejection | 
   return undefined
 }
 
-export function fireShot(weapon: WeaponState, now: number, alive: boolean, scheduledTime = now): ShotRejection | undefined {
+export function fireShot(
+  weapon: WeaponState,
+  now: number,
+  alive: boolean,
+  scheduledTime = now
+): ShotRejection | undefined {
   if (!alive) return 'dead'
   finishReload(weapon, now)
   if (weapon.isReloading) return 'reloading'
@@ -45,7 +54,12 @@ export function fireShot(weapon: WeaponState, now: number, alive: boolean, sched
   return undefined
 }
 
-export function authorizeShot(weapon: WeaponState, shotId: number, now: number, alive: boolean): ShotRejection | undefined {
+export function authorizeShot(
+  weapon: WeaponState,
+  shotId: number,
+  now: number,
+  alive: boolean
+): ShotRejection | undefined {
   return claimShot(weapon, shotId) ?? fireShot(weapon, now, alive)
 }
 

@@ -1,6 +1,9 @@
 import type { BombState } from './bomb-rules'
 import { navDistance } from './navigation'
 import type { NavPoint } from './navigation'
+import { botAddress, isBotAddress } from './team-rules'
+
+export { botAddress }
 
 export const SOLO_BOMB_SITES: readonly NavPoint[] = [
   { x: 104.5, y: 10.026, z: 40.5 },
@@ -19,7 +22,6 @@ const SOLO_BOMB_DEFENSES: readonly (readonly NavPoint[])[] = [
   ]
 ]
 
-export const botAddress = (index: number) => `bot:${index}`
 const cycle = (value: number, length: number) => ((value % length) + length) % length
 
 export function soloBombSite(round: number): NavPoint {
@@ -38,17 +40,21 @@ export function soloBombObjectives(
 ): Map<string, NavPoint> {
   const result = new Map<string, NavPoint>()
   if (bomb.phase === 'carried' || bomb.phase === 'planting') {
-    if (bomb.carrier.startsWith('bot:')) result.set(bomb.carrier, soloBombSite(round))
+    if (isBotAddress(bomb.carrier)) result.set(bomb.carrier, soloBombSite(round))
     return result
   }
   if (bomb.phase === 'planted') {
     const defenses = SOLO_BOMB_DEFENSES[cycle(round - 1, SOLO_BOMB_DEFENSES.length)]
-    for (const bot of bots) if (bot.alive) result.set(botAddress(bot.index), defenses[cycle(bot.index, defenses.length)])
+    for (const bot of bots)
+      if (bot.alive) result.set(botAddress(bot.index), defenses[cycle(bot.index, defenses.length)])
     return result
   }
   if (bomb.phase !== 'dropped') return result
-  const retriever = bots.filter(bot => bot.alive)
-    .sort((a, b) => navDistance(a.position, bomb.position) - navDistance(b.position, bomb.position) || a.index - b.index)[0]
+  const retriever = bots
+    .filter((bot) => bot.alive)
+    .sort(
+      (a, b) => navDistance(a.position, bomb.position) - navDistance(b.position, bomb.position) || a.index - b.index
+    )[0]
   if (retriever) result.set(botAddress(retriever.index), bomb.position)
   return result
 }

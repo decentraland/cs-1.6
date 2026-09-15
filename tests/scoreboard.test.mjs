@@ -8,6 +8,9 @@ test('scoreboard ranks by kills, then fewer deaths, without mutating the synced 
     { name: 'Phoenix', kills: 2, deaths: 3 },
     { name: 'Arctic', kills: 2, deaths: 1 }
   ]
-  assert.deepEqual(rankScores(roster).map(p => p.name), ['Arctic', 'Phoenix', 'Guerilla'])
+  assert.deepEqual(
+    rankScores(roster).map((p) => p.name),
+    ['Arctic', 'Phoenix', 'Guerilla']
+  )
   assert.equal(roster[0].name, 'Guerilla')
 })

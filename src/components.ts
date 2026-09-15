@@ -40,7 +40,7 @@ export const Weapon = engine.defineComponent('Weapon', {
 
 export const PlayerInventory = engine.defineComponent('PlayerInventory', {
   active: Schemas.String,
-  items: Schemas.Array(Schemas.Map({id:Schemas.String,clip:Schemas.Int,reserve:Schemas.Int}))
+  items: Schemas.Array(Schemas.Map({ id: Schemas.String, clip: Schemas.Int, reserve: Schemas.Int }))
 })
 
 // Money system
@@ -62,80 +62,23 @@ export const PlayerEquipment = engine.defineComponent('PlayerEquipment', {
 })
 
 export const BombObjective = engine.defineComponent('BombObjective', {
-  phase: Schemas.String, carrier: Schemas.String, planter: Schemas.String,
-  defuser: Schemas.String, site: Schemas.String, position: Schemas.Vector3,
-  actionStarted: Schemas.Double, actionEnds: Schemas.Double,
-  explodeAt: Schemas.Double, progress: Schemas.Float, round: Schemas.Int
-})
-
-// Bomb component (for terrorists)
-export const Bomb = engine.defineComponent('Bomb', {
-  isPlanted: Schemas.Boolean,
-  plantTime: Schemas.Float,
-  detonateTime: Schemas.Float,
-  isDefusing: Schemas.Boolean,
-  defuseProgress: Schemas.Float
-})
-
-// Spawn point
-export const SpawnPoint = engine.defineComponent('SpawnPoint', {
-  team: Schemas.EnumNumber<Team>(Team, Team.NONE),
-  isActive: Schemas.Boolean
-})
-
-// Bomb site
-export const BombSite = engine.defineComponent('BombSite', {
-  site: Schemas.String, // "A" or "B"
-  isActive: Schemas.Boolean
-})
-
-// Game state
-export enum GamePhase {
-  WAITING = 0,
-  WARMUP = 1,
-  FREEZE_TIME = 2,
-  LIVE = 3,
-  ROUND_END = 4,
-  HALFTIME = 5,
-  MATCH_END = 6
-}
-
-export enum RoundEndReason {
-  NONE = 0,
-  T_WIN_ELIMINATION = 1,
-  CT_WIN_ELIMINATION = 2,
-  CT_WIN_TIME = 5
-}
-
-export const GameState = engine.defineComponent('GameState', {
-  phase: Schemas.EnumNumber<GamePhase>(GamePhase, GamePhase.WAITING),
-  roundNumber: Schemas.Int,
-  tScore: Schemas.Int,
-  ctScore: Schemas.Int,
-  roundTimeLeft: Schemas.Float,
-  freezeTimeLeft: Schemas.Float,
-  roundEndReason: Schemas.EnumNumber<RoundEndReason>(RoundEndReason, RoundEndReason.NONE),
-  bombPlanted: Schemas.Boolean,
-  maxRounds: Schemas.Int
-})
-
-// Damage indicator (for hit markers)
-export const DamageIndicator = engine.defineComponent('DamageIndicator', {
-  damage: Schemas.Int,
-  timestamp: Schemas.Float,
-  lifetime: Schemas.Float
+  phase: Schemas.String,
+  carrier: Schemas.String,
+  planter: Schemas.String,
+  defuser: Schemas.String,
+  site: Schemas.String,
+  position: Schemas.Vector3,
+  actionStarted: Schemas.Double,
+  actionEnds: Schemas.Double,
+  explodeAt: Schemas.Double,
+  progress: Schemas.Float,
+  round: Schemas.Int
 })
 
 // Player is dead
 export const Dead = engine.defineComponent('Dead', {
   deathTime: Schemas.Float,
   respawnTime: Schemas.Float
-})
-
-// Buyzone
-export const BuyZone = engine.defineComponent('BuyZone', {
-  team: Schemas.EnumNumber<Team>(Team, Team.NONE),
-  isActive: Schemas.Boolean
 })
 
 // Player address (unique identifier for each player)
@@ -180,10 +123,10 @@ export const MatchLeaderboard = engine.defineComponent('MatchLeaderboard', {
 })
 
 export const Practice = engine.defineComponent('Practice', {
-  mode: Schemas.String,
-  roster: Schemas.Array(Schemas.Map({ address: Schemas.String, team: Schemas.Int, eligibleRound: Schemas.Int, connected: Schemas.Boolean })),
+  roster: Schemas.Array(
+    Schemas.Map({ address: Schemas.String, team: Schemas.Int, eligibleRound: Schemas.Int, connected: Schemas.Boolean })
+  ),
   phase: Schemas.String,
-  owner: Schemas.String,
   remaining: Schemas.Int,
   timeLeft: Schemas.Int,
   round: Schemas.Int,
@@ -193,12 +136,14 @@ export const Practice = engine.defineComponent('Practice', {
   matchOver: Schemas.Boolean,
   botKills: Schemas.Array(Schemas.Int),
   botDeaths: Schemas.Array(Schemas.Int),
-  kills: Schemas.Int
+  botDifficulty: Schemas.String
 })
 
 export const Bot = engine.defineComponent('Bot', {
   index: Schemas.Int,
+  team: Schemas.Int,
   health: Schemas.Int,
   name: Schemas.String,
-  alive: Schemas.Boolean
+  alive: Schemas.Boolean,
+  weapon: Schemas.String
 })

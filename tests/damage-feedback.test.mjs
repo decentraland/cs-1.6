@@ -21,14 +21,33 @@ test('pain compass resolves attack origins relative to the current view', () => 
 })
 
 test('pain compass keeps stronger recent directions and uses the GoldSrc fade threshold', () => {
-  assert.deepEqual(mergePainDirections({ front: 0.8, right: 0, rear: 0, left: 0 }, { front: 0.5, right: 1, rear: 0, left: 0 }), { front: 0.8, right: 1, rear: 0, left: 0 })
-  assert.deepEqual(fadePainDirections({ front: 1, right: 0.5, rear: 0.4, left: 0 }, 0.1), { front: 0.8, right: 0.3, rear: 0, left: 0 })
-  assert.deepEqual(fadePainDirections({ front: 0.3, right: 0, rear: 0, left: 0 }, 0.1), { front: 0, right: 0, rear: 0, left: 0 })
+  assert.deepEqual(
+    mergePainDirections({ front: 0.8, right: 0, rear: 0, left: 0 }, { front: 0.5, right: 1, rear: 0, left: 0 }),
+    { front: 0.8, right: 1, rear: 0, left: 0 }
+  )
+  assert.deepEqual(fadePainDirections({ front: 1, right: 0.5, rear: 0.4, left: 0 }, 0.1), {
+    front: 0.8,
+    right: 0.3,
+    rear: 0,
+    left: 0
+  })
+  assert.deepEqual(fadePainDirections({ front: 0.3, right: 0, rear: 0, left: 0 }, 0.1), {
+    front: 0,
+    right: 0,
+    rear: 0,
+    left: 0
+  })
 })
 
 test('victim punch follows hitgroup caps and armor suppression', () => {
-  assert.deepEqual(victimPunch('head', 35, false, () => 0), { pitch: 12, roll: -9 })
-  assert.deepEqual(victimPunch('head', 10, false, () => 0.75), { pitch: 5, roll: 5 })
+  assert.deepEqual(
+    victimPunch('head', 35, false, () => 0),
+    { pitch: 12, roll: -9 }
+  )
+  assert.deepEqual(
+    victimPunch('head', 10, false, () => 0.75),
+    { pitch: 5, roll: 5 }
+  )
   assert.deepEqual(victimPunch('body', 35, false), { pitch: 3.5, roll: 0 })
   assert.deepEqual(victimPunch('body', 100, false), { pitch: 4, roll: 0 })
   assert.deepEqual(victimPunch('head', 100, true), { pitch: 0, roll: 0 })

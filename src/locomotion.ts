@@ -20,17 +20,31 @@ export function locomotionSystem() {
   const phase = getPractice()?.phase
   const frozen = phase !== 'live' || player === null || Dead.has(player) || isLocalBombBusy()
   const walking = isWalking()
-  const gunSpeed=profileByName(player===null?'AK-47':Weapon.getOrNull(player)?.name ?? 'AK-47').speed
+  const gunSpeed = profileByName(player === null ? 'AK-47' : (Weapon.getOrNull(player)?.name ?? 'AK-47')).speed
   const key = `${frozen}:${walking}:${gunSpeed}`
   if (key === previous) return
   previous = key
   const speed = frozen ? 0 : gunSpeed * (walking ? 0.52 : 1)
   AvatarLocomotionSettings.createOrReplace(engine.PlayerEntity, {
-    walkSpeed: speed, jogSpeed: speed, runSpeed: speed,
-    jumpHeight: CS_JUMP_HEIGHT, runJumpHeight: CS_JUMP_HEIGHT, hardLandingCooldown: 0
+    walkSpeed: speed,
+    jogSpeed: speed,
+    runSpeed: speed,
+    jumpHeight: CS_JUMP_HEIGHT,
+    runJumpHeight: CS_JUMP_HEIGHT,
+    hardLandingCooldown: 0
   })
-  InputModifier.createOrReplace(engine.PlayerEntity, { mode: { $case: 'standard', standard: {
-    disableWalk: frozen, disableJog: frozen, disableRun: frozen, disableJump: frozen,
-    disableDoubleJump: true, disableGliding: true, disableEmote: true
-  } } })
+  InputModifier.createOrReplace(engine.PlayerEntity, {
+    mode: {
+      $case: 'standard',
+      standard: {
+        disableWalk: frozen,
+        disableJog: frozen,
+        disableRun: frozen,
+        disableJump: frozen,
+        disableDoubleJump: true,
+        disableGliding: true,
+        disableEmote: true
+      }
+    }
+  })
 }

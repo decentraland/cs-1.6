@@ -1,4 +1,5 @@
 export const START_MONEY = 800
+export const KILL_REWARD = 300
 export const MAX_MONEY = 16000
 export const BUY_SECONDS = 90
 export interface EquipmentAccount {
@@ -8,18 +9,26 @@ export interface EquipmentAccount {
   defuseKit: boolean
   reserve: number
 }
-export interface BuyContext { alive: boolean; eligible: boolean; team: number; phase: string; elapsed: number; inZone: boolean }
+export interface BuyContext {
+  alive: boolean
+  eligible: boolean
+  team: number
+  phase: string
+  elapsed: number
+  inZone: boolean
+}
 export type BuyItem = 'kevlar' | 'assaultsuit' | 'defusekit' | 'ammo'
 export function buyRestriction(context: BuyContext): string | undefined {
   if (!context.alive || !context.eligible) return 'You must be alive to buy.'
-  if (!['freeze','live'].includes(context.phase)) return 'Buying is unavailable between rounds.'
+  if (!['freeze', 'live'].includes(context.phase)) return 'Buying is unavailable between rounds.'
   if (!context.inZone) return 'You must be in your buy zone.'
   if (context.phase === 'live' && context.elapsed > BUY_SECONDS) return 'The buy time has expired.'
   return undefined
 }
 export function equipmentPrice(account: EquipmentAccount, item: string, team: number): number | undefined {
   if (item === 'kevlar') return account.armor >= 100 ? undefined : 650
-  if (item === 'assaultsuit') return account.armor >= 100 ? (account.helmet ? undefined : 350) : account.helmet ? 650 : 1000
+  if (item === 'assaultsuit')
+    return account.armor >= 100 ? (account.helmet ? undefined : 350) : account.helmet ? 650 : 1000
   if (item === 'defusekit') return team === 2 && !account.defuseKit ? 200 : undefined
   if (item === 'ammo') return account.reserve < 90 ? 80 : undefined
   return undefined
@@ -27,45 +36,63 @@ export function equipmentPrice(account: EquipmentAccount, item: string, team: nu
 export function purchaseEquipment(account: EquipmentAccount, item: string, context: BuyContext): string | undefined {
   const restriction = buyRestriction(context)
   if (restriction) return restriction
-  const price = equipmentPrice(account,item,context.team)
+  const price = equipmentPrice(account, item, context.team)
   if (price === undefined) return 'That item is unavailable or already full.'
   if (account.money < price) return 'You have insufficient funds!'
   account.money -= price
   if (item === 'kevlar' || item === 'assaultsuit') account.armor = 100
   if (item === 'assaultsuit') account.helmet = true
   if (item === 'defusekit') account.defuseKit = true
-  if (item === 'ammo') account.reserve = Math.min(90,account.reserve+30)
+  if (item === 'ammo') account.reserve = Math.min(90, account.reserve + 30)
   return undefined
 }
-export interface LossHistory { ct: number; t: number; bonus: number }
-export function freshLossHistory(): LossHistory { return {ct:0,t:0,bonus:1400} }
+export interface LossHistory {
+  ct: number
+  t: number
+  bonus: number
+}
+export function freshLossHistory(): LossHistory {
+  return { ct: 0, t: 0, bonus: 1400 }
+}
 export function roundPayments(history: LossHistory, winner: 'ct' | 't' | 'draw', bomb: string) {
-  if (winner === 'draw') return {ct:0,t:0}
+  if (winner === 'draw') return { ct: 0, t: 0 }
   const loser = winner === 'ct' ? 't' : 'ct'
   if (history[winner] > 1) history.bonus = 1500
   history[winner] = 0
   history[loser]++
   // The original checks before adding, allowing the first streak to reach 3400.
   if (history[loser] > 1 && history.bonus < 3000) history.bonus += 500
-  const win = bomb === 'exploded' ? 3500 : 3250, loss = history.bonus + (bomb === 'defused' ? 800 : 0)
-  return winner === 'ct' ? {ct:win,t:loss} : {ct:loss,t:win}
+  const win = bomb === 'exploded' ? 3500 : 3250,
+    loss = history.bonus + (bomb === 'defused' ? 800 : 0)
+  return winner === 'ct' ? { ct: win, t: loss } : { ct: loss, t: win }
 }
-export function creditedMoney(balance: number, amount: number): number { return Math.max(0,Math.min(MAX_MONEY,balance+amount)) }
+export function creditedMoney(balance: number, amount: number): number {
+  return Math.max(0, Math.min(MAX_MONEY, balance + amount))
+}
 
-export function armorDamage(damage: number, armor: number, helmet: boolean, group: 'head' | 'body' | 'legs', blast = false, bulletRatio = .775) {
-  if (armor <= 0 || !blast && (group === 'legs' || group === 'head' && !helmet)) return { damage, armor }
-  const ratio = blast ? .5 : bulletRatio
-  const absorbed = damage*(1-ratio)*.5
-  if (absorbed > armor) return { damage: damage-armor*(blast ? 1 : 2), armor: 0 }
-  return { damage: damage*ratio, armor: armor-absorbed }
+export function armorDamage(
+  damage: number,
+  armor: number,
+  helmet: boolean,
+  group: 'head' | 'body' | 'legs',
+  blast = false,
+  bulletRatio = 0.775
+) {
+  if (armor <= 0 || (!blast && (group === 'legs' || (group === 'head' && !helmet)))) return { damage, armor }
+  const ratio = blast ? 0.5 : bulletRatio
+  const absorbed = damage * (1 - ratio) * 0.5
+  if (absorbed > armor) return { damage: damage - armor * (blast ? 1 : 2), armor: 0 }
+  return { damage: damage * ratio, armor: armor - absorbed }
 }
 
 export class PurchaseSequences {
-  private latest = new Map<string,number>()
-  clear() { this.latest.clear() }
+  private latest = new Map<string, number>()
+  clear() {
+    this.latest.clear()
+  }
   accept(address: string, sequence: number) {
     if (!Number.isSafeInteger(sequence) || sequence <= (this.latest.get(address) ?? 0)) return false
-    this.latest.set(address,sequence)
+    this.latest.set(address, sequence)
     return true
   }
 }

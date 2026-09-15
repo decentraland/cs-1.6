@@ -25,9 +25,12 @@ export function painDirections(origin: Point, player: Point, view: Point): PainD
   const distance = Math.hypot(from.x, from.y, from.z)
   if (distance <= PAIN_NEAR_DISTANCE) return { front: 1, right: 1, rear: 1, left: 1 }
   const viewLength = Math.hypot(view.x, view.z)
-  if (!Number.isFinite(distance) || !Number.isFinite(viewLength) || viewLength === 0) return { ...EMPTY_PAIN_DIRECTIONS }
-  const x = from.x / distance, z = from.z / distance
-  const forwardX = view.x / viewLength, forwardZ = view.z / viewLength
+  if (!Number.isFinite(distance) || !Number.isFinite(viewLength) || viewLength === 0)
+    return { ...EMPTY_PAIN_DIRECTIONS }
+  const x = from.x / distance,
+    z = from.z / distance
+  const forwardX = view.x / viewLength,
+    forwardZ = view.z / viewLength
   const side = x * forwardX + z * forwardZ
   const right = x * forwardZ - z * forwardX
   return {
@@ -48,7 +51,7 @@ export function mergePainDirections(current: PainDirections, incoming: PainDirec
 }
 
 export function fadePainDirections(directions: PainDirections, dt: number): PainDirections {
-  const fade = (value: number) => value > 0.4 ? Math.max(0, value - PAIN_FADE_PER_SECOND * Math.max(0, dt)) : 0
+  const fade = (value: number) => (value > 0.4 ? Math.max(0, value - PAIN_FADE_PER_SECOND * Math.max(0, dt)) : 0)
   return {
     front: fade(directions.front),
     right: fade(directions.right),
@@ -57,7 +60,12 @@ export function fadePainDirections(directions: PainDirections, dt: number): Pain
   }
 }
 
-export function victimPunch(group: HitGroup, damage: number, armorProtected: boolean, random = Math.random): VictimPunch {
+export function victimPunch(
+  group: HitGroup,
+  damage: number,
+  armorProtected: boolean,
+  random = Math.random
+): VictimPunch {
   if (armorProtected || group === 'legs' || !Number.isFinite(damage) || damage <= 0) return { pitch: 0, roll: 0 }
   if (group === 'head') {
     return {
@@ -77,5 +85,7 @@ export function decayVictimPunch(punch: VictimPunch, elapsed: number): VictimPun
     length = Math.max(0, length - (10 + length * 0.5) * step)
     remaining -= step
   }
-  return original === 0 ? { pitch: 0, roll: 0 } : { pitch: punch.pitch * length / original, roll: punch.roll * length / original }
+  return original === 0
+    ? { pitch: 0, roll: 0 }
+    : { pitch: (punch.pitch * length) / original, roll: (punch.roll * length) / original }
 }

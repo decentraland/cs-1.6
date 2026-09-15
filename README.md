@@ -6,26 +6,38 @@ See [the implementation plan](IMPLEMENTATION_PLAN.md) for the remaining work.
 
 ## Current playable prototype
 
-Select **Start game** to spawn in the Dust2 courtyard. After a three-second freeze,
-eliminate three enemies before they kill you or the two-minute round expires.
-Enemies navigate around map obstacles, search the last seen player position,
-and patrol Dust2 after losing contact. They attack when map geometry does not
-block their view. Each bot is a synchronized `AvatarShape` NPC, so its visible
-body and walking animation follow the authoritative navigation transform. Each result awards one team point, shows the win message for five seconds, then
-automatically starts the next round. First to sixteen wins ends the match and offers
-**Play again**. Each round restores health, ammunition, enemies, and the timer;
-player and bot kills/deaths persist across rounds. The scoreboard sorts each
-team by kills descending, then deaths ascending. Time expiry awards the CT side
-a point, matching the unplanted-bomb timeout rule. Shared human rounds now support the C4 objective described below.
+Choose **Terrorists** or **Counter-Terrorists** on the team menu to spawn at that
+side's original Dust2 spawns. The three-second freeze starts immediately: any
+playing side with no connected human is filled with three bots (Guerilla,
+Phoenix, Arctic). Eliminate the other side, or plant/defuse the C4, before the
+two-minute round expires. Bots navigate around map obstacles, search the last
+seen player position, and patrol Dust2 after losing contact. They attack when
+map geometry does not block their view; Terrorist bots carry and plant the C4,
+Counter-Terrorist bots pursue a planted bomb and defuse it. **BOT SKILL** on the
+team menu picks EASY, NORMAL (default), HARD or EXPERT for the whole match, like
+the `bot_difficulty` cvar: the levels follow the CS 1.6 BotProfile.db templates
+(reaction 1.0/0.6/0.4/0.35 s, attack delay 3.0/1.0/0/0 s, skill 0/50/75/90 that
+scales a per-shot aim error). Each bot is a
+synchronized `AvatarShape` NPC, so its visible body and walking animation follow
+the authoritative navigation transform. Each result awards one team point, shows
+the win message for five seconds, then automatically starts the next round.
+First to sixteen wins ends the match, opens the scoreboard, and offers **PLAY
+AGAIN** on the team menu. Each round restores health, ammunition, bots, and the
+timer; player and bot kills/deaths persist across rounds. Bot kills appear in
+the kill feed and bot rows appear inside their team on the scoreboard. The
+scoreboard sorts each team by kills descending, then deaths ascending. Time
+expiry awards the CT side a point, matching the unplanted-bomb timeout rule.
+There is no separate solo or practice mode; evidence below that mentions the
+solo encounter or **Start game** predates this unified match model.
 
 The server owns enemy health, damage, round state, ammo, reloads, and shot cadence.
 Bot hits and line of sight use a triangle query exported from the existing Dust2
 model into the same coordinates used by Bevy. Player shots at bots and human target proxies share server-owned ray
 intersection, wall occlusion, AK recoil/spread, and range damage. Clients send aim and a shot sequence only; they cannot choose the hit
-target, hit point, or shot origin. Each shooter has independent recoil state.
-Human standing hit regions are still approximate. Choose **Terrorists** or
-**Counter-Terrorists** for a shared human match; **Start game** keeps the solo
-bot encounter. Both teams must have a player before the three-second freeze.
+verdict; it validates the reported context and re-traces. Each shooter has
+independent recoil state. Standing hit regions are still approximate. A human joining a bot-filled
+side replaces those bots at the next round start; the match resets to a fresh
+lobby when every human leaves. A lone human who dies spectates the bots.
 Teams spawn at the original Dust2 locations, share elimination/timeout rounds,
 and respawn together after the five-second result. Each team currently has five
 seats; testing covers two combatants and a third joining client, not 5v5 capacity.
@@ -39,8 +51,8 @@ Survivors retain ammunition, armor, helmets, and defuse kits.
 The current AK, knife, pistols, and Decentraland-avatar enemies are placeholders while the game is built.
 [AK source and attribution](asset-sources/ak47/SOURCE.md). The HUD has an initial
 amber layout and green crosshair, but is **not yet an exact CS 1.6 match**. Original
-HUD digits/icons and the source-defined team menu are implemented; original buy-menu
-styling is pending. The scoreboard now uses the classic layout and Verdana glyphs; pixel-level comparison is still open. Hold **1** for the current team scoreboard; the installed SDK does not
+HUD digits/icons, the source-defined team menu, and a buy menu in the same VGUI
+style (category list, per-category submenus, item info panel) are implemented. The scoreboard now uses the classic layout and Verdana glyphs; pixel-level comparison is still open. Hold **Shift+1** for the scoreboard; the installed SDK does not
 expose Tab, which Bevy reserves for its map.
 Money and equipment purchases are authoritative in shared rounds.
 Remaining firearms, alternate fire modes, remaining spectator modes, weapon/footstep sounds,
@@ -65,14 +77,63 @@ Open a stock Bevy web client with:
 ```
 
 `hud=0` hides Bevy's surrounding interface; `guest=1` enters as a guest.
-Click **Start game**, then click the scene to capture the mouse. WASD moves,
-Shift walks, Space jumps, left mouse or E fires, **2** selects the primary,
-**Shift+2** selects the pistol, and **Shift+3** selects the knife. With the knife,
-left mouse swings and **F** stabs; with a gun, **F** reloads. Holding **1** shows scores. These are the current SDK bindings; final
-CS key mapping is still pending. Escape releases the cursor to use the menu.
-Avatar passport popups are disabled throughout the 12×12-parcel game area, so
-clicking another player does not open their profile while shooting.
-Only one encounter runs per realm in this prototype.
+Pick a side on the team menu, then click the scene to capture the mouse. Button
+hover follows the pointer position each frame; while the menu is open, **1**
+joins Terrorists and **2** joins Counter-Terrorists. AUTO ASSIGN and SPECTATE
+are click-only because the explorer exposes no 5/6 input actions.
+
+| Key            | Action                                                      |
+| -------------- | ----------------------------------------------------------- |
+| WASD, Space    | Move, jump                                                  |
+| Shift (hold)   | Walk                                                        |
+| Left mouse     | Fire, knife swing, plant C4 (hold in a site)                |
+| 1 / 2 / 3      | Primary / pistol / knife                                    |
+| 4              | C4 (carrier only)                                           |
+| Shift+4        | Drop C4                                                     |
+| Shift+1 (hold) | Scoreboard                                                  |
+| E (hold)       | Use: defuse the planted bomb                                |
+| F              | Reload with a gun, stab with the knife                      |
+| Esc            | Release the cursor; opens the buy menu inside your buy zone |
+| 1-4 (buy menu) | Pick the matching row; 0/5-8 rows are click-only            |
+
+These are the input actions the explorer exposes to scenes; Tab, B, G, 5 and 6
+are not available, so the scoreboard, buy menu, C4 drop and menu shortcuts use
+substitutes.
+
+**Sounds.** Gunshots (per gun), reload, knife swing/hit and dry fire are
+generated placeholders (`asset-sources/weapons/generate_sounds.py`, no
+Counter-Strike audio). Your own weapon plays on the camera; other players' and
+bots' shots play positionally at the shooter. C4 cues and the damage thump are
+unchanged.
+
+**Reconnection.** Transient `room.send` messages (round spawns, shot results)
+are lost while a client is suspended, and the SDK only re-requests the full CRDT
+state when the explorer toggles `RealmInfo.isConnectedSceneRoom`, so a client
+that was in the background can come back frozen on the last state it saw. The
+client watches `Practice.timeLeft` (it ticks every second outside the lobby);
+after 8 s without change, or after a frame gap over 5 s, it sends `resync` and
+shows "Reconnecting to the match...". The server answers by touching every
+synced component (which re-sends them) and, if the client missed a round start,
+re-sending that player's spawn. A seat dropped by the 20 s heartbeat timeout is
+restored automatically on the next heartbeat: the server remembers the team each
+player last chose (until they leave the team on purpose) and re-admits them, so
+coming back never lands on the team menu. Scene-side workaround for
+[decentraland/sdk#1198](https://github.com/decentraland/sdk/issues/1198).
+
+**Mobile (Godot explorer).** The explorer reports `platform: 'mobile'` and never
+locks the pointer, so the scene switches to touch mode (`src/platform.ts`): the
+live view is the engine's first-person camera driven by the touch look-drag, aim
+is read from the camera transform, and recoil only tilts the viewmodel. The
+native gamepad's big central button fires (`TouchScreenControls.setMainAction`
+`IA_POINTER`), E/F/1-4 keep their desktop roles through the on-screen buttons,
+and the HUD shows tappable **BUY** (in the buy zone) and **SCORES** buttons since
+there is no Esc or Shift. The explorer crosshair is hidden in favour of the
+scene's own. The scene never sets a `VirtualCamera` on touch, so there is no
+death fall or chase cam on mobile: the Godot camera controller only re-enables
+touch look after an uninterrupted transition back from a scene camera, and a
+respawn could leave the camera frozen. Avatar passport popups are disabled throughout the 12×12-parcel
+game area, so clicking another player does not open their profile while
+shooting. Only one match runs per realm.
 
 A headless-server restart can leave synchronized values stale in the current
 preview SDK. Reload the browser scene after source/test changes before testing.
@@ -88,8 +149,9 @@ npm run validate
 This runs combat and map-query tests, the GLB integrity check, scene bundle,
 and TypeScript check. The map tests include the courtyard wall that exposed a
 GLTF coordinate mismatch, so that regression has a reproducible check.
-The current gate passes 115 tests plus the weapon, font, team-menu, radar, pain-compass, navigation,
-bundle, and type checks.
+The current gate passes 149 tests plus the weapon, font, team-menu, radar, pain-compass, navigation,
+bundle, and type checks. The source is Prettier-formatted; check it with
+`npx prettier --check src tests validate` (`.prettierignore` skips generated files).
 
 Run the browser encounter regression with a dedicated browser CDP endpoint:
 
@@ -97,12 +159,31 @@ Run the browser encounter regression with a dedicated browser CDP endpoint:
 npm run test:game -- <browser-CDP-websocket> [evidence.json]
 ```
 
-It uses the visible Start control and real mouse/keyboard events to
+It uses real mouse/keyboard events to
 prove initial capture and click-to-recapture, then freeze blocks movement → three bot kills → scored victory → automatic next
 round → scored defeat, including persistent kills/deaths. It assumes default
 Bevy mouse sensitivity. A separate checkout is needed to isolate a second server:
 different ports for the same checkout still share a multiplayer room identity.
+Open the page with `preview=true` (the react-web query parameter; `isPreview` is
+ignored): the script teleports to sniping spots with the preview-only
+`/move_player_to` engine command, because bots hold the sites instead of walking
+into the player, see 28 m all round and fire 0.35 s after sighting. Each spot is
+about 31 m from its target, has ground under it, a line of sight to the target and
+no other bot within sight. The scene server hot-reloads on any project file
+change, `validate/` included, and open clients go stale after a reload, so do not
+edit files while a run is in progress.
 The initial run passed in a separate headless Chromium browser with WebGPU enabled.
+On 2026-09-12 the full flow passed again in headless Brave (`agent-browser`,
+`--enable-unsafe-webgpu`) with the unified match model: the server accepted the
+player's client-claimed AK-47 shots, three bots died, the Terrorist round win was
+scored, the next round started with health restored and the magazine kept, the
+idle round ended as a scored CT win, and the kills stayed on the scoreboard. The
+same run recorded the AK-47 fire cue as a playing `AudioSource` parented to the
+camera. Money went from 800 to 4950 after the win (elimination award plus three
+kill rewards). The other browser
+scripts under `validate/` have not been re-run since the unified match model and
+CS key layout landed; several still wait for the removed **Start game** menu
+label, and their evidence files record the earlier flow.
 
 [Baseline evidence](validate/baseline/browser.json) and the
 [baseline screenshot](validate/baseline/dust2.png) record the original prototype.
@@ -124,19 +205,30 @@ gravity and collision hull height are not. These settings are a supported first
 step, **not identical CS movement physics**.
 
 The server now applies AK cadence (0.0955 s), reload time (2.45 s), standing/moving/
-airborne spread, and range attenuation. Bot hit regions distinguish head, body,
-and legs. Spread is randomized on the server; the client sends aim direction.
-Server-confirmed impacts show the actual recoil/spread trajectory. Explicit trigger
+airborne spread, and range attenuation. Humans and bots share the same
+head/body/leg boxes (head at eye height). The client sends its aim direction plus
+what it saw: its eye position, speed, grounded state and the target position it
+hit locally; the server accepts each value only if it matches a sample from the
+last second and then re-runs the trace itself (`src/hit-claims.ts`), so what you
+saw is what counts without trusting the client's verdict.
+The client shows an impact marker in the firing frame by resolving the shot locally (aim, predicted punch, shared-seed spread) against the map, bots and players; the server's confirmation snaps it only if the inputs diverged. Explicit trigger
 release drives recovery, using the vanilla integer-accuracy compatibility branch.
-Camera punch and the weapon fire animation now start locally in the firing frame.
-Server recoil acknowledgements correct the prediction through a first-person virtual
-camera. Mouse aim is stored separately, so the server applies recoil once and
-pulling down compensates for it. The camera follows the player's position;
-walking follows the view heading. Escape releases the cursor and left-click
-recaptures it. Replies are aged from the original input time and pending shots
-are replayed; a late reply does not kick the camera a second time. Corrections
-blend over 50 ms. GoldSrc shared-seed parity remains unfinished. Mouse sensitivity
-uses the measured default Bevy scale; CS sensitivity settings are still pending. See [mechanics research](docs/CS16-MECHANICS.md).
+Recoil punch and the weapon fire animation start locally in the firing frame, and
+server recoil acknowledgements correct the prediction. The live view is a
+scene-driven `VirtualCamera` at eye height, so predicted recoil punch and victim
+pain punch rotate the view like GoldSrc and pulling the mouse down counters the
+punch. The camera follows the avatar's transform one frame late, so the client
+hides its own avatar with a local hide-avatars `AvatarModifierArea` that excludes
+every other player and bot. The weapon viewmodel adds a subtle extra tilt. Shots
+send mouse aim alone and the server offsets each shot by its authoritative punch;
+see [mechanics research](docs/CS16-MECHANICS.md).
+Escape releases the cursor and left-click recaptures it. Replies are aged from
+the original input time and pending shots are replayed; a late reply does not
+kick the view a second time. Corrections blend over 50 ms. Spread uses a
+shared per-round seed (server-chosen, sent on spawn, `src/shared-random.ts`):
+client and server draw the same kick flips and spread samples per shot id, so
+the local impact marker normally matches the server's confirmation exactly. Mouse sensitivity is the
+`MOUSE_SENSITIVITY` constant in `src/aim.ts`; a CS-style setting is still pending.
 
 Mechanical references: [AK firing implementation](https://github.com/rehlds/ReGameDLL_CS/blob/master/regamedll/dlls/wpn_shared/wpn_ak47.cpp),
 [weapon constants](https://github.com/rehlds/ReGameDLL_CS/blob/master/regamedll/dlls/weapons.h),
@@ -168,7 +260,10 @@ mouse aim after release, a 45-degree mouse turn, and movement along that heading
 node validate/camera.mjs <browser-CDP-websocket> [evidence.json]
 ```
 
-Run each encounter test against a fresh isolated server with the Start menu
+`validate/camera.mjs` was rewritten to measure the viewmodel tilt during a brief
+engine-camera experiment; the live view is a `VirtualCamera` again, so its
+camera-pitch assertions should be restored and the script re-run.
+Run each encounter test against a fresh isolated server with the team menu
 available. The camera test reloads the selected SDK7 scene before starting;
 for the round test, use `node validate/game.mjs <browser-CDP-websocket> [evidence.json] --fresh-page`
 with a freshly opened browser to avoid an unnecessary engine reload. Use a
@@ -245,7 +340,7 @@ W to W+D and back. Horizontal speed is sampled over time instead of dividing
 batched avatar updates by a single frame; firing still expands the crosshair.
 This changes visual feedback, not the server's speed-based accuracy rules.
 
-The Start/team menu now keeps requesting an unlocked cursor whenever the canvas
+The team menu now keeps requesting an unlocked cursor whenever the canvas
 captures the mouse while that menu is open. This fixes the intermittent state
 where the buttons were visible but could not be clicked. The full-screen damage
 flash also ignores pointer input. A focused browser reproduction is in
@@ -256,14 +351,19 @@ flash also ignores pointer input. A focused browser reproduction is in
 The selection screen uses the original `Teammenu.res` 640×480 coordinates,
 `CS_logo.tga` silhouette, `ClientScheme.res` colors/font tiers, and the exact
 Dust II briefing. Widescreen viewports keep the source layout centered in a 4:3
-area. **Practice with bots** is the one scene-specific extension; **Spectate**
-keeps its original disabled presentation until spectator admission is added.
+area. Button hover is computed from the pointer position each frame
+(`PrimaryPointerInfo`), because mouse-enter events arrive too late in the
+explorer. **1** and **2** join Terrorists and Counter-Terrorists while the menu
+is open, mirroring `Teammenu.res`; AUTO ASSIGN and SPECTATE are click-only
+because the explorer has no 5/6 input actions. Picking a side starts the round
+at once, with bots filling the other side. LEAVE TEAM/LEAVE SPECTATOR returns to
+the menu, and PLAY AGAIN appears after a match ends.
 
 [Team-menu evidence](validate/game/team-menu/README.md) checks all visible labels,
-panel and button coordinates at 800×450 and 1280×720, the original logo, the
-practice action, and two-client auto-assign behavior. On an empty realm,
-auto-assign places the first player on T and the second on CT, then starts freeze
-time with the Glock-18 and USP loadouts.
+panel and button coordinates at 800×450 and 1280×720, the original logo, and
+two-client auto-assign behavior. On an empty realm, auto-assign places the
+first player on T and the second on CT with the Glock-18 and USP loadouts. That
+evidence predates bot filling and the removed PRACTICE WITH BOTS button.
 
 `npm run validate` includes immediate recoil, 500 ms delayed acknowledgements,
 reordered replies, pending-shot replay, reload/rejection recovery, ammo reservation,
@@ -347,9 +447,10 @@ guest admission and next-round spawning. [Admission evidence](validate/game/team
 
 ## C4 objective
 
-Each shared round assigns one Terrorist the bomb. **4** selects C4, **2** selects
-the primary weapon (Shift+2 selects the pistol), and **3** drops C4; these are SDK-supported substitutes for the original
-5/1/G bindings. Hold left mouse while grounded inside A or B to plant for three
+Each round assigns one Terrorist the bomb (a human T when one is connected,
+otherwise a T bot). **4** selects C4, **1** returns to the primary (**2** the
+pistol), and **Shift+4** drops C4; Shift+4 substitutes for the original G
+binding, which the explorer does not expose. Hold left mouse while grounded inside A or B to plant for three
 seconds. Releasing, switching, moving out of the zone, or leaving the ground
 cancels progress. Planting and defusing block movement and rifle fire.
 
@@ -361,8 +462,8 @@ are not yet implemented.
 
 A planted bomb has a 45-second fuse and hides the round timer. CT must face it,
 remain grounded and in use range, and hold **E** for ten uninterrupted seconds.
-CTs can buy a $200 defuse kit in their buy zone for a five-second defuse. E no longer fires the rifle in team mode; the
-existing E-fire alias remains in the solo encounter.
+CTs can buy a $200 defuse kit in their buy zone for a five-second defuse. E is
+the use key only; it never fires.
 
 A plant survives elimination of all Terrorists and the ordinary round timeout.
 Defuse awards CT; explosion awards T and damages nearby players on either team.
@@ -380,12 +481,15 @@ sound timing still need an audible comparison against the original client.
 [Sound provenance](asset-sources/c4/SOURCE.md). Bomb/view models and progress UI
 remain placeholders; other weapons and advanced bot bomb tactics are still pending.
 
-Solo rounds now rotate a bot bomb carrier and A/B destination. The carrier uses
-the production Dust2 graph to reach the selected site and plant; another living
-bot retrieves a dropped bomb, and living bots spread around an active planted
-site. The server keeps the chosen objective stable through the round. The
-[solo C4 browser evidence](validate/game/solo-bomb.json) records a bot traversing
-to B, planting, and teammates moving into defensive positions.
+When bots fill the Terrorist side they rotate a bot bomb carrier and A/B
+destination. The carrier uses the production Dust2 graph to reach the selected
+site and plant; another living bot retrieves a dropped bomb, and living bots
+spread around an active planted site. When bots fill the CT side they move to a
+planted bomb and defuse it while no enemy is visible. The server keeps the
+chosen objective stable through the round. The
+[bot C4 browser evidence](validate/game/solo-bomb.json) records a bot traversing
+to B, planting, and teammates moving into defensive positions; it predates CT bot
+defusing, which has rule coverage only.
 
 Run `node validate/bomb.mjs <CT-CDP-websocket> <T-CDP-websocket> [evidence.json]`
 with two fresh owned browsers on the same isolated scene server. The script
@@ -402,7 +506,7 @@ clip emission, not audible fidelity. [Evidence](validate/game/bomb.json).
 
 ## Money and equipment
 
-In shared matches, press **Esc** in your team's spawn buy zone to open equipment
+Press **Esc** in your team's spawn buy zone to open equipment
 purchases, then click **Close** to resume aiming. Buying is available during freeze
 and the first 90 seconds of live play. This is a temporary input/menu presentation;
 the installed SDK does not expose the original B key. Server checks enforce the
@@ -427,7 +531,7 @@ AK damage uses the reference armor penetration and depletion arithmetic. Armor
 keeps fractional values; health damage is rounded to the scene's integer health.
 Blast damage uses its separate reference armor calculation. Dropped kit pickup,
 the remaining weapons, and grenades remain open.
-The solo bot encounter still uses its original free loadout and fixed starting money.
+Bots use a server-owned free AK loadout and take no part in the economy.
 
 `node validate/economy.mjs <CT-CDP-websocket> <T-CDP-websocket> [evidence.json]`
 checks equipment buying, kit defusing, money rewards, armored combat, death resets,
@@ -450,10 +554,10 @@ and persistent 3/1 stats. [Evidence](validate/game/economy-solo.json).
 
 ## Weapon inventory
 
-Team rounds now start with the original USP/Glock magazines and two spare
-magazines. The free AK remains only in solo practice. Buy weapons through the
+Rounds start with the original USP/Glock magazines and two spare
+magazines. Buy weapons through the
 spawn equipment menu: CT M4A1 $3100, T AK-47 $2500, USP $500, Glock-18 $400.
-Switch with **2** (primary), **Shift+2** (pistol), and **Shift+3** (knife). Switching preserves ammo,
+Switch with **1** (primary), **2** (pistol), and **3** (knife), as in CS 1.6. Switching preserves ammo,
 cancels the interrupted reload, and enforces the reference 0.75-second draw delay.
 The server rejects delayed shots whose weapon revision no longer matches.
 
@@ -463,7 +567,7 @@ reload times, and movement speed come from each weapon's reference profile.
 Prediction uses the same profile so a pistol cannot replay AK recoil. The current
 USP and M4A1 are unsilenced and the Glock is semi-auto; silencers/burst mode,
 other guns, weapon drops/pickup, and complete animation/sound fidelity remain open.
-Both rifles currently share the AK proxy; pistols and the knife use simple mesh proxies.
+Both rifles currently share the AK proxy; pistols and the knife use simple mesh proxies, in the viewmodel and in the right hand of every other player and bot.
 
 Knife attacks use server-owned reach, wall occlusion, hit regions, damage, armor,
 cooldowns, and rear-stab checks from the pinned CS 1.6 reference. A primary swing
@@ -482,8 +586,11 @@ these checks. It also reproduces a fixed bug where completing a C4 plant fired
 the gun immediately: returning to the gun now preserves ammo and applies the
 0.75-second draw delay. The updated [pistol economy run](validate/game/economy-pistols.json) also passed
 kit timing, armor, rewards, survivor/death resets, and pistol ammo purchases.
-Older team/C4 scripts now use default-pistol ammo and the current buy menu;
-their earlier evidence records remain historical.
+Older team/C4 scripts now use default-pistol ammo; the buy-row click formula in
+`validate/team-client.mjs`, `economy.mjs`, `inventory.mjs` and `solo-flow.mjs`
+still targets the old flat list and must be redone for the VGUI-style buy menu
+(rows at 640x480 coordinates x 76, y 116 + 28 per row, categories then submenus).
+Their earlier evidence records remain historical.
 
 The [post-inventory solo regression](validate/game/inventory-solo.json) passed
 three bot kills, scored victory, automatic respawn with restored health/ammo,
@@ -494,14 +601,15 @@ asset integrity, bundling, and type checking.
 
 Death starts with a 0.6-second fall from eye height to the CS 1.6 dead-view height
 and an 80-degree roll. The view remains at the body until the original three-second
-death window ends, then enters free chase. Team rounds follow a living teammate;
-solo rounds follow a living bot. Move the mouse to orbit; click to select the next
-target, or Shift+click for the previous one. Team targets must be connected,
+death window ends, then enters free chase. The chase cam follows a living human
+teammate, or a living bot when no human teammate is available, so a lone dead
+human spectates the bots. Move the mouse to orbit; click to select the next
+target, or Shift+click for the previous one. Human targets must be connected,
 alive, and eligible for the current round. The camera holds its last position
-when no target is available. Respawning restores the player's own first-person
-camera. Dead-player inputs cannot move, shoot, reload, or buy.
+when no target is available. The same `VirtualCamera` serves the live view, the
+death fall, and the chase cam. Dead-player inputs cannot move, shoot, reload, or buy.
 
-Team rounds use teammate-only spectating. The chase distance is 112 CS units at
+Human spectating is teammate-only. The chase distance is 112 CS units at
 the scene's physical scale; a map ray limits the camera distance with 0.15 m
 clearance. First-person/roaming/map observer modes, the original observer menu,
 a rendered character death animation, and full camera-hull collision parity
@@ -534,12 +642,13 @@ click-to-cycle without spending ammunition. The rule tests pin the 80-degree rol
 
 ## Classic scoreboard
 
-Hold **1** to view the scoreboard. It opens automatically at match completion;
+Hold **Shift+1** to view the scoreboard. It opens automatically at match completion;
 ordinary round wins display a separate message instead of opening the board.
 The scoreboard uses the original 520×340 proportional panel, compact rows,
 team-colored dividers, player counts, Score/Deaths/Latency columns, and a local
 player highlight. Team scores and player kills/deaths come from shared state,
-and each team's player rows remain sorted by kills, then fewer deaths.
+and each team's player rows remain sorted by kills, then fewer deaths. Bots are
+listed inside their team as `BOT <name>` with their own kills/deaths.
 Dead players show `Dead`; the C4 carrier shows `Bomb` to teammates. Bots show
 `BOT` in the latency column; human latency is currently unavailable and displays
 `-`, not an invented measurement.
@@ -575,7 +684,7 @@ The top-left 128-pixel radar rotates teammate positions with your aim and marks
 height differences of 128 original map units. Only living, connected teammates
 admitted to the current round appear. The C4 carrier is red; dropped C4 and the
 planted-bomb cross flash every half second for Terrorists only. Dead players and
-spectators have no radar. Solo mode shows the radar without enemy bot markers.
+spectators have no radar. Enemy bots never appear on it.
 
 The original `radar640.spr` supplies the background. SDK alpha blending differs
 from the original additive rendering; exact blending, radio flashes and location
@@ -589,15 +698,48 @@ passes 88 tests, asset checks and SDK build/typecheck.
 
 ## Bot navigation
 
-Solo bots now stand on Dust2's sloping floor and move along a graph built from
-the existing map collision triangles. They approach visible players, stop within
-8 m to shoot, search the last seen position for up to eight seconds, and patrol
-between A, B and T spawn when contact is lost. Walls gate sight and damage; the
-server controls their position and movement speed. The three starting locations
-and scored solo-round loop are preserved. The three server entities now render
-as named `AvatarShape` NPCs, and Bevy derives their walking animation from those
-position updates. [Rendered evidence](validate/game/bot-avatars/README.md) shows
-all three in the live encounter.
+Bots stand on Dust2's sloping floor and move along a graph built from
+the existing map collision triangles. Walls gate sight and damage; the server
+moves them every frame and owns their position, facing and speed. Bots spawn in
+their side's original spawn slots after that team's humans, facing the spawn
+direction. The three server entities render as named `AvatarShape` NPCs, Bevy
+derives their walking animation from those position updates, and every bot and
+remote player holds a right-hand weapon model (`world-weapons.ts`): the AK proxy
+for rifles, the pistol/knife/C4 proxies otherwise, hidden while dead.
+[Rendered evidence](validate/game/bot-avatars/README.md) shows all three in the
+live encounter (recorded before the held weapons and the behaviour below).
+The right-hand poses in `world-weapons.ts` (`POSES`) have not yet been checked in
+the explorer; adjust them there if a model sits wrong in the hand.
+Bevy resolves an `AvatarAttach` only when the component changes and drops it when
+the avatar has not loaded yet ([bevy-explorer#1255](https://github.com/decentraland/bevy-explorer/issues/1255)),
+so the attachment is applied half a second after the avatar appears and re-applied
+every two seconds.
+
+Movement is a small seeded state machine (`bot-behavior.ts`, `bot-navigation.ts`),
+so every round plays out differently:
+
+- **Roam.** With no contact a bot picks a destination: 55% a strategic spot for
+  its side (T: both sites, the T→A, T→B and T→CT approaches; CT: both sites, the
+  six site defense positions, the CT→A/CT→B routes and mid), otherwise a random
+  reachable graph node 8–25 m away. It avoids its last three destinations, runs
+  or shift-walks (52% speed, one leg in four) and, on arrival, holds for 0–7 s
+  (CTs twice as long) while scanning up to 120° either side.
+- **Hunt and callouts.** A visible enemy is remembered for eight seconds. When a
+  bot spots an enemy, teammates within 40 m of the sighting head there too
+  (`heard` sightings are replaced by their own). On reaching the last known
+  position the bot searches on the spot for 1.5–3 s, then roams again.
+- **Engage.** Beyond 10 m it closes in along the graph. Inside 10 m it alternates
+  0.25–0.6 s sidesteps perpendicular to the enemy with 0.35–0.9 s standing bursts,
+  usually flipping direction and swapping sides when a wall blocks one; corridors
+  leave it fighting in place. While reloading it backs 3 m away from the enemy,
+  trying straight back, then the diagonals and sides.
+- **Routes.** Paths are string-pulled: the bot heads straight for the furthest of
+  the next twelve nodes whose straight line stays on the graph, so it cuts
+  corners instead of stair-stepping the 0.5 m grid. Facing turns at 400°/s
+  (720°/s when tracking an enemy) instead of snapping.
+
+CT bots carry the M4A1 and T bots the AK-47; each bot's random stream derives
+from the round seed and its index, so a round's decisions are reproducible.
 
 The generated graph has 21,170 connected nodes at 0.5 m spacing, with a 0.3 m
 clearance radius, 1.8 m standing height and 0.48 m maximum walking step. Both bomb
@@ -610,8 +752,8 @@ npm run validate
 ```
 
 This is an initial bot navigation system, not original CS bot AI. Directional
-vision, hearing, teammate avoidance, crouch/jump routes, advanced bomb tactics, and bot
-alternate weapons and weapon animations remain unfinished. Bot AK firing now
+vision, hearing, teammate avoidance, crouch/jump routes, advanced bomb tactics, and
+weapon animations on the held models remain unfinished. Bot AK firing now
 uses the shared bullet, spread, recoil, ammunition and reload rules described
 below; this does not establish original CS bot AI parity.
 
@@ -642,8 +784,9 @@ records live health changes and the scored-round regression. Reload and armor
 behavior have unit coverage; the live hit trace uses an unarmored player.
 
 Confirmed hits now give the victim the original CS directional pain sprite,
-amber above 25 health and red at critical health, plus hitgroup- and
-armor-dependent camera punch and a locally generated impact sound. Bot and human
+amber above 25 health and red at critical health, plus a hitgroup- and
+armor-dependent camera punch (plus a subtle viewmodel tilt) and a locally
+generated impact sound. Bot and human
 attacks use the same authoritative event with the attack origin and hit group;
 the indicator ignores pointer input. [Rendered hit feedback](validate/game/damage-hit.png),
 [pain sprite source](asset-sources/hud/SOURCE.md),
@@ -654,7 +797,7 @@ The rendered feedback capture uses an isolated test copy with bot shots spaced t
 full CRDT snapshots. Prepare that copy with
 `node validate/prepare-damage-feedback.mjs /path/to/isolated-scene`, then pass
 `--extended-hit-window` to `validate/death-spectator.mjs`. Damage, pain direction,
-fade, and camera punch are unchanged by the capture fixture.
+fade, and punch are unchanged by the capture fixture.
 
 The bot-gun stage passed **99 tests**, asset/graph validation and SDK build/typecheck.
 Its live round check passed player victory, reset and bot victory with stats

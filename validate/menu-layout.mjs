@@ -10,10 +10,6 @@ export function teamButtonPoint(width, height, team) {
   return menuPoint(width, height, 150, team === 1 ? 126 : 158)
 }
 
-export function practiceButtonPoint(width, height) {
-  return menuPoint(width, height, 150, 318)
-}
-
 export function autoAssignButtonPoint(width, height) {
   return menuPoint(width, height, 150, 222)
 }

@@ -2,8 +2,8 @@
   "ecs7": true,
   "runtimeVersion": "7",
   "display": {
-    "title": "SDK7 Scene Template",
-    "description": "template scene with SDK7",
+    "title": "Counter-Strike 1.6",
+    "description": "CS 1.6 on Dust2: server-authoritative rounds, bots, bomb defusal and economy",
     "navmapThumbnail": "images/scene-thumbnail.png",
     "favicon": "favicon_asset"
   },
@@ -198,5 +198,8 @@
     "projectId": "628f4025-b921-4c29-a9e3-55aa1350d0dc"
   },
   "authoritativeMultiplayer": true,
-  "multiplayerId": "boedo-casla-alejo"
+  "multiplayerId": "boedo-casla-alejo",
+  "worldConfiguration": {
+    "name": "boedo.dcl.eth"
+  }
 }

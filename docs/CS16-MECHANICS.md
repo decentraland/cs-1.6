@@ -58,27 +58,34 @@ browser; receiving Shift does not itself authorize better server-side accuracy.
 Implemented: server-owned cadence, magazine/reload, speed/airborne spread,
 punch-driven bullet trajectory, explicit trigger release, range damage, shared
 bot/human hit-region queries, and authoritative bullet impact feedback. Random samples use the server
-RNG, not GoldSrc's shared seed sequence; this is not prediction parity.
+a shared per-round seed: the server picks it, sends it on spawn, and both sides derive each shot's stream from `seed + shotId` (`shared-random.ts`), so client prediction reproduces the server's kick flips and spread samples. GoldSrc only shares the seed for pistols and lets the client choose it; here every gun shares it and the server chooses it.
 
-Camera punch now uses `VirtualCamera` + `MainCamera` and `PrimaryPointerInfo`.
-The camera follows the player's world position at a 1.6 m eye height. It stores
-mouse aim independently and adds predicted punch for display; shot requests
-send mouse aim alone. The server and camera share the same direction conversion,
-so visual kick does not accumulate into the base aim or get applied twice.
-Round/shot IDs reject outdated camera feedback. Punch decays between messages.
-The SDK event bus accepts server events only, so other clients cannot inject kicks.
+**Camera punch.** The live view is a scene-driven `VirtualCamera` at 1.6 m eye
+height (`fps-camera.ts`), aimed from `PrimaryPointerInfo.screenDelta`. The
+predicted recoil punch (`getViewPunch`) and victim pain punch (`getPainPunch`)
+rotate that camera as in GoldSrc, so pulling the mouse down counters the punch;
+the weapon viewmodel adds a quarter-strength tilt on top. Shot requests send the
+mouse aim alone and the server applies its authoritative punch to each shot
+once. The virtual camera follows the avatar transform one frame late, so the
+client hides its own avatar with a local hide-avatars `AvatarModifierArea`
+(every other player and bot excluded) instead of using the engine's first-person
+camera, which the scene cannot rotate. Remaining gaps versus CS 1.6 are the
+sensitivity/FOV settings, not view handling.
 
-Camera and weapon animation now respond to local input before server feedback.
-Acknowledgements are mapped back to their original local shot time, then later
-predicted shots and trigger/reload events are replayed. A 50 ms correction blend
-avoids snapping the view. Duplicate, stale-round, and reordered replies cannot
-replay a kick. Server-rejected shots are removed from the prediction.
+Viewmodel tilt and weapon animation still respond to local input before server
+feedback. Acknowledgements are mapped back to their original local shot time,
+then later predicted shots and trigger/reload events are replayed. A 50 ms
+correction blend avoids snapping. Duplicate, stale-round, and reordered replies
+cannot replay a kick. Server-rejected shots are removed from the prediction.
+Round/shot IDs reject outdated feedback, and the SDK event bus accepts server
+events only, so other clients cannot inject kicks.
 
 The client predicts the current lateral kick direction; the server supplies its
 random direction changes. This is responsive presentation with reconciliation,
-not GoldSrc shared-seed parity. Matching CS sensitivity/FOV still needs work. Browser
-checks confirm visible kick/recovery, mouse rotation, and movement following the
-camera; `validate/game.mjs` also passes complete scored rounds with this camera.
+reproduced on the client through the shared per-round seed. Matching CS sensitivity/FOV still needs work. The
+the browser checks of visible camera kick/recovery (`validate/camera.mjs`) were
+rewritten to read the viewmodel during a brief engine-camera experiment and have
+not been re-run since the `VirtualCamera` view returned.
 
 The SDK maintainer confirmed that native crouch hulls, acceleration, friction,
 and gravity are not configurable through AvatarLocomotionSettings. Its supported
@@ -117,16 +124,26 @@ recovery passed; exact firing-rate and GoldSrc prediction parity remain open. Se
 `ballistics.ts` resolves all player-fired AK rounds. The server constructs the
 origin from observed avatar feet plus 1.6 m, applies the shooter's own stored
 punch and spread, then selects the nearest target region before map geometry.
-Client-reported hit points, target addresses, and origin offsets are no longer
-part of `playerShoot`. Misses still consume an accepted round. The same resolver
-runs in the bot encounter; bot hit regions retain their existing geometry.
+`playerShoot` carries the client's own eye position, horizontal speed, grounded
+flag and, when its local trace hit someone, that target and the target position it
+saw. The server does not rewind: avatar positions and scene messages arrive on
+different channels with different latency, so a timestamp rewind would not match
+what the client saw. Instead `hit-claims.ts` accepts each value only if it is
+within 1 m of a position the server sampled for that shooter/target in the last
+second (speed within 2 m/s of the server's estimate; "grounded" only when the
+server cannot see the shooter clearly airborne), then re-runs the deterministic
+trace itself from the accepted origin with the claimed target box at the accepted
+position. Rejected values fall back to the server's own samples. Misses still
+consume an accepted round. The same resolver runs for bots.
 
-Human head/body/leg regions approximate a standing avatar. They do not reproduce
-model-specific CS hitboxes, crouch geometry, or lag rewind. Armor/helmet behavior
-is now implemented for the current AK and bomb damage paths.
-The human-target path is prepared for multiplayer; current match admission and
-round controls still implement the solo encounter. Do not infer complete PvP
-from passing geometric hit tests.
+Humans and bots share one standing-avatar hit box set (head at 1.6 m, body at
+1.05 m, legs at 0.325 m above the feet); bots used to carry a lower head box that
+sat at the neck. They do not reproduce model-specific CS hitboxes or crouch
+geometry. Armor/helmet behavior is implemented for the current AK and bomb damage
+paths.
+Every round is a T/CT match; a side with no connected human is filled with three
+bots, and shots are resolved against humans and bots through the same targets
+list. Do not infer complete PvP from passing geometric hit tests.
 
 ## Walking crosshair feedback
 
@@ -147,16 +164,17 @@ attacks within 50 source units. The sprites are amber above 25 health and red at
 [health HUD](https://github.com/ValveSoftware/halflife/blob/master/cl_dll/health.cpp)
 layout and color rule.
 
-Victim camera punch follows ReGameDLL's
+Victim punch follows ReGameDLL's
 [player trace handling](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/player.cpp)
 for unarmored hits: head pitch is half damage capped at 12 degrees with random
 roll capped at 9 degrees; body pitch is one tenth damage capped at 4 degrees;
-leg and armor-protected hits do not punch the camera. It decays with the same
-GoldSrc punch formula used for weapon recoil and never changes the stored mouse
-aim or the direction sent with later shots. The generated local impact sound
-restarts on every confirmed hit. The scene's combined body region approximates
-the original chest, stomach, and arm hitgroups, and victim punch is visual rather
-than part of the server's next-shot direction.
+leg and armor-protected hits do not punch. It decays with the same GoldSrc punch
+formula used for weapon recoil. The punch rotates the live `VirtualCamera`
+(`getPainPunch`) with a subtle viewmodel tilt, and it never changes the aim
+direction sent with later shots. The generated local impact sound restarts on every confirmed hit. The
+scene's combined body region approximates the original chest, stomach, and arm
+hitgroups, and victim punch is visual rather than part of the server's
+next-shot direction.
 
 ## Bomb objective
 
@@ -196,12 +214,14 @@ CT elimination still awards T. A completed earlier defuse wins even if observed
 on a delayed tick; an exact fuse/defuse tie explodes. This explicit ordering
 avoids the compatibility source's same-tick scheduling ambiguity.
 
-Solo bot rounds select alternating A/B objectives and rotate the carrier. The
-carrier routes to the chosen site and plants after the same uninterrupted three
-seconds; the nearest living bot retrieves a dropped bomb, and survivors take
-stable defensive positions around a planted site. These are scene tactics built
-on the production navigation graph, not recovered CS bot AI.
-
+When bots fill the Terrorist side they select alternating A/B objectives and
+rotate the carrier. The carrier routes to the chosen site and plants after the
+same uninterrupted three seconds; the nearest living bot retrieves a dropped
+bomb, and survivors take stable defensive positions around a planted site. When
+bots fill the CT side they route to a planted bomb and, within 1.2 m of it with
+no enemy visible, hold the same server-owned defuse as a human without a kit.
+These are scene tactics built on the production navigation graph, not recovered
+CS bot AI.
 
 ## Economy and armor
 
@@ -228,7 +248,6 @@ from blast damage, compared with twice its remaining value for bullets. The
 scene preserves fractional armor but rounds applied damage to integer health.
 Dropped kit pickup and the original buy UI remain required for full
 economy/inventory parity; default pistols and weapon purchases are implemented.
-
 
 ## Starting pistols and primary inventory
 
@@ -279,27 +298,28 @@ classification, using the avatar transform as a fallback. The pinned
 combines the knife's 0.5 base armor ratio with its 1.7 weapon multiplier, producing
 the implemented 0.85 ratio.
 
-**Shift+3** equips the implicit knife. Left mouse swings. Bevy reserves right
-mouse for camera lock and does not expose it to this scene, so **F** currently
-performs the stab. The first-person knife is a geometry proxy pending the asset
+**3** equips the implicit knife (**1** primary, **2** pistol, as in CS 1.6). Left
+mouse swings. Bevy reserves right mouse for camera lock and does not expose it to
+this scene, so **F** currently performs the stab; with a gun the same key reloads. The first-person knife is a geometry proxy pending the asset
 pass. The two-client browser regression verifies range rejection, 20→15 chained
 damage, a 65-damage frontal stab, a 195-damage rear stab, Knife kill feed credit,
 and two scoreboard kills in `validate/game/knife.json`.
-
 
 ## Death camera and chase spectator
 
 The pinned [observer implementation](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/observer.cpp)
 uses attack/attack2 to advance/reverse the followed player, throttles target
 selection to 0.25 seconds, and supports force-camera team restrictions. This
-scene chooses teammate-only free chase in team rounds and living bots in solo
-rounds, with Shift+click as the reverse-input substitute. The [GoldSrc client view implementation](https://github.com/ValveSoftware/halflife/blob/master/cl_dll/view.cpp)
+scene chooses teammate-only free chase over human teammates, falling back to
+living bots when no human teammate is available, with Shift+click as the
+reverse-input substitute. The [GoldSrc client view implementation](https://github.com/ValveSoftware/halflife/blob/master/cl_dll/view.cpp)
 registers a default chase distance of 112 units and uses player mouse angles in
 free-chase mode. Here that distance is scaled to 2.8 metres and limited by the
 production map ray with 0.15 m clearance. This is not a full engine hull trace.
 
 Current target filtering additionally requires admission to the current round.
-Dead input remains disabled and a round spawn restores the local camera.
+Dead input remains disabled. The same `VirtualCamera` serves the live view, the
+death fall, and the chase cam.
 The [player death flow](https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/player.cpp)
 uses a three-second dying window before the observer camera. The scene holds that
 window and reproduces the GoldSrc dead-view 80-degree roll, with a smooth 0.6-second
@@ -309,5 +329,14 @@ implementation.
 
 Bot AK shots now invoke the same resolver and weapon profile as player shots,
 with the proxy bot's 1.4 m eye origin. Their state owns its ammunition, recoil,
-burst release and reload timing. The AI uses scene-defined range-based bursts
-and reaction delays; these are not claims of original CS bot behavior.
+burst release and reload timing. The AI uses scene-defined range-based bursts;
+these are not claims of original CS bot behavior. CT bots
+use the M4A1 profile. Skill levels (`bot-difficulty.ts`) take ReactionTime,
+AttackDelay and Skill from the CS 1.6 bot's `BotProfile.db` templates that
+`bot_difficulty` 0-3 selects (Easy 0/1.0/3.0, Normal 50/0.6/1.0, Hard 75/0.4/0,
+Expert 90/0.3/0; the scene uses 0.35 s for Expert). Sighting starts the reaction
+timer, the attack delay follows before the first burst, and each shot's aim is
+offset by up to `(1 - skill/100) * 0.12` rad per axis, a scene-defined mapping of
+the template's Skill. Sight range (28 m) and burst pauses do not vary by level. Movement heuristics (roaming, holds, strafing, reload
+retreats, callouts) are likewise scene-defined; only the 52% shift-walk ratio
+comes from CS 1.6.

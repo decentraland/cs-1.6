@@ -12,7 +12,10 @@ let source = await readFile(path, 'utf8')
 const start = "      room.send('practiceShot', {"
 const end = 'right: state.accuracy.right\n      })'
 assert.ok(source.includes(start) && source.includes(end), 'expected unmodified shot-feedback block')
-source = source.replace(start, "      const shotFeedback = {")
-source = source.replace(end, "right: state.accuracy.right\n      }\n      delay(400, () => room.send('practiceShot', shotFeedback))")
+source = source.replace(start, '      const shotFeedback = {')
+source = source.replace(
+  end,
+  "right: state.accuracy.right\n      }\n      delay(400, () => room.send('practiceShot', shotFeedback))"
+)
 await writeFile(path, source)
 console.log('Isolated fixture: shot acknowledgements and impacts delayed by 400 ms; damage and ammo remain immediate.')

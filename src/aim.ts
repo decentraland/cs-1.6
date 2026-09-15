@@ -1,4 +1,7 @@
-export interface AimAngles { yaw: number; pitch: number }
+export interface AimAngles {
+  yaw: number
+  pitch: number
+}
 
 const radians = Math.PI / 180
 export const MOUSE_SENSITIVITY = 0.005236

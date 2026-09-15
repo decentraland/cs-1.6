@@ -1,0 +1,6 @@
+src/map-collision.ts
+src/navigation.json
+src/score-font.json
+bin/
+validate/game/
+validate/baseline/

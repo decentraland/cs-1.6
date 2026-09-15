@@ -2,6 +2,7 @@ import { AccuracyState, recoverAccuracy, setTrigger } from './accuracy'
 
 import { GunId } from './weapon-profiles'
 import { freshGunAccuracy, gunSpread, gunKick } from './gun-accuracy'
+import { shotRandom } from './shared-random'
 
 export interface ConfirmedRecoil {
   shots: number
@@ -18,23 +19,39 @@ type RecoilEvent =
 export class RecoilPrediction {
   private base: AccuracyState
   private predicted: AccuracyState
-  constructor(private gun: GunId = 'ak47') { this.base=freshGunAccuracy(gun);this.predicted=freshGunAccuracy(gun) }
+  constructor(
+    private gun: GunId = 'ak47',
+    private seed = 0
+  ) {
+    this.base = freshGunAccuracy(gun)
+    this.predicted = freshGunAccuracy(gun)
+  }
   private events: RecoilEvent[] = []
   private acknowledged = 0
   private lastPredicted = 0
   private correction = { pitch: 0, yaw: 0 }
   private renderedAt = 0
 
-  get pendingShots() { return this.pendingAfter(0) }
-  pendingAfter(id: number) { return this.events.filter(event => event.kind === 'shot' && event.id > id).length }
+  // Copy of the predicted state before the next shot, for planning that shot's ray.
+  snapshot(): AccuracyState {
+    return { ...this.predicted }
+  }
+
+  get pendingShots() {
+    return this.pendingAfter(0)
+  }
+  pendingAfter(id: number) {
+    return this.events.filter((event) => event.kind === 'shot' && event.id > id).length
+  }
 
   private apply(state: AccuracyState, event: RecoilEvent) {
     if (event.kind === 'trigger') setTrigger(state, event.held, event.at)
-    else if (event.kind === 'reload') Object.assign(state, freshGunAccuracy(this.gun), { updatedAt: event.at, held: state.held })
+    else if (event.kind === 'reload')
+      Object.assign(state, freshGunAccuracy(this.gun), { updatedAt: event.at, held: state.held })
     else {
-      gunSpread(state,this.gun,event.at,event.speed,event.grounded)
-      // Predict the current direction; the server supplies random direction changes.
-      gunKick(state,this.gun,event.speed,event.grounded,()=>.5)
+      gunSpread(state, this.gun, event.at, event.speed, event.grounded)
+      // Same shared stream as the server, so the kick direction flips are predicted exactly.
+      gunKick(state, this.gun, event.speed, event.grounded, shotRandom(this.seed, event.id))
     }
   }
 
@@ -51,7 +68,9 @@ export class RecoilPrediction {
     if (held !== this.predicted.held) this.add({ kind: 'trigger', held, at: now })
   }
 
-  reload(now: number) { this.add({ kind: 'reload', at: now }) }
+  reload(now: number) {
+    this.add({ kind: 'reload', at: now })
+  }
 
   predict(id: number, now: number, speed: number, grounded: boolean): boolean {
     if (id <= this.lastPredicted || this.pendingShots >= 30) return false
@@ -72,7 +91,7 @@ export class RecoilPrediction {
 
   confirm(id: number, recoil: ConfirmedRecoil, now: number): boolean {
     if (id <= this.acknowledged) return false
-    const index = this.events.findIndex(event => event.kind === 'shot' && event.id === id)
+    const index = this.events.findIndex((event) => event.kind === 'shot' && event.id === id)
     if (index < 0) return false
     const at = this.events[index].at
     this.acknowledged = id
@@ -84,7 +103,7 @@ export class RecoilPrediction {
   }
 
   reject(id: number, now: number) {
-    const index = this.events.findIndex(event => event.kind === 'shot' && event.id === id)
+    const index = this.events.findIndex((event) => event.kind === 'shot' && event.id === id)
     if (index < 0) return
     this.events.splice(index, 1)
     this.rebuild(now)

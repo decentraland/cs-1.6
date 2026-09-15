@@ -4,9 +4,16 @@ import { authorizeShot, finishReload, startReload } from '../src/combat-rules.ts
 
 const epoch = 1789032000
 const fresh = (overrides = {}) => ({
-  ammoClip: 30, maxAmmoClip: 30, ammoReserve: 90, fireRate: 0.1,
-  lastShotTime: 0, lastShotId: 0, isReloading: false, reloadTime: 2.5,
-  reloadStartTime: 0, ...overrides
+  ammoClip: 30,
+  maxAmmoClip: 30,
+  ammoReserve: 90,
+  fireRate: 0.1,
+  lastShotTime: 0,
+  lastShotId: 0,
+  isReloading: false,
+  reloadTime: 2.5,
+  reloadStartTime: 0,
+  ...overrides
 })
 
 test('misses consume ammunition and duplicate or reordered requests cannot spend another round', () => {
