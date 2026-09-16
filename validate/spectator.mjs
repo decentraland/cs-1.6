@@ -43,7 +43,6 @@ try {
   await first.command('/move_player_to 90 11 64')
   await second.command('/move_player_to 90 11 78')
   await pause(1400)
-  const ammo = readHud(await observer.snapshot()).clip
   await kill(observer)
   const corpse = position(await observer.snapshot()),
     firstEye = eye(position(await first.snapshot())),
@@ -67,8 +66,8 @@ try {
   await observer.key('keyUp', 'w', 'KeyW', 87)
   const frozen = await observer.snapshot()
   assert.ok(distance(position(frozen), corpse) < 0.15, 'spectating cannot move the corpse')
-  assert.equal(readHud(frozen).clip, ammo, 'spectator clicks cannot consume ammunition')
-  evidence.checks.push('forward/reverse target cycling; dead movement and shooting remain disabled')
+  assert.equal(readHud(frozen).clip, undefined, 'free chase hides the dead player ammunition')
+  evidence.checks.push('forward/reverse target cycling; dead movement remains disabled; own ammunition hidden')
   const previousCamera = camera(await observer.snapshot())
   await first.command('/move_player_to 90 14 67')
   await pause(1000)

@@ -1,0 +1,31 @@
+{
+  "name": "fixed_v_smokegrenade",
+  "sourceSha256": "f03d5f6a7ea3f21cd57e39a96e96b441e30c84061e5a0baabffd57ebfc1e0265",
+  "triangles": 844,
+  "skippedDegenerateTriangles": 0,
+  "bones": 37,
+  "textures": 6,
+  "animations": {
+    "idle": 0.3333333333333333,
+    "pullpin": 0.975609756097561,
+    "throw": 0.7666666666666667,
+    "deploy": 0.6666666666666666
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.22992800176143646,
+      -0.3190346658229828,
+      -0.02773580141365528
+    ],
+    "max": [
+      0.17673653364181519,
+      -0.028262153267860413,
+      0.3079129755496979
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.6391277313232422e-06,
+  "bytes": 399268,
+  "blender": "5.2.1 LTS"
+}

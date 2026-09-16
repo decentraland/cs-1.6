@@ -71,7 +71,10 @@ async function key(key, code, vk, duration) {
 }
 
 const labels = (state) => readTextEntities(state).map((c) => c.UiText.value)
-const enemies = (state) => Object.entries(state).filter(([, c]) => c.MeshCollider && c.Transform && c.AvatarShape)
+const enemies = (state) =>
+  Object.entries(state).filter(
+    ([, c]) => c.MeshCollider && c.Transform && c.GltfContainer?.src.startsWith('assets/scene/players/')
+  )
 // Bots head for the bomb sites rather than the player, so only shoot ones with a clear line of sight.
 const worldOutput = mkdtempSync(join(tmpdir(), 'cs16-game-world-'))
 execFileSync(process.execPath, [

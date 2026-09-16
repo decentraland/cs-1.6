@@ -1,0 +1,95 @@
+[
+  {
+    "name": "fixed_v_hegrenade",
+    "sourceSha256": "41ab710b831ad27dc066f7fcbeaddb74ede5c497ba49a42943180180199d5fd5",
+    "triangles": 844,
+    "skippedDegenerateTriangles": 0,
+    "bones": 37,
+    "textures": 6,
+    "animations": {
+      "idle": 0.3333333333333333,
+      "pullpin": 0.975609756097561,
+      "throw": 0.7666666666666667,
+      "deploy": 0.6666666666666666
+    },
+    "idle": "idle",
+    "idleBounds": {
+      "min": [
+        -0.22494737803936005,
+        -0.3190346658229828,
+        -0.027735786512494087
+      ],
+      "max": [
+        0.1818147897720337,
+        -0.028262153267860413,
+        0.3079129755496979
+      ]
+    },
+    "unitMetres": 0.025,
+    "maxPoseMatrixError": 1.6391277313232422e-06,
+    "bytes": 395892,
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "name": "fixed_v_flashbang",
+    "sourceSha256": "68cac741d31feef9cc8f737c04c9c8ce76f1f36d77d4af3e949ddb869dfec9ce",
+    "triangles": 844,
+    "skippedDegenerateTriangles": 0,
+    "bones": 37,
+    "textures": 6,
+    "animations": {
+      "idle": 0.3333333333333333,
+      "pullpin": 0.975609756097561,
+      "throw": 0.7666666666666667,
+      "deploy": 0.6666666666666666
+    },
+    "idle": "idle",
+    "idleBounds": {
+      "min": [
+        -0.23236946761608124,
+        -0.3115149140357971,
+        -0.030274944379925728
+      ],
+      "max": [
+        0.17429503798484802,
+        -0.02074238657951355,
+        0.30537381768226624
+      ]
+    },
+    "unitMetres": 0.025,
+    "maxPoseMatrixError": 1.6391277313232422e-06,
+    "bytes": 408092,
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "name": "fixed_v_smokegrenade",
+    "sourceSha256": "f03d5f6a7ea3f21cd57e39a96e96b441e30c84061e5a0baabffd57ebfc1e0265",
+    "triangles": 844,
+    "skippedDegenerateTriangles": 0,
+    "bones": 37,
+    "textures": 6,
+    "animations": {
+      "idle": 0.3333333333333333,
+      "pullpin": 0.975609756097561,
+      "throw": 0.7666666666666667,
+      "deploy": 0.6666666666666666
+    },
+    "idle": "idle",
+    "idleBounds": {
+      "min": [
+        -0.22992800176143646,
+        -0.3190346658229828,
+        -0.02773580141365528
+      ],
+      "max": [
+        0.17673653364181519,
+        -0.028262153267860413,
+        0.3079129755496979
+      ]
+    },
+    "unitMetres": 0.025,
+    "maxPoseMatrixError": 1.6391277313232422e-06,
+    "bytes": 399268,
+    "blender": "5.2.1 LTS"
+  }
+]

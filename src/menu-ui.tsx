@@ -1,6 +1,6 @@
 import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
-import { BitmapText, scoreFontSize } from './bitmap-text'
+import { BitmapText, bitmapTextWidth, scoreFontSize } from './bitmap-text'
 import { MenuCursor, pointInRect } from './menu-state'
 
 // Shared ClientScheme.res styling for the 640x480 letterboxed VGUI menus (team menu, buy menu).
@@ -48,17 +48,39 @@ export interface MenuButtonProps {
   action?: () => void
 }
 
+// A row click can also reach the frame's backdrop handler (Unity fires both), so the backdrop close waits a
+// moment and yields to any button pressed in the meantime.
+const BACKDROP_GRACE = 0.12
+let lastButtonClick = 0
+let pendingBackdrop: { at: number; action: () => void } | undefined
+function buttonClicked(action?: () => void) {
+  lastButtonClick = Date.now() / 1000
+  action?.()
+}
+function backdropClicked(action?: () => void) {
+  if (action) pendingBackdrop = { at: Date.now() / 1000, action }
+}
+export function menuClickSystem() {
+  if (!pendingBackdrop) return
+  const now = Date.now() / 1000
+  if (now - pendingBackdrop.at < BACKDROP_GRACE) return
+  const { at, action } = pendingBackdrop
+  pendingBackdrop = undefined
+  if (Math.abs(lastButtonClick - at) > BACKDROP_GRACE) action()
+}
+
 export function isMenuButtonHovered(props: MenuButtonProps) {
-  return props.enabled && !!props.cursor && pointInRect(props.cursor.x, props.cursor.y, props)
+  return !!props.cursor && pointInRect(props.cursor.x, props.cursor.y, props)
 }
 
 // Hover is derived from the pointer position each render: onMouseEnter/Leave arrive too late in the explorer.
 export function MenuButton(props: MenuButtonProps) {
   const active = isMenuButtonHovered(props)
   const color = props.enabled ? amber : disabled
+  const detailWidth = props.detail === undefined ? 0 : bitmapTextWidth(props.detail, props.size)
   return (
     <UiEntity
-      onMouseDown={props.enabled ? props.action : undefined}
+      onMouseDown={props.enabled ? () => buttonClicked(props.action) : undefined}
       uiTransform={{
         positionType: 'absolute',
         position: { left: props.left, top: props.top },
@@ -72,7 +94,7 @@ export function MenuButton(props: MenuButtonProps) {
       <BitmapText
         value={props.label}
         left={6}
-        width={props.width - 12}
+        width={props.width - 12 - (detailWidth ? detailWidth + 6 : 0)}
         height={props.height}
         size={props.size}
         color={color}
@@ -80,8 +102,8 @@ export function MenuButton(props: MenuButtonProps) {
       {props.detail !== undefined && (
         <BitmapText
           value={props.detail}
-          left={6}
-          width={props.width - 12}
+          left={props.width - 6 - detailWidth}
+          width={detailWidth}
           height={props.height}
           size={props.size}
           color={color}
@@ -104,7 +126,7 @@ export function MenuFrame(props: {
   const { x, y, size, titleFont } = props.layout
   return (
     <UiEntity
-      onMouseDown={props.onBackdropClick}
+      onMouseDown={props.onBackdropClick && (() => backdropClicked(props.onBackdropClick))}
       uiTransform={{
         positionType: 'absolute',
         position: { left: 0, top: 0 },
@@ -114,7 +136,7 @@ export function MenuFrame(props: {
       }}
     >
       <UiEntity
-        onMouseDown={props.onBackdropClick}
+        onMouseDown={props.onBackdropClick && (() => backdropClicked(props.onBackdropClick))}
         uiTransform={{
           positionType: 'absolute',
           position: { left: x(20), top: y(20) },

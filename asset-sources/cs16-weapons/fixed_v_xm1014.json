@@ -1,0 +1,34 @@
+{
+  "name": "fixed_v_xm1014",
+  "sourceSha256": "f491f5d88a58513ec5e75b4f2845b7cd64b62517e27c6b625412b61f5d35350e",
+  "triangles": 1157,
+  "skippedDegenerateTriangles": 0,
+  "bones": 42,
+  "textures": 9,
+  "animations": {
+    "idle": 0.6666666666666666,
+    "shoot1": 0.5,
+    "shoot2": 0.5,
+    "insert": 0.3888888888888889,
+    "after_reload": 0.4,
+    "start_reload": 0.6666666666666666,
+    "draw": 1.0
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.17481639981269836,
+      -0.2411014884710312,
+      -0.113111212849617
+    ],
+    "max": [
+      0.03850172460079193,
+      -0.05324147641658783,
+      0.6493788361549377
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 2.115964889526367e-06,
+  "bytes": 561176,
+  "blender": "5.2.1 LTS"
+}

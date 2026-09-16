@@ -60,6 +60,8 @@ export interface MoveOptions {
   graph?: NavGraph
   hotspots?: readonly NavPoint[]
   holdScale?: number
+  canWalk?: (from: NavPoint, to: NavPoint) => boolean
+  intentOnly?: boolean
 }
 
 const ARRIVE = 0.75
@@ -101,24 +103,36 @@ export function createBotNavigation(
   }
 }
 
-function cutCorners(state: BotNavigation, graph: NavGraph) {
+function cutCorners(state: BotNavigation, graph: NavGraph, canWalk?: MoveOptions['canWalk']) {
   for (let i = Math.min(state.path.length - 1, LOOKAHEAD); i > 0; i--) {
     if (!straightWalkable(graph, state.position, navPoint(graph, state.path[i]))) continue
+    if (canWalk && !canWalk(state.position, navPoint(graph, state.path[i]))) continue
     state.path.splice(0, i)
     return
   }
 }
 
-function follow(state: BotNavigation, graph: NavGraph, distance: number) {
+function follow(
+  state: BotNavigation,
+  graph: NavGraph,
+  distance: number,
+  canWalk?: MoveOptions['canWalk'],
+  intentOnly = false
+) {
   let remaining = distance
   while (state.path.length && remaining > 0) {
     if (!state.smoothed) {
-      cutCorners(state, graph)
+      cutCorners(state, graph, canWalk)
       state.smoothed = true
     }
     const node = state.path[0],
       next = navPoint(graph, node),
       step = navDistance(state.position, next)
+    if (intentOnly && step <= remaining && step > 0.01) {
+      state.position = next
+      state.smoothed = false
+      return
+    }
     if (step <= remaining) {
       state.position = next
       state.node = node
@@ -143,7 +157,9 @@ function travel(
   graph: NavGraph,
   target: NavPoint,
   distance: number,
-  now: number
+  now: number,
+  canWalk?: MoveOptions['canWalk'],
+  intentOnly = false
 ): 'arrived' | 'moving' | 'blocked' {
   if (navDistance(state.position, target) < ARRIVE) {
     state.path = []
@@ -160,7 +176,7 @@ function travel(
       state.smoothed = false
     }
   }
-  follow(state, graph, distance)
+  follow(state, graph, distance, canWalk, intentOnly)
   if (state.path.length) return 'moving'
   return state.node === goal ? 'arrived' : 'blocked'
 }
@@ -221,7 +237,7 @@ export function moveBot(state: BotNavigation, options: MoveOptions) {
   if (objective) {
     if (before !== 'objective') retarget(state)
     state.mode = 'objective'
-    travel(state, graph, objective, budget, now)
+    travel(state, graph, objective, budget, now, options.canWalk, options.intentOnly)
   } else if (observed && options.reloading) {
     if (before !== 'retreat') retarget(state)
     state.mode = 'retreat'
@@ -233,7 +249,8 @@ export function moveBot(state: BotNavigation, options: MoveOptions) {
       state.strafe = { direction: random() < 0.5 ? 1 : -1, until: now + 0.3 + random() * 0.4, moving: false }
     }
     state.mode = 'engage'
-    if (navDistance(state.position, observed) > ENGAGE_RANGE) travel(state, graph, observed, budget, now)
+    if (navDistance(state.position, observed) > ENGAGE_RANGE)
+      travel(state, graph, observed, budget, now, options.canWalk, options.intentOnly)
     else if (strafeStep(state.strafe, now, random).moving) {
       let point = sidestepPoint(graph, state.position, observed, state.strafe.direction)
       if (!point) {
@@ -252,7 +269,7 @@ export function moveBot(state: BotNavigation, options: MoveOptions) {
     } else {
       if (before !== 'hunt') retarget(state)
       state.mode = 'hunt'
-      if (travel(state, graph, state.lastSeen, budget, now) !== 'moving') {
+      if (travel(state, graph, state.lastSeen, budget, now, options.canWalk, options.intentOnly) !== 'moving') {
         state.mode = 'search'
         beginHold(state, now, 1.5 + random() * 1.5)
       }
@@ -274,7 +291,9 @@ export function moveBot(state: BotNavigation, options: MoveOptions) {
     }
     if (state.destination) {
       const pace = state.pace === 'walk' ? WALK_RATIO : 1
-      if (travel(state, graph, state.destination, budget * pace, now) !== 'moving') {
+      if (
+        travel(state, graph, state.destination, budget * pace, now, options.canWalk, options.intentOnly) !== 'moving'
+      ) {
         state.destination = undefined
         beginHold(state, now, holdDuration(random, options.holdScale ?? 1))
         state.mode = 'hold'

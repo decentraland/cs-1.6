@@ -1,0 +1,137 @@
+[
+  {
+    "id": "hegrenade",
+    "held": {
+      "id": "hegrenade",
+      "sourceSha256": "494b329493f545298cdaa434edf70f32bafad964daf4d7a5c6383f8ef3f5d9cb",
+      "triangles": 52,
+      "bytes": 20812,
+      "sourceTriangles": 52,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Bip01 R Hand",
+      "blenderBounds": {
+        "min": [
+          -0.04580284282565117,
+          -0.13547782599925995,
+          -0.07634198665618896
+        ],
+        "max": [
+          0.07819749414920807,
+          -1.0371208247761388e-07,
+          0.10725933313369751
+        ]
+      }
+    },
+    "ground": {
+      "id": "hegrenade",
+      "sourceSha256": "59bca29c4207ebfaab9f65e4b61dc26bfffa7cc2eb86b761bb11ca7b025e4458",
+      "triangles": 40,
+      "bytes": 19588,
+      "sourceTriangles": 40,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.16166938841342926,
+          -0.280601441860199,
+          0.0015493258833885193
+        ],
+        "max": [
+          0.27908122539520264,
+          -0.04685019329190254,
+          0.20379944145679474
+        ]
+      }
+    }
+  },
+  {
+    "id": "flashbang",
+    "held": {
+      "id": "flashbang",
+      "sourceSha256": "b754a3577589525bea75e033a8a202e326bb0be3b7e9dfe35fb73b6f27247248",
+      "triangles": 52,
+      "bytes": 21840,
+      "sourceTriangles": 52,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Bip01 R Hand",
+      "blenderBounds": {
+        "min": [
+          -0.04580284282565117,
+          -0.13547782599925995,
+          -0.07634198665618896
+        ],
+        "max": [
+          0.07819749414920807,
+          -1.0371208247761388e-07,
+          0.10725933313369751
+        ]
+      }
+    },
+    "ground": {
+      "id": "flashbang",
+      "sourceSha256": "e17e5165696712a0a100de34ee6eb23016120abbd37b8a4b47ed445a5c1b088a",
+      "triangles": 40,
+      "bytes": 20616,
+      "sourceTriangles": 40,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.16166938841342926,
+          -0.280601441860199,
+          0.0015493258833885193
+        ],
+        "max": [
+          0.27908122539520264,
+          -0.04685019329190254,
+          0.20379944145679474
+        ]
+      }
+    }
+  },
+  {
+    "id": "smokegrenade",
+    "held": {
+      "id": "smokegrenade",
+      "sourceSha256": "61e9f3a0eb8b0a59f7f284f3e800538e5d1905ffa78b2048c3900969038e8a8c",
+      "triangles": 52,
+      "bytes": 21856,
+      "sourceTriangles": 52,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Bip01 R Hand",
+      "blenderBounds": {
+        "min": [
+          -0.04580284282565117,
+          -0.13547782599925995,
+          -0.07634198665618896
+        ],
+        "max": [
+          0.07819749414920807,
+          -1.0371208247761388e-07,
+          0.10725933313369751
+        ]
+      }
+    },
+    "ground": {
+      "id": "smokegrenade",
+      "sourceSha256": "ed5c5530f4ee4b0d59aa560565591fe44a7f1fc127fe7f745768ae35be4da2ed",
+      "triangles": 40,
+      "bytes": 19464,
+      "sourceTriangles": 40,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.16166938841342926,
+          -0.280601441860199,
+          0.0015493258833885193
+        ],
+        "max": [
+          0.27908122539520264,
+          -0.04685019329190254,
+          0.20379944145679474
+        ]
+      }
+    }
+  }
+]

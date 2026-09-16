@@ -1,7 +1,5 @@
 import {
   Animator,
-  MeshRenderer,
-  Material,
   VisibilityComponent,
   CameraModeArea,
   CameraType,
@@ -11,195 +9,218 @@ import {
   Transform
 } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math'
-import { hasBombSelected } from './bomb-client'
-import { profileByName } from './weapon-profiles'
+import { getC4Animation, hasBombSelected } from './bomb-client'
+import { profileByName, WeaponId } from './weapon-profiles'
+import { C4_MODEL, C4_ANIMATION_SOUNDS } from './c4-model'
+import { WEAPON_MODELS, WeaponModel } from './weapon-models'
+import { WEAPON_ANIMATION_SOUNDS } from './weapon-animation-sounds'
+import { playModelSound } from './weapon-sounds'
 import { Weapon, Dead } from './components'
-import { getPainPunch, getViewPunch } from './fps-camera'
+import { getPainPunch, getViewPunch, getCameraZoom } from './fps-camera'
 import type { KnifeAttack } from './knife-rules'
 
-let model: Entity | undefined
-let reloading = false
-let pistol: Entity | undefined
-const pistolParts: Entity[] = []
-let shotAt = 0
+interface View {
+  entity: Entity
+  model: WeaponModel
+  visible: boolean
+  lastClip: string
+  idleAt: number
+}
+type ViewId = WeaponId | 'c4'
+const views = new Map<ViewId, View>()
+let activeId: ViewId | undefined
 let revision = -1
-let c4: Entity | undefined
-let knife: Entity | undefined
-const knifeParts: Entity[] = []
-let knifeAttackAt = 0
-let knifeAttack: KnifeAttack = 'swing'
-const shown = new Map<Entity, boolean>()
-const poses = new Map<Entity, number[]>()
-
-// The engine camera cannot be punched, so recoil and pain punch tilt the viewmodel at half strength.
-// The camera already kicks; the viewmodel adds a subtle extra tilt.
-const PUNCH_SCALE = 0.25
-
-function setShown(entity: Entity, visible: boolean) {
-  if (shown.get(entity) === visible) return
-  shown.set(entity, visible)
-  VisibilityComponent.createOrReplace(entity, { visible })
-}
-
-function setPose(entity: Entity, position: Vector3, euler: Vector3) {
-  const next = [position.x, position.y, position.z, euler.x, euler.y, euler.z]
-  const last = poses.get(entity)
-  if (last && last.every((value, index) => Math.abs(value - next[index]) < 1e-4)) return
-  poses.set(entity, next)
-  const transform = Transform.getMutable(entity)
-  transform.position = position
-  transform.rotation = Quaternion.fromEulerDegrees(euler.x, euler.y, euler.z)
-}
+let mode = 0
+let reloadStep = -1
+let reloading = false
+let c4Serial = -1
+let initialized = false
+let lastKnife = 0
+let sounds: { at: number; sound: string }[] = []
+let interruptedReload = -1
+let predictedGrenadeMode = -1
 
 export function attachWeaponModel() {
-  if (model !== undefined && GltfContainer.has(model)) return
-
+  if (initialized) return
+  initialized = true
   const cameraArea = engine.addEntity()
-  Transform.create(cameraArea, {
-    parent: engine.PlayerEntity,
-    position: Vector3.create(0, 1, 0)
-  })
-  CameraModeArea.create(cameraArea, {
-    area: Vector3.create(4, 4, 4),
-    mode: CameraType.CT_FIRST_PERSON
-  })
-
-  pistol = engine.addEntity()
-  Transform.create(pistol, { parent: engine.CameraEntity, position: { x: 0.16, y: -0.2, z: 0.4 } })
-  for (const part of [
-    { p: { x: 0, y: 0, z: 0.04 }, s: { x: 0.05, y: 0.055, z: 0.23 } },
-    { p: { x: 0, y: -0.065, z: -0.035 }, s: { x: 0.045, y: 0.12, z: 0.07 } }
-  ]) {
-    const entity = engine.addEntity()
-    Transform.create(entity, { parent: pistol, position: part.p, scale: part.s })
-    MeshRenderer.setBox(entity)
-    Material.setPbrMaterial(entity, { albedoColor: { r: 0.09, g: 0.1, b: 0.11, a: 1 }, roughness: 0.75 })
-    VisibilityComponent.create(entity, { visible: false })
-    shown.set(entity, false)
-    pistolParts.push(entity)
-  }
-  c4 = engine.addEntity()
-  Transform.create(c4, {
-    parent: engine.CameraEntity,
-    position: { x: 0.13, y: -0.2, z: 0.4 },
-    scale: { x: 0.22, y: 0.12, z: 0.25 }
-  })
-  MeshRenderer.setBox(c4)
-  Material.setPbrMaterial(c4, { albedoColor: { r: 0.2, g: 0.24, b: 0.12, a: 1 }, roughness: 1 })
-  VisibilityComponent.create(c4, { visible: false })
-  shown.set(c4, false)
-  knife = engine.addEntity()
-  Transform.create(knife, {
-    parent: engine.CameraEntity,
-    position: { x: 0.18, y: -0.22, z: 0.38 },
-    rotation: Quaternion.fromEulerDegrees(-20, 0, -15)
-  })
-  for (const part of [
-    { p: { x: 0, y: 0, z: 0.12 }, s: { x: 0.025, y: 0.018, z: 0.22 }, color: { r: 0.55, g: 0.58, b: 0.57, a: 1 } },
-    { p: { x: 0, y: -0.015, z: -0.1 }, s: { x: 0.04, y: 0.04, z: 0.12 }, color: { r: 0.08, g: 0.07, b: 0.055, a: 1 } },
-    { p: { x: 0, y: 0, z: 0.015 }, s: { x: 0.08, y: 0.025, z: 0.025 }, color: { r: 0.16, g: 0.14, b: 0.1, a: 1 } }
-  ]) {
-    const entity = engine.addEntity()
-    Transform.create(entity, { parent: knife, position: part.p, scale: part.s })
-    MeshRenderer.setBox(entity)
-    Material.setPbrMaterial(entity, {
-      albedoColor: part.color,
-      metallic: part.color.r > 0.5 ? 0.7 : 0,
-      roughness: 0.65
-    })
-    VisibilityComponent.create(entity, { visible: false })
-    shown.set(entity, false)
-    knifeParts.push(entity)
-  }
-  model = engine.addEntity()
-  Transform.create(model, {
-    parent: engine.CameraEntity,
-    position: Vector3.create(0.16, -0.2, 0.35)
-  })
-  GltfContainer.create(model, {
-    src: 'assets/scene/weapons/ak47.glb',
-    visibleMeshesCollisionMask: 0,
-    invisibleMeshesCollisionMask: 0
-  })
-  Animator.create(model, {
-    states: [
-      { clip: 'idle', playing: true, loop: true },
-      { clip: 'draw', playing: false, loop: false },
-      { clip: 'fire', playing: false, loop: false },
-      { clip: 'reload', playing: false, loop: false }
-    ]
-  })
+  Transform.create(cameraArea, { parent: engine.PlayerEntity, position: Vector3.create(0, 1, 0) })
+  CameraModeArea.create(cameraArea, { area: Vector3.create(4, 4, 4), mode: CameraType.CT_FIRST_PERSON })
 }
 
-function play(clip: string) {
-  if (model === undefined) return
-  for (const animation of Animator.getMutable(model).states) {
-    animation.playing = animation.clip === clip
-    animation.shouldReset = animation.clip === clip
+function viewFor(id: ViewId): View {
+  const cached = views.get(id)
+  if (cached) {
+    views.delete(id)
+    views.set(id, cached)
+    return cached
   }
-}
-
-export function predictWeaponShot() {
-  shotAt = Date.now() / 1000
-  if (!reloading) play('fire')
-}
-
-export function predictKnifeAttack(attack: KnifeAttack) {
-  knifeAttack = attack
-  knifeAttackAt = Date.now() / 1000
-}
-
-export function updateWeaponView(player: Entity) {
-  const weapon = Weapon.getOrNull(player)
-  if (!weapon || model === undefined) return
-  const profile = profileByName(weapon.name)
-  const secondary = profile.kind === 'gun' && profile.slot === 'secondary'
-  const alive = !Dead.has(player)
-  const visible = alive && !hasBombSelected()
-  const now = Date.now() / 1000
-  const punch = getViewPunch(now)
-  const pain = getPainPunch(now)
-  const tilt = { x: -(punch.pitch + pain.pitch) * PUNCH_SCALE, y: punch.yaw * PUNCH_SCALE, z: pain.roll * PUNCH_SCALE }
-  const kick = Math.exp(-(now - shotAt) * 24)
-  const primaryVisible = visible && profile.kind === 'gun' && !secondary
-  setShown(model, primaryVisible)
-  if (primaryVisible) setPose(model, { x: 0.16, y: -0.2, z: 0.35 - 0.03 * kick }, tilt)
-  if (pistol !== undefined) {
-    const pistolVisible = visible && secondary
-    setShown(pistol, pistolVisible)
-    for (const part of pistolParts) setShown(part, pistolVisible)
-    if (pistolVisible) setPose(pistol, { x: 0.16, y: -0.2, z: 0.4 - 0.04 * kick }, tilt)
-  }
-  if (knife !== undefined) {
-    const knifeVisible = visible && profile.kind === 'knife'
-    setShown(knife, knifeVisible)
-    for (const part of knifeParts) setShown(part, knifeVisible)
-    if (knifeVisible) {
-      const elapsed = now - knifeAttackAt
-      const motion = elapsed < 0.35 ? Math.sin(Math.min(1, elapsed / 0.35) * Math.PI) : 0
-      setPose(
-        knife,
-        {
-          x: 0.18,
-          y: -0.22 + (knifeAttack === 'stab' ? 0.03 : 0) * motion,
-          z: 0.38 + (knifeAttack === 'stab' ? 0.18 : 0) * motion
-        },
-        {
-          x: -20 - (knifeAttack === 'stab' ? 35 : 0) * motion + tilt.x,
-          y: (knifeAttack === 'swing' ? -75 : 0) * motion + tilt.y,
-          z: -15 - (knifeAttack === 'swing' ? 45 : 0) * motion + tilt.z
-        }
-      )
+  const model = id === 'c4' ? C4_MODEL : WEAPON_MODELS[id]
+  const entity = engine.addEntity()
+  Transform.create(entity, { parent: engine.CameraEntity })
+  GltfContainer.create(entity, { src: model.src, visibleMeshesCollisionMask: 0, invisibleMeshesCollisionMask: 0 })
+  Animator.create(entity, {
+    states: Object.keys(model.clips)
+      .flatMap((clip) => (clip.startsWith('idle') ? [clip] : [clip, clip + '__repeat']))
+      .map((clip) => ({
+        clip: model.prefix + clip,
+        playing: clip === model.idle,
+        loop: clip.startsWith('idle'),
+        speed: 1
+      }))
+  })
+  VisibilityComponent.create(entity, { visible: false })
+  const view: View = { entity, model, visible: false, lastClip: model.idle, idleAt: 0 }
+  views.set(id, view)
+  if (views.size > 3) {
+    const oldest = [...views.keys()].find((key) => key !== id && key !== activeId)
+    if (oldest) {
+      engine.removeEntity(views.get(oldest)!.entity)
+      views.delete(oldest)
     }
   }
-  if (revision !== weapon.revision) {
-    revision = weapon.revision
-    reloading = false
-    play('draw')
+  return view
+}
+function idleClip(view: View) {
+  return mode ? (view.model.clips.idle !== undefined ? 'idle' : view.model.idle) : view.model.idle
+}
+function play(clip: string, duration?: number) {
+  if (!activeId) return
+  const view = viewFor(activeId)
+  const seconds = view.model.clips[clip]
+  if (seconds === undefined) return
+  const playingClip = view.lastClip === clip ? clip + '__repeat' : clip
+  sounds = ((activeId === 'c4' ? C4_ANIMATION_SOUNDS : WEAPON_ANIMATION_SOUNDS[activeId])?.[clip] ?? []).map(
+    (event) => ({
+      sound: event.sound,
+      at: Date.now() / 1000 + event.at * (duration ? duration / seconds : 1)
+    })
+  )
+  for (const state of Animator.getMutable(view.entity).states) {
+    state.playing = state.clip === view.model.prefix + playingClip
+    state.shouldReset = state.playing
+    state.speed = state.playing && duration ? seconds / duration : 1
   }
-  if (c4 !== undefined) setShown(c4, alive && hasBombSelected())
-  if (weapon.isReloading !== reloading) {
-    reloading = weapon.isReloading
-    play(reloading ? 'reload' : 'idle')
+  view.lastClip = playingClip
+  view.idleAt = clip.startsWith('idle') ? 0 : Date.now() / 1000 + (duration ?? seconds)
+}
+function chooseFire(view: View, remaining: number) {
+  const suffix = !mode && ['m4a1', 'usp'].includes(activeId ?? '') ? '_unsil' : ''
+  if (activeId === 'elite') {
+    const side = remaining % 2 === 0 ? 'left' : 'right'
+    return remaining < 2 ? `shoot_${side}last` : `shoot_${side}${1 + Math.floor(Math.random() * 5)}`
+  }
+  if (remaining === 0) {
+    const empty = ['shootlast' + suffix, 'shoot_empty', 'shootempty'].find(
+      (clip) => view.model.clips[clip] !== undefined
+    )
+    if (empty) return empty
+  }
+  if (activeId === 'glock18' && mode) return 'shoot3'
+  const clips = Object.keys(view.model.clips).filter((clip) => {
+    if (activeId === 'glock18') return clip === 'shoot' || clip === 'shoot2'
+    return new RegExp(`^shoot_?[0-9]*${suffix}$`).test(clip)
+  })
+  const candidates = clips.filter((clip) => clip !== view.lastClip)
+  return (candidates.length ? candidates : clips)[Math.floor(Math.random() * (candidates.length || clips.length))]
+}
+export function predictWeaponShot(remaining = 1, reloadStart = -1) {
+  if (!activeId) return
+  if (reloading) {
+    interruptedReload = reloadStart
+    reloading = false
+  }
+  const clip = chooseFire(viewFor(activeId), remaining)
+  if (clip) play(clip)
+}
+export function predictKnifeAttack(attack: KnifeAttack) {
+  if (activeId !== 'knife') return
+  lastKnife = 1 - lastKnife
+  play(attack === 'stab' ? 'stab_miss' : `midslash${lastKnife + 1}`)
+}
+export function predictGrenadeAnimation(next: number) {
+  if (!activeId || !['hegrenade', 'flashbang', 'smokegrenade'].includes(activeId)) return
+  predictedGrenadeMode = next
+  play(next === 1 ? 'pullpin' : 'throw')
+}
+export function updateWeaponView(player: Entity) {
+  const weapon = Weapon.getOrNull(player)
+  if (!weapon) return
+  const profile = profileByName(weapon.name)
+  const alive = !Dead.has(player)
+  const selected = alive ? (hasBombSelected() ? 'c4' : profile.id) : undefined
+  const changed = selected !== activeId || weapon.revision !== revision
+  activeId = selected
+  if (selected) viewFor(selected)
+  for (const [id, view] of views) {
+    const visible = id === selected && getCameraZoom() === 90
+    if (view.visible !== visible) {
+      view.visible = visible
+      VisibilityComponent.getMutable(view.entity).visible = visible
+    }
+  }
+  if (!selected) {
+    sounds = []
+    return
+  }
+  const view = viewFor(selected)
+  const now = Date.now() / 1000
+  const punch = getViewPunch(now),
+    pain = getPainPunch(now)
+  Transform.getMutable(view.entity).rotation = Quaternion.fromEulerDegrees(
+    -(punch.pitch + pain.pitch) * 0.25,
+    punch.yaw * 0.25,
+    pain.roll * 0.25
+  )
+  if (selected === 'c4') {
+    const animation = getC4Animation()
+    if (c4Serial !== animation.serial) {
+      c4Serial = animation.serial
+      play(animation.clip)
+    }
+    while (sounds.length && sounds[0].at <= now) playModelSound(sounds.shift()!.sound)
+    return
+  }
+  if (changed) {
+    revision = weapon.revision
+    mode = weapon.mode
+    reloading = false
+    interruptedReload = -1
+    reloadStep = -1
+    predictedGrenadeMode = -1
+    play(
+      profile.kind === 'grenade' ? 'deploy' : !mode && view.model.clips.draw_unsil !== undefined ? 'draw_unsil' : 'draw'
+    )
+  } else if (mode !== weapon.mode) {
+    mode = weapon.mode
+    if (profile.kind === 'grenade') {
+      if (predictedGrenadeMode < mode || mode === 0) play(mode === 1 ? 'pullpin' : mode === 2 ? 'throw' : 'deploy')
+      if (mode === 0 || mode >= predictedGrenadeMode) predictedGrenadeMode = -1
+    }
+    if (profile.kind === 'gun' && profile.alternate === 'silencer')
+      play(mode ? 'add_silencer' : 'detach_silencer', Math.max(0.01, weapon.readyAt - now))
+  }
+  const reloadActive = weapon.isReloading && weapon.reloadStartTime !== interruptedReload
+  if (reloadActive !== reloading || (reloading && weapon.reloadStep !== reloadStep)) {
+    reloading = reloadActive
+    reloadStep = weapon.reloadStep
+    if (profile.kind === 'gun' && profile.shellReload)
+      play(
+        !reloading ? 'after_reload' : weapon.reloadStage === 1 ? 'start_reload' : 'insert',
+        reloading ? Math.max(0.01, weapon.reloadStepAt - now) : undefined
+      )
+    else if (reloading)
+      play(!mode && view.model.clips.reload_unsil !== undefined ? 'reload_unsil' : 'reload', weapon.reloadTime)
+    else play(idleClip(view))
+  }
+  while (sounds.length && sounds[0].at <= now) playModelSound(sounds.shift()!.sound)
+  if (
+    !reloading &&
+    !(profile.kind === 'grenade' && (mode > 0 || predictedGrenadeMode > 0)) &&
+    view.idleAt > 0 &&
+    now >= view.idleAt
+  ) {
+    const lastEmpty = profile.kind === 'gun' && profile.slot === 'secondary' && weapon.ammoClip === 0
+    if (!lastEmpty) play(idleClip(view))
   }
 }

@@ -1,0 +1,32 @@
+{
+  "name": "fixed_v_ak47",
+  "sourceSha256": "3d0fb45adeb43b78208cccebf13c7ed5041c78e3cb2c9b6a061dbe4b639c1cf7",
+  "triangles": 1050,
+  "bones": 42,
+  "textures": 11,
+  "animations": {
+    "idle1": 0.5333333333333333,
+    "reload": 2.4324324324324325,
+    "draw": 1.0,
+    "shoot1": 0.8,
+    "shoot2": 0.8,
+    "shoot3": 0.8
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.20235630869865417,
+      -0.2834719717502594,
+      -0.09064971655607224
+    ],
+    "max": [
+      0.05738566815853119,
+      -0.06427337974309921,
+      0.6891384720802307
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 2.16066837310791e-06,
+  "bytes": 604612,
+  "blender": "5.2.1 LTS"
+}

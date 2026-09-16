@@ -1,0 +1,21 @@
+{
+  "id": "flashbang",
+  "sourceSha256": "b754a3577589525bea75e033a8a202e326bb0be3b7e9dfe35fb73b6f27247248",
+  "triangles": 52,
+  "bytes": 21840,
+  "sourceTriangles": 52,
+  "skippedDegenerateTriangles": 0,
+  "anchor": "Bip01 R Hand",
+  "blenderBounds": {
+    "min": [
+      -0.04580284282565117,
+      -0.13547782599925995,
+      -0.07634198665618896
+    ],
+    "max": [
+      0.07819749414920807,
+      -1.0371208247761388e-07,
+      0.10725933313369751
+    ]
+  }
+}

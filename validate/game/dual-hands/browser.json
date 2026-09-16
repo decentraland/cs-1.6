@@ -1,0 +1,938 @@
+{
+  "date": "2026-09-15T10:08:35.424Z",
+  "muted": true,
+  "states": {
+    "1": {
+      "review": {
+        "mode": 1,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 21,
+          "y": 10.4253,
+          "z": 60
+        }
+      },
+      "parts": [
+        {
+          "id": "1134",
+          "src": "assets/scene/weapons/elite-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.001"
+            ],
+            "meshNames": [
+              "elite held.001"
+            ],
+            "nodePaths": [
+              "elite held.001",
+              "elite held.001/elite held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "1135",
+          "src": "assets/scene/weapons/elite-left-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.002"
+            ],
+            "meshNames": [
+              "elite-left held"
+            ],
+            "nodePaths": [
+              "elite-left held/elite-left held",
+              "elite-left held"
+            ],
+            "skinNames": []
+          },
+          "root": 66176,
+          "attach": {
+            "anchorPointId": 2,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "66175",
+          "src": "assets/scene/weapons/c4-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_c4 c4base.bmp",
+              "p_c4 c4timer.bmp",
+              "p_c4 c4wires.bmp"
+            ],
+            "meshNames": [
+              "c4 held"
+            ],
+            "nodePaths": [
+              "c4 held/c4 held/Primitive2",
+              "c4 held/c4 held/Primitive1",
+              "c4 held/c4 held/Primitive0",
+              "c4 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131628",
+          "src": "assets/scene/weapons/ak47-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_ak47 ak47_skin.BMP"
+            ],
+            "meshNames": [
+              "ak47 held"
+            ],
+            "nodePaths": [
+              "ak47 held.001",
+              "ak47 held.001/ak47 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        }
+      ]
+    },
+    "2": {
+      "review": {
+        "mode": 2,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "elite"
+        },
+        "position": {
+          "x": 21.159563834,
+          "y": 10.4253,
+          "z": 60
+        }
+      },
+      "parts": [
+        {
+          "id": "1134",
+          "src": "assets/scene/weapons/elite-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.001"
+            ],
+            "meshNames": [
+              "elite held.001"
+            ],
+            "nodePaths": [
+              "elite held.001",
+              "elite held.001/elite held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "1135",
+          "src": "assets/scene/weapons/elite-left-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.002"
+            ],
+            "meshNames": [
+              "elite-left held"
+            ],
+            "nodePaths": [
+              "elite-left held/elite-left held",
+              "elite-left held"
+            ],
+            "skinNames": []
+          },
+          "root": 66176,
+          "attach": {
+            "anchorPointId": 2,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "66175",
+          "src": "assets/scene/weapons/c4-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_c4 c4base.bmp",
+              "p_c4 c4timer.bmp",
+              "p_c4 c4wires.bmp"
+            ],
+            "meshNames": [
+              "c4 held"
+            ],
+            "nodePaths": [
+              "c4 held/c4 held/Primitive2",
+              "c4 held/c4 held/Primitive1",
+              "c4 held/c4 held/Primitive0",
+              "c4 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131628",
+          "src": "assets/scene/weapons/ak47-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_ak47 ak47_skin.BMP"
+            ],
+            "meshNames": [
+              "ak47 held"
+            ],
+            "nodePaths": [
+              "ak47 held.001",
+              "ak47 held.001/ak47 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        }
+      ]
+    },
+    "3": {
+      "review": {
+        "mode": 3,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "knife"
+        },
+        "position": {
+          "x": 23.133499,
+          "y": 10.4253,
+          "z": 60
+        }
+      },
+      "parts": [
+        {
+          "id": "1134",
+          "src": "assets/scene/weapons/elite-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.001"
+            ],
+            "meshNames": [
+              "elite held.001"
+            ],
+            "nodePaths": [
+              "elite held.001",
+              "elite held.001/elite held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "1135",
+          "src": "assets/scene/weapons/elite-left-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.002"
+            ],
+            "meshNames": [
+              "elite-left held"
+            ],
+            "nodePaths": [
+              "elite-left held/elite-left held",
+              "elite-left held"
+            ],
+            "skinNames": []
+          },
+          "root": 66176,
+          "attach": {
+            "anchorPointId": 2,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "66175",
+          "src": "assets/scene/weapons/c4-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_c4 c4base.bmp",
+              "p_c4 c4timer.bmp",
+              "p_c4 c4wires.bmp"
+            ],
+            "meshNames": [
+              "c4 held"
+            ],
+            "nodePaths": [
+              "c4 held/c4 held/Primitive2",
+              "c4 held/c4 held/Primitive1",
+              "c4 held/c4 held/Primitive0",
+              "c4 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131628",
+          "src": "assets/scene/weapons/ak47-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_ak47 ak47_skin.BMP"
+            ],
+            "meshNames": [
+              "ak47 held"
+            ],
+            "nodePaths": [
+              "ak47 held.001",
+              "ak47 held.001/ak47 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131629",
+          "src": "assets/scene/weapons/knife-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_knife pknifeskin.bmp"
+            ],
+            "meshNames": [
+              "knife held"
+            ],
+            "nodePaths": [
+              "knife held.001/knife held",
+              "knife held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        }
+      ]
+    },
+    "4": {
+      "review": {
+        "mode": 4,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "elite"
+        },
+        "position": {
+          "x": 23.133499,
+          "y": 10.4253,
+          "z": 60
+        }
+      },
+      "parts": [
+        {
+          "id": "1134",
+          "src": "assets/scene/weapons/elite-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.001"
+            ],
+            "meshNames": [
+              "elite held.001"
+            ],
+            "nodePaths": [
+              "elite held.001",
+              "elite held.001/elite held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "1135",
+          "src": "assets/scene/weapons/elite-left-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.002"
+            ],
+            "meshNames": [
+              "elite-left held"
+            ],
+            "nodePaths": [
+              "elite-left held/elite-left held",
+              "elite-left held"
+            ],
+            "skinNames": []
+          },
+          "root": 66176,
+          "attach": {
+            "anchorPointId": 2,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "66175",
+          "src": "assets/scene/weapons/c4-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_c4 c4base.bmp",
+              "p_c4 c4timer.bmp",
+              "p_c4 c4wires.bmp"
+            ],
+            "meshNames": [
+              "c4 held"
+            ],
+            "nodePaths": [
+              "c4 held/c4 held/Primitive2",
+              "c4 held/c4 held/Primitive1",
+              "c4 held/c4 held/Primitive0",
+              "c4 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131628",
+          "src": "assets/scene/weapons/ak47-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_ak47 ak47_skin.BMP"
+            ],
+            "meshNames": [
+              "ak47 held"
+            ],
+            "nodePaths": [
+              "ak47 held.001",
+              "ak47 held.001/ak47 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131629",
+          "src": "assets/scene/weapons/knife-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_knife pknifeskin.bmp"
+            ],
+            "meshNames": [
+              "knife held"
+            ],
+            "nodePaths": [
+              "knife held.001/knife held",
+              "knife held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        }
+      ]
+    },
+    "5": {
+      "review": {
+        "mode": 5,
+        "bot": null
+      },
+      "parts": []
+    },
+    "initial": {
+      "review": {
+        "mode": 0,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "elite"
+        },
+        "position": {
+          "x": 21,
+          "y": 10.4253,
+          "z": 60
+        }
+      },
+      "parts": [
+        {
+          "id": "1134",
+          "src": "assets/scene/weapons/elite-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.001"
+            ],
+            "meshNames": [
+              "elite held.001"
+            ],
+            "nodePaths": [
+              "elite held.001",
+              "elite held.001/elite held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "1135",
+          "src": "assets/scene/weapons/elite-left-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.002"
+            ],
+            "meshNames": [
+              "elite-left held"
+            ],
+            "nodePaths": [
+              "elite-left held/elite-left held",
+              "elite-left held"
+            ],
+            "skinNames": []
+          },
+          "root": 66176,
+          "attach": {
+            "anchorPointId": 2,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "66175",
+          "src": "assets/scene/weapons/c4-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_c4 c4base.bmp",
+              "p_c4 c4timer.bmp",
+              "p_c4 c4wires.bmp"
+            ],
+            "meshNames": [
+              "c4 held"
+            ],
+            "nodePaths": [
+              "c4 held/c4 held/Primitive2",
+              "c4 held/c4 held/Primitive1",
+              "c4 held/c4 held/Primitive0",
+              "c4 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        }
+      ]
+    },
+    "walking": {
+      "review": {
+        "mode": 2,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "elite"
+        },
+        "position": {
+          "x": 22.26289225,
+          "y": 10.4253,
+          "z": 60
+        }
+      },
+      "parts": [
+        {
+          "id": "1134",
+          "src": "assets/scene/weapons/elite-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.001"
+            ],
+            "meshNames": [
+              "elite held.001"
+            ],
+            "nodePaths": [
+              "elite held.001",
+              "elite held.001/elite held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "1135",
+          "src": "assets/scene/weapons/elite-left-world.glb",
+          "visible": true,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.002"
+            ],
+            "meshNames": [
+              "elite-left held"
+            ],
+            "nodePaths": [
+              "elite-left held/elite-left held",
+              "elite-left held"
+            ],
+            "skinNames": []
+          },
+          "root": 66176,
+          "attach": {
+            "anchorPointId": 2,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "66175",
+          "src": "assets/scene/weapons/c4-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_c4 c4base.bmp",
+              "p_c4 c4timer.bmp",
+              "p_c4 c4wires.bmp"
+            ],
+            "meshNames": [
+              "c4 held"
+            ],
+            "nodePaths": [
+              "c4 held/c4 held/Primitive2",
+              "c4 held/c4 held/Primitive1",
+              "c4 held/c4 held/Primitive0",
+              "c4 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131628",
+          "src": "assets/scene/weapons/ak47-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_ak47 ak47_skin.BMP"
+            ],
+            "meshNames": [
+              "ak47 held"
+            ],
+            "nodePaths": [
+              "ak47 held.001",
+              "ak47 held.001/ak47 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        }
+      ]
+    },
+    "dead": {
+      "review": {
+        "mode": 4,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 0,
+          "name": "Guerilla",
+          "alive": false,
+          "weapon": "elite"
+        },
+        "position": {
+          "x": 23.133499,
+          "y": 10.4253,
+          "z": 60
+        }
+      },
+      "parts": [
+        {
+          "id": "1134",
+          "src": "assets/scene/weapons/elite-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.001"
+            ],
+            "meshNames": [
+              "elite held.001"
+            ],
+            "nodePaths": [
+              "elite held.001",
+              "elite held.001/elite held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "1135",
+          "src": "assets/scene/weapons/elite-left-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_elite w_elite.bmp.002"
+            ],
+            "meshNames": [
+              "elite-left held"
+            ],
+            "nodePaths": [
+              "elite-left held/elite-left held",
+              "elite-left held"
+            ],
+            "skinNames": []
+          },
+          "root": 66176,
+          "attach": {
+            "anchorPointId": 2,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "66175",
+          "src": "assets/scene/weapons/c4-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_c4 c4base.bmp",
+              "p_c4 c4timer.bmp",
+              "p_c4 c4wires.bmp"
+            ],
+            "meshNames": [
+              "c4 held"
+            ],
+            "nodePaths": [
+              "c4 held/c4 held/Primitive2",
+              "c4 held/c4 held/Primitive1",
+              "c4 held/c4 held/Primitive0",
+              "c4 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131628",
+          "src": "assets/scene/weapons/ak47-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_ak47 ak47_skin.BMP"
+            ],
+            "meshNames": [
+              "ak47 held"
+            ],
+            "nodePaths": [
+              "ak47 held.001",
+              "ak47 held.001/ak47 held"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        },
+        {
+          "id": "131629",
+          "src": "assets/scene/weapons/knife-world.glb",
+          "visible": false,
+          "loading": {
+            "animationNames": [],
+            "currentState": 4,
+            "materialNames": [
+              "p_knife pknifeskin.bmp"
+            ],
+            "meshNames": [
+              "knife held"
+            ],
+            "nodePaths": [
+              "knife held.001/knife held",
+              "knife held.001"
+            ],
+            "skinNames": []
+          },
+          "root": 66174,
+          "attach": {
+            "anchorPointId": 3,
+            "avatarId": "bot:0"
+          }
+        }
+      ]
+    },
+    "removed": {
+      "review": {
+        "mode": 5,
+        "bot": null
+      },
+      "remaining": []
+    }
+  }
+}

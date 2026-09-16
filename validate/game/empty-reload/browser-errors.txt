@@ -1,0 +1,42 @@
+Before console
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[info] webrtc stats Object
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[info] webrtc stats Object
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+
+Before page errors
+(none)
+
+After console
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x10443e75fe885b928c883d048dd763fd1ca73b20", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x10443e75fe885b928c883d048dd763fd1ca73b20", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x10443e75fe885b928c883d048dd763fd1ca73b20", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[info] webrtc stats Object
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x10443e75fe885b928c883d048dd763fd1ca73b20", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x10443e75fe885b928c883d048dd763fd1ca73b20", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+
+After page errors
+(none)
+
+Before server warnings
+[Server] 09:10:01 profile fetch failed for 0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f: error decoding response body
+[Server] 09:10:31 profile fetch failed for 0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f: error decoding response body
+[Server] 09:11:02 profile fetch failed for 0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f: error decoding response body
+[Server] 09:11:33 profile fetch failed for 0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f: error decoding response body
+[Server] 09:12:03 profile fetch failed for 0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f: error decoding response body
+[Server] 09:12:34 profile fetch failed for 0xe7439fbbb39eb36b8651eabc28e6d30c346c6c7f: error decoding response body
+
+After server warnings
+[Server] 09:12:57 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+[Server] 09:13:28 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+[Server] 09:13:58 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+[Server] 09:14:29 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+[Server] 09:14:59 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+[Server] 09:15:30 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+[Server] 09:16:01 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+[Server] 09:16:31 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+[Server] 09:17:02 profile fetch failed for 0x10443e75fe885b928c883d048dd763fd1ca73b20: error decoding response body
+

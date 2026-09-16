@@ -1,0 +1,1334 @@
+[
+  {
+    "name": "dummy",
+    "fps": 24.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "idle1",
+    "fps": 15.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_idle",
+    "fps": 10.0,
+    "frames": 31,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "walk",
+    "fps": 30.0,
+    "frames": 33,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      64.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "run",
+    "fps": 60.0,
+    "frames": 37,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      150.00001525878906,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouchrun",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      75.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "jump",
+    "fps": 30.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "longjump",
+    "fps": 30.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "swim",
+    "fps": 30.0,
+    "frames": 51,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "treadwater",
+    "fps": 24.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_carbine",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_carbine",
+    "fps": 15.0,
+    "frames": 5,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_carbine",
+    "fps": 30.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_carbine",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_carbine",
+    "fps": 15.0,
+    "frames": 5,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_carbine",
+    "fps": 30.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_onehanded",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_onehanded",
+    "fps": 15.0,
+    "frames": 7,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_onehanded",
+    "fps": 30.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_onehanded",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_onehanded",
+    "fps": 15.0,
+    "frames": 7,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_onehanded",
+    "fps": 30.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_dualpistols",
+    "fps": 10.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_dualpistols",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot2_dualpistols",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_dualpistols",
+    "fps": 30.0,
+    "frames": 71,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_dualpistols",
+    "fps": 10.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_dualpistols",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot2_dualpistols",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_dualpistols",
+    "fps": 30.0,
+    "frames": 71,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_rifle",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_rifle",
+    "fps": 20.0,
+    "frames": 6,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_rifle",
+    "fps": 30.0,
+    "frames": 91,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_rifle",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_rifle",
+    "fps": 20.0,
+    "frames": 6,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_rifle",
+    "fps": 30.0,
+    "frames": 91,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_mp5",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_mp5",
+    "fps": 15.0,
+    "frames": 5,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_mp5",
+    "fps": 30.0,
+    "frames": 46,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_mp5",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_mp5",
+    "fps": 15.0,
+    "frames": 5,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_mp5",
+    "fps": 30.0,
+    "frames": 46,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_shotgun",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_shotgun",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_shotgun",
+    "fps": 30.0,
+    "frames": 76,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_shotgun",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_shotgun",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_shotgun",
+    "fps": 30.0,
+    "frames": 76,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_m249",
+    "fps": 10.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_m249",
+    "fps": 30.0,
+    "frames": 6,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_m249",
+    "fps": 30.0,
+    "frames": 71,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_m249",
+    "fps": 10.0,
+    "frames": 11,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_m249",
+    "fps": 30.0,
+    "frames": 6,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_m249",
+    "fps": 30.0,
+    "frames": 71,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "I_am_a_stupid_placeholder",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "so_am_I",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_grenade",
+    "fps": 20.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_grenade",
+    "fps": 45.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_grenade",
+    "fps": 20.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_grenade",
+    "fps": 45.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_c4",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_c4",
+    "fps": 30.0,
+    "frames": 121,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_c4",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_c4",
+    "fps": 30.0,
+    "frames": 151,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_c4",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_dualpistols",
+    "fps": 10.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_dualpistols",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot2_dualpistols",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_dualpistols",
+    "fps": 30.0,
+    "frames": 71,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_dualpistols",
+    "fps": 10.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_dualpistols",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot2_dualpistols",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_dualpistols",
+    "fps": 30.0,
+    "frames": 71,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_knife",
+    "fps": 12.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_knife",
+    "fps": 30.0,
+    "frames": 41,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_knife",
+    "fps": 12.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_knife",
+    "fps": 30.0,
+    "frames": 41,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_ak47",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_ak47",
+    "fps": 30.0,
+    "frames": 6,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_ak47",
+    "fps": 30.0,
+    "frames": 91,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_ak47",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_ak47",
+    "fps": 30.0,
+    "frames": 6,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_ak47",
+    "fps": 30.0,
+    "frames": 91,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_shieldgren",
+    "fps": 20.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_shieldgren",
+    "fps": 45.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_shieldgren",
+    "fps": 20.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_shieldgren",
+    "fps": 45.0,
+    "frames": 31,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_shieldknife",
+    "fps": 12.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_shieldknife",
+    "fps": 30.0,
+    "frames": 41,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_shieldknife",
+    "fps": 12.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_shieldknife",
+    "fps": 30.0,
+    "frames": 41,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_shieldgun",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_shoot_shieldgun",
+    "fps": 30.0,
+    "frames": 16,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_reload_shieldgun",
+    "fps": 30.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_shieldgun",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_shoot_shieldgun",
+    "fps": 30.0,
+    "frames": 16,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_reload_shieldgun",
+    "fps": 30.0,
+    "frames": 61,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_aim_shielded",
+    "fps": 20.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "ref_aim_shielded",
+    "fps": 20.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "gut_flinch",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "head_flinch",
+    "fps": 30.0,
+    "frames": 2,
+    "blends": 9,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "death1",
+    "fps": 30.0,
+    "frames": 36,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "death2",
+    "fps": 30.0,
+    "frames": 41,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "death3",
+    "fps": 30.0,
+    "frames": 106,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "head",
+    "fps": 30.0,
+    "frames": 56,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "gutshot",
+    "fps": 30.0,
+    "frames": 54,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "left",
+    "fps": 30.0,
+    "frames": 66,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "back",
+    "fps": 30.0,
+    "frames": 56,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "right",
+    "fps": 30.0,
+    "frames": 66,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "forward",
+    "fps": 30.0,
+    "frames": 37,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "name": "crouch_die",
+    "fps": 30.0,
+    "frames": 31,
+    "blends": 1,
+    "group": 0,
+    "motion": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+]

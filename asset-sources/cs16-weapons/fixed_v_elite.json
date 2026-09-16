@@ -1,0 +1,43 @@
+{
+  "name": "fixed_v_elite",
+  "sourceSha256": "0b30a52157251f21f61e63b4bf62bb8b923323007fdaec495264c9af3f36de59",
+  "triangles": 1760,
+  "skippedDegenerateTriangles": 0,
+  "bones": 48,
+  "textures": 7,
+  "animations": {
+    "idle": 0.5,
+    "idle_leftempty": 0.625,
+    "shoot_left1": 1.0,
+    "shoot_left2": 1.0,
+    "shoot_left3": 1.0,
+    "shoot_left4": 1.0,
+    "shoot_left5": 1.0,
+    "shoot_leftlast": 1.0,
+    "shoot_right1": 1.0,
+    "shoot_right2": 1.0,
+    "shoot_right3": 1.0,
+    "shoot_right4": 1.0,
+    "shoot_right5": 1.0,
+    "shoot_rightlast": 1.0,
+    "reload": 4.566666666666666,
+    "draw": 1.0666666666666667
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.23331071436405182,
+      -0.21611358225345612,
+      0.010206297971308231
+    ],
+    "max": [
+      0.2468915432691574,
+      -0.05796828866004944,
+      0.4334130585193634
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.1920928955078125e-06,
+  "bytes": 1550240,
+  "blender": "5.2.1 LTS"
+}

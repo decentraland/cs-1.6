@@ -1,7 +1,17 @@
+import { botBodyHitRegions } from './bot-model'
+import { initializeCsMovement } from './cs-movement'
+import { initializeCombatEffects, receivedHit } from './combat-effects'
+import { initializePlayerSounds } from './player-sounds'
+import { hitboxYaw } from './hit-regions'
+import { initializeC4Effects } from './c4-effects'
+import { initializeFootsteps, resetFootsteps } from './footsteps'
+import { initializeGrenadeViews } from './grenade-view'
+import { initializeDroppedWeaponViews } from './dropped-weapon-view'
+import { grenadeInput } from './grenade-client'
+import { beginBurst, advanceBurst, BurstState } from './weapon-modes'
+import { canInterruptReload } from './combat-rules'
 import {
   engine,
-  AvatarAttach,
-  AvatarAnchorPointType,
   Entity,
   Transform,
   Material,
@@ -13,14 +23,14 @@ import {
   PointerLock,
   AvatarModifierArea,
   AvatarModifierType,
-  AvatarShape,
-  AudioSource
+  AvatarShape
 } from '@dcl/sdk/ecs'
-import { Vector3, Quaternion, Color4 } from '@dcl/sdk/math'
+import { Vector3, Color4 } from '@dcl/sdk/math'
 import { myProfile, isStateSyncronized } from '@dcl/sdk/network'
 import { movePlayerTo } from '~system/RestrictedActions'
 import {
   PlayerHealth,
+  PlayerPose,
   PlayerTeam,
   Team,
   Weapon,
@@ -36,7 +46,7 @@ import { getPractice, canPlayRound } from './practice'
 import { attachWeaponModel, updateWeaponView, predictKnifeAttack, predictWeaponShot } from './weapon-view'
 import { bombInputSystem, hasBombSelected, isLocalBombBusy } from './bomb-client'
 import { locomotionSystem, isWalking } from './locomotion'
-import { profileByName } from './weapon-profiles'
+import { gunProfile, modeStats, profileByName } from './weapon-profiles'
 import { spectatorSystem, isSpectating } from './spectator'
 import { isBuyMenuVisible } from './buy-client'
 import { buyMenuInputSystem } from './buy-ui'
@@ -44,6 +54,8 @@ import { hasAimControl, isTouchPlatform } from './platform'
 import { TouchScreenControls } from '@dcl/sdk/ecs'
 import { HorizontalMotion, updateMovementCrosshair } from './movement-feedback'
 import { worldWeaponSystem } from './world-weapons'
+import { botAnimationSystem } from './bot-animation'
+import { menuClickSystem } from './menu-ui'
 import { nextClientShotTime } from './combat-rules'
 import {
   syncCameraWeapon,
@@ -63,9 +75,9 @@ import {
 import { fadePainDirections, mergePainDirections, painDirections } from './damage-feedback'
 import type { KnifeAttack } from './knife-rules'
 import { fireSound, playLocalSound, playWorldSound } from './weapon-sounds'
-import { BOT_HIT_REGIONS, PLAYER_HIT_REGIONS, ShotPlan, ShotTarget, groundedAt, traceShot } from './ballistics'
+import { PLAYER_HIT_REGIONS, ShotPlan, ShotTarget, groundedAt, traceShot } from './ballistics'
 import { teamMenuInputSystem } from './team-menu-ui'
-import { isTeamMenuOpen } from './menu-state'
+import { isTeamMenuOpen, spectatorMenu } from './menu-state'
 
 // Player registry: Maps player address to their entity
 export const playerEntities = new Map<string, Entity>()
@@ -81,7 +93,6 @@ let isConnectedToServer = false
 let connectionTime = 0
 
 const localMotion = new HorizontalMotion()
-let damageSound: Entity | undefined
 let cursorRequest: Entity | undefined
 let cursorReleased = false
 let spectatorCapturePending = false
@@ -95,7 +106,7 @@ let triggerHeld = false
 let knifeNextPrimary = 0
 let knifeNextSecondary = 0
 const knifeRequests = new Map<number, { at: number; attack: KnifeAttack }>()
-let lastFacing = { x: 0, z: 0 }
+let lastFacing = { x: 0, y: 0, z: 0 }
 let lastFacingSentAt = 0
 
 function updateTrigger(held: boolean) {
@@ -109,14 +120,18 @@ function updateTrigger(held: boolean) {
 function facingSystem() {
   if (!isStateSyncronized() || !myProfile.userId) return
   const direction = getFpsAimDirection(),
-    length = Math.hypot(direction.x, direction.z)
+    length = Math.hypot(direction.x, direction.y, direction.z)
   if (!Number.isFinite(length) || length < 0.001) return
-  const horizontal = { x: direction.x / length, z: direction.z / length },
+  const normalized = { x: direction.x / length, y: direction.y / length, z: direction.z / length },
     now = Date.now() / 1000
-  if (now - lastFacingSentAt < 1 && horizontal.x * lastFacing.x + horizontal.z * lastFacing.z > 0.9995) return
-  lastFacing = horizontal
+  if (
+    now - lastFacingSentAt < 1 &&
+    normalized.x * lastFacing.x + normalized.y * lastFacing.y + normalized.z * lastFacing.z > 0.9995
+  )
+    return
+  lastFacing = normalized
   lastFacingSentAt = now
-  room.send('playerFacing', { direction: { x: horizontal.x, y: 0, z: horizontal.z } })
+  room.send('playerFacing', { direction: normalized })
 }
 
 export function getLocalPlayerEntity(): Entity | null {
@@ -127,12 +142,25 @@ export function isLocalPlayerReady(): boolean {
   return isPlayerReady
 }
 
-function capturePointer() {
+export function capturePointer() {
   if (isTouchPlatform()) return
   if (cursorRequest !== undefined) engine.removeEntity(cursorRequest)
   cursorRequest = engine.addEntity()
   PointerLock.create(cursorRequest, { isPointerLocked: true })
+  requestCameraPointerLock()
   cursorReleased = false
+}
+
+// Unity only honours PointerLock on the camera entity; Bevy reacts to any changed PointerLock, so a
+// short-lived request entity carries the same value.
+export function requestCameraPointerLock(locked = true) {
+  PointerLock.createOrReplace(engine.CameraEntity, { isPointerLocked: locked })
+}
+export function requestPointerLock(locked: boolean) {
+  const request = engine.addEntity()
+  PointerLock.create(request, { isPointerLocked: locked })
+  delay(1000, () => engine.removeEntity(request))
+  requestCameraPointerLock(locked)
 }
 
 export function isConnected(): boolean {
@@ -153,74 +181,6 @@ export function initializeLocalPlayerData(team: Team) {
   console.log('[CLIENT] Local player initialized with team:', team)
 
   attachWeaponModel()
-}
-
-// Map to track team markers for each player
-const teamMarkers = new Map<string, Entity>()
-
-// Teammate marker system - shows green triangle above teammates and self
-export function teammateMarkerSystem() {
-  const localPlayer = getLocalPlayerEntity()
-  if (!localPlayer || !PlayerTeam.has(localPlayer)) return
-
-  const localTeam = PlayerTeam.get(localPlayer).team
-  const myUserId = myProfile.userId?.toLowerCase()
-
-  // Iterate through all player avatars
-  for (const [avatarEntity, identityData] of engine.getEntitiesWith(PlayerIdentityData)) {
-    const playerAddress = identityData.address.toLowerCase()
-
-    // Check if this is self or teammate
-    const isSelf = playerAddress === myUserId
-
-    // Find this player's entity to get their team
-    const playerEntity = playerEntities.get(playerAddress)
-    if (!playerEntity || !PlayerTeam.has(playerEntity)) continue
-
-    const playerTeam = PlayerTeam.get(playerEntity).team
-    const isTeammate = playerTeam === localTeam
-
-    // Check if marker already exists
-    const existingMarker = teamMarkers.get(playerAddress)
-
-    // Show marker for self or teammates
-    if (isSelf || isTeammate) {
-      if (!existingMarker) {
-        // Create new green triangle marker entity
-        const marker = engine.addEntity()
-
-        // Transform for scale and rotation
-        Transform.create(marker, {
-          scale: Vector3.create(0.15, 1.15, 0.15),
-          rotation: Quaternion.fromEulerDegrees(180, 0, 0) // Point downward
-        })
-
-        // Green cone/triangle mesh
-        MeshRenderer.setCylinder(marker, 0, 0.5) // Cone shape
-        Material.setPbrMaterial(marker, {
-          albedoColor: { r: 0, g: 1, b: 0, a: 1 },
-          emissiveColor: { r: 0, g: 0.5, b: 0 },
-          emissiveIntensity: 2
-        })
-
-        // Attach to avatar's head (name anchor point)
-        AvatarAttach.create(marker, {
-          avatarId: playerAddress,
-          anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG
-        })
-
-        teamMarkers.set(playerAddress, marker)
-        console.log(`[CLIENT] Created marker for ${isSelf ? 'self' : playerAddress}`)
-      }
-    } else {
-      // Enemy - remove marker if it exists
-      if (existingMarker) {
-        engine.removeEntity(existingMarker)
-        teamMarkers.delete(playerAddress)
-        console.log(`[CLIENT] Removed marker from ${playerAddress}`)
-      }
-    }
-  }
 }
 
 export function damageFeedbackSystem(dt: number) {
@@ -251,9 +211,12 @@ function expandCrosshair(player: Entity, amount: number) {
 }
 
 // Global shooting system - shoot while holding mouse button
+let captureReleased = false
+export const isFireInputReady = () => hasAimControl() && !isBuyMenuVisible() && (isTouchPlatform() || captureReleased)
 let semiFired = false
 let dryFired = false
 let firingRevision = -1
+let localBurst: (BurstState & { spread: number }) | undefined
 export function globalShootingSystem() {
   const player = getLocalPlayerEntity()
   if (!player || !isStateSyncronized()) return
@@ -263,6 +226,7 @@ export function globalShootingSystem() {
   const profile = profileByName(equipped.name)
   if (equipped.revision !== firingRevision) {
     firingRevision = equipped.revision
+    localBurst = undefined
     semiFired = false
     lastShotRequestTime = 0
     knifeNextPrimary = 0
@@ -270,13 +234,17 @@ export function globalShootingSystem() {
     knifeRequests.clear()
     updateTrigger(false)
   }
-  if (isBuyMenuVisible()) {
+  if (isBuyMenuVisible() || isTeamMenuOpen()) {
+    if (profile.kind === 'grenade') grenadeInput(player, false)
+    captureReleased = false
     isMouseButtonDown = false
     isSecondaryActionDown = false
     updateTrigger(false)
     return
   }
   if (!hasAimControl()) {
+    if (profile.kind === 'grenade') grenadeInput(player, false)
+    captureReleased = false
     const practice = getPractice()
     if (
       (canPlayRound(myProfile.userId?.toLowerCase() ?? '') || isSpectating()) &&
@@ -295,14 +263,25 @@ export function globalShootingSystem() {
   }
 
   if (Dead.has(player)) {
+    if (profile.kind === 'grenade') grenadeInput(player, false)
     isMouseButtonDown = false
     isSecondaryActionDown = false
     semiFired = false
+    localBurst = undefined
     updateTrigger(false)
     return
   }
 
-  // Track mouse button state
+  // Suppress a held capture click; automatic capture needs no new release event.
+  if (!isTouchPlatform() && !captureReleased) {
+    if (profile.kind === 'grenade') grenadeInput(player, false)
+    captureReleased = !inputSystem.isPressed(InputAction.IA_POINTER)
+    isMouseButtonDown = false
+    isSecondaryActionDown = false
+    updateTrigger(false)
+    return
+  }
+
   if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_DOWN)) {
     isMouseButtonDown = true
   }
@@ -316,6 +295,21 @@ export function globalShootingSystem() {
   }
   if (inputSystem.isTriggered(InputAction.IA_SECONDARY, PointerEventType.PET_UP)) isSecondaryActionDown = false
 
+  if (
+    profile.kind === 'gun' &&
+    profile.alternate &&
+    !hasBombSelected() &&
+    !isLocalBombBusy() &&
+    inputSystem.isTriggered(InputAction.IA_PRIMARY, PointerEventType.PET_DOWN)
+  ) {
+    room.send('weaponAlternate', { round: getPractice()?.round ?? 0, revision: equipped.revision })
+  }
+
+  if (profile.kind === 'grenade') {
+    updateTrigger(false)
+    grenadeInput(player, !hasBombSelected() && !isLocalBombBusy() && isMouseButtonDown)
+    return
+  }
   if (profile.kind === 'knife') {
     updateTrigger(false)
     const attack: KnifeAttack | undefined = isSecondaryActionDown ? 'stab' : isMouseButtonDown ? 'swing' : undefined
@@ -349,9 +343,17 @@ export function globalShootingSystem() {
 
   if (!firing) dryFired = false
   // Shoot continuously while the mouse button is held
-  if (firing && (profile.automatic || !semiFired)) {
+  const currentTime = Date.now() / 1000
+  const burstMode = profile.alternate === 'burst' && equipped.mode === 1
+  const automatic = modeStats(profile, equipped.mode).automatic
+  if (!burstMode || (localBurst && currentTime > localBurst.readyAt + 0.5)) localBurst = undefined
+  const continuation = !!localBurst && localBurst.remaining > 0
+  if (
+    (continuation || (firing && (automatic || !semiFired))) &&
+    (!localBurst || currentTime >= (continuation ? localBurst.nextAt : localBurst.readyAt))
+  ) {
     // Check if can shoot (ammo, reload, fire rate)
-    if (!canShoot(player)) {
+    if (!canShoot(player, continuation)) {
       if (equipped.ammoClip <= 0 && !equipped.isReloading && !dryFired) {
         dryFired = true
         playLocalSound('dryfire')
@@ -359,20 +361,27 @@ export function globalShootingSystem() {
       return
     }
 
-    const currentTime = Date.now() / 1000
-    lastShotRequestTime = nextClientShotTime(lastShotRequestTime, Weapon.get(player).fireRate, currentTime)
+    lastShotRequestTime = continuation
+      ? currentTime
+      : nextClientShotTime(lastShotRequestTime, Weapon.get(player).fireRate, currentTime)
     nextShotId = Math.max(nextShotId, Weapon.get(player).lastShotId) + 1
     const shotId = nextShotId
     expandCrosshair(player, 0.15)
     const feet = Transform.get(engine.PlayerEntity).position
-    const plan = predictCameraKick(shotId, localMotion.speed)
-    predictWeaponShot()
-    playLocalSound(fireSound(profile.id))
+    const burstIndex = continuation ? (localBurst?.index ?? 0) : 0
+    const plan = predictCameraKick(shotId, localMotion.speed, continuation ? localBurst?.spread : undefined)
+    if (!continuation)
+      predictWeaponShot(
+        Math.max(0, equipped.ammoClip - pendingCameraShots(equipped.lastFiredShotId)),
+        equipped.reloadStartTime
+      )
+    playLocalSound(fireSound(profile.id, equipped.mode))
     const claim = plan ? predictShotImpact(shotId, plan) : undefined
 
-    semiFired = true
+    if (!automatic) semiFired = true
     // Tell the server what this client saw; it validates each value against recent samples (hit-claims.ts).
     room.send('playerShoot', {
+      burstIndex,
       shotId,
       revision: equipped.revision,
       direction: getFpsAimDirection(),
@@ -382,11 +391,28 @@ export function globalShootingSystem() {
       target: claim?.target,
       targetPosition: claim?.center
     })
+    if (continuation && localBurst) advanceBurst(localBurst, currentTime)
+    else if (burstMode) {
+      const next = beginBurst(
+        profile,
+        equipped.mode,
+        equipped.ammoClip - pendingCameraShots(equipped.lastFiredShotId) + 1,
+        currentTime
+      )
+      if (next) localBurst = { ...next, spread: profile.id === 'glock18' ? 0.05 : (plan?.spread ?? 0) }
+    }
   }
 }
 
 function canUseKnife(player: Entity): boolean {
-  if (!isStateSyncronized() || Dead.has(player) || (PlayerHealth.getOrNull(player)?.current ?? 0) <= 0) return false
+  if (
+    !isStateSyncronized() ||
+    isSyncStale() ||
+    !PlayerPose.getOrNull(player)?.valid ||
+    Dead.has(player) ||
+    (PlayerHealth.getOrNull(player)?.current ?? 0) <= 0
+  )
+    return false
   const practice = getPractice(),
     weapon = Weapon.getOrNull(player)
   return (
@@ -401,9 +427,11 @@ function canUseKnife(player: Entity): boolean {
 }
 
 // Check if player can shoot
-function canShoot(player: Entity): boolean {
+function canShoot(player: Entity, continuation = false): boolean {
   if (
     !isStateSyncronized() ||
+    isSyncStale() ||
+    !PlayerPose.getOrNull(player)?.valid ||
     !Weapon.has(player) ||
     Dead.has(player) ||
     (PlayerHealth.getOrNull(player)?.current ?? 0) <= 0
@@ -416,13 +444,18 @@ function canShoot(player: Entity): boolean {
   const currentTime = Date.now() / 1000
 
   // Check if reloading
-  if (weapon.isReloading || currentTime < weapon.readyAt) return false
+  if ((weapon.isReloading && !canInterruptReload(weapon, currentTime)) || currentTime < weapon.readyAt) return false
 
   // Check if no ammo
   if (weapon.ammoClip <= 0 || pendingCameraShots(weapon.lastFiredShotId) >= weapon.ammoClip) return false
 
   // Check fire rate cooldown
-  if (currentTime - lastShotRequestTime < weapon.fireRate) return false
+  if (
+    !continuation &&
+    currentTime - lastShotRequestTime < weapon.fireRate &&
+    !(localBurst && currentTime >= localBurst.readyAt)
+  )
+    return false
 
   return true
 }
@@ -474,7 +507,12 @@ function localShotTargets(): ShotTarget<string>[] {
   const targets: ShotTarget<string>[] = []
   for (const [entity, bot] of engine.getEntitiesWith(Bot, Transform)) {
     if (!bot.alive) continue
-    targets.push({ id: `bot:${bot.index}`, center: Transform.get(entity).position, regions: BOT_HIT_REGIONS })
+    targets.push({
+      id: `bot:${bot.index}`,
+      center: Transform.get(entity).position,
+      yaw: hitboxYaw(Transform.get(entity).rotation),
+      regions: botBodyHitRegions(entity, Date.now() / 1000)
+    })
   }
   const me = myProfile.userId?.toLowerCase()
   for (const [, identity, transform] of engine.getEntitiesWith(PlayerIdentityData, Transform)) {
@@ -482,7 +520,12 @@ function localShotTargets(): ShotTarget<string>[] {
     if (address === me) continue
     const player = playerEntities.get(address)
     if (player !== undefined && Dead.has(player)) continue
-    targets.push({ id: address, center: transform.position, regions: PLAYER_HIT_REGIONS })
+    targets.push({
+      id: address,
+      center: transform.position,
+      yaw: hitboxYaw(transform.rotation),
+      regions: PLAYER_HIT_REGIONS
+    })
   }
   return targets
 }
@@ -493,7 +536,7 @@ function predictShotImpact(shotId: number, plan: ShotPlan): { target: string; ce
   const targets = localShotTargets()
   const trace = traceShot(plan.origin, plan.direction, targets)
   // Outlives the server round trip so the confirmation moves this marker instead of drawing a second one.
-  predictedMarkers.set(shotId, createHitMarker(trace.position, trace.hit !== undefined, PREDICTED_MARKER_MS))
+  predictedMarkers.set(shotId, createHitMarker(trace.position, false, PREDICTED_MARKER_MS))
   delay(PREDICTED_MARKER_MS, () => predictedMarkers.delete(shotId))
   const hit = trace.hit && targets.find((target) => target.id === trace.hit?.target)
   return hit ? { target: hit.id, center: hit.center } : undefined
@@ -540,8 +583,18 @@ export function setupClientMessageHandlers() {
     const match = getPractice()
     const address = myProfile.userId?.toLowerCase()
     const seat = match?.roster.find((seat) => seat.address === address && seat.connected)
-    const menuOpen = isTeamMenuOpen()
     const locked = PointerLock.getOrNull(engine.CameraEntity)?.isPointerLocked
+    const observer =
+      !!seat &&
+      (seat.team === 0 || (isSpectating() && !(match?.phase === 'freeze' && seat.eligibleRound <= match.round)))
+    spectatorMenu.update(
+      observer &&
+        !match?.matchOver &&
+        !!match &&
+        (seat?.team === 0 || ['freeze', 'live', 'won', 'lost', 'draw'].includes(match.phase)),
+      locked === true
+    )
+    const menuOpen = isTeamMenuOpen()
     if (menuOpen && (!cursorReleased || locked !== false)) {
       PointerLock.createOrReplace(cursorRequest!, { isPointerLocked: false })
       cursorReleased = true
@@ -565,6 +618,7 @@ export function setupClientMessageHandlers() {
     resetFpsCamera(data.round, data.yaw, data.seed)
     spectatorCapturePending = false
     localMotion.reset()
+    resetFootsteps()
     capturePointer()
     isMouseButtonDown = false
     isSecondaryActionDown = false
@@ -575,6 +629,7 @@ export function setupClientMessageHandlers() {
     if (data.playerAddress !== myProfile.userId?.toLowerCase()) return
     spectatorCapturePending = true
     localMotion.reset()
+    resetFootsteps()
     isMouseButtonDown = false
     isSecondaryActionDown = false
     updateTrigger(false)
@@ -595,7 +650,12 @@ export function setupClientMessageHandlers() {
     }
   })
   room.onMessage('shotRejected', (data) => {
-    if (data.owner === myProfile.userId?.toLowerCase()) rejectCameraKick(data)
+    if (data.owner === myProfile.userId?.toLowerCase()) {
+      rejectCameraKick(data)
+      const marker = predictedMarkers.get(data.shotId)
+      if (marker !== undefined) engine.removeEntity(marker)
+      predictedMarkers.delete(data.shotId)
+    }
   })
   room.onMessage('knifeResult', (data) => {
     if (data.owner !== myProfile.userId?.toLowerCase()) return
@@ -611,7 +671,7 @@ export function setupClientMessageHandlers() {
     createHitMarker(data.position, data.target)
   })
   room.onMessage('practiceAttack', (data) => {
-    playWorldSound(fireSound('ak47'), data.origin)
+    playWorldSound(fireSound(gunProfile(data.gun ?? 'ak47')?.id ?? 'ak47'), data.origin)
     createHitMarker(data.origin, true)
     createHitMarker(data.target, false)
   })
@@ -694,6 +754,7 @@ export function setupClientMessageHandlers() {
 
   // CLIENT: Listen for damage confirmations
   room.onMessage('damageConfirmed', (data) => {
+    if (data.kind === 'fall') return
     console.log('[CLIENT] <<< Received damageConfirmed:', data)
 
     const targetAddress = data.targetPlayerAddress
@@ -702,6 +763,7 @@ export function setupClientMessageHandlers() {
     // Show damage indicator if it's us
     const myUserId = myProfile.userId?.toLowerCase()
     if (myUserId && targetAddress.toLowerCase() === myUserId && player) {
+      receivedHit()
       const playerPosition = Transform.get(engine.PlayerEntity).position
       const feedback = DamageFeedback.getMutable(player)
       const next = mergePainDirections(feedback, painDirections(data.origin, playerPosition, getFpsAimDirection()))
@@ -709,20 +771,10 @@ export function setupClientMessageHandlers() {
       feedback.right = next.right
       feedback.rear = next.rear
       feedback.left = next.left
-      receiveDamageKick({ pitch: data.punchPitch, roll: data.punchRoll })
-      if (damageSound !== undefined) AudioSource.playSound(damageSound, 'assets/sounds/player/damage.wav', true)
+      if (data.punchPitch || data.punchRoll) receiveDamageKick({ pitch: data.punchPitch, roll: data.punchRoll })
 
       if (data.wasKill) {
         console.log('[CLIENT] You died!')
-      }
-    }
-
-    // Visual hit marker on target (get position from avatar entity)
-    for (const [avatarEntity, identityData] of engine.getEntitiesWith(PlayerIdentityData, Transform)) {
-      if (identityData.address === targetAddress) {
-        const transform = Transform.get(avatarEntity)
-        createHitMarker(transform.position, true)
-        break
       }
     }
   })
@@ -730,9 +782,14 @@ export function setupClientMessageHandlers() {
 
 // Add client systems to engine
 export function addClientSystems() {
+  initializeCombatEffects()
+  initializeDroppedWeaponViews()
+  initializeGrenadeViews()
+  initializeC4Effects()
+  initializeFootsteps()
   engine.addSystem(touchControlsSystem)
-  damageSound = engine.addEntity()
-  Transform.create(damageSound, { parent: engine.CameraEntity })
+  initializePlayerSounds()
+  initializeCsMovement()
   const gameArea = engine.addEntity()
   Transform.create(gameArea, { position: { x: 96, y: 64, z: 96 } })
   AvatarModifierArea.create(gameArea, {
@@ -745,7 +802,7 @@ export function addClientSystems() {
   Transform.create(selfArea, { parent: engine.PlayerEntity, position: { x: 0, y: 1, z: 0 } })
   AvatarModifierArea.create(selfArea, {
     area: { x: 1, y: 2.5, z: 1 },
-    modifiers: [AvatarModifierType.AMT_HIDE_AVATARS],
+    modifiers: [AvatarModifierType.AMT_HIDE_AVATARS, AvatarModifierType.AMT_HIDE_NAMETAGS],
     excludeIds: []
   })
   let excluded = ''
@@ -766,11 +823,17 @@ export function addClientSystems() {
     if (localPlayerEntity === null) return
     const equipped = Weapon.getOrNull(localPlayerEntity)
     const profile = equipped && profileByName(equipped.name)
-    if (equipped && profile?.kind === 'gun') syncCameraWeapon(profile.id, equipped.revision)
+    if (equipped)
+      syncCameraWeapon(
+        profile?.kind === 'gun' && !hasBombSelected() ? profile.id : 'ak47',
+        equipped.revision,
+        equipped.mode,
+        hasBombSelected() ? 90 : equipped.zoom,
+        equipped.lastFiredShotId
+      )
     const reloading = equipped?.isReloading ?? false
     if (reloading && !wasReloading) {
       resetCameraAccuracy()
-      playLocalSound('reload')
     }
     wasReloading = reloading
     updateWeaponView(localPlayerEntity)
@@ -784,8 +847,9 @@ export function addClientSystems() {
   engine.addSystem(crosshairSystem)
   engine.addSystem(globalShootingSystem)
   engine.addSystem(fpsCameraSystem)
-  engine.addSystem(teammateMarkerSystem)
   engine.addSystem(worldWeaponSystem)
+  engine.addSystem(botAnimationSystem)
+  engine.addSystem(menuClickSystem)
   engine.addSystem(teamMenuInputSystem)
   engine.addSystem(buyMenuInputSystem)
 }

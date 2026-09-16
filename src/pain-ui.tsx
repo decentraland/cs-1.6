@@ -39,12 +39,14 @@ export function PainCompass(props: {
   width: number
   height: number
   health: number
+  pulse?: number
   directions?: PainDirections | null
 }) {
   const directions = props.directions
   if (!directions) return null
-  const scale = Math.min(1, props.width / 640)
-  const color = props.health > 25 ? { r: 1, g: 160 / 255, b: 0 } : { r: 250 / 255, g: 0, b: 0 }
+  const scale = Math.min(props.width / 640, props.height / 480)
+  const color =
+    props.health > 25 && (props.pulse ?? 0) < 0.5 ? { r: 1, g: 160 / 255, b: 0 } : { r: 250 / 255, g: 0, b: 0 }
   return (
     <UiEntity
       uiTransform={{

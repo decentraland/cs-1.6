@@ -1,0 +1,111 @@
+{
+  "purchase": {
+    "inventory": {
+      "active": "awp",
+      "items": [
+        {
+          "id": "usp",
+          "clip": 12,
+          "reserve": 24
+        },
+        {
+          "id": "awp",
+          "clip": 10,
+          "reserve": 30
+        },
+        {
+          "id": "flashbang",
+          "clip": -1,
+          "reserve": 2
+        },
+        {
+          "id": "hegrenade",
+          "clip": -1,
+          "reserve": 1
+        },
+        {
+          "id": "smokegrenade",
+          "clip": -1,
+          "reserve": 1
+        }
+      ],
+      "ammo": [
+        {
+          "type": "338magnum",
+          "amount": 30
+        }
+      ]
+    },
+    "money": 14350,
+    "carryCapButtonsReject": true
+  },
+  "slotCycle": [
+    "flashbang",
+    "hegrenade",
+    "smokegrenade",
+    "flashbang"
+  ],
+  "flash": {
+    "heldForSeconds": 2,
+    "noCooking": true,
+    "fuse": 1.7330000400543213,
+    "effect": {
+      "target": "0xf69b268cde307a316eff0f3cd7cc31b44bf10768",
+      "start": 1789452209.661,
+      "hold": 2.56882643699646,
+      "fade": 11.559718132019043,
+      "alpha": 255
+    },
+    "remaining": 1,
+    "autoSelected": "awp"
+  },
+  "smoke": {
+    "center": {
+      "x": 51.6108283996582,
+      "y": 6.613666534423828,
+      "z": 46.784751892089844
+    },
+    "activated": 1789452229.527,
+    "expires": 1789452259.527,
+    "cloudCount": 20,
+    "canister": true,
+    "cleanedUp": true
+  },
+  "he": {
+    "health": {
+      "current": 52,
+      "max": 100,
+      "armor": 75.8060531616211,
+      "maxArmor": 100
+    },
+    "projectile": {
+      "kind": "hegrenade",
+      "owner": "0xf69b268cde307a316eff0f3cd7cc31b44bf10768",
+      "team": 2,
+      "position": {
+        "x": 51.6108283996582,
+        "y": 6.613666534423828,
+        "z": 46.79851150512695
+      },
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "center": {
+        "x": 51.6108283996582,
+        "y": 7.752666473388672,
+        "z": 46.79851150512695
+      },
+      "grounded": true,
+      "bounces": 2,
+      "animation": 5,
+      "phase": "exploded",
+      "created": 1789452234.685,
+      "activated": 1789452236.295,
+      "expires": 1789452240.295,
+      "round": 1
+    },
+    "selected": "awp"
+  }
+}

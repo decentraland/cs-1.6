@@ -1,0 +1,21 @@
+{
+  "id": "hegrenade",
+  "sourceSha256": "494b329493f545298cdaa434edf70f32bafad964daf4d7a5c6383f8ef3f5d9cb",
+  "triangles": 52,
+  "bytes": 20812,
+  "sourceTriangles": 52,
+  "skippedDegenerateTriangles": 0,
+  "anchor": "Bip01 R Hand",
+  "blenderBounds": {
+    "min": [
+      -0.04580284282565117,
+      -0.13547782599925995,
+      -0.07634198665618896
+    ],
+    "max": [
+      0.07819749414920807,
+      -1.0371208247761388e-07,
+      0.10725933313369751
+    ]
+  }
+}

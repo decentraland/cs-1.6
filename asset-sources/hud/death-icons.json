@@ -1,0 +1,9 @@
+{
+  "revision": "6ad155c7a610a85cfd443fcace2c97f2afcb2866",
+  "files": {
+    "asset-sources/hud/hud.txt": "50b24f3579c9dd173c411105d1379388f24043a5d392f3c6415a42c1c81a0767",
+    "asset-sources/hud/640hud1.spr": "1909f7c3b34484d4e8e59c780e527d5c1b2e051a13043f375a7dc6cad5a0e8ed",
+    "asset-sources/hud/640hud2.spr": "465187f66fa38d4fcc93a2026968af85baff09887255843126e428c02aca61d4",
+    "asset-sources/hud/640hud16.spr": "13589fd915af580aba377f2a364de9829a39f2ea059f739967a8a5703937e549"
+  }
+}

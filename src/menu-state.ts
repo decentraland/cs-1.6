@@ -1,7 +1,10 @@
 import { engine, PointerLock, PrimaryPointerInfo } from '@dcl/sdk/ecs'
 import { myProfile } from '@dcl/sdk/network'
 import { getPractice } from './practice'
-import { pointerScreenPoint } from './platform'
+import { isTouchPlatform, pointerScreenPoint } from './platform'
+import { SpectatorMenuState } from './spectator-rules'
+
+export const spectatorMenu = new SpectatorMenuState()
 
 export interface MenuRect {
   left: number
@@ -23,8 +26,9 @@ export function isTeamMenuOpen(): boolean {
   const match = getPractice()
   if (!match) return true
   const address = myProfile.userId?.toLowerCase()
-  const hasSeat = match.roster.some((seat) => seat.address === address && seat.connected)
-  return match.matchOver || match.phase === 'ready' || match.phase === 'waiting' || !hasSeat
+  const seat = match.roster.find((seat) => seat.address === address && seat.connected)
+  const waiting = match.phase === 'ready' || match.phase === 'waiting'
+  return spectatorMenu.open || match.matchOver || !seat || (waiting && (seat.team !== 0 || isTouchPlatform()))
 }
 
 // Cursor position in canvas pixels (same space as UiCanvasInformation); undefined while the pointer is locked.

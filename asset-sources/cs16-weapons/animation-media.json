@@ -1,0 +1,518 @@
+[
+  {
+    "path": "assets/sounds/weapons/original/ak47_boltpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ak47_boltpull.wav",
+    "sha256": "51b6133babf6ebb5b1fba00272f05e6a54fd3cc3572874558492d2d9edfdeda4",
+    "bytes": 7524
+  },
+  {
+    "path": "assets/sounds/weapons/original/ak47_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ak47_clipin.wav",
+    "sha256": "1869420d5f9ca659f4c94e965c231e9c718ea800c2ffbf3dfe5f5f2df05ce847",
+    "bytes": 15364
+  },
+  {
+    "path": "assets/sounds/weapons/original/ak47_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ak47_clipout.wav",
+    "sha256": "59870ffa5e0c1b1df7e8a5c6ab40c61dfbabe385b06877db74ae46924b55cbe1",
+    "bytes": 17366
+  },
+  {
+    "path": "assets/sounds/weapons/original/aug_boltpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/aug_boltpull.wav",
+    "sha256": "f0fa216389e4b1ef7c0a7f0b8db4c6d246abb5fdfbefc4318e425c9c8399fddb",
+    "bytes": 7382
+  },
+  {
+    "path": "assets/sounds/weapons/original/aug_boltslap.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/aug_boltslap.wav",
+    "sha256": "9c6e01989d1b4f101a7f911e0f59f17c585906a335fdfa38be6c489a85b9b1a7",
+    "bytes": 8204
+  },
+  {
+    "path": "assets/sounds/weapons/original/aug_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/aug_clipin.wav",
+    "sha256": "ff821788730e6445b676e6fcf0d50cfb5695111d3f568c53f72c3639d5616955",
+    "bytes": 10530
+  },
+  {
+    "path": "assets/sounds/weapons/original/aug_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/aug_clipout.wav",
+    "sha256": "676625ec6e1b323243d0d62988606c7b3b509ffb2e5b6c2cbc9a225ace6f8f79",
+    "bytes": 3876
+  },
+  {
+    "path": "assets/sounds/weapons/original/aug_forearm.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/aug_forearm.wav",
+    "sha256": "fe8beacb5dde14a0566033d7e00bc9e247132e8051e0f0a100210cc4b2b02d36",
+    "bytes": 10158
+  },
+  {
+    "path": "assets/sounds/weapons/original/awp_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/awp_clipin.wav",
+    "sha256": "154292433481756c8a2122a799291cdcc5ff7e2f9baf75a26be1c6ca4b9bbc64",
+    "bytes": 16310
+  },
+  {
+    "path": "assets/sounds/weapons/original/awp_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/awp_clipout.wav",
+    "sha256": "a501d171cb4738d2cd96944ee48f10e78c760063db716aa6f6a76b1359bb03d6",
+    "bytes": 15194
+  },
+  {
+    "path": "assets/sounds/weapons/original/boltdown.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/boltdown.wav",
+    "sha256": "138c439206fa79552bc8f07e731f4cfde8dc04042583176d3cf9fbc2c4b5dcb6",
+    "bytes": 6302
+  },
+  {
+    "path": "assets/sounds/weapons/original/boltpull1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/boltpull1.wav",
+    "sha256": "0a286095aa421d7ef12b9264654efee7c02310445bccca582d083d21ee9e0fe4",
+    "bytes": 5822
+  },
+  {
+    "path": "assets/sounds/weapons/original/boltup.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/boltup.wav",
+    "sha256": "7aecc28b678565fa1241422d31aaeab617a83b0fcba47e59879b0561a8012c00",
+    "bytes": 5560
+  },
+  {
+    "path": "assets/sounds/weapons/original/clipin1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/clipin1.wav",
+    "sha256": "c18e32795af346e2bf6552dc387f34d5fc8482f0a2f4dd26e1dad25c61fb8ebd",
+    "bytes": 6718
+  },
+  {
+    "path": "assets/sounds/weapons/original/clipout1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/clipout1.wav",
+    "sha256": "523128273afaa928c151f46fe3f9f8d36d01bdb1fbc4118a7d80b64dea1ad1db",
+    "bytes": 12536
+  },
+  {
+    "path": "assets/sounds/weapons/original/de_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/de_clipin.wav",
+    "sha256": "a84cf03771036ab0f25ad27e058ab7bcaedd71475fe7fdca218a715d725a7e13",
+    "bytes": 14574
+  },
+  {
+    "path": "assets/sounds/weapons/original/de_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/de_clipout.wav",
+    "sha256": "ba5cf5deeeddb0eaf97226d673ccf89e96ef6995fab19e14653fb50a94121958",
+    "bytes": 7864
+  },
+  {
+    "path": "assets/sounds/weapons/original/de_deploy.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/de_deploy.wav",
+    "sha256": "ee25642d00d071694c0ef8a89e75eb524ec90a79df8908df76911435571b6884",
+    "bytes": 11070
+  },
+  {
+    "path": "assets/sounds/weapons/original/elite_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/elite_clipout.wav",
+    "sha256": "d81317b406cd0dbcc8fd0e018a7c86e3d27acab78d86525d99aaf3e656d042b3",
+    "bytes": 12100
+  },
+  {
+    "path": "assets/sounds/weapons/original/elite_deploy.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/elite_deploy.wav",
+    "sha256": "56c196ed72e51a58549c2e5a37900fb600b0fc428f38d455b8b5d02c8358e50d",
+    "bytes": 12374
+  },
+  {
+    "path": "assets/sounds/weapons/original/elite_leftclipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/elite_leftclipin.wav",
+    "sha256": "2ebbea31183105b5d305027e960bb89dc2e2582b81ba712b01b1851501b6092d",
+    "bytes": 14692
+  },
+  {
+    "path": "assets/sounds/weapons/original/elite_reloadstart.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/elite_reloadstart.wav",
+    "sha256": "f9e8c7e079477f6e75aa848d251816c8fbd75c54124a50161c48a019989d7d11",
+    "bytes": 21890
+  },
+  {
+    "path": "assets/sounds/weapons/original/elite_rightclipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/elite_rightclipin.wav",
+    "sha256": "0f00af7dc8b97318c8799923da1da06ab03e4c28099c0598affe4fa367653cee",
+    "bytes": 11402
+  },
+  {
+    "path": "assets/sounds/weapons/original/elite_sliderelease.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/elite_sliderelease.wav",
+    "sha256": "d03e68ca394f1cfeff6535de17d4d3a01bd82546bd57430009299eb6f58e8b4c",
+    "bytes": 7496
+  },
+  {
+    "path": "assets/sounds/weapons/original/famas_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/famas_clipin.wav",
+    "sha256": "ff821788730e6445b676e6fcf0d50cfb5695111d3f568c53f72c3639d5616955",
+    "bytes": 10530
+  },
+  {
+    "path": "assets/sounds/weapons/original/famas_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/famas_clipout.wav",
+    "sha256": "676625ec6e1b323243d0d62988606c7b3b509ffb2e5b6c2cbc9a225ace6f8f79",
+    "bytes": 3876
+  },
+  {
+    "path": "assets/sounds/weapons/original/famas_forearm.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/famas_forearm.wav",
+    "sha256": "fe8beacb5dde14a0566033d7e00bc9e247132e8051e0f0a100210cc4b2b02d36",
+    "bytes": 10158
+  },
+  {
+    "path": "assets/sounds/weapons/original/fiveseven_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/fiveseven_clipin.wav",
+    "sha256": "00bbeb0b28abe5b4dd217dac62e3269dd3311a37dd2b8b3de1075059d8bdbe0e",
+    "bytes": 21922
+  },
+  {
+    "path": "assets/sounds/weapons/original/fiveseven_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/fiveseven_clipout.wav",
+    "sha256": "616e07c58c0d3d332c3c7fe65c1b7e6ef49d5c26d09d8132d1e7c36c3899ea46",
+    "bytes": 8188
+  },
+  {
+    "path": "assets/sounds/weapons/original/fiveseven_slidepull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/fiveseven_slidepull.wav",
+    "sha256": "2113e38a06dad60f31cccf35e4e8e8e9958ea41a1fdf872616526dedbf5c34ff",
+    "bytes": 5316
+  },
+  {
+    "path": "assets/sounds/weapons/original/fiveseven_sliderelease.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/fiveseven_sliderelease.wav",
+    "sha256": "b4976bbab31e27bb9b62476179ae4b0c98b3b693397a77eabe360f8e680f654e",
+    "bytes": 9688
+  },
+  {
+    "path": "assets/sounds/weapons/original/g3sg1_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/g3sg1_clipin.wav",
+    "sha256": "17fa44af450550c7d4a530c93c727559f99ba328d49c7e86fe7c4872460f1aa0",
+    "bytes": 14102
+  },
+  {
+    "path": "assets/sounds/weapons/original/g3sg1_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/g3sg1_clipout.wav",
+    "sha256": "523128273afaa928c151f46fe3f9f8d36d01bdb1fbc4118a7d80b64dea1ad1db",
+    "bytes": 12536
+  },
+  {
+    "path": "assets/sounds/weapons/original/g3sg1_slide.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/g3sg1_slide.wav",
+    "sha256": "d392bce4d2df7a5ea644669568fa3a140519d9da7daf2b438125204d4b4cb55a",
+    "bytes": 11176
+  },
+  {
+    "path": "assets/sounds/weapons/original/galil_boltpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/galil_boltpull.wav",
+    "sha256": "5b71cc8c0d6a6834a1c4abb165d33832f23852769a0bbf88b0912e35e2dac240",
+    "bytes": 14584
+  },
+  {
+    "path": "assets/sounds/weapons/original/galil_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/galil_clipin.wav",
+    "sha256": "2a51f93e85b1a2b90c584241f459d508c18549acc17285040c06a648f3a32c25",
+    "bytes": 3966
+  },
+  {
+    "path": "assets/sounds/weapons/original/galil_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/galil_clipout.wav",
+    "sha256": "1e2a9f6fb7efbec74f66777cceba65b1e08f413593f2782df33d07b84499d8f1",
+    "bytes": 3418
+  },
+  {
+    "path": "assets/sounds/weapons/original/m249_boxin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m249_boxin.wav",
+    "sha256": "ea6ef063c8aff01f527bda8fce5a571301d1f6ceeeb4c005b011dbb85e5d7959",
+    "bytes": 27850
+  },
+  {
+    "path": "assets/sounds/weapons/original/m249_boxout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m249_boxout.wav",
+    "sha256": "01b7967c4d45cd604f19fe8c4c88d4dfcac0f78407e56aec88f0dfb60d460cdf",
+    "bytes": 42964
+  },
+  {
+    "path": "assets/sounds/weapons/original/m249_chain.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m249_chain.wav",
+    "sha256": "acb351cf289853a3d7d951b498c28c0477f4bd766a2c67e0ee0ee3a691306a8a",
+    "bytes": 22916
+  },
+  {
+    "path": "assets/sounds/weapons/original/m249_coverdown.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m249_coverdown.wav",
+    "sha256": "c65ea86d4021312527dccc59a26d9fdc0199dd55060bf7729752bd1badb9f0e6",
+    "bytes": 6108
+  },
+  {
+    "path": "assets/sounds/weapons/original/m249_coverup.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m249_coverup.wav",
+    "sha256": "2adf150c1b7468f87bfcb3a569674dbb4208d3a62a677e1bc8bea51489d8b747",
+    "bytes": 8208
+  },
+  {
+    "path": "assets/sounds/weapons/original/m3_insertshell.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m3_insertshell.wav",
+    "sha256": "590e719162eaa306bbfad5862ef7b31d38da098e9626ccc44266f5494f0e7c7d",
+    "bytes": 8100
+  },
+  {
+    "path": "assets/sounds/weapons/original/m3_pump.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m3_pump.wav",
+    "sha256": "73bfb511d05cb4d69d8c10af5ff40faf78fa63abb57f8598dd3afd157261ca54",
+    "bytes": 7930
+  },
+  {
+    "path": "assets/sounds/weapons/original/m4a1_boltpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m4a1_boltpull.wav",
+    "sha256": "3852293059269966adc4e977d1d3153290ccb67584cf6914cc63348e3a12178a",
+    "bytes": 6382
+  },
+  {
+    "path": "assets/sounds/weapons/original/m4a1_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m4a1_clipin.wav",
+    "sha256": "8abeeaf5415da3e41b32987dc795967dced65fbf7ed5690b28fb3dc442aa8107",
+    "bytes": 12038
+  },
+  {
+    "path": "assets/sounds/weapons/original/m4a1_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m4a1_clipout.wav",
+    "sha256": "61c2443035604b8bc34068e6fa2830de9a9ea43cddb5a4b5e4f714f0cf2ebdf6",
+    "bytes": 9228
+  },
+  {
+    "path": "assets/sounds/weapons/original/m4a1_deploy.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m4a1_deploy.wav",
+    "sha256": "44f46a1cd37a3c13278eff273c055360378a40664e5f79ca3527945c2974ae0a",
+    "bytes": 9286
+  },
+  {
+    "path": "assets/sounds/weapons/original/m4a1_silencer_off.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m4a1_silencer_off.wav",
+    "sha256": "1b2a5859d38c99eaec6dfcb2d7fa5e8caa80de1a6f6ed47777e6a44ff15dd731",
+    "bytes": 13148
+  },
+  {
+    "path": "assets/sounds/weapons/original/m4a1_silencer_on.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/m4a1_silencer_on.wav",
+    "sha256": "783dd4ba9ada9f59f4fd0d4b69a039e7ca04631e39a484456ef4749bdf976cb3",
+    "bytes": 14026
+  },
+  {
+    "path": "assets/sounds/weapons/original/mac10_boltpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/mac10_boltpull.wav",
+    "sha256": "e8850cb54fe9f03d7d0df57e2762521dc853a7f814a4f806d1747ea3c6ffb8b4",
+    "bytes": 5228
+  },
+  {
+    "path": "assets/sounds/weapons/original/mac10_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/mac10_clipin.wav",
+    "sha256": "a725708f8f96adb910ecc411fa06c4228d267138d5c095ee810e7a56c9a54321",
+    "bytes": 16120
+  },
+  {
+    "path": "assets/sounds/weapons/original/mac10_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/mac10_clipout.wav",
+    "sha256": "ed42a1b2b755015baeb5396a6991e5d2e66dd9b234db3ae414d52ee63ff5e5ab",
+    "bytes": 3870
+  },
+  {
+    "path": "assets/sounds/weapons/original/mp5_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/mp5_clipin.wav",
+    "sha256": "0dbe2052f70ee80f6f3815dc9eabb13a934caee0c3f5bdc31d107557307ae8ca",
+    "bytes": 13726
+  },
+  {
+    "path": "assets/sounds/weapons/original/mp5_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/mp5_clipout.wav",
+    "sha256": "f357d3fd26da3ccaee2583b4b9bdb24f268d023a94863efbec034da1a8dd7d09",
+    "bytes": 14174
+  },
+  {
+    "path": "assets/sounds/weapons/original/mp5_slideback.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/mp5_slideback.wav",
+    "sha256": "d7639d5cfc915f37f723c52a1557e2be9fd6a869153740d336572d012ed99a7d",
+    "bytes": 6312
+  },
+  {
+    "path": "assets/sounds/weapons/original/p228_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/p228_clipin.wav",
+    "sha256": "2ebbea31183105b5d305027e960bb89dc2e2582b81ba712b01b1851501b6092d",
+    "bytes": 14692
+  },
+  {
+    "path": "assets/sounds/weapons/original/p228_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/p228_clipout.wav",
+    "sha256": "616e07c58c0d3d332c3c7fe65c1b7e6ef49d5c26d09d8132d1e7c36c3899ea46",
+    "bytes": 8188
+  },
+  {
+    "path": "assets/sounds/weapons/original/p228_slidepull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/p228_slidepull.wav",
+    "sha256": "4e945a8599fdf6a112321c248f9fa44942df1f567541ee05bcef7f8d1f62a79a",
+    "bytes": 9628
+  },
+  {
+    "path": "assets/sounds/weapons/original/p228_sliderelease.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/p228_sliderelease.wav",
+    "sha256": "8a01d37d768f0cff49164e4c9a698b4de7c354f6b0a207ac96cd0bc6c6847a00",
+    "bytes": 11094
+  },
+  {
+    "path": "assets/sounds/weapons/original/p90_boltpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/p90_boltpull.wav",
+    "sha256": "fc6daac18a31d84ee275eeaea7126c50b7644061677cadf9a06c6fb3584d9d3c",
+    "bytes": 8962
+  },
+  {
+    "path": "assets/sounds/weapons/original/p90_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/p90_clipin.wav",
+    "sha256": "ba968428fddd66fca47fb47892c521f9c31aebca4271337274ee5eb423457e6d",
+    "bytes": 9732
+  },
+  {
+    "path": "assets/sounds/weapons/original/p90_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/p90_clipout.wav",
+    "sha256": "548b1762f7a0c79da765b6aef08e62ab1b66f9e0667fe15b96b688521e5c28c0",
+    "bytes": 10396
+  },
+  {
+    "path": "assets/sounds/weapons/original/p90_cliprelease.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/p90_cliprelease.wav",
+    "sha256": "1bd6c91484d5e0ff265679610d2492a298390bf0f6a329120b5c04b8e45e5e80",
+    "bytes": 8116
+  },
+  {
+    "path": "assets/sounds/weapons/original/scout_bolt.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/scout_bolt.wav",
+    "sha256": "179a9dba6ab36e31bdffbcdca8d21a1b790c15bd54f0e84c2ae7eaccb93dd64e",
+    "bytes": 12900
+  },
+  {
+    "path": "assets/sounds/weapons/original/scout_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/scout_clipin.wav",
+    "sha256": "9835f7b0253dd5702b2ebdf3db4bbe99f2064758043fce8061f0b354a1af94d4",
+    "bytes": 14118
+  },
+  {
+    "path": "assets/sounds/weapons/original/scout_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/scout_clipout.wav",
+    "sha256": "6bfb146bd733ef37c06e81b423f37402a61e74d45874406bd284dec3fc8fdb13",
+    "bytes": 11026
+  },
+  {
+    "path": "assets/sounds/weapons/original/sg550_boltpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/sg550_boltpull.wav",
+    "sha256": "bdfa15c4bbc24ec951f1d8355e41c05c84ffa4bc630b649aa257dd8afac5a883",
+    "bytes": 6648
+  },
+  {
+    "path": "assets/sounds/weapons/original/sg550_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/sg550_clipin.wav",
+    "sha256": "bf1e986720e750793e986e99c678dba29e138438ce202a52d868e0f93e9d97fd",
+    "bytes": 18060
+  },
+  {
+    "path": "assets/sounds/weapons/original/sg550_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/sg550_clipout.wav",
+    "sha256": "61c2443035604b8bc34068e6fa2830de9a9ea43cddb5a4b5e4f714f0cf2ebdf6",
+    "bytes": 9228
+  },
+  {
+    "path": "assets/sounds/weapons/original/sg552_boltpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/sg552_boltpull.wav",
+    "sha256": "c70e22ca226a20bd68ab974b56e2a91f91bc751c89376c83d1284fa3a17b9192",
+    "bytes": 14778
+  },
+  {
+    "path": "assets/sounds/weapons/original/sg552_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/sg552_clipin.wav",
+    "sha256": "f718db26192690331bfd45945f14b9a564ffe607c6a65fadd053389c6b628571",
+    "bytes": 8294
+  },
+  {
+    "path": "assets/sounds/weapons/original/sg552_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/sg552_clipout.wav",
+    "sha256": "7250af928cb4560fc62ab8861ebad80aa11b863af5492e50107fce02204be8ce",
+    "bytes": 15810
+  },
+  {
+    "path": "assets/sounds/weapons/original/slideback1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/slideback1.wav",
+    "sha256": "f64cc961bada54bf6bada2c7b736f940011bf9e36b0732985757e16b2e692b92",
+    "bytes": 5778
+  },
+  {
+    "path": "assets/sounds/weapons/original/sliderelease1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/sliderelease1.wav",
+    "sha256": "89bc64b6711ab12cd20a570174dddb6b48b35bb4e953dec8e1b4711a0d985d34",
+    "bytes": 10534
+  },
+  {
+    "path": "assets/sounds/weapons/original/ump45_boltslap.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ump45_boltslap.wav",
+    "sha256": "5a02b520b191e6f0f566c88c2078db887ab2a6d3fd6cdbe236808c6b5d4e47a8",
+    "bytes": 6584
+  },
+  {
+    "path": "assets/sounds/weapons/original/ump45_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ump45_clipin.wav",
+    "sha256": "c027229a2174208ca4f4b99fe36ffde7f5ddb0230af0cf70b9b58668c8bb7dbb",
+    "bytes": 13818
+  },
+  {
+    "path": "assets/sounds/weapons/original/ump45_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ump45_clipout.wav",
+    "sha256": "ed42a1b2b755015baeb5396a6991e5d2e66dd9b234db3ae414d52ee63ff5e5ab",
+    "bytes": 3870
+  },
+  {
+    "path": "assets/sounds/weapons/original/usp_clipin.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/usp_clipin.wav",
+    "sha256": "2ebbea31183105b5d305027e960bb89dc2e2582b81ba712b01b1851501b6092d",
+    "bytes": 14692
+  },
+  {
+    "path": "assets/sounds/weapons/original/usp_clipout.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/usp_clipout.wav",
+    "sha256": "616e07c58c0d3d332c3c7fe65c1b7e6ef49d5c26d09d8132d1e7c36c3899ea46",
+    "bytes": 8188
+  },
+  {
+    "path": "assets/sounds/weapons/original/usp_silencer_off.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/usp_silencer_off.wav",
+    "sha256": "636917f9c7d70bd25938765dcc5e5322bd610d54b3bb6e080bc64a5ae9da12d8",
+    "bytes": 25640
+  },
+  {
+    "path": "assets/sounds/weapons/original/usp_silencer_on.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/usp_silencer_on.wav",
+    "sha256": "0fd4076926ba16cebbac386727dc56b8db871279683c570473eebaec74583429",
+    "bytes": 31024
+  },
+  {
+    "path": "assets/sounds/weapons/original/usp_slideback.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/usp_slideback.wav",
+    "sha256": "5194aedcf2533fefec38fbd9f7fd3d51d0e60c2d74b35c9e502ae27267d45efc",
+    "bytes": 6604
+  },
+  {
+    "path": "assets/sounds/weapons/original/usp_sliderelease.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/usp_sliderelease.wav",
+    "sha256": "89bc64b6711ab12cd20a570174dddb6b48b35bb4e953dec8e1b4711a0d985d34",
+    "bytes": 10534
+  },
+  {
+    "path": "asset-sources/cs16-weapons/sniper_scope.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/sniper_scope.spr",
+    "sha256": "eb65dd96208e029c9c92d4de5b74a2654f7e7d5ee29659a63296eb025cbf7f72",
+    "bytes": 66366
+  },
+  {
+    "path": "assets/sounds/weapons/original/pinpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/pinpull.wav",
+    "sha256": "39e4e79d8b52ef0ea1a3f04b81b944fceaebb0de377df41faf4ecac51b437fb5",
+    "bytes": 2809
+  }
+]

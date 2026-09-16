@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { authorizeShot, claimShot, fireShot, shotDeadline, nextClientShotTime } from '../src/combat-rules.ts'
+import { compile } from './compile.mjs'
+const { authorizeShot, claimShot, fireShot, shotDeadline, nextClientShotTime } = compile('combat-rules')('combat-rules')
 
 const epoch = 1789032000
 const rate = 0.0955

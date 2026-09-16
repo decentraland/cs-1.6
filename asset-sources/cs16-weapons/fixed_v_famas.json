@@ -1,0 +1,33 @@
+{
+  "name": "fixed_v_famas",
+  "sourceSha256": "7a8009a4ebbd41a9f02bed1b1e3ec0f8ffae4b4a8779a933acaa5ed4e96b462a",
+  "triangles": 1136,
+  "skippedDegenerateTriangles": 2,
+  "bones": 52,
+  "textures": 4,
+  "animations": {
+    "idle": 0.03333333333333333,
+    "reload": 3.0,
+    "draw": 0.8571428571428571,
+    "shoot1": 0.8571428571428571,
+    "shoot2": 0.8571428571428571,
+    "shoot3": 0.8571428571428571
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.28717198967933655,
+      -0.348965048789978,
+      -0.03992433100938797
+    ],
+    "max": [
+      0.04581225663423538,
+      -0.026919856667518616,
+      0.5875980854034424
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 2.9729213565587997e-05,
+  "bytes": 683632,
+  "blender": "5.2.1 LTS"
+}

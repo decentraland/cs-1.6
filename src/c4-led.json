@@ -1,0 +1,30 @@
+{
+  "src": "assets/ui/grenade-ledglow.png",
+  "width": 132,
+  "height": 66,
+  "frames": [
+    {
+      "x": 1,
+      "y": 1,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 67,
+      "y": 1,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    }
+  ],
+  "mode": 1,
+  "sourceSha256": "3ad8e2e3e1299f087d0fe244aa2e638f32d1bfad5445da0686ac5a55b010834e",
+  "sha256": "80a363dc5dcf5b5346ed80e2a22ddaf32400a7468a829ff87ab386f5433b4a2d"
+}

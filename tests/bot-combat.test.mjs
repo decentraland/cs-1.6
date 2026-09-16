@@ -28,7 +28,7 @@ after(() => rmSync(output, { recursive: true, force: true }))
 
 const feet = { x: 95, y: 10.026, z: 52 }
 const target = { x: 88, y: feet.y + 1.05, z: 52 }
-const targets = [{ id: 'player', center: { ...target, y: feet.y }, regions: PLAYER_HIT_REGIONS }]
+const targets = [{ id: 'player', center: { ...target, y: feet.y }, yaw: Math.PI / 2, regions: PLAYER_HIT_REGIONS }]
 const options = (now, extra = {}) => ({
   feet,
   target,
@@ -66,8 +66,16 @@ test('bot reaction and spawn grace delay the first shot, then shared AK ballisti
     targets,
     random: () => 0.5
   })
-  const { direction: actualDirection, ...actual } = shot,
-    { direction: expectedDirection, ...rest } = expected
+  const { direction: actualDirection, impacts: actualImpacts, ...actual } = shot,
+    { direction: expectedDirection, impacts: expectedImpacts, ...rest } = expected
+  assert.equal(actualImpacts.length, expectedImpacts.length)
+  actualImpacts.forEach((impact, index) => {
+    const { position, ...values } = impact,
+      { position: expectedPosition, ...expectedValues } = expectedImpacts[index]
+    assert.deepEqual(values, expectedValues)
+    for (const axis of ['x', 'y', 'z']) assert.ok(Math.abs(position[axis] - expectedPosition[axis]) < 1e-10)
+  })
+  for (const result of [actual, rest]) for (const pellet of result.pellets) delete pellet.direction
   assert.deepEqual(actual, rest)
   for (const axis of ['x', 'y', 'z']) assert.ok(Math.abs(actualDirection[axis] - expectedDirection[axis]) < 1e-12)
   assert.equal(shot.hit.group, 'body')
@@ -139,7 +147,7 @@ test('bot rounds hit map walls or an intervening teammate instead of awarding gu
   const wallTarget = { ...target, x: 103 }
   const wall = first({
     target: wallTarget,
-    targets: [{ id: 'player', center: { ...wallTarget, y: feet.y }, regions: PLAYER_HIT_REGIONS }]
+    targets: [{ id: 'player', center: { ...wallTarget, y: feet.y }, yaw: Math.PI / 2, regions: PLAYER_HIT_REGIONS }]
   })
   assert.equal(wall.shot.hit, undefined)
   assert.equal(wall.shot.damage, 0)

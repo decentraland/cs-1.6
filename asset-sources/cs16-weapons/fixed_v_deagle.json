@@ -1,0 +1,32 @@
+{
+  "name": "fixed_v_deagle",
+  "sourceSha256": "a6d5656606ea4473a9c56996a998d6dae8e346a17a66408b2e79b592473fe21b",
+  "triangles": 1053,
+  "bones": 43,
+  "textures": 6,
+  "animations": {
+    "idle1": 0.0625,
+    "shoot1": 0.575,
+    "shoot2": 0.575,
+    "shoot_empty": 0.575,
+    "reload": 2.1666666666666665,
+    "draw": 1.0
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.15977688133716583,
+      -0.27194082736968994,
+      -0.0031475371215492487
+    ],
+    "max": [
+      0.08498871326446533,
+      -0.039073407649993896,
+      0.43814852833747864
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.8477439880371094e-06,
+  "bytes": 557276,
+  "blender": "5.2.1 LTS"
+}

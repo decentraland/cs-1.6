@@ -1,0 +1,31 @@
+{
+  "name": "fixed_v_hegrenade",
+  "sourceSha256": "41ab710b831ad27dc066f7fcbeaddb74ede5c497ba49a42943180180199d5fd5",
+  "triangles": 844,
+  "skippedDegenerateTriangles": 0,
+  "bones": 37,
+  "textures": 6,
+  "animations": {
+    "idle": 0.3333333333333333,
+    "pullpin": 0.975609756097561,
+    "throw": 0.7666666666666667,
+    "deploy": 0.6666666666666666
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.22494737803936005,
+      -0.3190346658229828,
+      -0.027735786512494087
+    ],
+    "max": [
+      0.1818147897720337,
+      -0.028262153267860413,
+      0.3079129755496979
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.6391277313232422e-06,
+  "bytes": 395892,
+  "blender": "5.2.1 LTS"
+}

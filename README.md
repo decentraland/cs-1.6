@@ -4,6 +4,18 @@ An SDK7 scene on Dust2, using Decentraland's authoritative server and stock Bevy
 Explorer. The target is faithful CS 1.6 gameplay and an exact recreation of its UI.
 See [the implementation plan](IMPLEMENTATION_PLAN.md) for the remaining work.
 
+The current [MVP playtest](docs/MVP-PLAYTEST.md) focuses on menus, buying, damage
+feedback and death/spectating. Escape reopens team navigation while spectating;
+RESUME SPECTATING returns to the chase camera. Purchases confirm what was bought
+and how to equip it. Server-confirmed hits produce blood or armor impacts,
+incoming-hit indicators scale with the viewport, and up to four kills remain
+visible in the feed. These new presentation changes await creator playtesting.
+
+For patterns other creators can reuse, see [SDK7 action-game recipes](docs/CREATOR-RECIPES.md)
+and the [recipe template](docs/CREATOR-RECIPE-TEMPLATE.md). They link implementations
+to evidence, separate historical captures from current verification, and outline
+focused contributions to Decentraland SDK Skills.
+
 ## Current playable prototype
 
 Choose **Terrorists** or **Counter-Terrorists** on the team menu to spawn at that
@@ -22,8 +34,8 @@ synchronized `AvatarShape` NPC, so its visible body and walking animation follow
 the authoritative navigation transform. Each result awards one team point, shows
 the win message for five seconds, then automatically starts the next round.
 First to sixteen wins ends the match, opens the scoreboard, and offers **PLAY
-AGAIN** on the team menu. Each round restores health, ammunition, bots, and the
-timer; player and bot kills/deaths persist across rounds. Bot kills appear in
+AGAIN** on the team menu. Teams stay on their chosen sides throughout the match;
+there is no automatic halftime side switch or money reset. Each round restores health, bots, and the timer; surviving players keep their equipment, while dead players receive their starting loadout; player and bot kills/deaths persist across rounds. Bot kills appear in
 the kill feed and bot rows appear inside their team on the scoreboard. The
 scoreboard sorts each team by kills descending, then deaths ascending. Time
 expiry awards the CT side a point, matching the unplanted-bomb timeout rule.
@@ -31,11 +43,11 @@ There is no separate solo or practice mode; evidence below that mentions the
 solo encounter or **Start game** predates this unified match model.
 
 The server owns enemy health, damage, round state, ammo, reloads, and shot cadence.
-Bot hits and line of sight use a triangle query exported from the existing Dust2
-model into the same coordinates used by Bevy. Player shots at bots and human target proxies share server-owned ray
-intersection, wall occlusion, AK recoil/spread, and range damage. Clients send aim and a shot sequence only; they cannot choose the hit
+Bot navigation and line of sight use a triangle query exported from the existing Dust2
+model into the same coordinates used by Bevy. Player and bot bullets use the original Dust2 point hull for surfaces and penetration. Player shots at bots and human target proxies share server-owned ray
+intersection, wall occlusion, weapon-specific recoil/spread, and range damage. Clients send aim and a shot sequence only; they cannot choose the hit
 verdict; it validates the reported context and re-traces. Each shooter has
-independent recoil state. Standing hit regions are still approximate. A human joining a bot-filled
+independent recoil state. Head, chest, stomach, arms and legs use separate damage/armor rules; shotgun pellets combine before health truncation. The standing avatar regions remain approximate. See [hit response and original voices](docs/CS16-HIT-RESPONSE.md). A human joining a bot-filled
 side replaces those bots at the next round start; the match resets to a fresh
 lobby when every human leaves. A lone human who dies spectates the bots.
 Teams spawn at the original Dust2 locations, share elimination/timeout rounds,
@@ -44,40 +56,78 @@ seats; testing covers two combatants and a third joining client, not 5v5 capacit
 Late joiners wait until the next round. A player missing heartbeats for 20 seconds
 is removed from the active round; rejoining cannot grant a mid-round life.
 Kills/deaths persist by address until a new match. A live disconnect counts as a
-death. Friendly fire is off, and teammates stop bullets. CTs respawn with a USP (12/24) and Terrorists with a Glock-18 (20/40); both sides always have a knife.
-Buy an M4A1 as CT or an AK-47 as T; rifles include a magazine and no spare ammo.
-Survivors retain ammunition, armor, helmets, and defuse kits.
+death. Friendly fire is off. Penetrating bullets can continue through players and surfaces with reduced damage. CTs respawn with a USP (12/24) and Terrorists with a Glock-18 (20/40); both sides always have a knife.
+The buy menu contains all 24 original firearms, with team restrictions and original prices. Purchases include a full magazine; spare ammunition is bought separately and shared by caliber.
+Empty rifles and pistols wait for fire release before automatic reloading; M3 and
+XM1014 can reload and fire inserted shells while fire stays held.
+[Reload rules and browser proof](validate/game/empty-reload/README.md).
+Glock burst mode repeats while fire is held; semi-auto mode fires once per press.
+Glock follow-up bullets advance on scene updates, while FAMAS retains its timed
+follow-ups. [Burst rules and browser proof](docs/CS16-BURST-FIRE.md).
+Survivors retain ammunition, armor, helmets, and defuse kits. **Shift+2** drops the
+active gun with its remaining magazine; reserve ammo stays with you. Buying a
+replacement drops the old gun. Purchases and pickups use the original weapon
+priorities for automatic selection; buying a pistol while holding a rifle keeps
+the rifle selected. Walk over a ground gun with an empty matching slot
+to pick it up, including enemy-team weapons. Death drops the best firearm with
+its reserve ammo; new rounds clear ground weapons. See the [pickup checks](validate/game/pickups/README.md).
 
-The current AK, knife, pistols, and Decentraland-avatar enemies are placeholders while the game is built.
-[AK source and attribution](asset-sources/ak47/SOURCE.md). The HUD has an initial
+HE ($300, one), flashbangs ($200 each, two) and smoke ($300, one) are available in Equipment. **Shift+3** cycles grenades; hold fire to pull the pin and release to throw. Pins do not cook. HE damage, flash facing/visibility, smoke sight blocking and round cleanup are authoritative. See [grenade rules, models and limits](docs/CS16-GRENADES.md).
+
+All 24 firearms, the knife and the three grenade types use the approved CS 1.6 first-person model pack, with
+hands, source animations and original weapon sounds. Other players hold the matching
+original third-person guns. Dual Elites attach one original pistol to each hand;
+[the model review](validate/game/dual-hands/README.md) covers switching, movement,
+death and cleanup. See [arsenal behavior and validation](docs/CS16-ARSENAL.md),
+[door penetration and pointer capture checks](validate/game/penetration/README.md)
+and [model/audio provenance](asset-sources/cs16-weapons/SOURCE.md). Practice bots use the original Arctic/Urban bodies and death animations; human avatars
+remain Decentraland placeholders. See [bot bodies and animated hitboxes](docs/CS16-PLAYER-MODELS.md). The HUD has an initial
 amber layout and green crosshair, but is **not yet an exact CS 1.6 match**. Original
 HUD digits/icons, the source-defined team menu, and a buy menu in the same VGUI
 style (category list, per-category submenus, item info panel) are implemented. The scoreboard now uses the classic layout and Verdana glyphs; pixel-level comparison is still open. Hold **Shift+1** for the scoreboard; the installed SDK does not
 expose Tab, which Bevy reserves for its map.
 Money and equipment purchases are authoritative in shared rounds.
-Remaining firearms, alternate fire modes, remaining spectator modes, weapon/footstep sounds,
-advanced bot tactics, crouching, CS acceleration/friction/air control, and
-finished character/weapon animations remain pending.
+Original surface-dependent footsteps and jump/landing sounds are implemented;
+see [movement audio and the Bevy Avatar-volume setting](docs/CS16-MOVEMENT-AUDIO.md).
+Desktop Bevy now uses [CS movement rules](docs/CS16-MOVEMENT.md): acceleration,
+friction, counter-strafing, gravity, jump fatigue, air control and bullet flinch.
+Native collision still resolves ramps, walls and bounded stair climbing. This is
+not complete GoldSrc physics parity. Remaining spectator modes, advanced bot
+tactics, crouching, character animations and exact native input bindings remain pending.
 
 ## Run locally
 
 Use Node.js 22.18+ (tested with Node 24). The SDK and runtime are pinned to the
 verified authoritative build; a caret range can select a build without these APIs.
+The start scripts also pin Bevy headless server `0.1.0-34588802161.commit-3926f33`.
+An older cached server can receive shots without receiving avatar positions, making
+ammo appear unlimited and bots unhittable. Stop and restart your preview after
+updating these scripts, then reload its browser scene. `DCL_SERVER_PACKAGE` remains
+available as an explicit override for engine development.
+[Reproduction and real-input proof](validate/game/combat-recovery/README.md).
 Then:
 
 ```sh
 npm install
-npm run start -- --no-client --port 8004
+npm start -- --web --port 8000
 ```
 
 Open a stock Bevy web client with:
 
 ```text
-?realm=http%3A%2F%2Flocalhost%3A8004&position=0%2C0&isPreview=true&hud=0&guest=1
+https://decentraland.org/bevy-web/?preview=true&realm=http%3A%2F%2F127.0.0.1%3A8000&position=5%2C8&guest=1
 ```
 
-`hud=0` hides Bevy's surrounding interface; `guest=1` enters as a guest.
-Pick a side on the team menu, then click the scene to capture the mouse. Button
+For automation or an already-open client, use `npm run start:server -- --port 8000`.
+This suppresses browser tabs and native-client launches; connect an isolated muted
+headless browser separately. Automation must use this command and close its owned
+server/browser afterward.
+
+`guest=1` enters as a guest. Allow loopback access when Chromium asks to reach the local preview.
+Pick a side on the team menu. Spawning requests mouse capture automatically;
+once captured with the mouse released, your first shot or use key works without
+an extra click. If the cursor is free, clicking the scene captures it and that
+capture click is consumed until release. [Input regression](validate/game/input-capture/README.md). Button
 hover follows the pointer position each frame; while the menu is open, **1**
 joins Terrorists and **2** joins Counter-Terrorists. AUTO ASSIGN and SPECTATE
 are click-only because the explorer exposes no 5/6 input actions.
@@ -86,25 +136,24 @@ are click-only because the explorer exposes no 5/6 input actions.
 | -------------- | ----------------------------------------------------------- |
 | WASD, Space    | Move, jump                                                  |
 | Shift (hold)   | Walk                                                        |
-| Left mouse     | Fire, knife swing, plant C4 (hold in a site)                |
+| Left mouse     | Fire, knife swing, hold/release grenade, hold to plant C4                |
 | 1 / 2 / 3      | Primary / pistol / knife                                    |
 | 4              | C4 (carrier only)                                           |
+| Shift+2        | Drop active gun (or selected C4)                            |
+| Shift+3        | Cycle Flash / HE / Smoke                                    |
 | Shift+4        | Drop C4                                                     |
 | Shift+1 (hold) | Scoreboard                                                  |
-| E (hold)       | Use: defuse the planted bomb                                |
+| E              | Zoom / silencer / burst mode; hold near C4 to defuse        |
 | F              | Reload with a gun, stab with the knife                      |
-| Esc            | Release the cursor; opens the buy menu inside your buy zone |
+| Esc            | Release the cursor (the engine handles it); click **BUY** to open the buy menu |
 | 1-4 (buy menu) | Pick the matching row; 0/5-8 rows are click-only            |
 
 These are the input actions the explorer exposes to scenes; Tab, B, G, 5 and 6
 are not available, so the scoreboard, buy menu, C4 drop and menu shortcuts use
 substitutes.
 
-**Sounds.** Gunshots (per gun), reload, knife swing/hit and dry fire are
-generated placeholders (`asset-sources/weapons/generate_sounds.py`, no
-Counter-Strike audio). Your own weapon plays on the camera; other players' and
-bots' shots play positionally at the shooter. C4 cues and the damage thump are
-unchanged.
+**Sounds.** Gunshots, silencers, model-timed reload/draw events, knife swing/hit and dry fire use the original CS sound files, recorded in the [source manifest](asset-sources/cs16-weapons/SOURCE.md). Your own weapon plays on the camera; other players' and
+bots' shots play positionally at the shooter. Hit and death voices now use the original flesh, headshot, Kevlar, helmet and death files. Each actor has one voice emitter, so a new hit or death replaces its preceding voice. [C4 audio](docs/CS16-C4.md) also uses the original cues.
 
 **Reconnection.** Transient `room.send` messages (round spawns, shot results)
 are lost while a client is suspended, and the SDK only re-requests the full CRDT
@@ -120,7 +169,9 @@ player last chose (until they leave the team on purpose) and re-admits them, so
 coming back never lands on the team menu. Scene-side workaround for
 [decentraland/sdk#1198](https://github.com/decentraland/sdk/issues/1198).
 
-**Mobile (Godot explorer).** The explorer reports `platform: 'mobile'` and never
+**Mobile (Godot explorer).** Desktop scope magnification uses Bevy-specific camera components and has not been implemented on mobile.
+
+The explorer reports `platform: 'mobile'` and never
 locks the pointer, so the scene switches to touch mode (`src/platform.ts`): the
 live view is the engine's first-person camera driven by the touch look-drag, aim
 is read from the camera transform, and recoil only tilts the viewmodel. The
@@ -134,6 +185,10 @@ touch look after an uninterrupted transition back from a scene camera, and a
 respawn could leave the camera frozen. Avatar passport popups are disabled throughout the 12×12-parcel
 game area, so clicking another player does not open their profile while
 shooting. Only one match runs per realm.
+
+Gunfire and knife attacks wait for a valid server-observed player position and a
+fresh match connection. The HUD shows “Waiting for player position...” or
+“Reconnecting to the match...” instead of predicting ineffective shots.
 
 A headless-server restart can leave synchronized values stale in the current
 preview SDK. Reload the browser scene after source/test changes before testing.
@@ -149,7 +204,7 @@ npm run validate
 This runs combat and map-query tests, the GLB integrity check, scene bundle,
 and TypeScript check. The map tests include the courtyard wall that exposed a
 GLTF coordinate mismatch, so that regression has a reproducible check.
-The current gate passes 149 tests plus the weapon, font, team-menu, radar, pain-compass, navigation,
+The scene gate runs the rule tests plus the weapon, font, team-menu, radar, pain-compass, navigation,
 bundle, and type checks. The source is Prettier-formatted; check it with
 `npx prettier --check src tests validate` (`.prettierignore` skips generated files).
 
@@ -189,6 +244,8 @@ label, and their evidence files record the earlier flow.
 [baseline screenshot](validate/baseline/dust2.png) record the original prototype.
 No editor or engine code is modified by this project.
 
+The full 24-firearm and knife browser review, including AWP zoom and bolt cycling, is recorded in [arsenal evidence](validate/game/arsenal/README.md).
+
 ## Mechanics fidelity
 
 `AvatarLocomotionSettings` sets AK movement to 5.525 m/s, walking to 52% of
@@ -203,6 +260,17 @@ and sets all three speed fields to the selected value, so Shift slows movement
 for CS-style walking. Jump heights and the hard-landing cooldown are configurable;
 gravity and collision hull height are not. These settings are a supported first
 step, **not identical CS movement physics**.
+
+Original movement audio uses Bevy velocity feedback locally and synced positions
+for other players/bots. Shift/Ctrl walking stays below the audible-step threshold.
+Set **Settings → Audio → Avatar Volume to 0** while leaving Scene Volume enabled
+to prevent native avatar sounds from overlapping the CS clips.
+[Rules, source and limits](docs/CS16-MOVEMENT-AUDIO.md).
+
+[Authoritative fall damage and landing feedback](docs/CS16-FALLING.md) now use
+the original damage formula, armor bypass and world-death scoring. Native impact
+velocity is checked against a server-observed landing; missing reports use the
+server estimate. Movement physics and identical-height fall parity remain open.
 
 The server now applies AK cadence (0.0955 s), reload time (2.45 s), standing/moving/
 airborne spread, and range attenuation. Humans and bots share the same
@@ -455,14 +523,16 @@ seconds. Releasing, switching, moving out of the zone, or leaving the ground
 cancels progress. Planting and defusing block movement and rifle fire.
 
 The original BSP trigger planes define both zones, including B's clipped corner.
-A dropped bomb can be picked up by a living Terrorist by approaching it. Carrier
-death/disconnect drops it at the last available position. Manual drops snap to
-the floor and delay the former owner's pickup for one second; thrown-item physics
-are not yet implemented.
+Manual drops and carrier deaths toss the original backpack forward, with source
+body pitch, gravity and Dust2 wall/floor contact. It becomes collectible by a
+living Terrorist once it lands, including during freeze time; the former owner
+has no extra pickup delay. Physics continues through the round result, and the
+next round clears the drop. A disconnect uses the last available carrier position.
+See the [C4 toss checks](validate/game/c4-toss/README.md).
 
 A planted bomb has a 45-second fuse and hides the round timer. CT must face it,
 remain grounded and in use range, and hold **E** for ten uninterrupted seconds.
-CTs can buy a $200 defuse kit in their buy zone for a five-second defuse. E is
+CTs can buy a $200 defuse kit in their buy zone or recover one from a fallen CT for a five-second defuse. The original green kit icon shows ownership. E is
 the use key only; it never fires.
 
 A plant survives elimination of all Terrorists and the ordinary round timeout.
@@ -478,8 +548,11 @@ authoritative awards participate in the existing descending score ordering.
 C4 warning and action sounds use the original clips. The five beep waves advance
 through the fuse and retrigger every 1.4 seconds. Bevy spatial attenuation and
 sound timing still need an audible comparison against the original client.
-[Sound provenance](asset-sources/c4/SOURCE.md). Bomb/view models and progress UI
-remain placeholders; other weapons and advanced bot bomb tactics are still pending.
+[Sound provenance](asset-sources/c4/SOURCE.md). C4 now uses the original first-person,
+held, planted and dropped-backpack models, keypad clicks and LED/explosion sprites.
+Deployment and plant-cancel cooldowns follow the source, C4 restores its own movement
+speed, and planting selects the highest-weight weapon. See [C4 details and validation](docs/CS16-C4.md).
+The progress UI and advanced bot bomb tactics remain pending.
 
 When bots fill the Terrorist side they rotate a bot bomb carrier and A/B
 destination. The carrier uses the production Dust2 graph to reach the selected
@@ -506,9 +579,14 @@ clip emission, not audible fidelity. [Evidence](validate/game/bomb.json).
 
 ## Money and equipment
 
-Press **Esc** in your team's spawn buy zone to open equipment
+Press **Esc** to free the cursor, then click the **BUY** button (all platforms) in your team's spawn buy zone to open equipment
 purchases, then click **Close** to resume aiming. Buying is available during freeze
-and the first 90 seconds of live play. This is a temporary input/menu presentation;
+and for 90 seconds from the start of live play. A living survivor can still buy
+during the five-second round result if that window remains open. The menu uses
+the server's buy timer; the result countdown does not replace it. The buy menu
+renders above combat HUD messages so they cannot cover its controls. Buying closes
+at match end. [Buy-window regression](validate/game/buy-window/README.md).
+This is a temporary input/menu presentation;
 the installed SDK does not expose the original B key. Server checks enforce the
 original Dust2 buy volumes, time, team, alive/admitted status, funds, and ownership.
 
@@ -529,9 +607,10 @@ respawn; money survives death and rejoining, and resets with a new match.
 Armor protects the body, helmets also protect the head, and legs remain exposed.
 AK damage uses the reference armor penetration and depletion arithmetic. Armor
 keeps fractional values; health damage is rounded to the scene's integer health.
-Blast damage uses its separate reference armor calculation. Dropped kit pickup,
-the remaining weapons, and grenades remain open.
-Bots use a server-owned free AK loadout and take no part in the economy.
+Blast damage uses its separate reference armor calculation. Weapon drops and pickups
+are implemented in the current arsenal. HE, flashbangs and smoke are playable; spare grenades are discarded on death as in CS 1.6. Defusal kits drop on death for living CTs to recover, including bots; survivors keep them. Grenade use by bots remains open. See [kit rules and validation](docs/CS16-DEFUSE-KITS.md).
+Bots now use the same start money, prices, round and kill rewards, armor and
+paid ammunition through a simple [round buying policy](docs/CS16-BOT-ECONOMY.md).
 
 `node validate/economy.mjs <CT-CDP-websocket> <T-CDP-websocket> [evidence.json]`
 checks equipment buying, kit defusing, money rewards, armored combat, death resets,
@@ -554,6 +633,8 @@ and persistent 3/1 stats. [Evidence](validate/game/economy-solo.json).
 
 ## Weapon inventory
 
+The current 24-firearm roster, prices, alternate modes, original models and validation are documented in [CS16-ARSENAL.md](docs/CS16-ARSENAL.md). The following paragraphs describe the earlier four-weapon milestone and its recorded evidence.
+
 Rounds start with the original USP/Glock magazines and two spare
 magazines. Buy weapons through the
 spawn equipment menu: CT M4A1 $3100, T AK-47 $2500, USP $500, Glock-18 $400.
@@ -567,7 +648,30 @@ reload times, and movement speed come from each weapon's reference profile.
 Prediction uses the same profile so a pistol cannot replay AK recoil. The current
 USP and M4A1 are unsilenced and the Glock is semi-auto; silencers/burst mode,
 other guns, weapon drops/pickup, and complete animation/sound fidelity remain open.
-Both rifles currently share the AK proxy; pistols and the knife use simple mesh proxies, in the viewmodel and in the right hand of every other player and bot.
+The AK first-person view now uses the GameBanana **Pack Default Weapon Fixed** model:
+1,050 triangles including hands, 11 original textures, and the six source idle,
+draw, reload and shooting clips. The M4A1, pistols, knife, and all third-person
+weapons retain their existing placeholders. The AK is attached at the camera
+origin with unit scale; its source already supplies the first-person placement.
+The original animation timing is preserved, firing starts locally, and server
+state still controls reload completion and ammunition.
+
+The offline gate checks every texture pixel against the pinned MDL, the complete
+rig, animation channels and clip timing. The headless Bevy check passed loaded
+clips, held-fire animation changes, reload/ammo transfer, and switching to the
+Glock and back. Browser captures show the AK and hands at idle, firing and reload;
+see [the runtime evidence and reproduction](validate/game/ak47-cs16/README.md).
+Extreme camera angles, wall/near-plane clipping, frame-by-frame animation fidelity
+and parcel-boundary behavior remain unverified. See
+[AK source, conversion and reuse terms](asset-sources/ak47-cs16/SOURCE.md).
+
+To review it manually, join Terrorists, buy an AK and primary ammo at spawn, and
+press 1 to equip it. Check the draw, hold left mouse for several shots, then
+press F to reload. The magazine and hands should animate, ammo should refill
+only when the reload completes, and shooting should restart the animation on
+every round. Switch to pistol/knife and back, then check aiming up/down and
+standing near walls for clipping. The recorded run covers firing, reload and
+switching; the wider clipping checks remain open.
 
 Knife attacks use server-owned reach, wall occlusion, hit regions, damage, armor,
 cooldowns, and rear-stab checks from the pinned CS 1.6 reference. A primary swing
@@ -603,15 +707,30 @@ Death starts with a 0.6-second fall from eye height to the CS 1.6 dead-view heig
 and an 80-degree roll. The view remains at the body until the original three-second
 death window ends, then enters free chase. The chase cam follows a living human
 teammate, or a living bot when no human teammate is available, so a lone dead
-human spectates the bots. Move the mouse to orbit; click to select the next
+human spectates the bots. Neutral spectators can cycle humans and bots together.
+Move the mouse to orbit; click to select the next
 target, or Shift+click for the previous one. Human targets must be connected,
 alive, and eligible for the current round. The camera holds its last position
 when no target is available. The same `VirtualCamera` serves the live view, the
 death fall, and the chase cam. Dead-player inputs cannot move, shoot, reload, or buy.
+Free chase hides your own health, armor, ammo and money; the watched player's
+name and health use their team color, and the round timer remains visible.
+Escape opens the team menu. RESUME SPECTATING keeps the current target and
+recaptures the cursor; release that click before using another to cycle targets.
+With no living eligible target, the view explicitly says so.
+
+On desktop, neutral spectators can press **Space** to switch between chase and
+**Free Look**. WASD flies in the viewing direction (look up/down to climb/descend);
+Shift slows flight. Clicking in Free Look jumps to the next eligible player's
+viewpoint without leaving that mode. Escape stops flight and opens the team menu;
+Resume preserves the camera position. Joining a team restores the playing camera.
+Selecting SPECTATE in an empty lobby also enters Free Look, so watching does not
+require an active match. Dead team players cannot select roaming.
+See [spectator roaming checks](validate/game/observer-roaming/README.md).
 
 Human spectating is teammate-only. The chase distance is 112 CS units at
 the scene's physical scale; a map ray limits the camera distance with 0.15 m
-clearance. First-person/roaming/map observer modes, the original observer menu,
+clearance. First-person/map observer modes, the original observer menu,
 a rendered character death animation, and full camera-hull collision parity
 remain open.
 
@@ -639,6 +758,17 @@ passed the complete three-kill win, automatic round reset, and scored loss with
 The focused [death/spectator evidence](validate/game/death-spectator.json) records
 a roughly three-second transition, the camera fall, the first living-bot target, and
 click-to-cycle without spending ammunition. The rule tests pin the 80-degree roll.
+
+## Kill feed
+
+Confirmed kills use the original weapon/headshot sprites and team-colored bitmap
+names. Four notices appear from oldest to newest at the top right and each lasts
+six seconds; overflow removes the oldest. World deaths use a skull, and suicides
+omit the repeated killer name. Headshot flags and team colors come from the server,
+including bot deaths. C4 and HE use the grenade death icon.
+See [source and conversion](asset-sources/hud/SOURCE.md) and
+[headless evidence](validate/game/kill-feed/README.md). SDK alpha blending and the
+bitmap font are adaptations rather than complete GoldSrc pixel parity.
 
 ## Classic scoreboard
 
@@ -698,22 +828,31 @@ passes 88 tests, asset checks and SDK build/typecheck.
 
 ## Bot navigation
 
-Bots stand on Dust2's sloping floor and move along a graph built from
-the existing map collision triangles. Walls gate sight and damage; the server
+Bots stand on Dust2's sloping floor and plan routes with a graph built from
+the existing map collision triangles. Their actual velocity uses CS acceleration,
+friction and bullet flinch, clipped against Dust2 solids. Hits can slow or push a
+bot, and its route then follows the displaced position. See [bot movement](docs/CS16-BOT-MOVEMENT.md). Walls gate sight and damage; the server
 moves them every frame and owns their position, facing and speed. Bots spawn in
 their side's original spawn slots after that team's humans, facing the spawn
-direction. The three server entities render as named `AvatarShape` NPCs, Bevy
-derives their walking animation from those position updates, and every bot and
-remote player holds a right-hand weapon model (`world-weapons.ts`): the AK proxy
-for rifles, the pistol/knife/C4 proxies otherwise, hidden while dead.
-[Rendered evidence](validate/game/bot-avatars/README.md) shows all three in the
-live encounter (recorded before the held weapons and the behaviour below).
-The right-hand poses in `world-weapons.ts` (`POSES`) have not yet been checked in
-the explorer; adjust them there if a model sits wrong in the hand.
-Bevy resolves an `AvatarAttach` only when the component changes and drops it when
-the avatar has not loaded yet ([bevy-explorer#1255](https://github.com/decentraland/bevy-explorer/issues/1255)),
-so the attachment is applied half a second after the avatar appears and re-applied
-every two seconds.
+direction. The server entities now render as original Arctic/Urban models with
+independent leg and gun animations, animated source hitboxes and full-body death
+clips. Guns bind to their original hand bones through Bevy's `GltfNode`; corpses
+release their held weapons and remain until the next round. See [body/death details](docs/CS16-PLAYER-MODELS.md).
+Only `BotBodyPose` is synced; each client builds the bot `Animator` locally from it
+(`bot-animation.ts`). Unity writes `playing: false` back when a non-looping clip ends,
+and a synced server-owned `Animator` rejected that write and re-sent the finished
+death clip, so corpses replayed their death forever on Unity. Unity and Godot have no
+`GltfNode`: once the body has loaded without a `GltfNodeState`, the held gun is pinned
+at a fixed right-hand offset of the aiming pose instead of following the bone.
+Unity only honours `PointerLock` on the camera entity, so menu clicks and the buy
+menu close also request the lock there; own-weapon sounds alternate two sources
+because Unity does not restart a source that is still playing. The green teammate
+markers are gone and the local nametag is hidden. See [explorer inconsistencies](docs/EXPLORER-INCONSISTENCIES.md).
+Remote human players retain Decentraland avatars and the existing `AvatarAttach`
+retry workaround for [bevy-explorer#1255](https://github.com/decentraland/bevy-explorer/issues/1255).
+Dual Elites have separate left/right-hand models. C4 uses its original held model,
+including while bots plant. The [older avatar evidence](validate/game/bot-avatars/README.md)
+predates the new player bodies.
 
 Movement is a small seeded state machine (`bot-behavior.ts`, `bot-navigation.ts`),
 so every round plays out differently:
@@ -738,7 +877,9 @@ so every round plays out differently:
   corners instead of stair-stepping the 0.5 m grid. Facing turns at 400°/s
   (720°/s when tracking an enemy) instead of snapping.
 
-CT bots carry the M4A1 and T bots the AK-47; each bot's random stream derives
+Bots start with their team's pistol and buy affordable guns, armor, kits and ammo
+from earned money. Survivors retain their equipment; dead bots lose it. See
+[bot economy](docs/CS16-BOT-ECONOMY.md). Each bot's random stream derives
 from the round seed and its index, so a round's decisions are reproducible.
 
 The generated graph has 21,170 connected nodes at 0.5 m spacing, with a 0.3 m
@@ -765,18 +906,21 @@ integrity, bundle and type checks.
 
 ## Bot gunfire
 
-Bots fire traced AK rounds at visible players. Shots use the same recoil,
+Bots fire their equipped gun at visible players. Shots use the same recoil,
 movement/airborne spread, hit regions, distance damage and armor calculations as
 player gunfire. Walls and other bots stop bullets; friendly fire is off. The
-server owns each bot's independent 30/90 ammunition and 2.45-second reload. Empty
-reserves stay empty. Losing sight releases the trigger, and reacquisition has a
-short reaction delay. Each new round creates a fresh bot loadout.
+server owns each bot's ammunition and uses that gun's reload duration. Empty
+reserves stay empty; a fully exhausted primary gives way to the carried pistol
+after its draw time. Death still drops the carried gun selected by weapon weight.
+Losing sight releases the trigger, and reacquisition has a
+short reaction delay. Surviving magazines and reserves carry into the next round;
+bots pay for additional ammunition and reload partial magazines during freeze.
 
 Bots fire 2–5-round bursts based on range. The initial encounter retains its
 6/7/8-second grace measured from spawn, including the three-second freeze.
 These burst, reaction and aiming choices are scene AI settings, not recovered
-CS bot behavior. The avatar shoots from its 1.4 m eye height; faithful CS
-character models, held-weapon animation, advanced aiming and coordinated tactics remain unfinished.
+CS bot behavior. Bots shoot from their existing 1.4 m eye height. Full aim blending,
+advanced aiming and coordinated tactics remain unfinished.
 
 Impact markers now appear at the traced bullet endpoint. Bot kills identify
 the bot and AK in the kill feed. The [bot-combat evidence](validate/game/bot-combat/README.md)
@@ -785,8 +929,7 @@ behavior have unit coverage; the live hit trace uses an unarmored player.
 
 Confirmed hits now give the victim the original CS directional pain sprite,
 amber above 25 health and red at critical health, plus a hitgroup- and
-armor-dependent camera punch (plus a subtle viewmodel tilt) and a locally
-generated impact sound. Bot and human
+armor-dependent camera punch (plus a subtle viewmodel tilt) and original hit voices. Bot and human
 attacks use the same authoritative event with the attack origin and hit group;
 the indicator ignores pointer input. [Rendered hit feedback](validate/game/damage-hit.png),
 [pain sprite source](asset-sources/hud/SOURCE.md),
@@ -803,3 +946,11 @@ The bot-gun stage passed **99 tests**, asset/graph validation and SDK build/type
 Its live round check passed player victory, reset and bot victory with stats
 retained. An idle-player trace observed 35-point AK body hits about 100 ms apart
 and the named bot/weapon kill feed.
+
+## Full CS 1.6 arsenal
+
+The current weapon implementation is described in [CS16-ARSENAL.md](docs/CS16-ARSENAL.md).
+That section supersedes the earlier four-weapon prototype and one-AK review notes above.
+`npm run validate` runs the gameplay regressions, all 28 gun/knife/grenade viewmodel integrity checks (plus C4),
+map/HUD checks and SDK build/typecheck. Historical browser captures above describe
+older builds; new arsenal captures are recorded separately.

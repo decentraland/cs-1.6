@@ -1,0 +1,21 @@
+{
+  "id": "c4",
+  "sourceSha256": "6d1014eb9fd47a05b726098c51b8632cc5dc6d627306f980035da03ce96b3f5b",
+  "triangles": 116,
+  "bytes": 26152,
+  "sourceTriangles": 116,
+  "skippedDegenerateTriangles": 0,
+  "anchor": "Original model origin",
+  "blenderBounds": {
+    "min": [
+      -0.07093854993581772,
+      -0.17380860447883606,
+      -0.00013442103227134794
+    ],
+    "max": [
+      0.06088442727923393,
+      0.16660302877426147,
+      0.16011559963226318
+    ]
+  }
+}

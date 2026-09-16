@@ -1,14 +1,8 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import {
-  freshBomb,
-  stepBomb,
-  dropBomb,
-  bombBlastDamage,
-  bombFragAward,
-  canDefuseBomb,
-  bombBeepWave
-} from '../src/bomb-rules.ts'
+import { compile } from './compile.mjs'
+const { freshBomb, stepBomb, dropBomb, bombBlastDamage, bombFragAward, canDefuseBomb, bombBeepWave } =
+  compile('bomb-rules')('bomb-rules')
 import { teamRoundWinner } from '../src/team-rules.ts'
 const t = (overrides = {}) => ({
   address: 't',
@@ -42,7 +36,7 @@ test('planting requires a live carrier, bomb selected, ground, site, and three u
   const state = freshBomb(1, 't')
   stepBomb(state, [t()], 10, false, () => 'A')
   assert.equal(state.phase, 'carried')
-  stepBomb(state, [t()], 10, true, () => '')
+  stepBomb(state, [t()], 9, true, () => '')
   assert.equal(state.phase, 'carried')
   stepBomb(state, [t()], 10, true, () => 'A')
   assert.equal(state.phase, 'planting')
@@ -73,7 +67,9 @@ test('release, movement, weapon switch, leaving site, and jumping cancel plantin
     assert.equal(state.phase, 'carried')
     assert.equal(state.progress, 0)
     stepBomb(state, [t()], 13, true, () => 'A')
-    assert.equal(state.actionEnds, 16)
+    assert.equal(state.phase, 'carried', 'abort cooldown prevents immediate replant')
+    stepBomb(state, [t()], 14.4, true, () => 'A')
+    assert.equal(state.actionEnds, 17.4)
   }
 })
 
@@ -84,6 +80,7 @@ test('carrier death drops the C4; only living Terrorists can pick it up', () => 
   assert.equal(state.carrier, '')
   stepBomb(state, [t({ address: 'far', position: { x: 3, y: 0, z: 0 } })], 11, true, () => 'A')
   assert.equal(state.phase, 'dropped')
+  state.settled = true
   stepBomb(state, [t({ address: 'replacement' })], 12, true, () => 'A')
   assert.equal(state.carrier, 'replacement')
   assert.equal(dropBomb(state, 'ct', { x: 0, y: 0, z: 0 }), false)
@@ -202,14 +199,15 @@ test('plant overrides the round clock and T elimination; explosion and defuse aw
 
 test('unarmored blast uses the reference 500-damage linear falloff over 1750 map units', () => {
   assert.equal(bombBlastDamage(0), 500)
-  assert.equal(bombBlastDamage((1750 * 2) / 75 / 2), 250)
-  assert.equal(bombBlastDamage((1750 * 2) / 75), 0)
+  assert.equal(bombBlastDamage((1750 * 0.025) / 2), 250)
+  assert.equal(bombBlastDamage(1750 * 0.025), 0)
   assert.equal(bombBlastDamage(100), 0)
 })
 
-test('a drop cooldown blocks only pickup, without marking its living owner dead', () => {
+test('an ineligible living player cannot pick up a settled bomb', () => {
   const state = freshBomb(1, 't')
   dropBomb(state, 't', { x: 0, y: 0, z: 0 })
+  state.settled = true
   const player = t({ canPickup: false })
   stepBomb(state, [player], 10, true, () => 'A')
   assert.equal(state.phase, 'dropped')
@@ -224,6 +222,8 @@ test('use radius measures from the standing hull center, while the aim cone star
   const length = Math.hypot(1.3, -1.52)
   const aim = { x: 1.3 / length, y: -1.52 / length, z: 0 }
   assert.equal(canDefuseBomb(feet, bomb, aim), true)
+  assert.equal(canDefuseBomb(feet, bomb, aim, 1), false, 'T use must not freeze movement as a defuse')
+  assert.equal(canDefuseBomb(feet, bomb, aim, 0), false)
   assert.equal(canDefuseBomb(feet, bomb, { x: -1, y: 0, z: 0 }), false)
   assert.equal(canDefuseBomb(feet, { ...bomb, x: 2 }, aim), false)
 })
@@ -235,4 +235,29 @@ test('C4 switches through all five reference beep waves during the fuse', () => 
   assert.equal(bombBeepWave(20.91), 3)
   assert.equal(bombBeepWave(29.82), 4)
   assert.equal(bombBeepWave(37.84), 5)
+})
+
+test('a flying C4 cannot be picked up; the dropper can retrieve it immediately after landing', () => {
+  const state = freshBomb(1, 't')
+  dropBomb(state, 't', { x: 0, y: 0, z: 0 })
+  stepBomb(state, [t()], 0.01, true, () => '')
+  assert.equal(state.phase, 'dropped')
+  state.settled = true
+  stepBomb(state, [t()], 0.02, true, () => '')
+  assert.equal(state.carrier, 't')
+  assert.equal(state.phase, 'carried')
+  assert.equal(state.settled, false)
+})
+
+test('settled C4 uses the weapon-box touch volume and can be retrieved during freeze', () => {
+  const state = freshBomb(1, 't')
+  dropBomb(state, 't', { x: 0, y: 0, z: 0 })
+  state.settled = true
+  stepBomb(state, [t({ position: { x: 0, y: 2, z: 0 } }), ct()], 1, false, () => 'A')
+  assert.equal(state.phase, 'dropped')
+  stepBomb(state, [t({ position: { x: 0.79, y: 0, z: 0.79 } })], 1.01, false, () => 'A')
+  assert.equal(state.carrier, 't')
+  assert.equal(state.phase, 'carried')
+  stepBomb(state, [t()], 2, false, () => 'A')
+  assert.equal(state.phase, 'carried', 'freeze allows touch but prevents planting')
 })

@@ -1,0 +1,20 @@
+✖ spectators reopen the team menu on Escape, resume without trapping capture, and clear it when joining (0.412625ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 427.925667
+
+✖ failing tests:
+
+test at tests/spectator.test.mjs:33:1
+✖ spectators reopen the team menu on Escape, resume without trapping capture, and clear it when joining (0.412625ms)
+  TypeError: SpectatorMenuState is not a constructor
+      at TestContext.<anonymous> (file:///private/tmp/cs16-mvp-before-tests/tests/spectator.test.mjs:34:16)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)

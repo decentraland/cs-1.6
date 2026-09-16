@@ -3,9 +3,9 @@ import { Color4 } from '@dcl/sdk/math'
 import { inputSystem, InputAction, PointerEventType } from '@dcl/sdk/ecs'
 import { myProfile } from '@dcl/sdk/network'
 import { BitmapText } from './bitmap-text'
-import { isLocalPlayerReady } from './client'
+import { capturePointer, isLocalPlayerReady } from './client'
 import { room } from './index'
-import { getMenuCursor, isTeamMenuOpen } from './menu-state'
+import { getMenuCursor, isTeamMenuOpen, spectatorMenu } from './menu-state'
 import { amber, disabled, MenuButton, MenuFrame, MenuInfoPanel, menuLayout } from './menu-ui'
 import { getPractice } from './practice'
 import { isBotAddress } from './team-rules'
@@ -39,15 +39,20 @@ function teamCount(team: number) {
   )
 }
 export function joinTeam(team: 1 | 2) {
+  if (spectatorMenu.open) capturePointer()
+  spectatorMenu.close()
   room.send('teamJoin', { team })
 }
 export function autoAssignTeam() {
   joinTeam(teamCount(1) <= teamCount(2) ? 1 : 2)
 }
 export function spectateTeam() {
+  if (spectatorMenu.open) capturePointer()
+  spectatorMenu.close()
   room.send('teamSpectate', {})
 }
 export function leaveTeam() {
+  spectatorMenu.close()
   room.send('teamLeave', {})
 }
 export function restartTeamMatch() {
@@ -128,6 +133,11 @@ export function TeamMenu({ width, height }: { width: number; height: number }) {
         />
       )}
       {playingSeat && match?.matchOver && row('PLAY AGAIN', 372, restartTeamMatch)}
+      {spectatorMenu.open &&
+        row('RESUME SPECTATING', 372, () => {
+          spectatorMenu.close()
+          capturePointer()
+        })}
       <BitmapText
         value="BOT SKILL"
         left={x(76)}
@@ -153,7 +163,21 @@ export function TeamMenu({ width, height }: { width: number; height: number }) {
           action={() => setBotDifficulty(level)}
         />
       ))}
-      <MenuInfoPanel layout={layout} lines={briefing} />
+      <MenuInfoPanel
+        layout={layout}
+        lines={
+          match?.matchOver
+            ? [
+                match.ctScore > match.tScore ? 'COUNTER-TERRORISTS WIN THE MATCH' : 'TERRORISTS WIN THE MATCH',
+                '',
+                `Counter-Terrorists: ${match.ctScore}`,
+                `Terrorists: ${match.tScore}`,
+                '',
+                'PLAY AGAIN starts a fresh match.'
+              ]
+            : briefing
+        }
+      />
       <UiEntity
         uiTransform={{
           positionType: 'absolute',

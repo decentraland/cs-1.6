@@ -23,6 +23,10 @@ export const PlayerTeam = engine.defineComponent('PlayerTeam', {
 export const Weapon = engine.defineComponent('Weapon', {
   name: Schemas.String,
   revision: Schemas.Int,
+  mode: Schemas.Int,
+  zoom: Schemas.Int,
+  resumeZoom: Schemas.Int,
+  alternateAt: Schemas.Double,
   readyAt: Schemas.Double,
   damage: Schemas.Int,
   ammoClip: Schemas.Int,
@@ -35,12 +39,53 @@ export const Weapon = engine.defineComponent('Weapon', {
   lastFiredShotId: Schemas.Int,
   isReloading: Schemas.Boolean,
   reloadTime: Schemas.Float,
-  reloadStartTime: Schemas.Double
+  reloadStartTime: Schemas.Double,
+  reloadStage: Schemas.Int,
+  reloadStepAt: Schemas.Double,
+  reloadStep: Schemas.Int
 })
 
 export const PlayerInventory = engine.defineComponent('PlayerInventory', {
   active: Schemas.String,
-  items: Schemas.Array(Schemas.Map({ id: Schemas.String, clip: Schemas.Int, reserve: Schemas.Int }))
+  items: Schemas.Array(
+    Schemas.Map({ id: Schemas.String, clip: Schemas.Int, reserve: Schemas.Int, mode: Schemas.Optional(Schemas.Int) })
+  ),
+  ammo: Schemas.Optional(Schemas.Array(Schemas.Map({ type: Schemas.String, amount: Schemas.Int })))
+})
+
+export const DroppedWeapon = engine.defineComponent('DroppedWeapon', {
+  gun: Schemas.String,
+  clip: Schemas.Int,
+  reserve: Schemas.Int,
+  mode: Schemas.Int,
+  position: Schemas.Vector3,
+  yaw: Schemas.Float,
+  round: Schemas.Int,
+  settled: Schemas.Boolean
+})
+
+export const GrenadeProjectile = engine.defineComponent('GrenadeProjectile', {
+  kind: Schemas.String,
+  owner: Schemas.String,
+  team: Schemas.Int,
+  position: Schemas.Vector3,
+  velocity: Schemas.Vector3,
+  center: Schemas.Vector3,
+  grounded: Schemas.Boolean,
+  bounces: Schemas.Int,
+  animation: Schemas.Int,
+  phase: Schemas.String,
+  created: Schemas.Double,
+  activated: Schemas.Double,
+  expires: Schemas.Double,
+  round: Schemas.Int
+})
+export const GrenadeFlash = engine.defineComponent('GrenadeFlash', {
+  target: Schemas.String,
+  start: Schemas.Double,
+  hold: Schemas.Float,
+  fade: Schemas.Float,
+  alpha: Schemas.Int
 })
 
 // Money system
@@ -68,9 +113,12 @@ export const BombObjective = engine.defineComponent('BombObjective', {
   defuser: Schemas.String,
   site: Schemas.String,
   position: Schemas.Vector3,
+  settled: Schemas.Boolean,
+  yaw: Schemas.Float,
   actionStarted: Schemas.Double,
   actionEnds: Schemas.Double,
   explodeAt: Schemas.Double,
+  readyAt: Schemas.Double,
   progress: Schemas.Float,
   round: Schemas.Int
 })
@@ -129,6 +177,7 @@ export const Practice = engine.defineComponent('Practice', {
   phase: Schemas.String,
   remaining: Schemas.Int,
   timeLeft: Schemas.Int,
+  buyTimeLeft: Schemas.Int,
   round: Schemas.Int,
   ctScore: Schemas.Int,
   tScore: Schemas.Int,
@@ -145,5 +194,19 @@ export const Bot = engine.defineComponent('Bot', {
   health: Schemas.Int,
   name: Schemas.String,
   alive: Schemas.Boolean,
-  weapon: Schemas.String
+  weapon: Schemas.String,
+  defuseKit: Schemas.Boolean
+})
+
+const bodyLayer = Schemas.Map({
+  clip: Schemas.String,
+  at: Schemas.Double,
+  rate: Schemas.Float,
+  loop: Schemas.Boolean,
+  revision: Schemas.Double
+})
+export const BotBodyPose = engine.defineComponent('BotBodyPose', {
+  model: Schemas.String,
+  upper: bodyLayer,
+  lower: Schemas.Optional(bodyLayer)
 })

@@ -1,3 +1,6 @@
+import { dropDeadPlayer } from './dropped-weapons'
+import { resetPlayerFall } from './falling'
+import { fallDamage, resolveFall } from './fall-rules'
 import { engine, Entity, Transform, PlayerIdentityData, AvatarBase } from '@dcl/sdk/ecs'
 import { Vector3 } from '@dcl/sdk/math'
 import { AUTH_SERVER_PEER_ID } from '@dcl/sdk/network/message-bus-sync'
@@ -37,11 +40,15 @@ import {
 import { shotRandom } from './shared-random'
 import type { Attacker } from './practice'
 import { AccuracyState, freshAccuracy, setTrigger } from './accuracy'
-import { fireAkShot, groundedAt, PLAYER_HIT_REGIONS, ShotTarget } from './ballistics'
+import { largeFlinch } from './cs-movement-rules'
+import { armorCovers, damageBatches } from './hit-regions'
+import { playerVoice } from './player-sound-rules'
+import { HitGroup, fireAkShot, groundedAt, PLAYER_HIT_REGIONS, ShotTarget } from './ballistics'
 import { acceptShotClaim, recordSample } from './hit-claims'
 import type { PositionSample } from './hit-claims'
-import { giveWeapon } from './systems'
-import { GUNS, profileByName } from './weapon-profiles'
+import { giveWeapon, storeActiveGun } from './systems'
+import { beginBurst, advanceBurst, BurstState, leaveScope, firedScope } from './weapon-modes'
+import { GUNS, modeStats, profileByName } from './weapon-profiles'
 import { freshGunAccuracy } from './gun-accuracy'
 import { SemiAutoTrigger } from './inventory-rules'
 import { canReload, claimShot, fireShot, shotDeadline, SHOT_SCHEDULING_WINDOW, startReload } from './combat-rules'
@@ -64,6 +71,7 @@ interface PlayerMatchStats {
 export const matchStats = new Map<string, PlayerMatchStats>()
 
 interface PlayerShotState {
+  burst?: BurstState & { spread: number; revision: number }
   accuracy: AccuracyState
   triggerHeld: boolean
   semi: SemiAutoTrigger
@@ -73,16 +81,23 @@ interface PlayerShotState {
   history: PositionSample[]
 }
 const shotStates = new Map<string, PlayerShotState>()
+
+export function isPlayerTriggerHeld(address: string): boolean {
+  return shotStates.get(address)?.triggerHeld ?? false
+}
+
 const knifeStates = new Map<string, KnifeCooldown & { revision: number }>()
 const playerFacings = new Map<string, Vector3>()
 
-export function resetPlayerAccuracy(address: string, newRound = false) {
+export function resetPlayerAccuracy(address: string, newRound = false, reload = false) {
+  if (newRound) resetPlayerFall(address)
   const player = playerEntities.get(address)
   const profile = profileByName(player === undefined ? 'AK-47' : (Weapon.getOrNull(player)?.name ?? 'AK-47'))
   const gun = profile.kind === 'gun' ? profile : GUNS.ak47
   const state = shotStates.get(address)
   if (state && !newRound) {
-    state.accuracy = freshGunAccuracy(gun.id)
+    state.accuracy = freshGunAccuracy(gun.id, reload)
+    state.burst = undefined
     state.semi.reset()
   } else
     shotStates.set(address, {
@@ -133,6 +148,9 @@ function samplePlayerMotion(now: number) {
     if (!position) {
       state.position = undefined
       state.speed = 0
+      state.sampledAt = now
+      const pose = PlayerPose.getMutableOrNull(entity)
+      if (pose) pose.valid = false
       continue
     }
     state.speed = state.position
@@ -156,14 +174,28 @@ function humanTargets(shooter: Entity): ShotTarget<Entity>[] {
     )
       continue
     const center = avatarPosition(address)
-    if (center) targets.push({ id: entity, center, regions: PLAYER_HIT_REGIONS })
+    if (center) {
+      const forward = avatarForward(address)
+      targets.push({
+        id: entity,
+        center,
+        yaw: forward ? Math.atan2(forward.x, forward.z) : 0,
+        regions: PLAYER_HIT_REGIONS
+      })
+    }
   }
   return targets
 }
 
-function avatarForward(address: string): Vector3 | undefined {
+export function playerLookDirection(address: string): Vector3 | undefined {
+  return playerFacings.get(address)
+}
+export function avatarForward(address: string): Vector3 | undefined {
   const reported = playerFacings.get(address)
-  if (reported) return reported
+  if (reported) {
+    const length = Math.hypot(reported.x, reported.z)
+    if (length > 0.001) return { x: reported.x / length, y: 0, z: reported.z / length }
+  }
   for (const [, identity, transform] of engine.getEntitiesWith(PlayerIdentityData, Transform)) {
     if (identity.address.toLowerCase() !== address) continue
     return rotationForward(transform.rotation)
@@ -196,47 +228,79 @@ function routeDamage(
   attacker: Attacker,
   target: Entity,
   damage: number,
-  hitGroup: 'head' | 'body' | 'legs',
+  hitGroup: HitGroup,
   origin: Vector3,
-  armorRatio: number
+  armorRatio: number,
+  traces = [{ group: hitGroup, damage }]
 ) {
-  if (Bot.has(target)) damageBot(target, damage, attacker)
-  else applyPlayerDamage(attacker, target, damage, hitGroup, origin, armorRatio)
+  if (Bot.has(target)) damageBot(target, damage, attacker, hitGroup, armorRatio)
+  else applyPlayerDamage(attacker, target, damage, hitGroup, origin, armorRatio, false, traces)
 }
 
 // Shared by human shooters and bots: same-team hits are ignored, kills are credited per attacker kind.
+let flinchSequence = 0
 export function applyPlayerDamage(
   attacker: Attacker,
   target: Entity,
   damage: number,
-  hitGroup: 'head' | 'body' | 'legs',
+  hitGroup: HitGroup,
   origin: Vector3,
-  armorRatio: number
+  armorRatio: number,
+  blast = false,
+  traces = [{ group: hitGroup, damage }]
 ) {
-  if (PlayerTeam.getOrNull(target)?.team === attacker.team) return
+  if (
+    PlayerTeam.getOrNull(target)?.team === attacker.team &&
+    (!blast || PlayerAddress.get(target).address !== attacker.address)
+  )
+    return
   if (Dead.has(target) || PlayerHealth.get(target).current <= 0) return
   const targetAddress = PlayerAddress.get(target).address
   const health = PlayerHealth.getMutable(target)
   const equipment = PlayerEquipment.getMutable(target)
-  const armorProtected = health.armor > 0 && (hitGroup === 'body' || (hitGroup === 'head' && equipment.helmet))
-  const punch = victimPunch(hitGroup, damage, armorProtected)
-  const hit = armorDamage(damage, health.armor, equipment.helmet, hitGroup, false, armorRatio)
+  const previousArmor = health.armor
+  const hadArmor = health.armor > 0
+  const armorProtected = armorCovers(hitGroup, health.armor, equipment.helmet)
+  let punch = { pitch: 0, roll: 0 }
+  if (!blast)
+    for (const trace of traces) {
+      const next = victimPunch(trace.group, trace.damage, armorCovers(trace.group, health.armor, equipment.helmet))
+      if (next.pitch || next.roll) punch = next
+    }
+  const hit = armorDamage(damage, health.armor, equipment.helmet, hitGroup, blast, armorRatio)
   health.armor = hit.armor
   if (health.armor === 0) equipment.helmet = false
   const previousHealth = health.current
   health.current = Math.max(0, health.current - Math.floor(hit.damage))
   const wasKill = health.current === 0
   console.log(`[SERVER] Damage confirmed: ${hit.damage} (${previousHealth} -> ${health.current})`)
-  if (wasKill && !Dead.has(target)) {
-    Dead.create(target, { deathTime: Date.now() / 1000, respawnTime: 0 })
-    creditKill(attacker)
-    recordPracticeStats(targetAddress, 0, 1)
-    room.send('playerKill', {
-      weapon: attacker.weapon,
-      killer: attacker.name,
-      victim: matchStats.get(targetAddress)?.name ?? targetAddress
+  if (!blast && !wasKill) {
+    const profile = profileByName(attacker.weapon),
+      bot = botEntityByAddress(attacker.address)
+    const source = avatarPosition(attacker.address) ??
+      (bot === undefined ? undefined : Transform.getOrNull(bot)?.position) ?? { ...origin, y: origin.y - 1.6 }
+    room.send('playerFlinch', {
+      address: targetAddress,
+      round: getPractice()?.round ?? 0,
+      sequence: ++flinchSequence,
+      source,
+      large: profile.kind === 'gun' && largeFlinch(profile.id, hitGroup)
     })
   }
+  if (wasKill) killPlayer(target, attacker, !blast && hitGroup === 'head')
+  if (health.current < previousHealth || health.armor < previousArmor)
+    room.send('combatImpact', {
+      target: targetAddress,
+      position: avatarPosition(targetAddress) ?? origin,
+      hitGroup,
+      armor: armorProtected,
+      wasKill
+    })
+  room.send('playerVoice', {
+    address: targetAddress,
+    position: avatarPosition(targetAddress) ?? origin,
+    clip: playerVoice(hitGroup, blast ? hadArmor : armorProtected, equipment.helmet, wasKill)
+  })
   room.send('damageConfirmed', {
     targetPlayerAddress: targetAddress,
     damage: Math.floor(hit.damage),
@@ -246,6 +310,51 @@ export function applyPlayerDamage(
     hitGroup,
     punchPitch: punch.pitch,
     punchRoll: punch.roll
+  })
+}
+
+function killPlayer(target: Entity, attacker?: Attacker, headshot = false) {
+  if (Dead.has(target)) return
+  const address = PlayerAddress.get(target).address
+  dropDeadPlayer(target)
+  Dead.create(target, { deathTime: Date.now() / 1000, respawnTime: 0 })
+  if (attacker?.address === address) recordPracticeStats(address, -1, 0)
+  else if (attacker) creditKill(attacker)
+  recordPracticeStats(address, 0, 1)
+  room.send('playerKill', {
+    weapon: attacker?.weapon ?? 'worldspawn',
+    killer: attacker?.name ?? '',
+    victim: matchStats.get(address)?.name ?? address,
+    killerTeam: attacker?.team ?? 0,
+    victimTeam: PlayerTeam.get(target).team,
+    headshot,
+    suicide: !attacker || attacker.address === address
+  })
+}
+
+export function applyFallDamage(target: Entity, speed: number, position: Vector3) {
+  if (Dead.has(target) || fallDamage(speed) <= 0) return
+  const health = PlayerHealth.getMutable(target)
+  if (health.current <= 0) return
+  const address = PlayerAddress.get(target).address,
+    result = resolveFall(health.current, speed)
+  health.current = result.health
+  shotState(address).accuracy.pitch = 0
+  const wasKill = health.current === 0
+  if (wasKill) killPlayer(target)
+  room.send('playerVoice', { address, position, clip: playerVoice('body', false, false, wasKill) })
+  if (result.splat) room.send('playerVoice', { address, position, clip: 'bodysplat' })
+  room.send('damageConfirmed', {
+    kind: 'fall',
+    splat: result.splat,
+    targetPlayerAddress: address,
+    damage: result.damage,
+    newHealth: health.current,
+    wasKill,
+    origin: position,
+    hitGroup: 'body',
+    punchPitch: 0,
+    punchRoll: 0
   })
 }
 
@@ -483,9 +592,13 @@ export function setupServerMessageHandlers() {
     if (!context) return
     const address = context.from.toLowerCase()
     if (!playerEntities.has(address)) return
-    const length = Math.hypot(data.direction.x, data.direction.z)
+    const length = Math.hypot(data.direction.x, data.direction.y, data.direction.z)
     if (!Number.isFinite(length) || length < 0.001) return
-    playerFacings.set(address, { x: data.direction.x / length, y: 0, z: data.direction.z / length })
+    playerFacings.set(address, {
+      x: data.direction.x / length,
+      y: data.direction.y / length,
+      z: data.direction.z / length
+    })
   })
 
   room.onMessage('playerReload', (_data, context) => {
@@ -497,8 +610,13 @@ export function setupServerMessageHandlers() {
     if (!weapon || !health) return
     const alive = health.current > 0 && !Dead.has(player)
     if (!canReload(weapon, alive)) return
-    if (startReload(Weapon.getMutable(player), Date.now() / 1000, alive))
-      resetPlayerAccuracy(context.from.toLowerCase())
+    const now = Date.now() / 1000
+    if ((shotState(context.from.toLowerCase()).burst?.readyAt ?? 0) > now) return
+    if (startReload(Weapon.getMutable(player), now, alive)) {
+      const gun = profileByName(weapon.name)
+      if (gun.kind === 'gun') leaveScope(Weapon.getMutable(player), gun)
+      resetPlayerAccuracy(context.from.toLowerCase(), false, true)
+    }
   })
 
   const pendingShots = new Map<string, { at: number; round: number | undefined; fire: (at: number) => void }>()
@@ -554,12 +672,34 @@ export function setupServerMessageHandlers() {
       reject()
       return
     }
-    const at = shotDeadline(weapon.lastShotTime, weapon.fireRate, now)
+    const state = shotState(shooterAddress)
+    const burstIndex = data.burstIndex ?? 0
+    const burstMode = profile.alternate === 'burst' && weapon.mode === 1
+    const burst = state.burst?.revision === weapon.revision ? state.burst : undefined
+    if (
+      !Number.isInteger(burstIndex) ||
+      burstIndex < 0 ||
+      burstIndex > 2 ||
+      (burstIndex > 0 &&
+        (!burstMode || !burst || burst.index !== burstIndex || burst.remaining <= 0 || now > burst.readyAt))
+    ) {
+      reject()
+      return
+    }
+    const continuation = burstIndex > 0
+    const at =
+      continuation && burst
+        ? burst.interval === 0
+          ? now
+          : shotDeadline(burst.nextAt, 0, now)
+        : burstMode && burst
+          ? shotDeadline(burst.readyAt, 0, now)
+          : shotDeadline(weapon.lastShotTime, weapon.fireRate, now)
     if (at === undefined || now < weapon.readyAt) {
       reject()
       return
     }
-    if (!profile.automatic && !shotState(shooterAddress).semi.claim()) {
+    if (!continuation && !modeStats(profile, weapon.mode).automatic && !state.semi.claim()) {
       reject()
       return
     }
@@ -586,12 +726,15 @@ export function setupServerMessageHandlers() {
         return
       }
       const weapon = Weapon.getMutable(shooter)
+      const fireRate = weapon.fireRate
+      if (burstMode) weapon.fireRate = Math.max(0, scheduledTime - weapon.lastShotTime)
       const rejected = fireShot(
         weapon,
         Date.now() / 1000,
         PlayerHealth.get(shooter).current > 0 && !Dead.has(shooter),
         scheduledTime
       )
+      weapon.fireRate = fireRate
       if (rejected) {
         reject()
         console.log('[SERVER] Shot rejected:', data.shotId, rejected)
@@ -636,6 +779,9 @@ export function setupServerMessageHandlers() {
       }
       const result = fireAkShot({
         gun: profile.id,
+        mode: weapon.mode,
+        zoom: weapon.zoom,
+        continuationSpread: continuation ? burst?.spread : undefined,
         feet: accepted.feet,
         aim: data.direction,
         accuracy: state.accuracy,
@@ -643,11 +789,19 @@ export function setupServerMessageHandlers() {
         speed: accepted.speed,
         grounded: accepted.grounded,
         now: Date.now() / 1000,
-        damage: weapon.damage,
+        damage: continuation && profile.id === 'famas' ? 30 : weapon.damage,
         targets,
         random: shotRandom(getRoundSeed(), data.shotId)
       })
       if (!result) return
+      if (continuation && burst) advanceBurst(burst, scheduledTime)
+      else if (burstMode) {
+        const next = beginBurst(profile, weapon.mode, weapon.ammoClip + 1, scheduledTime)
+        if (next)
+          state.burst = { ...next, revision: weapon.revision, spread: profile.id === 'glock18' ? 0.05 : result.spread }
+      }
+      firedScope(weapon, profile)
+      storeActiveGun(shooter)
       room.send('practiceShot', {
         owner: shooterAddress,
         round: currentPractice?.round ?? 0,
@@ -659,15 +813,16 @@ export function setupServerMessageHandlers() {
         accuracy: state.accuracy.accuracy,
         right: state.accuracy.right
       })
-      if (!result.hit) return
-      routeDamage(
-        humanAttacker(shooterAddress, shooter, weapon.name),
-        result.hit.target,
-        result.damage,
-        result.hit.group,
-        result.origin,
-        profile.armorRatio
-      )
+      for (const hit of damageBatches(result.impacts))
+        routeDamage(
+          humanAttacker(shooterAddress, shooter, weapon.name),
+          hit.target,
+          hit.damage,
+          hit.group,
+          result.origin,
+          profile.armorRatio,
+          hit.traces
+        )
     }
     if (at > now) pendingShots.set(shooterAddress, { at, round: practice?.round, fire: execute })
     else execute(at)

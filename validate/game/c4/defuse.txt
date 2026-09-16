@@ -1,0 +1,1 @@
+PASS: bot holds/plants original C4, CT release cancels defuse, 10s without kit, 5s with kit, use avoids zoom, defused model disappears

@@ -1,3 +1,5 @@
+import { touchesWeaponBox } from './weapon-box-rules'
+
 export interface BombPoint {
   x: number
   y: number
@@ -10,8 +12,11 @@ export interface BombState {
   defuser: string
   site: string
   position: BombPoint
+  settled: boolean
+  yaw: number
   actionStarted: number
   actionEnds: number
+  readyAt: number
   explodeAt: number
   progress: number
   round: number
@@ -27,13 +32,17 @@ export interface BombPlayer {
   canDefuse: boolean
   hasKit: boolean
   canPickup?: boolean
+  direction?: BombPoint
 }
+export const C4_DEPLOY_SECONDS = 0.75
+export const C4_DROP_AT = 2.25
+export const C4_SPEED = 6.25
+export const C4_BLAST_RADIUS = 43.75
 export const PLANT_SECONDS = 3
 export const BOMB_SECONDS = 45
 export const DEFUSE_SECONDS = 10
 export const KIT_DEFUSE_SECONDS = 5
 export const BOMB_USE_TIMEOUT = 0.35
-export const BOMB_PICKUP_RADIUS = 0.8
 export const C4_OBJECTIVE_FRAGS = 3
 export type BombEvent = 'planted' | 'defused' | 'exploded'
 export interface BombFragAward {
@@ -50,9 +59,12 @@ export function freshBomb(round: number, carrier = '', position: BombPoint = { x
     defuser: '',
     site: '',
     position: { ...position },
+    settled: false,
+    yaw: 0,
     actionStarted: 0,
     actionEnds: 0,
     explodeAt: 0,
+    readyAt: 0,
     progress: 0,
     round
   }
@@ -66,12 +78,19 @@ function cancelAction(state: BombState) {
   state.progress = 0
 }
 
+export function cancelBombPlant(state: BombState, now: number, delay = 1) {
+  if (state.phase !== 'planting') return
+  cancelAction(state)
+  state.readyAt = now + delay
+}
+
 export function dropBomb(state: BombState, address: string, position: BombPoint): boolean {
   if (state.carrier !== address || (state.phase !== 'carried' && state.phase !== 'planting')) return false
   cancelAction(state)
   state.phase = 'dropped'
   state.carrier = ''
   state.position = { ...position }
+  state.settled = false
   state.site = ''
   return true
 }
@@ -83,22 +102,20 @@ export function stepBomb(
   live: boolean,
   siteAt: (p: BombPoint) => string
 ): BombEvent | undefined {
-  if (!live) {
-    cancelAction(state)
-    return
-  }
+  if (!live) cancelAction(state)
   const carrier = players.find((player) => player.address === state.carrier)
   if (state.phase === 'carried' || state.phase === 'planting') {
     if (!carrier?.alive || carrier.team !== 1) dropBomb(state, state.carrier, carrier?.position ?? state.position)
   }
   if (state.phase === 'dropped') {
+    if (!state.settled) return
     const player = players
       .filter(
         (player) =>
           player.alive &&
           player.canPickup !== false &&
           player.team === 1 &&
-          distance(player.position, state.position) <= BOMB_PICKUP_RADIUS
+          touchesWeaponBox(player.position, state.position)
       )
       .sort(
         (a, b) =>
@@ -107,16 +124,24 @@ export function stepBomb(
       )[0]
     if (player) {
       state.phase = 'carried'
+      state.readyAt = 0
       state.carrier = player.address
       state.position = { ...player.position }
+      state.settled = false
     }
     return
   }
+  if (!live) return
   if (state.phase === 'carried' && carrier) {
     state.position = { ...carrier.position }
     const site = siteAt(carrier.position)
-    if (carrier.selected && carrier.holding && carrier.grounded && site) {
+    if (carrier.selected && carrier.holding && now >= state.readyAt) {
+      if (!carrier.grounded || !site) {
+        state.readyAt = now + 1
+        return
+      }
       state.phase = 'planting'
+      if (carrier.direction) state.yaw = Math.atan2(carrier.direction.x, carrier.direction.z)
       state.site = site
       state.actionStarted = now
       state.actionEnds = now + PLANT_SECONDS
@@ -131,7 +156,7 @@ export function stepBomb(
       siteAt(carrier.position) !== state.site ||
       distance(carrier.position, state.position) > 0.3
     ) {
-      cancelAction(state)
+      cancelBombPlant(state, now, !carrier.holding || !carrier.selected ? 1 : 1.5)
       return
     }
     state.progress = Math.min(1, (now - state.actionStarted) / PLANT_SECONDS)
@@ -186,11 +211,12 @@ export function bombFragAward(state: BombState, event: BombEvent | undefined): B
 }
 
 export function bombBlastDamage(distanceMetres: number): number {
-  return Math.max(0, Math.floor(500 * (1 - distanceMetres / ((1750 * 2) / 75))))
+  return Math.max(0, 500 * (1 - distanceMetres / C4_BLAST_RADIUS))
 }
 
-export function canDefuseBomb(feet: BombPoint, bomb: BombPoint, aim: BombPoint): boolean {
-  if (Math.hypot(feet.x - bomb.x, feet.y + 0.96 - bomb.y, feet.z - bomb.z) > (64 * 2) / 75) return false
+export function canDefuseBomb(feet: BombPoint, bomb: BombPoint, aim: BombPoint, team = 2): boolean {
+  if (team !== 2) return false
+  if (Math.hypot(feet.x - bomb.x, feet.y + 0.96 - bomb.y, feet.z - bomb.z) > 64 * 0.025) return false
   const x = bomb.x - feet.x,
     y = bomb.y - (feet.y + 1.6),
     z = bomb.z - feet.z

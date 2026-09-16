@@ -1,0 +1,52 @@
+✔ Glock/MP5 share 9mm reserves and changing caliber preserves ammunition already bought (0.854708ms)
+✖ Glock continuations run on successive updates while FAMAS continuations retain their deadlines (0.757167ms)
+✖ Glock burst repeats on a held trigger; semi-auto pistols still require a new press (0.365584ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 980.768958
+
+✖ failing tests:
+
+test at tests/arsenal.test.mjs:180:1
+✖ Glock continuations run on successive updates while FAMAS continuations retain their deadlines (0.757167ms)
+  AssertionError [ERR_ASSERTION]: 100.1 != 100
+      at near (file:///private/tmp/cs16-burst-fire/tests/arsenal.test.mjs:21:31)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-burst-fire/tests/arsenal.test.mjs:186:5)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/arsenal.test.mjs:201:1
+✖ Glock burst repeats on a held trigger; semi-auto pistols still require a new press (0.365584ms)
+  AssertionError [ERR_ASSERTION]: glock18
+  + actual - expected
+  
+  + undefined
+  - false
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-burst-fire/tests/arsenal.test.mjs:204:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

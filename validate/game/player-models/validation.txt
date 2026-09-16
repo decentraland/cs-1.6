@@ -1,0 +1,372 @@
+
+> dcl-project@1.0.0 validate
+> npm test && node validate/assets.mjs && npm run build
+
+
+> dcl-project@1.0.0 test
+> node --experimental-strip-types --test tests/*.test.mjs
+
+(node:70456) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/aim.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ rendering camera punch never contaminates the aim sent to the server (1.626792ms)
+✔ pulling the mouse down and sideways compensates for server punch (0.208291ms)
+✔ large mouse movements keep aim finite and stop before vertical inversion (0.259875ms)
+✔ the complete firearm roster charges the original prices and carries distinct damage values (0.803583ms)
+✔ the original team-specific buy order exposes every gun (14.292ms)
+✔ Glock/MP5 share 9mm reserves and changing caliber preserves ammunition already bought (1.295625ms)
+✔ AWP cycles 40/10 FOV, loses no-scope penalty when zoomed, and re-scopes after the bolt cycle (8.495667ms)
+✔ silencers change damage and accuracy only after an uninterrupted attach delay (0.218541ms)
+✔ Glock continuations run on successive updates while FAMAS continuations retain their deadlines (0.221625ms)
+✔ Glock burst repeats on a held trigger; semi-auto pistols still require a new press (0.134292ms)
+✔ both shotguns insert individual shells, finish with finite reserves, and can interrupt without free ammo (0.325708ms)
+✔ one shotgun shell produces nine M3 or six XM pellet hits but only one camera kick (4.196542ms)
+✔ every gun predicts the same recoil as authority for standing, moving and airborne firing (37.539625ms)
+✔ a hit point near an avatar cannot award damage when the aim points away (8.182042ms)
+✔ the measured Dust2 east wall stops shots before an avatar behind it (1.398542ms)
+✔ the first avatar on the actual ray wins regardless of registry ordering (1.396917ms)
+✔ human head, body, and leg shots use distinct hit regions and range damage (2.253416ms)
+✔ bots share the avatar hit boxes, head at eye height above the feet (0.500834ms)
+✔ one shooter spray does not change another shooter first shot (12.161958ms)
+✔ shared firing retains walking accuracy, running and airborne spread penalties, and release recovery (2.890333ms)
+✔ invalid aim and nonfinite avatar positions leave recoil state untouched (0.625875ms)
+✔ client and server resolve the same bullet from the shared seed (1.384875ms)
+(node:70459) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/team-rules.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ planting requires a live carrier, bomb selected, ground, site, and three uninterrupted seconds (2.058542ms)
+✔ release, movement, weapon switch, leaving site, and jumping cancel planting progress (0.240834ms)
+✔ carrier death drops the C4; only living Terrorists can pick it up (0.138417ms)
+✔ defuse duration is ten seconds without a kit and five with a kit (0.126792ms)
+✔ defuse release, range loss, jumping, and death erase progress; another CT cannot steal an active defuse (0.112917ms)
+✔ the fuse wins ties; an earlier completed defuse survives a delayed server tick (0.06775ms)
+✔ C4 awards three frags only to the defuser or successful explosion planter (0.489583ms)
+✔ plant overrides the round clock and T elimination; explosion and defuse award the proper side (0.18975ms)
+✔ unarmored blast uses the reference 500-damage linear falloff over 1750 map units (0.091542ms)
+✔ an ineligible living player cannot pick up a settled bomb (0.135958ms)
+✔ use radius measures from the standing hull center, while the aim cone starts at the eyes (0.145791ms)
+✔ C4 switches through all five reference beep waves during the fuse (0.186584ms)
+✔ a flying C4 cannot be picked up; the dropper can retrieve it immediately after landing (0.113791ms)
+✔ settled C4 uses the weapon-box touch volume and can be retrieved during freeze (0.076ms)
+✔ yaw steering follows the shorter arc at a limited rate and scanning stays within the half circle (2.305792ms)
+✔ strafing sidesteps perpendicular to the enemy and stands still between steps (4.297792ms)
+✔ a wall on one side flips the sidestep and reloading bots back away from the enemy (4.057375ms)
+✔ bots hold and look around after arriving, then pick a fresh destination (6.182458ms)
+✔ destinations mix strategic spots with random reachable wandering (3.506875ms)
+✔ Dust2 hotspots are graph nodes on the routes between the landmarks and reachable from both spawns (889.432333ms)
+✔ bot reaction and spawn grace delay the first shot, then shared AK ballistics determine damage (89.626833ms)
+✔ bots fire at AK cadence within a burst independently of the 10Hz navigation tick (7.254083ms)
+✔ losing sight releases the trigger immediately and reacquisition has a reaction delay (0.491ms)
+✔ empty magazines reload for the profile duration, consume finite reserve, and never reload dead bots (6.726541ms)
+✔ bot rounds hit map walls or an intervening teammate instead of awarding guaranteed player damage (5.868916ms)
+✔ bot fire inherits running and airborne spread, and each bot has independent ammunition and recoil (2.383958ms)
+✔ the four levels follow the BotProfile.db templates: slower, more hesitant and less accurate as skill drops (0.939375ms)
+✔ reaction time plus attack delay gate the first burst per level (9.042375ms)
+✔ skill scales a per-shot aim error while a centred sample keeps the aim exact (0.955583ms)
+✔ bots start the pistol round with $800, paid armor/ammo and no free rifle (1.257833ms)
+✔ loss/win income permits affordable upgrades and never creates free ammunition (0.418125ms)
+✔ survivors retain magazines and armor, duplicate round setup does not buy twice, deaths lose gear (0.19375ms)
+✔ bot credits share the money cap and a surviving T gets no timeout reward (0.067708ms)
+✔ bot buying respects the spawn buy zone and gun state starts with the actual stored ammunition (0.152875ms)
+✔ bot Kevlar and helmets use the attacking gun armor ratio; legs and depleted armor remain vulnerable (0.134667ms)
+✔ replacing a surviving cheap primary drops its actual magazine without copying reserve ammo (1.224875ms)
+✔ an exhausted bot draws its carried pistol after the final rifle shot and waits for deployment (45.711375ms)
+✔ bots retain a usable primary and reload a dry magazine when reserve ammo remains (0.251625ms)
+✔ MP5 exhaustion empties the shared reserve but preserves the Glock magazine (0.125167ms)
+✔ an empty pistol with reserve ammo cannot reload during its draw and uses its own reload duration (0.386333ms)
+✔ bots with no usable carried gun do not manufacture ammunition or cycle empty weapons (0.101708ms)
+✔ death after switching still drops the carried primary and clears the dead inventory (0.524916ms)
+✔ bot route intent accelerates through CS movement and friction instead of teleporting at full speed (144.197ms)
+✔ small flinch reduces actual bot displacement and recovers while the bot follows its route (128.309166ms)
+✔ large flinch pushes a stopped bot away from the attacker and clears with a fresh spawn motor (0.256667ms)
+✔ bot impulse is clipped at the navigation boundary and cannot jump disconnected ground (0.646625ms)
+✔ physical bot movement navigates Dust2 walls, ramps and bomb routes after flinches (4706.086958ms)
+✔ bot hull stops at walls and low ceilings, slides along walls, and respects step height (16.36475ms)
+✔ solo rounds rotate bomb sites and carriers deterministically (0.898708ms)
+✔ the carrier keeps the selected bomb site through planting (0.150875ms)
+✔ the closest living bot retrieves a dropped bomb with stable tie breaking (0.138083ms)
+✔ living bots spread around the active planted site and resolved bombs clear objectives (0.145ms)
+✔ a carrier follows the production route and completes an uninterrupted solo plant (21.601708ms)
+✔ C4 draw waits 0.75s, pressbutton predicts immediately, and drop begins at 2.25s without replay on acknowledgment (0.740125ms)
+✔ plant release clears prediction immediately; early cancel idles, late cancel redraws, neither restarts before cooldown (0.135375ms)
+✔ authoritative C4 deploy, release and invalid-ground retries enforce source delays (0.262208ms)
+✔ a request arriving 20 ms early waits without spending ammo or firing before the deadline (0.69225ms)
+✔ thirty full-auto shots survive 60 Hz client frames, 30 Hz server ticks, and variable arrival delay (0.305417ms)
+✔ requests far ahead of cadence cannot queue; a long stall starts a fresh schedule (0.081958ms)
+✔ deferred shots still honor death, reload, and ammo at execution time (0.502ms)
+✔ misses consume ammunition and duplicate or reordered requests cannot spend another round (0.628833ms)
+✔ server clock enforces cadence at modern epoch precision, including the exact boundary (0.0895ms)
+✔ dead, empty, and reloading players cannot shoot (0.530792ms)
+✔ reload conserves total ammo and completes only at its server deadline (0.202416ms)
+✔ limited reserve loads only available rounds; full, empty reserve, and dead reloads are rejected (0.327333ms)
+✔ first shot after reload deadline is accepted even before the next reload system tick (0.115458ms)
+✔ invalid shot identifiers never change weapon state (0.671833ms)
+(node:70544) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/cs-movement-rules.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ ground acceleration, friction and counter-strafe use original CS defaults (0.958375ms)
+✔ diagonals keep weapon speed and walking remains at 52 percent (0.20925ms)
+✔ air acceleration limits the projection to 30 HU/s without clamping existing forward momentum (3.96675ms)
+✔ jump gravity has the original 45-unit apex and holding jump cannot pogo (2.718166ms)
+✔ bunny speed cap and grounded stamina follow source formulas (0.17475ms)
+✔ weapon and body group decide small versus large flinch (0.101959ms)
+✔ small flinch scales actual velocity, pauses recovery airborne and resets on spawn (0.131916ms)
+✔ large flinch adds 170 HU/s away from the attacker and skips victims at 300 HU/s (0.063041ms)
+✔ walking input does not lower the weapon-dependent bunny speed cap (0.076125ms)
+(node:70545) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/damage-feedback.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ pain compass resolves attack origins relative to the current view (3.263917ms)
+✔ pain compass keeps stronger recent directions and uses the GoldSrc fade threshold (0.222708ms)
+✔ victim punch follows hitgroup caps and armor suppression (0.131333ms)
+✔ victim punch decays with the shared GoldSrc punch formula (0.140292ms)
+✔ only a living CT without a kit can collect the source-sized item (0.9515ms)
+✔ kits drop immediately to the BSP floor within 256 HU, and invalid drops are removed (0.496458ms)
+✔ a recovered kit changes the next defuse from ten seconds to five (0.59025ms)
+✔ equipment purchases enforce money, team, ownership, ammo capacity, and original upgrade prices (0.650542ms)
+✔ dead, queued, wrong-zone, lobby, finished-match and expired purchases leave account unchanged (0.521584ms)
+✔ living survivors can buy after any round result until the original buy deadline (0.143833ms)
+✔ buy time survives a result countdown and resets on the next freeze (0.072042ms)
+✔ replicated buy time and the precise server clock agree at expiry (0.129333ms)
+✔ duplicate and reordered purchase requests cannot spend twice (0.100375ms)
+✔ loss rewards preserve the original shared bonus history including a broken streak (0.150875ms)
+✔ unplanted timeout denies surviving Terrorists but pays dead T and CT players (0.064125ms)
+✔ AK armor penetration, helmet coverage and armor exhaustion match reference damage arithmetic (0.141208ms)
+✔ only M3 and XM1014 automatically reload an empty gun while fire remains held (10.9445ms)
+✔ release starts a magazine reload once, with its original duration and conserved reserve (4.40425ms)
+✔ CS fall damage starts above 500 HU/s and truncates health damage after the 1.25 multiplier (1.064583ms)
+✔ the body splat uses strict raw damage versus health, including fractional lethal edge (1.720167ms)
+✔ a continuous descent produces one landing and no repeated damage while standing (0.393542ms)
+✔ network repeats retain the elapsed interval instead of creating a velocity spike (0.279041ms)
+✔ uneven arrival timing cannot turn one short interval into excessive fall damage (0.228166ms)
+✔ ground steps, a direct teleport and a stale resumed sample cannot manufacture a fall (0.168333ms)
+✔ a matching native landing velocity refines only the server-observed fall (0.15925ms)
+✔ landing clears pitch without discarding spray state or replaying an older confirmed kick (0.77875ms)
+✔ walking and exactly 150 HU/s remain silent; running uses 300 ms steps (5.580583ms)
+✔ a slow-speed check retains its 400 ms timer after accelerating (0.184375ms)
+✔ source foot alternation, material fallback and occasional fifth tile (0.20625ms)
+✔ running jumps sound once using takeoff material; walking jumps stay silent (0.102458ms)
+✔ landing volume follows original strict thresholds, not fall-damage thresholds (0.155792ms)
+✔ unchanged network frames do not shorten the next movement sampling interval (0.144458ms)
+✔ teleports, stale resumes and impossible displacement reset movement sound history (0.0735ms)
+✔ original grenade prices and carry limits charge once per accepted item (1.458083ms)
+✔ grenade selection cycles Flash HE Smoke, skips exhausted items, and respects gun/C4 weights (0.510625ms)
+✔ holding a pin never cooks the grenade; release waits at least 0.5 seconds (0.263834ms)
+✔ throws use the original pitch correction, capped speed, eye offset and inherited velocity (0.9665ms)
+✔ grenade bounces stay above the floor, settle, and do not depend on render frame rate (2.709416ms)
+✔ HE damage has the original 100-point linear falloff across 350 units (0.091792ms)
+✔ flash facing changes opacity, hold and fade; overlapping flashes preserve stronger effects (0.149625ms)
+✔ smoke sight preserves source endpoint cases and cloud lifetime differs from visual fade (0.149166ms)
+✔ unprimed grenades are discarded on death and cannot be manually dropped (0.176083ms)
+(node:70559) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/hit-claims.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ position history keeps only the last second (34.137917ms)
+✔ the client origin is used when it is close to the server position or a recent sample (0.237917ms)
+✔ an origin far from everything the server saw falls back to the server position (0.107125ms)
+✔ speed is trusted within tolerance and grounded only when the server cannot see the shooter airborne (0.113333ms)
+✔ a lagging target position is accepted when the target was recently there, rejected otherwise (1.543083ms)
+✔ front-facing avatar separates head, chest, stomach, arms and legs (1.5245ms)
+✔ hit regions rotate with the target while retaining distances (0.153959ms)
+✔ bullet hit multipliers retain fractional damage until armor and health truncation (1.358792ms)
+✔ armor protects torso and arms, helmet protects head, legs bypass both (0.140083ms)
+✔ a shotgun combines fractional pellets before applying integer health damage (0.340542ms)
+✔ pellet batches keep the last hit group and flush when a different player is hit (0.122708ms)
+✔ knife stomach attacks use 125 percent damage including rear stabs (0.110417ms)
+✔ original player voices distinguish armor coverage, helmet depletion and fatal hits (0.095459ms)
+✔ team spawns receive the original pistol and two spare magazines, without a free rifle (2.979208ms)
+✔ rifle buying enforces side and funds, charges once, and includes only its magazine (1.961041ms)
+✔ switching preserves both magazines and reserves, and cannot select an absent slot (0.959375ms)
+✔ ammo purchases use each caliber price, pack and capacity independently of selected slot (0.179167ms)
+✔ pistol purchase replaces only the secondary slot and preserves the rifle (0.157ms)
+✔ buying selects the best weapon left after a replacement before considering the new gun (0.144084ms)
+✔ one pistol shot per press also works when a short tap is released before the shot arrives (0.096167ms)
+✔ USP and Glock use previous-shot accuracy, rapid-tap penalties and their own camera punch (0.849459ms)
+✔ M4A1 compatibility accuracy uses integer division and its own moving recoil limits (1.596959ms)
+✔ local pistol and M4 prediction matches server punch without replaying delayed acknowledgements (0.924709ms)
+✔ every firearm and the knife have an original death icon, including MP5 naming (0.799375ms)
+✔ explosives use the grenade icon and unknown/world causes use a skull (0.093291ms)
+✔ the feed keeps four kills in oldest-to-newest order and evicts the oldest on overflow (1.465ms)
+✔ notices expire independently after six seconds and new kills do not extend old ones (0.141792ms)
+✔ headshot, suicide and team metadata are preserved independently for each confirmed kill (1.213541ms)
+✔ knife primary uses the original paused and chained damage with hit-dependent cooldowns (0.605541ms)
+✔ knife stab uses 65 damage, triples a backstab, and shares its hit or miss lockout (0.100084ms)
+✔ knife backstab requires attacker and victim horizontal facing within the source dot threshold (0.078792ms)
+✔ knife reach distinguishes swing and stab, respects walls, and uses the original armor ratio (0.355666ms)
+(node:70575) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/movement-feedback.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Shift walking stays compact through batched W to W+D position updates (1.390125ms)
+✔ running still expands the crosshair and walking lets firing spread recover (0.79575ms)
+✔ resetting motion at a round spawn prevents a teleport speed spike (0.623917ms)
+(node:70578) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/movement-ground.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ ground support follows the contact plane and Bevy capsule radius on a slope (1.476625ms)
+✔ step lift accepts ordinary and 18 HU steps, rejecting tall walls and flat ground (0.277166ms)
+✔ stair assistance ends on landing, timeout or jump instead of suppressing a jump (0.098791ms)
+✔ all original human spawns and both bomb sites connect to the Dust2 walkable graph (47.979916ms)
+✔ a bomb planted on a crate resolves to the walkable node beside it (0.466625ms)
+✔ the route around the measured east wall stays on supported ground with standing clearance (23.077458ms)
+✔ routing cannot jump between disconnected platforms and rejects invalid endpoints (0.577167ms)
+✔ bot remembers observed targets, closes in along the graph, and roams again after losing contact (1.446208ms)
+✔ teammate callouts send a bot hunting, then it searches the spot and gives up (0.693208ms)
+✔ smoothed routes cut corners without crossing walls and stay on the floor (31.746041ms)
+✔ solo encounter bots spawn on the sloping floor instead of the former fixed height (1.026833ms)
+✔ neutral observers can roam without a target and return to their selected mode when one appears (0.56975ms)
+✔ team observers cannot enable roaming, including after leaving neutral spectator mode (0.080041ms)
+✔ roaming applies original spectator friction then acceleration in scene meters (0.559125ms)
+✔ roaming caps diagonal wish speed and follows pitched look while strafing horizontally (0.097542ms)
+✔ menus, jumps to viewpoints and long frame stalls discard spectator velocity (0.145125ms)
+✔ GoldSrc starts inside solid: it can leave, then hits the next entry; an entirely solid segment blocks targets (1.132542ms)
+✔ rifles, Deagle and bolt snipers have their original penetration counts; ordinary pistols and SMGs stop at the first wall (0.867667ms)
+✔ surface materials preserve the original damage multipliers (0.266084ms)
+✔ a penetrating hit loses range and damage and may hit a second player only once (0.612583ms)
+✔ Dust2 point hull reproduces the existing courtyard and spawn walls with source textures (0.183084ms)
+✔ real Dust2 middle doors: AK/M4/AWP/Deagle deal reduced damage; USP and shotgun pellets stop (2.776416ms)
+✔ all 24 guns can be dropped and picked up without manufacturing ammo or losing their magazine/mode (1.3955ms)
+✔ manual drops preserve shared caliber ammo; replacements return the old gun for the world (0.20325ms)
+✔ death drops the best gun even while holding knife or pistol, packs reserves, and discards the rest (0.101209ms)
+✔ pickups cross teams but never replace an occupied slot or strip ammo from its box (0.125625ms)
+✔ pickup auto-switch uses source weights, permits empty guns, and supports disabling automatic selection (0.109541ms)
+✔ death-box reserve combines with retained ammo up to the source caliber limit (0.068791ms)
+✔ source touch volumes include the player bounds, but exclude other floors and distant guns (0.087417ms)
+✔ tossed guns hit a wall, slide downward, and settle on the original BSP floor (1.868083ms)
+✔ drop direction follows GoldSrc body pitch and keeps the action yaw (0.150042ms)
+✔ manual weapon-box toss starts 10 HU ahead at 400 HU/s, including its body-pitch height (0.162917ms)
+✔ running does not restart the torso; successive shots restart only the firing layer (0.793125ms)
+✔ reloads use the actual gun deadline while retaining leg movement (0.102792ms)
+✔ head, chest, gut and weighted generic deaths select original source activities (0.565583ms)
+✔ all weapon families have valid torso clips and animated source hitboxes for both bodies (16.656166ms)
+✔ oriented hitboxes follow animated limbs and support target yaw without enlarging headshots (0.565375ms)
+✔ radar rotates with heading, preserves distance scale and clamps far markers (0.949041ms)
+✔ height glyph switches at the source 128-unit boundary (0.096625ms)
+✔ radar excludes self, enemies, dead, disconnected and waiting players (0.1615ms)
+✔ C4 carrier is red and ground/planted bomb markers are Terrorist-only and flash (0.116ms)
+✔ the firing frame has recoil before any server reply (0.988542ms)
+✔ a reply delayed by 500 ms never kicks the settled camera again (0.144333ms)
+✔ acknowledging an earlier shot preserves later predicted shots (0.116167ms)
+✔ reordered or duplicate acknowledgements cannot replay recoil (0.476958ms)
+✔ late confirmation cannot undo a reload or trigger release (0.126708ms)
+✔ rejected shots recover without contaminating the next shot (0.108209ms)
+✔ ammo reservation ignores shots already included in server ammo state (1.388875ms)
+(node:70629) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/round-rules.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ a round awards one point; repeated result processing cannot inflate the score (10.726375ms)
+✔ match ends at sixteen wins and cannot award a point during freeze or waiting (0.237791ms)
+✔ AK has nonzero first-shot spread, a movement penalty in either direction, and an air penalty (0.377916ms)
+✔ unarmored headshots are lethal nearby, leg shots weaker, and distance reduces damage (0.220333ms)
+✔ vanilla AK integer accuracy changes after shot six, not three perfect bullets (0.295333ms)
+✔ walking stays below the spread threshold but still has moving recoil (0.170083ms)
+✔ full-auto recoil climbs, is capped, changes lateral direction, and recovers after release (0.164458ms)
+(node:70630) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/scoreboard.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ scoreboard ranks by kills, then fewer deaths, without mutating the synced roster (1.139958ms)
+(node:70631) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/shared-random.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ the same seed and shot id replay the same random sequence on both sides (0.53775ms)
+✔ different shots and rounds draw different sequences within [0, 1) (2.408958ms)
+✔ round seeds are positive 31-bit integers (0.387ms)
+✔ spectators reopen the team menu on Escape, resume without trapping capture, and clear it when joining (0.601125ms)
+✔ spectating admits only living, connected, round-eligible teammates and excludes self (0.469041ms)
+✔ neutral spectators can chase living players from either side (0.075792ms)
+✔ neutral spectators cycle humans and bots together while respecting death and eligibility (0.080375ms)
+✔ team observers prefer teammates and only fall back to bots when none remain (0.084916ms)
+✔ a resume/capture click cannot also change the spectator target (0.092166ms)
+✔ automatic spectator capture arms without a release event and reverse clicks retain their cooldown (0.054833ms)
+✔ death/menu transitions discard armed spectator clicks until the held button is released (0.072041ms)
+✔ next and previous targets wrap, preserve a valid target, and recover from target loss (0.080792ms)
+✔ solo spectating follows living bots in stable index order (0.142875ms)
+✔ chase camera follows target feet at eye height and stays short of a wall (0.173667ms)
+✔ death camera falls and rolls before the three-second observer handoff (0.09075ms)
+(node:70633) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/team-rules.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ a shared match needs both opposing teams and explicit admission (0.615459ms)
+✔ spectators stay connected without occupying a team or entering combat (0.479333ms)
+✔ late joins during freeze or live cannot shoot or keep an eliminated team alive (0.100791ms)
+✔ duplicate admission cannot reset eligibility or grant a second life (0.942792ms)
+✔ leaving and rejoining cannot restore participation in the same round (0.087625ms)
+✔ capacity counts connected seats and repeated messages cannot overfill a team (0.0815ms)
+✔ elimination, unplanted timeout, and both teams absent have distinct outcomes (0.077041ms)
+✔ a drawn round awards no point and cannot be processed twice (0.080875ms)
+✔ joining a team with no opponents fills the other side with bots (0.169ms)
+✔ a human joining the bot side removes those bots at the next fill (0.110333ms)
+✔ bots never fill a side when the only human is a spectator (0.065458ms)
+✔ bot seats do not count toward team capacity (0.060834ms)
+✔ a surviving bot keeps its team alive for the round winner (0.060833ms)
+✔ bot seats stay eligible for the round they were filled for (0.048875ms)
+✔ bot seats are frozen from freeze through the result phase until the next round starts (0.072125ms)
+✔ a human joining the bot side mid-round is seated but waits for the next round (0.0915ms)
+✔ a side whose only human disconnected gets bots until that human returns (0.072208ms)
+✔ bots follow the lone human to the opposite side between rounds (0.057375ms)
+✔ a seat benched until the next round does not keep its side alive during the freeze (0.050625ms)
+(node:70634) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/buy-zones.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Dust2 spawn has the floor height measured in the engine (3.455ms)
+✔ the wall east of spawn blocks shots in the rendered map coordinate system (1.1935ms)
+✔ all three encounter positions have unobstructed sight from spawn (1.49425ms)
+✔ bot hitboxes reject misses and rays behind the shooter (0.142166ms)
+✔ all original team spawns have floor support, standing clearance, and distinct positions (15.518125ms)
+✔ both original Dust2 bomb zones contain a walkable planting surface (0.475ms)
+✔ the clipped corner of the original B trigger cannot be used to plant (0.061834ms)
+✔ original Dust2 buy volumes contain all team spawns and reject enemy spawns and bomb sites (2.17675ms)
+ℹ tests 273
+ℹ suites 0
+ℹ pass 273
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21756.072166
+(node:70637) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/boedo/Documents/Decentraland/cs-1.6/src/death-icons.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/boedo/Documents/Decentraland/cs-1.6/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS: original defuse-kit model and pickup sound source hashes
+PASS: Dust2 bullet hull — 11 solid models, 5190 original material faces, pinned geometry
+PASS: five original helmet, Kevlar and headshot clips; pinned source hashes
+PASS: fall audio — eight original mono pain/death/splat clips, pinned source hashes
+PASS: arctic player — 721 triangles, 79 clips, source skeleton/hitboxes, two hand anchors
+PASS: 30 original death icons; pinned sprite rectangles and palette coverage
+PASS: urban player — 790 triangles, 79 clips, source skeleton/hitboxes, two hand anchors
+PASS: original C4 view/held/planted/backpack models, 7 animation clips, click audio and 2 source sprites
+PASS: movement sounds — 33 original mono WAV files, pinned source hashes
+PASS: 3 original animated grenade projectiles, 9 source sprite atlases and 31 source hashes
+PASS: 25 ground weapon/equipment models, 3125 triangles, original palette pixels and pinned source hashes
+PASS: 28 original CS 1.6 viewmodels — complete rigs, pixel-identical textures, timed animations and repeat tracks
+PASS: 28 held weapons / 29 hand models (3325 triangles total), 175 original media/source hashes
+PASS: AK47 asset — 1746 triangles, 107796 bytes, four clips, embedded geometry
+PASS: CS interface font — 3724 glyphs, seven reference sizes
+PASS: team menu — pinned layout and 64×64 title logo
+PASS: radar asset — 128×128 source resolution
+PASS: pain compass — four source frames in a 352×128 atlas
+PASS: Dust2 navigation — 21170 connected nodes, current collision source
+
+> dcl-project@1.0.0 build
+> sdk-commands build
+
+@dcl/sdk-commands build v7.27.1-33533530571.commit-451d001
+[1/2] Bundling file /Users/boedo/Documents/Decentraland/cs-1.6/src/index.ts
+debug: [composite]   .composite: assets/scene/main.composite
+debug: [composite]   .composite: assets/scene/main.composite
+debug: [composite]   .composite: assets/scene/main.composite
+Bundle saved bin/index.js
+[2/2] Running type checker
+Type checking completed without errors

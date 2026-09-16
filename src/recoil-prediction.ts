@@ -12,9 +12,19 @@ export interface ConfirmedRecoil {
   right: boolean
 }
 type RecoilEvent =
-  | { kind: 'shot'; at: number; id: number; speed: number; grounded: boolean }
+  | {
+      kind: 'shot'
+      at: number
+      id: number
+      speed: number
+      grounded: boolean
+      mode: number
+      zoom: number
+      continuation: boolean
+    }
   | { kind: 'trigger'; at: number; held: boolean }
   | { kind: 'reload'; at: number }
+  | { kind: 'clearPitch'; at: number }
 
 export class RecoilPrediction {
   private base: AccuracyState
@@ -47,9 +57,13 @@ export class RecoilPrediction {
   private apply(state: AccuracyState, event: RecoilEvent) {
     if (event.kind === 'trigger') setTrigger(state, event.held, event.at)
     else if (event.kind === 'reload')
-      Object.assign(state, freshGunAccuracy(this.gun), { updatedAt: event.at, held: state.held })
+      Object.assign(state, freshGunAccuracy(this.gun, true), { updatedAt: event.at, held: state.held })
+    else if (event.kind === 'clearPitch') {
+      recoverAccuracy(state, event.at)
+      state.pitch = 0
+    } else if (event.continuation) recoverAccuracy(state, event.at)
     else {
-      gunSpread(state, this.gun, event.at, event.speed, event.grounded)
+      gunSpread(state, this.gun, event.at, event.speed, event.grounded, event.mode, event.zoom)
       // Same shared stream as the server, so the kick direction flips are predicted exactly.
       gunKick(state, this.gun, event.speed, event.grounded, shotRandom(this.seed, event.id))
     }
@@ -72,11 +86,24 @@ export class RecoilPrediction {
     this.add({ kind: 'reload', at: now })
   }
 
-  predict(id: number, now: number, speed: number, grounded: boolean): boolean {
+  clearPitch(now: number) {
+    this.add({ kind: 'clearPitch', at: now })
+    this.correction.pitch = 0
+  }
+
+  predict(
+    id: number,
+    now: number,
+    speed: number,
+    grounded: boolean,
+    mode = 0,
+    zoom = 90,
+    continuation = false
+  ): boolean {
     if (id <= this.lastPredicted || this.pendingShots >= 30) return false
     this.lastPredicted = id
     this.punch(now)
-    this.add({ kind: 'shot', id, at: now, speed, grounded })
+    this.add({ kind: 'shot', id, at: now, speed, grounded, mode, zoom, continuation })
     return true
   }
 

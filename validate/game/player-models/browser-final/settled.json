@@ -1,0 +1,259 @@
+{
+  "bots": [
+    {
+      "entity": 66059,
+      "bot": {
+        "index": 0,
+        "team": 1,
+        "health": 0,
+        "name": "Guerilla",
+        "alive": false,
+        "weapon": "ak47",
+        "defuseKit": false
+      },
+      "transform": {
+        "position": {
+          "x": 85.5,
+          "y": 13.439299583435059,
+          "z": 131
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0.8241261839866638,
+          "z": 0,
+          "w": 0.56640625
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "parent": 0
+      },
+      "model": {
+        "src": "assets/scene/players/arctic.glb",
+        "visibleMeshesCollisionMask": 0,
+        "invisibleMeshesCollisionMask": 0
+      },
+      "loading": {
+        "currentState": 4
+      },
+      "animator": {
+        "states": [
+          {
+            "clip": "head",
+            "playing": true,
+            "weight": 1,
+            "speed": 1,
+            "loop": false,
+            "shouldReset": false
+          }
+        ]
+      }
+    },
+    {
+      "entity": 66060,
+      "bot": {
+        "index": 1,
+        "team": 1,
+        "health": 100,
+        "name": "Phoenix",
+        "alive": true,
+        "weapon": "ak47",
+        "defuseKit": false
+      },
+      "transform": {
+        "position": {
+          "x": 85.5,
+          "y": 13.439299583435059,
+          "z": 133.5
+        },
+        "rotation": {
+          "x": 0,
+          "y": -0.7660444378852844,
+          "z": 0,
+          "w": 0.6427875757217407
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "parent": 0
+      },
+      "model": {
+        "src": "assets/scene/players/arctic.glb",
+        "visibleMeshesCollisionMask": 0,
+        "invisibleMeshesCollisionMask": 0
+      },
+      "loading": {
+        "currentState": 4
+      },
+      "animator": {
+        "states": [
+          {
+            "clip": "ref_aim_ak47",
+            "playing": true,
+            "weight": 1,
+            "speed": 1,
+            "loop": true,
+            "shouldReset": false
+          },
+          {
+            "clip": "idle1",
+            "playing": true,
+            "weight": 1,
+            "speed": 1,
+            "loop": true,
+            "shouldReset": false
+          }
+        ]
+      }
+    },
+    {
+      "entity": 66180,
+      "bot": {
+        "index": 2,
+        "team": 1,
+        "health": 100,
+        "name": "Arctic",
+        "alive": true,
+        "weapon": "ak47",
+        "defuseKit": false
+      },
+      "transform": {
+        "position": {
+          "x": 85.5,
+          "y": 13.488900184631348,
+          "z": 136.5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0.8241261839866638,
+          "z": 0,
+          "w": 0.56640625
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "parent": 0
+      },
+      "model": {
+        "src": "assets/scene/players/arctic.glb",
+        "visibleMeshesCollisionMask": 0,
+        "invisibleMeshesCollisionMask": 0
+      },
+      "loading": {
+        "currentState": 4
+      },
+      "animator": {
+        "states": [
+          {
+            "clip": "ref_aim_ak47",
+            "playing": true,
+            "weight": 1,
+            "speed": 1,
+            "loop": true,
+            "shouldReset": false
+          },
+          {
+            "clip": "idle1",
+            "playing": true,
+            "weight": 1,
+            "speed": 1,
+            "loop": true,
+            "shouldReset": false
+          }
+        ]
+      }
+    }
+  ],
+  "hands": [
+    {
+      "entity": 66177,
+      "node": {
+        "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+      },
+      "transform": {
+        "position": {
+          "x": 0.10188619792461395,
+          "y": 0.06634700298309326,
+          "z": -2.0252721309661865
+        },
+        "rotation": {
+          "x": -0.018564237281680107,
+          "y": 0.8932235836982727,
+          "z": 0.04535507410764694,
+          "w": 0.4469340145587921
+        },
+        "scale": {
+          "x": 0.9999999403953552,
+          "y": 1.0000001192092896,
+          "z": 0.9999999403953552
+        },
+        "parent": 66059
+      },
+      "state": {
+        "state": 2
+      }
+    },
+    {
+      "entity": 66179,
+      "node": {
+        "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+      },
+      "transform": {
+        "position": {
+          "x": 0.23833471536636353,
+          "y": 0.990937352180481,
+          "z": -0.01422098558396101
+        },
+        "rotation": {
+          "x": -0.47073420882225037,
+          "y": 0.4300752282142639,
+          "z": -0.5920997858047485,
+          "w": -0.4928106665611267
+        },
+        "scale": {
+          "x": 1.0000001192092896,
+          "y": 1.0000004768371582,
+          "z": 1.0000004768371582
+        },
+        "parent": 66060
+      },
+      "state": {
+        "state": 2
+      }
+    },
+    {
+      "entity": 1137,
+      "node": {
+        "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+      },
+      "transform": {
+        "position": {
+          "x": 0.23833471536636353,
+          "y": 0.990937352180481,
+          "z": -0.01422098558396101
+        },
+        "rotation": {
+          "x": -0.47073420882225037,
+          "y": 0.4300752282142639,
+          "z": -0.5920997858047485,
+          "w": -0.4928106665611267
+        },
+        "scale": {
+          "x": 1.0000001192092896,
+          "y": 1.0000004768371582,
+          "z": 1.0000004768371582
+        },
+        "parent": 66180
+      },
+      "state": {
+        "state": 2
+      }
+    }
+  ]
+}

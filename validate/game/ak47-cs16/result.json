@@ -1,0 +1,44 @@
+{
+  "capturedAt": "2026-09-15T01:31:46.236Z",
+  "screenshots": "/private/tmp/cs16-ak47-headless",
+  "before": {
+    "health": 100,
+    "armor": 0,
+    "clip": 30,
+    "reserve": 83,
+    "money": 800,
+    "seconds": 33
+  },
+  "afterBurst": {
+    "health": 100,
+    "armor": 0,
+    "clip": 17,
+    "reserve": 83,
+    "money": 800,
+    "seconds": 31
+  },
+  "fireClips": [
+    "fixed_v_ak47 shoot2",
+    "fixed_v_ak47 shoot1",
+    "fixed_v_ak47 shoot3"
+  ],
+  "reloadStarted": {
+    "health": 100,
+    "armor": 0,
+    "clip": 17,
+    "reserve": 83,
+    "money": 800,
+    "seconds": 30
+  },
+  "afterReload": {
+    "health": 100,
+    "armor": 0,
+    "clip": 30,
+    "reserve": 70,
+    "money": 800,
+    "seconds": 28
+  },
+  "secondary": "Glock-18   1: Primary   2: Pistol   3: Knife   4: C4   Shift+1: Scores",
+  "drawClip": "fixed_v_ak47 draw",
+  "result": "PASS"
+}

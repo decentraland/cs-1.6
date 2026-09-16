@@ -1,0 +1,21 @@
+{
+  "id": "elite",
+  "sourceSha256": "dfb621c82fe160fdff5df1a1194807f22b6567ce416005c7842f1d60d8580668",
+  "triangles": 104,
+  "bytes": 19848,
+  "sourceTriangles": 104,
+  "skippedDegenerateTriangles": 0,
+  "anchor": "Bip01 R Hand",
+  "blenderBounds": {
+    "min": [
+      -0.038741402328014374,
+      -0.26369181275367737,
+      -0.05876878276467323
+    ],
+    "max": [
+      0.03630498796701431,
+      -0.003029375337064266,
+      0.11054399609565735
+    ]
+  }
+}

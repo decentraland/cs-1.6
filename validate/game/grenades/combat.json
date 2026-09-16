@@ -1,0 +1,135 @@
+{
+  "facingAway": {
+    "target": "0xf69b268cde307a316eff0f3cd7cc31b44bf10768",
+    "start": 1789452264.854,
+    "hold": 0.8355978727340698,
+    "fade": 5.11803674697876,
+    "alpha": 200
+  },
+  "wallFlash": {
+    "projectile": {
+      "kind": "flashbang",
+      "owner": "0xf69b268cde307a316eff0f3cd7cc31b44bf10768",
+      "team": 2,
+      "position": {
+        "x": 72.68839263916016,
+        "y": 6.613666534423828,
+        "z": 69.47886657714844
+      },
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "center": {
+        "x": 72.68839263916016,
+        "y": 6.7776665687561035,
+        "z": 69.47886657714844
+      },
+      "grounded": true,
+      "bounces": 2,
+      "animation": 3,
+      "phase": "exploded",
+      "created": 1789452276.822,
+      "activated": 1789452278.428,
+      "expires": 1789452282.428,
+      "round": 1
+    },
+    "player": {
+      "x": 71.75929,
+      "y": 6.6126676,
+      "z": 67.401436
+    },
+    "oldStart": 1789452264.854,
+    "preserved": true
+  },
+  "wallHE": {
+    "beforeHealth": 52,
+    "after": {
+      "current": 16,
+      "max": 100,
+      "armor": 57.363746643066406,
+      "maxArmor": 100
+    },
+    "projectile": {
+      "kind": "hegrenade",
+      "owner": "0xf69b268cde307a316eff0f3cd7cc31b44bf10768",
+      "team": 2,
+      "position": {
+        "x": 72.68839263916016,
+        "y": 6.613666534423828,
+        "z": 69.4833755493164
+      },
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "center": {
+        "x": 72.68839263916016,
+        "y": 7.752666473388672,
+        "z": 69.4833755493164
+      },
+      "grounded": true,
+      "bounces": 2,
+      "animation": 5,
+      "phase": "exploded",
+      "created": 1789452282.086,
+      "activated": 1789452283.72,
+      "expires": 1789452287.72,
+      "round": 1
+    },
+    "player": {
+      "x": 71.75929,
+      "y": 6.6126676,
+      "z": 67.401436
+    }
+  },
+  "death": {
+    "flash": {
+      "kind": "flashbang",
+      "owner": "0xf69b268cde307a316eff0f3cd7cc31b44bf10768",
+      "team": 2,
+      "position": {
+        "x": 51.6108283996582,
+        "y": 7.959667682647705,
+        "z": 46.70172882080078
+      },
+      "velocity": {
+        "x": 0,
+        "y": -2.200000047683716,
+        "z": 0
+      },
+      "center": {
+        "x": 51.6108283996582,
+        "y": 8.212667465209961,
+        "z": 46.70172882080078
+      },
+      "grounded": false,
+      "bounces": 0,
+      "animation": 6,
+      "phase": "flight",
+      "created": 1789452293.027,
+      "activated": 0,
+      "expires": 1789452593.027,
+      "round": 1
+    },
+    "health": {
+      "current": 0,
+      "max": 100,
+      "armor": 33.16133117675781,
+      "maxArmor": 100
+    },
+    "inventory": {
+      "active": "knife",
+      "items": [],
+      "ammo": []
+    },
+    "round": 1
+  },
+  "roundCleanup": {
+    "round": 2,
+    "flashes": 0,
+    "projectiles": 0
+  }
+}

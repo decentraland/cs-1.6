@@ -1,0 +1,85 @@
+{
+  "sourceRevision": "6ad155c7a610a85cfd443fcace2c97f2afcb2866",
+  "files": [
+    {
+      "file": "assets/sounds/player/original/bhit_flesh-1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/bhit_flesh-1.wav",
+      "sha256": "1ff855e59dc1d55fbdd899b3734bf65747078f41738b7ebdb1e6fdda54298e6b",
+      "bytes": 7020,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 6976,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/bhit_flesh-2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/bhit_flesh-2.wav",
+      "sha256": "bb2b7393b580220df80966a5d4ed89c1f4eaa7e0d4690f27221e9dc021c4d9f2",
+      "bytes": 7650,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 7605,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/bhit_flesh-3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/bhit_flesh-3.wav",
+      "sha256": "ebabd453fd91ef46f4067720bedf2ff51140e1d0f9f5cafd29c530c29bfddd4a",
+      "bytes": 6520,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 6475,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/die1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/die1.wav",
+      "sha256": "529f36cfe49fbba140d3cf0c098c9699ebbbf3362872cb92090be2a7a665fcbf",
+      "bytes": 21244,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 21106,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/die2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/die2.wav",
+      "sha256": "144929d82bbaa7a6bab07e2d9b8d713e16c0fcae64273ed7cd921c6fd6301af9",
+      "bytes": 43776,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 43731,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/die3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/die3.wav",
+      "sha256": "e60f173d9985c57024ccf5b4264e9017487c569c7dca3da9512b5f4ca191a1d9",
+      "bytes": 21646,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 21602,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/death6.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/death6.wav",
+      "sha256": "94fef13ec3e1be62fc152cd5e3569349f512d541abc9b14cf74e57000076282a",
+      "bytes": 27823,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 27687,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/bodysplat.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/common/bodysplat.wav",
+      "sha256": "c766d41474c6cb68bc8203fddbe533939ac010115898c30dce90a9bab2811686",
+      "bytes": 21114,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 20982,
+      "sampleWidth": 1
+    }
+  ]
+}

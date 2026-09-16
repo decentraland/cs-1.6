@@ -1,0 +1,33 @@
+{
+  "name": "fixed_v_aug",
+  "sourceSha256": "54846390d814fbd59b9c1e9263ea2235328e955e0ffbc1676a251ad5086c55c0",
+  "triangles": 1087,
+  "skippedDegenerateTriangles": 0,
+  "bones": 42,
+  "textures": 6,
+  "animations": {
+    "idle": 0.26666666666666666,
+    "reload": 3.3,
+    "draw": 0.8571428571428571,
+    "shoot1": 0.8571428571428571,
+    "shoot2": 0.8571428571428571,
+    "shoot3": 0.8571428571428571
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.24990564584732056,
+      -0.2598310112953186,
+      -0.025666886940598488
+    ],
+    "max": [
+      0.0611962229013443,
+      -0.014775342307984829,
+      0.5730419158935547
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.996755599975586e-06,
+  "bytes": 646304,
+  "blender": "5.2.1 LTS"
+}

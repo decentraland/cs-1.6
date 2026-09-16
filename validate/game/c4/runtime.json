@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-15",
+  "browser": "Brave Chromium 151.0.7922.169",
+  "headless": true,
+  "muted": true,
+  "client": "https://decentraland.org/bevy-web/",
+  "isolatedPort": 8011,
+  "browserErrors": [],
+  "testBrowserClosed": true,
+  "testServerStopped": true,
+  "blenderVersion": "5.2.1 LTS",
+  "blenderActiveScenePreserved": "CS16 original fixed_v_scout"
+}

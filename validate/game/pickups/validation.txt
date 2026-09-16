@@ -1,0 +1,36 @@
+npm run validate: exit 0
+
+✔ all original team spawns have floor support, standing clearance, and distinct positions (12.119708ms)
+✔ both original Dust2 bomb zones contain a walkable planting surface (0.307792ms)
+✔ the clipped corner of the original B trigger cannot be used to plant (0.12175ms)
+✔ original Dust2 buy volumes contain all team spawns and reject enemy spawns and bomb sites (1.798333ms)
+ℹ tests 174
+ℹ suites 0
+ℹ pass 174
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2913.656709
+PASS: Dust2 bullet hull — 11 solid models, 5190 original material faces, pinned geometry
+PASS: 24 dropped weapon models, 3045 triangles, original palette pixels and pinned source hashes
+PASS: 25 original CS 1.6 viewmodels — complete rigs, pixel-identical textures, timed animations and repeat tracks
+PASS: 25 held models (3169 triangles total), 171 original media/source hashes
+PASS: AK47 asset — 1746 triangles, 107796 bytes, four clips, embedded geometry
+PASS: CS interface font — 3724 glyphs, seven reference sizes
+PASS: team menu — pinned layout and 64×64 title logo
+PASS: radar asset — 128×128 source resolution
+PASS: pain compass — four source frames in a 352×128 atlas
+PASS: Dust2 navigation — 21170 connected nodes, current collision source
+
+> dcl-project@1.0.0 build
+> sdk-commands build
+
+@dcl/sdk-commands build v7.27.1-33533530571.commit-451d001
+[1/2] Bundling file /Users/boedo/Documents/Decentraland/cs-1.6/src/index.ts
+debug: [composite]   .composite: assets/scene/main.composite
+debug: [composite]   .composite: assets/scene/main.composite
+debug: [composite]   .composite: assets/scene/main.composite
+Bundle saved bin/index.js
+[2/2] Running type checker
+Type checking completed without errors

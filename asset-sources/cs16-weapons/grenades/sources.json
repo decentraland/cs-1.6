@@ -1,0 +1,188 @@
+[
+  {
+    "path": "asset-sources/cs16-weapons/grenades/p_hegrenade.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_hegrenade.mdl",
+    "sha256": "494b329493f545298cdaa434edf70f32bafad964daf4d7a5c6383f8ef3f5d9cb",
+    "bytes": 25836
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/p_flashbang.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_flashbang.mdl",
+    "sha256": "b754a3577589525bea75e033a8a202e326bb0be3b7e9dfe35fb73b6f27247248",
+    "bytes": 25836
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/p_smokegrenade.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_smokegrenade.mdl",
+    "sha256": "61e9f3a0eb8b0a59f7f284f3e800538e5d1905ffa78b2048c3900969038e8a8c",
+    "bytes": 25836
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/w_hegrenade.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_hegrenade.mdl",
+    "sha256": "59bca29c4207ebfaab9f65e4b61dc26bfffa7cc2eb86b761bb11ca7b025e4458",
+    "bytes": 24104
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/w_flashbang.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_flashbang.mdl",
+    "sha256": "e17e5165696712a0a100de34ee6eb23016120abbd37b8a4b47ed445a5c1b088a",
+    "bytes": 24104
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/w_smokegrenade.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_smokegrenade.mdl",
+    "sha256": "ed5c5530f4ee4b0d59aa560565591fe44a7f1fc127fe7f745768ae35be4da2ed",
+    "bytes": 24104
+  },
+  {
+    "path": "assets/sounds/grenades/hegrenade-1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/hegrenade-1.wav",
+    "sha256": "b77e091ade1982812d948aa0f853d8580a91112f71e1bfe48e50faa02fe408f7",
+    "bytes": 71854
+  },
+  {
+    "path": "assets/sounds/grenades/hegrenade-2.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/hegrenade-2.wav",
+    "sha256": "b77e091ade1982812d948aa0f853d8580a91112f71e1bfe48e50faa02fe408f7",
+    "bytes": 71854
+  },
+  {
+    "path": "assets/sounds/grenades/he_bounce-1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/he_bounce-1.wav",
+    "sha256": "bdb1182d370d12814250df15cb97f38d67d422c4ce66858f5d6dd71a91f423ec",
+    "bytes": 10746
+  },
+  {
+    "path": "assets/sounds/grenades/pinpull.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/pinpull.wav",
+    "sha256": "39e4e79d8b52ef0ea1a3f04b81b944fceaebb0de377df41faf4ecac51b437fb5",
+    "bytes": 2809
+  },
+  {
+    "path": "assets/sounds/grenades/flashbang-1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/flashbang-1.wav",
+    "sha256": "2896c9cee195a7bbbe50b8193b53ba8fbd251e5a938389075f6d8aee186a06b6",
+    "bytes": 31244
+  },
+  {
+    "path": "assets/sounds/grenades/flashbang-2.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/flashbang-2.wav",
+    "sha256": "2896c9cee195a7bbbe50b8193b53ba8fbd251e5a938389075f6d8aee186a06b6",
+    "bytes": 31244
+  },
+  {
+    "path": "assets/sounds/grenades/grenade_hit1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/grenade_hit1.wav",
+    "sha256": "ffdaf0a862ce1f47615dc1ac59af868010796eeef50de895414c40a04da3680e",
+    "bytes": 10830
+  },
+  {
+    "path": "assets/sounds/grenades/grenade_hit2.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/grenade_hit2.wav",
+    "sha256": "ffdaf0a862ce1f47615dc1ac59af868010796eeef50de895414c40a04da3680e",
+    "bytes": 10830
+  },
+  {
+    "path": "assets/sounds/grenades/grenade_hit3.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/grenade_hit3.wav",
+    "sha256": "ffdaf0a862ce1f47615dc1ac59af868010796eeef50de895414c40a04da3680e",
+    "bytes": 10830
+  },
+  {
+    "path": "assets/sounds/grenades/sg_explode.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/sg_explode.wav",
+    "sha256": "8d0b58d0c2cf1a122936618a7cec1898e2672e04c077fe4778f0b61b67f0b9a9",
+    "bytes": 22322
+  },
+  {
+    "path": "assets/sounds/grenades/debris1.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/weapons/debris1.wav",
+    "sha256": "26efb87a2438a0b607aa227ec9f5e80935325671fabe9922041d3658451f1b96",
+    "bytes": 14100
+  },
+  {
+    "path": "assets/sounds/grenades/debris2.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/weapons/debris2.wav",
+    "sha256": "e6245600bdd87adc9e12d3d705576e7d24641593e4e59c37b4074cab20522b29",
+    "bytes": 10134
+  },
+  {
+    "path": "assets/sounds/grenades/debris3.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/weapons/debris3.wav",
+    "sha256": "e140ef0f01719151edbbc8ae0c9256caa6b8d731da18a3bfb8acecde5a10c11e",
+    "bytes": 30056
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/steam1.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sprites/steam1.spr",
+    "sha256": "ca839de89f7e47015b451a649a9411fa8827337bddc5712d73ecda311a23a0e3",
+    "bytes": 25706
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/smokepuff.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/smokepuff.spr",
+    "sha256": "2be5eaa3f9fea75390c24fc35c072dd29cd013b3c2a266e3ce254e085dd1012d",
+    "bytes": 11250
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/fexplo.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sprites/fexplo.spr",
+    "sha256": "b89ee20a8f588ac5517d43d4e73e2d5411b1f6962a057792c4f13741a9419255",
+    "bytes": 231810
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/eexplo.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sprites/eexplo.spr",
+    "sha256": "cebc88024c092fce37476a0ffac3744af521c8f9ff9808f392b1262d50186502",
+    "bytes": 161310
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/weapon_hegrenade.txt",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/weapon_hegrenade.txt",
+    "sha256": "26931ed5d099c227466110c7c5c7b551e64d7c1b0358c95e6a0a8a508b51576d",
+    "bytes": 347
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/weapon_flashbang.txt",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/weapon_flashbang.txt",
+    "sha256": "4e12ff54db72f385dc1a15dcea4aaeb73a13b62e221a7acf2a5888acde64e353",
+    "bytes": 349
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/weapon_smokegrenade.txt",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/weapon_smokegrenade.txt",
+    "sha256": "19b6edf0d22cd0f701e64498750cfe4f08520cd5c23cdb210ecd46abe8a5561c",
+    "bytes": 351
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/gas_puff_01.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/gas_puff_01.spr",
+    "sha256": "819c6c15cd4b4d2e9ea1c4dff2984c5f4a589fbd5b22875666b3f6aaf6580e07",
+    "bytes": 9042
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/black_smoke1.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/black_smoke1.spr",
+    "sha256": "4e1fc505cccad4afef2b6cb54e5869842b12ec83d216c973de8f8458ea0e4c06",
+    "bytes": 156930
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/black_smoke2.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/black_smoke2.spr",
+    "sha256": "393c531e12a4625524a12cb840876b81882db54b9e0a489f2be0e2ac6b36a114",
+    "bytes": 156930
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/black_smoke3.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/black_smoke3.spr",
+    "sha256": "8539f22177ae5ec673316d76939211dc9dc1c1c2dacdb6a52e100e1e7d5c15ea",
+    "bytes": 156930
+  },
+  {
+    "path": "asset-sources/cs16-weapons/grenades/sprites/black_smoke4.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/black_smoke4.spr",
+    "sha256": "8539f22177ae5ec673316d76939211dc9dc1c1c2dacdb6a52e100e1e7d5c15ea",
+    "bytes": 156930
+  }
+]

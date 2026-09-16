@@ -1,0 +1,39 @@
+{
+  "recordedAt": "2026-09-15",
+  "validation": {
+    "command": "npm run validate",
+    "exitCode": 0,
+    "tests": 164,
+    "passed": 164,
+    "failed": 0,
+    "viewmodels": 25,
+    "heldModels": 25,
+    "originalMediaHashes": 170,
+    "build": "passed",
+    "typecheck": "passed"
+  },
+  "browser": "Headless Brave, official decentraland.org/bevy-web, audio muted",
+  "fixtureOverrides": [
+    "unique multiplayer identity",
+    "$16000 and starting AWP",
+    "paused bot actions",
+    "one-hour round",
+    "unlimited buy time and refunded purchases",
+    "bot 0 placed behind mid door",
+    "synchronized bot health exposed as TextShape"
+  ],
+  "productionSourceSha256": {
+    "src/client.ts": "3f998d84c20821d1a37108430ca2367b978a42ba532f30cde1b347f6da5d0e97",
+    "src/ballistics.ts": "e9f188a33c92e0c4125a094392db0947e8ca44e87166ea056dca88c3fea330a5",
+    "src/penetration.ts": "34fbe32e8ec33b300107d63ba06bf84c10d3fb5d22d8adec3ac91b7be7546a4a",
+    "src/solid-trace.ts": "9f2610164365fc013b7ff153ef71a9c44d2e3ad2e2d0dd599682fd2810c91167",
+    "src/dust2-solids.ts": "1848e9d419f45301ca7133d44d7789f87d3e9bbe9160b45aba7b8f7e7025eedb",
+    "src/server.ts": "b615e1dd3eda34295eb4c98a3a42eb372550e26952fbdf13d20d9e853f75b252",
+    "src/practice.ts": "f5a918816fa149d5305b451a92f6cb7f3ccd708416fbabe44062ec83ef4cc1f9",
+    "src/weapon-profiles.ts": "473234310955b2671b5e18787a1bbcb7e57654fcd8c9cfa7cf42e572ef64fdb9",
+    "src/scope-camera.ts": "ae35d22a8dc2a2b07d5b1932754a3fdb61c172f3e207b954ab812792d3902b97",
+    "validate/penetration.mjs": "b50252f4c7f4302159f39c129fb676484d764392b3332c2e38a1d4c9dc3f4cc7",
+    "validate/capture-review.mjs": "2c6d4a1ec15c0e811231d692bb989b888be46f3c9db0851f34e3fdab326bd3aa",
+    "validate/prepare-penetration.mjs": "4a4b541da5c2dde3a7a2be10dc62b41875b35d7e58a81e9e5ed3f88cb84838b9"
+  }
+}

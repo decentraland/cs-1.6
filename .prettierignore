@@ -4,3 +4,4 @@ src/score-font.json
 bin/
 validate/game/
 validate/baseline/
+src/dust2-solids.ts

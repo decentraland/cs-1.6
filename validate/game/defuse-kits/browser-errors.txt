@@ -1,0 +1,45 @@
+owner: agent-browser errors returned no JavaScript runtime errors.
+recipient: agent-browser errors returned no JavaScript runtime errors.
+bots: agent-browser errors returned no JavaScript runtime errors.
+
+cs16-kit-browser-v2-final.log native warnings:
+[Server] 07:56:34 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 07:56:34 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 07:56:46 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+[Server] 07:56:51 profile fetch failed for 0xbcb636563392ec7a533c768c6139e976567655af: error decoding response body
+[Server] 07:57:05 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 07:57:05 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 07:57:16 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+[Server] 07:57:22 profile fetch failed for 0xbcb636563392ec7a533c768c6139e976567655af: error decoding response body
+[Server] 07:57:35 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 07:57:35 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 07:57:47 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+[Server] 07:57:52 profile fetch failed for 0xbcb636563392ec7a533c768c6139e976567655af: error decoding response body
+[Server] 07:58:06 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 07:58:06 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 07:58:17 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+[Server] 07:58:24 profile fetch failed for 0xbcb636563392ec7a533c768c6139e976567655af: error decoding response body
+[Server] 07:58:37 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 07:58:37 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 07:58:48 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+[Server] 07:58:54 profile fetch failed for 0xbcb636563392ec7a533c768c6139e976567655af: error decoding response body
+[Server] 07:59:07 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 07:59:07 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 07:59:19 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+[Server] 07:59:25 profile fetch failed for 0xbcb636563392ec7a533c768c6139e976567655af: error decoding response body
+[Server] 07:59:38 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 07:59:38 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 07:59:49 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+[Server] 07:59:55 profile fetch failed for 0xbcb636563392ec7a533c768c6139e976567655af: error decoding response body
+[Server] 08:00:08 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 08:00:08 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 08:00:20 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+[Server] 08:00:26 profile fetch failed for 0xbcb636563392ec7a533c768c6139e976567655af: error decoding response body
+[Server] 08:00:39 profile fetch failed for 0xcb976ee7691e275768d45f77002b778958edc242: error decoding response body
+[Server] 08:00:39 profile fetch failed for 0xa895eb641a85721c6b63cb280b0a7b00333e6956: error decoding response body
+[Server] 08:00:50 profile fetch failed for 0xb04eebef2a181a96d3ea5c2830839f7128e0f548: error decoding response body
+
+cs16-kit-bots-browser.log native warnings:
+[Server] 08:01:07 profile fetch failed for 0x9716e8880d00717be6572175f797416c3518f020: error decoding response body
+[Server] 08:01:38 profile fetch failed for 0x9716e8880d00717be6572175f797416c3518f020: error decoding response body
+[Server] 08:02:08 profile fetch failed for 0x9716e8880d00717be6572175f797416c3518f020: error decoding response body

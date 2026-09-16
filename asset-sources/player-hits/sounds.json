@@ -1,0 +1,55 @@
+{
+  "sourceRevision": "6ad155c7a610a85cfd443fcace2c97f2afcb2866",
+  "files": [
+    {
+      "file": "assets/sounds/player/original/bhit_helmet-1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/bhit_helmet-1.wav",
+      "sha256": "7f1580af4027326e93e53f70f377b2af7d7d0bab676174c6a3ca6e5db2e1f9a8",
+      "bytes": 5670,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 5625,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/bhit_kevlar-1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/bhit_kevlar-1.wav",
+      "sha256": "ab1505cf915c54896b669da0e4e563c213ecf7b84554160854af07dcaa804513",
+      "bytes": 7238,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 7193,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/headshot1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/headshot1.wav",
+      "sha256": "578e8d2b4a44fa3fc3d06855eb9de061df368e628b8a800461e2c08c50977a59",
+      "bytes": 19134,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 19090,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/headshot2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/headshot2.wav",
+      "sha256": "b951d5a5f8d13b3d0490493aca14642dcc07a269b698e1d94bc79dde76447920",
+      "bytes": 22184,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 22140,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/headshot3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/headshot3.wav",
+      "sha256": "3f4b68573da14c7329b96fbef96fdd7e884009c03d344b1186a86c0ec38cc8d5",
+      "bytes": 15700,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 15656,
+      "sampleWidth": 1
+    }
+  ]
+}

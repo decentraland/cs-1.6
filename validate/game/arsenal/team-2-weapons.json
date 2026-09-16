@@ -1,0 +1,249 @@
+[
+  {
+    "id": "glock18",
+    "loaded": true,
+    "clipBefore": 20,
+    "clipAfter": 19,
+    "firing": [
+      "fixed_v_glock18 shoot2"
+    ],
+    "reload": [
+      "fixed_v_glock18 reload"
+    ],
+    "reloaded": 20,
+    "alternateClip": 17
+  },
+  {
+    "id": "usp",
+    "loaded": true,
+    "clipBefore": 12,
+    "clipAfter": 11,
+    "firing": [
+      "fixed_v_usp shoot3_unsil"
+    ],
+    "reload": [
+      "fixed_v_usp reload_unsil"
+    ],
+    "reloaded": 12,
+    "alternateClip": 11
+  },
+  {
+    "id": "p228",
+    "loaded": true,
+    "clipBefore": 13,
+    "clipAfter": 12,
+    "firing": [
+      "fixed_v_p228 shoot3"
+    ],
+    "reload": [
+      "fixed_v_p228 reload"
+    ],
+    "reloaded": 13
+  },
+  {
+    "id": "deagle",
+    "loaded": true,
+    "clipBefore": 7,
+    "clipAfter": 6,
+    "firing": [
+      "fixed_v_deagle shoot2"
+    ],
+    "reload": [
+      "fixed_v_deagle reload"
+    ],
+    "reloaded": 7
+  },
+  {
+    "id": "fiveseven",
+    "loaded": true,
+    "clipBefore": 20,
+    "clipAfter": 19,
+    "firing": [
+      "fixed_v_fiveseven shoot2"
+    ],
+    "reload": [
+      "fixed_v_fiveseven reload"
+    ],
+    "reloaded": 20
+  },
+  {
+    "id": "m3",
+    "loaded": true,
+    "clipBefore": 8,
+    "clipAfter": 7,
+    "firing": [
+      "fixed_v_m3 shoot2"
+    ],
+    "reload": [
+      "fixed_v_m3 start_reload"
+    ],
+    "reloaded": 8
+  },
+  {
+    "id": "xm1014",
+    "loaded": true,
+    "clipBefore": 7,
+    "clipAfter": 6,
+    "firing": [
+      "fixed_v_xm1014 shoot2"
+    ],
+    "reload": [
+      "fixed_v_xm1014 start_reload"
+    ],
+    "reloaded": 7
+  },
+  {
+    "id": "tmp",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_tmp shoot_1"
+    ],
+    "reload": [
+      "fixed_v_tmp reload"
+    ],
+    "reloaded": 30
+  },
+  {
+    "id": "mp5",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_mp5 shoot3"
+    ],
+    "reload": [
+      "fixed_v_mp5 reload"
+    ],
+    "reloaded": 30
+  },
+  {
+    "id": "ump45",
+    "loaded": true,
+    "clipBefore": 25,
+    "clipAfter": 24,
+    "firing": [
+      "fixed_v_ump45 shoot2",
+      "fixed_v_ump45 shoot3"
+    ],
+    "reload": [
+      "fixed_v_ump45 reload"
+    ],
+    "reloaded": 25
+  },
+  {
+    "id": "p90",
+    "loaded": true,
+    "clipBefore": 50,
+    "clipAfter": 49,
+    "firing": [
+      "fixed_v_p90 shoot3"
+    ],
+    "reload": [
+      "fixed_v_p90 reload"
+    ],
+    "reloaded": 50
+  },
+  {
+    "id": "famas",
+    "loaded": true,
+    "clipBefore": 25,
+    "clipAfter": 24,
+    "firing": [
+      "fixed_v_famas shoot3"
+    ],
+    "reload": [
+      "fixed_v_famas reload"
+    ],
+    "reloaded": 25,
+    "alternateClip": 22
+  },
+  {
+    "id": "scout",
+    "loaded": true,
+    "clipBefore": 10,
+    "clipAfter": 9,
+    "firing": [
+      "fixed_v_scout shoot_1"
+    ],
+    "reload": [
+      "fixed_v_scout reload"
+    ],
+    "reloaded": 10
+  },
+  {
+    "id": "m4a1",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_m4a1 shoot2_unsil",
+      "fixed_v_m4a1 shoot3_unsil"
+    ],
+    "reload": [
+      "fixed_v_m4a1 reload_unsil"
+    ],
+    "reloaded": 30,
+    "alternateClip": 29
+  },
+  {
+    "id": "aug",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_aug shoot1"
+    ],
+    "reload": [
+      "fixed_v_aug reload"
+    ],
+    "reloaded": 30
+  },
+  {
+    "id": "sg550",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_sg550 shoot"
+    ],
+    "reload": [
+      "fixed_v_sg550 reload"
+    ],
+    "reloaded": 30
+  },
+  {
+    "id": "awp",
+    "loaded": true,
+    "clipBefore": 10,
+    "clipAfter": 9,
+    "firing": [
+      "fixed_v_awp shoot3"
+    ],
+    "reload": [
+      "fixed_v_awp reload"
+    ],
+    "reloaded": 10
+  },
+  {
+    "id": "m249",
+    "loaded": true,
+    "clipBefore": 100,
+    "clipAfter": 98,
+    "firing": [
+      "fixed_v_m249 shoot2",
+      "fixed_v_m249 shoot1"
+    ],
+    "reload": [
+      "fixed_v_m249 reload"
+    ],
+    "reloaded": 100
+  },
+  {
+    "id": "knife",
+    "loaded": true,
+    "slash": true,
+    "stab": true
+  }
+]

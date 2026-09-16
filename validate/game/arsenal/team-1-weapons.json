@@ -1,0 +1,90 @@
+[
+  {
+    "id": "elite",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_elite shoot_right3"
+    ],
+    "reload": [
+      "fixed_v_elite reload"
+    ],
+    "reloaded": 30
+  },
+  {
+    "id": "mac10",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_mac10 shoot2",
+      "fixed_v_mac10 shoot1"
+    ],
+    "reload": [
+      "fixed_v_mac10 reload"
+    ],
+    "reloaded": 30
+  },
+  {
+    "id": "galil",
+    "loaded": true,
+    "clipBefore": 35,
+    "clipAfter": 34,
+    "firing": [
+      "fixed_v_galil shoot1",
+      "fixed_v_galil shoot3"
+    ],
+    "reload": [
+      "fixed_v_galil reload"
+    ],
+    "reloaded": 35
+  },
+  {
+    "id": "ak47",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_ak47 shoot1",
+      "fixed_v_ak47 shoot3"
+    ],
+    "reload": [
+      "fixed_v_ak47 reload"
+    ],
+    "reloaded": 30
+  },
+  {
+    "id": "sg552",
+    "loaded": true,
+    "clipBefore": 30,
+    "clipAfter": 29,
+    "firing": [
+      "fixed_v_sg552 shoot1",
+      "fixed_v_sg552 shoot2"
+    ],
+    "reload": [
+      "fixed_v_sg552 reload"
+    ],
+    "reloaded": 30
+  },
+  {
+    "id": "g3sg1",
+    "loaded": true,
+    "clipBefore": 20,
+    "clipAfter": 19,
+    "firing": [
+      "fixed_v_g3sg1 shoot2"
+    ],
+    "reload": [
+      "fixed_v_g3sg1 reload"
+    ],
+    "reloaded": 20
+  },
+  {
+    "id": "knife",
+    "loaded": true,
+    "slash": true,
+    "stab": true
+  }
+]

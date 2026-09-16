@@ -1,0 +1,1961 @@
+{
+  "date": "2026-09-15T12:14:12.568Z",
+  "muted": true,
+  "baseline": false,
+  "guns": [
+    {
+      "initial": {
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m4a1",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 30,
+              "reserve": 90
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M4A1",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474453.758,
+          "damage": 32,
+          "ammoClip": 3,
+          "maxAmmoClip": 30,
+          "ammoReserve": 90,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.08749999850988388,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 3.049999952316284,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3598,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "empty": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m4a1",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 0,
+              "reserve": 90
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 90
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M4A1",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474453.758,
+          "damage": 32,
+          "ammoClip": 0,
+          "maxAmmoClip": 30,
+          "ammoReserve": 90,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.08749999850988388,
+          "lastShotTime": 1789474459.5170002,
+          "lastShotId": 3,
+          "lastFiredShotId": 3,
+          "isReloading": false,
+          "reloadTime": 3.049999952316284,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3597,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "held": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m4a1",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 0,
+              "reserve": 90
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 90
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M4A1",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474453.758,
+          "damage": 32,
+          "ammoClip": 0,
+          "maxAmmoClip": 30,
+          "ammoReserve": 90,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.08749999850988388,
+          "lastShotTime": 1789474459.5170002,
+          "lastShotId": 3,
+          "lastFiredShotId": 3,
+          "isReloading": false,
+          "reloadTime": 3.049999952316284,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3593,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "started": {
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m4a1",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 0,
+              "reserve": 90
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 90
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M4A1",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474453.758,
+          "damage": 32,
+          "ammoClip": 0,
+          "maxAmmoClip": 30,
+          "ammoReserve": 90,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.08749999850988388,
+          "lastShotTime": 1789474459.5170002,
+          "lastShotId": 3,
+          "lastFiredShotId": 3,
+          "isReloading": true,
+          "reloadTime": 3.049999952316284,
+          "reloadStartTime": 1789474464.041,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3592,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "finished": {
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m4a1",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 30,
+              "reserve": 60
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M4A1",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474453.758,
+          "damage": 32,
+          "ammoClip": 30,
+          "maxAmmoClip": 30,
+          "ammoReserve": 60,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.08749999850988388,
+          "lastShotTime": 1789474459.5170002,
+          "lastShotId": 3,
+          "lastFiredShotId": 3,
+          "isReloading": false,
+          "reloadTime": 3.049999952316284,
+          "reloadStartTime": 1789474464.041,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3589,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      }
+    },
+    {
+      "initial": {
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "inventory": {
+          "active": "usp",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 30,
+              "reserve": 60
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            }
+          ]
+        },
+        "weapon": {
+          "name": "USP",
+          "revision": 3,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474468.291,
+          "damage": 34,
+          "ammoClip": 3,
+          "maxAmmoClip": 12,
+          "ammoReserve": 24,
+          "maxAmmoReserve": 100,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 0,
+          "lastShotId": 3,
+          "lastFiredShotId": 3,
+          "isReloading": false,
+          "reloadTime": 2.700000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3588,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "empty": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "usp",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 0,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 30,
+              "reserve": 60
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 24
+            }
+          ]
+        },
+        "weapon": {
+          "name": "USP",
+          "revision": 3,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474468.291,
+          "damage": 34,
+          "ammoClip": 0,
+          "maxAmmoClip": 12,
+          "ammoReserve": 24,
+          "maxAmmoReserve": 100,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 1789474470.74,
+          "lastShotId": 6,
+          "lastFiredShotId": 6,
+          "isReloading": false,
+          "reloadTime": 2.700000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3586,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "held": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "usp",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 0,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 30,
+              "reserve": 60
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 24
+            }
+          ]
+        },
+        "weapon": {
+          "name": "USP",
+          "revision": 3,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474468.291,
+          "damage": 34,
+          "ammoClip": 0,
+          "maxAmmoClip": 12,
+          "ammoReserve": 24,
+          "maxAmmoReserve": 100,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 1789474470.74,
+          "lastShotId": 6,
+          "lastFiredShotId": 6,
+          "isReloading": false,
+          "reloadTime": 2.700000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3582,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "started": {
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "inventory": {
+          "active": "usp",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 0,
+              "reserve": 24
+            },
+            {
+              "id": "m4a1",
+              "clip": 30,
+              "reserve": 60
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 24
+            }
+          ]
+        },
+        "weapon": {
+          "name": "USP",
+          "revision": 3,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474468.291,
+          "damage": 34,
+          "ammoClip": 0,
+          "maxAmmoClip": 12,
+          "ammoReserve": 24,
+          "maxAmmoReserve": 100,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 1789474470.74,
+          "lastShotId": 6,
+          "lastFiredShotId": 6,
+          "isReloading": true,
+          "reloadTime": 2.700000047683716,
+          "reloadStartTime": 1789474474.905,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3582,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "finished": {
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "inventory": {
+          "active": "usp",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "m4a1",
+              "clip": 30,
+              "reserve": 60
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            }
+          ]
+        },
+        "weapon": {
+          "name": "USP",
+          "revision": 3,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474468.291,
+          "damage": 34,
+          "ammoClip": 12,
+          "maxAmmoClip": 12,
+          "ammoReserve": 12,
+          "maxAmmoReserve": 100,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 1789474470.74,
+          "lastShotId": 6,
+          "lastFiredShotId": 6,
+          "isReloading": false,
+          "reloadTime": 2.700000047683716,
+          "reloadStartTime": 1789474474.905,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3579,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      }
+    },
+    {
+      "initial": {
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m3",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "m3",
+              "clip": 3,
+              "reserve": 8
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            },
+            {
+              "type": "buckshot",
+              "amount": 8
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M3",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474479.359,
+          "damage": 20,
+          "ammoClip": 3,
+          "maxAmmoClip": 8,
+          "ammoReserve": 8,
+          "maxAmmoReserve": 32,
+          "fireRate": 0.875,
+          "lastShotTime": 0,
+          "lastShotId": 6,
+          "lastFiredShotId": 6,
+          "isReloading": false,
+          "reloadTime": 0.44999998807907104,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3574,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "empty": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m3",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "m3",
+              "clip": 0,
+              "reserve": 8
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            },
+            {
+              "type": "buckshot",
+              "amount": 8
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M3",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474479.359,
+          "damage": 20,
+          "ammoClip": 0,
+          "maxAmmoClip": 8,
+          "ammoReserve": 8,
+          "maxAmmoReserve": 32,
+          "fireRate": 0.875,
+          "lastShotTime": 1789474484.526,
+          "lastShotId": 9,
+          "lastFiredShotId": 9,
+          "isReloading": false,
+          "reloadTime": 0.44999998807907104,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3572,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "reloading": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m3",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "m3",
+              "clip": 0,
+              "reserve": 8
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            },
+            {
+              "type": "buckshot",
+              "amount": 8
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M3",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474485.958,
+          "damage": 20,
+          "ammoClip": 0,
+          "maxAmmoClip": 8,
+          "ammoReserve": 8,
+          "maxAmmoReserve": 32,
+          "fireRate": 0.875,
+          "lastShotTime": 1789474484.526,
+          "lastShotId": 9,
+          "lastFiredShotId": 9,
+          "isReloading": true,
+          "reloadTime": 0.44999998807907104,
+          "reloadStartTime": 1789474485.408,
+          "reloadStage": 1,
+          "reloadStepAt": 1789474485.958,
+          "reloadStep": 1
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3571,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "fired": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "m3",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "m3",
+              "clip": 0,
+              "reserve": 7
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            },
+            {
+              "type": "buckshot",
+              "amount": 7
+            }
+          ]
+        },
+        "weapon": {
+          "name": "M3",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474485.958,
+          "damage": 20,
+          "ammoClip": 0,
+          "maxAmmoClip": 8,
+          "ammoReserve": 7,
+          "maxAmmoReserve": 32,
+          "fireRate": 0.875,
+          "lastShotTime": 1789474486.708,
+          "lastShotId": 10,
+          "lastFiredShotId": 10,
+          "isReloading": false,
+          "reloadTime": 0.44999998807907104,
+          "reloadStartTime": 1789474485.408,
+          "reloadStage": 0,
+          "reloadStepAt": 1789474486.858,
+          "reloadStep": 3
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3570,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      }
+    },
+    {
+      "initial": {
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "inventory": {
+          "active": "xm1014",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "xm1014",
+              "clip": 3,
+              "reserve": 15
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            },
+            {
+              "type": "buckshot",
+              "amount": 15
+            }
+          ]
+        },
+        "weapon": {
+          "name": "XM1014",
+          "revision": 5,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474488.813,
+          "damage": 20,
+          "ammoClip": 3,
+          "maxAmmoClip": 7,
+          "ammoReserve": 15,
+          "maxAmmoReserve": 32,
+          "fireRate": 0.25,
+          "lastShotTime": 0,
+          "lastShotId": 10,
+          "lastFiredShotId": 10,
+          "isReloading": false,
+          "reloadTime": 0.30000001192092896,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3565,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "empty": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "xm1014",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "xm1014",
+              "clip": 0,
+              "reserve": 15
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            },
+            {
+              "type": "buckshot",
+              "amount": 15
+            }
+          ]
+        },
+        "weapon": {
+          "name": "XM1014",
+          "revision": 5,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474488.813,
+          "damage": 20,
+          "ammoClip": 0,
+          "maxAmmoClip": 7,
+          "ammoReserve": 15,
+          "maxAmmoReserve": 32,
+          "fireRate": 0.25,
+          "lastShotTime": 1789474492.531,
+          "lastShotId": 13,
+          "lastFiredShotId": 13,
+          "isReloading": false,
+          "reloadTime": 0.30000001192092896,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3564,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "reloading": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "xm1014",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "xm1014",
+              "clip": 0,
+              "reserve": 15
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            },
+            {
+              "type": "buckshot",
+              "amount": 15
+            }
+          ]
+        },
+        "weapon": {
+          "name": "XM1014",
+          "revision": 5,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474493.346,
+          "damage": 20,
+          "ammoClip": 0,
+          "maxAmmoClip": 7,
+          "ammoReserve": 15,
+          "maxAmmoReserve": 32,
+          "fireRate": 0.25,
+          "lastShotTime": 1789474492.531,
+          "lastShotId": 13,
+          "lastFiredShotId": 13,
+          "isReloading": true,
+          "reloadTime": 0.30000001192092896,
+          "reloadStartTime": 1789474492.796,
+          "reloadStage": 1,
+          "reloadStepAt": 1789474493.346,
+          "reloadStep": 1
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3564,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "fired": {
+        "input": {
+          "pointer": true,
+          "ready": true
+        },
+        "inventory": {
+          "active": "xm1014",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 12
+            },
+            {
+              "id": "xm1014",
+              "clip": 0,
+              "reserve": 14
+            }
+          ],
+          "ammo": [
+            {
+              "type": "556nato",
+              "amount": 60
+            },
+            {
+              "type": "45acp",
+              "amount": 12
+            },
+            {
+              "type": "buckshot",
+              "amount": 14
+            }
+          ]
+        },
+        "weapon": {
+          "name": "XM1014",
+          "revision": 5,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789474493.346,
+          "damage": 20,
+          "ammoClip": 0,
+          "maxAmmoClip": 7,
+          "ammoReserve": 14,
+          "maxAmmoReserve": 32,
+          "fireRate": 0.25,
+          "lastShotTime": 1789474493.928,
+          "lastShotId": 14,
+          "lastFiredShotId": 14,
+          "isReloading": false,
+          "reloadTime": 0.30000001192092896,
+          "reloadStartTime": 1789474492.796,
+          "reloadStage": 0,
+          "reloadStepAt": 1789474493.9459999,
+          "reloadStep": 3
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x10443e75fe885b928c883d048dd763fd1ca73b20",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3563,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      }
+    }
+  ]
+}

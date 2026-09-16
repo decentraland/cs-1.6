@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "SDK7 Template scene",
   "scripts": {
-    "start": "sdk-commands start",
+    "start": "node scripts/start-preview.mjs",
     "deploy": "sdk-commands deploy",
     "build": "sdk-commands build",
     "upgrade-sdk": "npm install --save-dev @dcl/sdk@latest",
@@ -11,11 +11,13 @@
     "server-logs": "sdk-commands sdk-server-logs",
     "validate": "npm test && node validate/assets.mjs && npm run build",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
-    "test:game": "node validate/game.mjs"
+    "test:game": "node validate/game.mjs",
+    "start:server": "node scripts/start-preview.mjs --web --no-browser --no-client"
   },
   "devDependencies": {
-    "@dcl/sdk": "7.27.1-33533530571.commit-451d001",
-    "@dcl/js-runtime": "7.27.1-33533530571.commit-451d001"
+    "@dcl/bevy-protocol": "npm:@dcl/ecs@7.22.6-25007982108.commit-83012ab",
+    "@dcl/js-runtime": "7.27.1-33533530571.commit-451d001",
+    "@dcl/sdk": "7.27.1-33533530571.commit-451d001"
   },
   "engines": {
     "node": ">=22.18.0",

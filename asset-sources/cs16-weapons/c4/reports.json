@@ -1,0 +1,104 @@
+[
+  {
+    "name": "fixed_v_c4",
+    "sourceSha256": "7f41ccf45307ca3db7063787f01089035fb66bae406a76e819b09a6e1f3269f5",
+    "triangles": 808,
+    "skippedDegenerateTriangles": 0,
+    "bones": 37,
+    "textures": 8,
+    "animations": {
+      "idle1": 2.5,
+      "draw": 0.5,
+      "drop": 1.5,
+      "pressbutton": 3.0303030303030303
+    },
+    "idle": "idle1",
+    "idleBounds": {
+      "min": [
+        -0.1666450798511505,
+        -0.288911908864975,
+        0.06958893686532974
+      ],
+      "max": [
+        0.16964595019817352,
+        -0.03138965368270874,
+        0.37368857860565186
+      ]
+    },
+    "unitMetres": 0.025,
+    "maxPoseMatrixError": 1.996755599975586e-06,
+    "bytes": 485368,
+    "blender": "5.2.1 LTS",
+    "src": "assets/scene/weapons/c4-view.glb",
+    "sha256": "2cbc2fb097c5e15b8228863ffca091d0525b9d746d2d2200d2b9a65d6b7f1406"
+  },
+  {
+    "id": "c4",
+    "sourceSha256": "fbd567e6a58c35be853d1d80d903eaa7d980cf3691b4191484b1040e4ac85106",
+    "triangles": 128,
+    "bytes": 27292,
+    "sourceTriangles": 128,
+    "skippedDegenerateTriangles": 0,
+    "anchor": "Bip01 R Hand",
+    "blenderBounds": {
+      "min": [
+        -0.01600000262260437,
+        -0.1686624437570572,
+        -0.054259851574897766
+      ],
+      "max": [
+        0.21577006578445435,
+        -3.178371121848045e-09,
+        0.06656951457262039
+      ]
+    },
+    "src": "assets/scene/weapons/c4-world.glb",
+    "sha256": "f2d26c61bbab4cac5d3ed9cb0be490209f58822efeda1bda22f353041cd806ce"
+  },
+  {
+    "id": "c4",
+    "sourceSha256": "6d1014eb9fd47a05b726098c51b8632cc5dc6d627306f980035da03ce96b3f5b",
+    "triangles": 116,
+    "bytes": 26152,
+    "sourceTriangles": 116,
+    "skippedDegenerateTriangles": 0,
+    "anchor": "Original model origin",
+    "blenderBounds": {
+      "min": [
+        -0.07093854993581772,
+        -0.17380860447883606,
+        -0.00013442103227134794
+      ],
+      "max": [
+        0.06088442727923393,
+        0.16660302877426147,
+        0.16011559963226318
+      ]
+    },
+    "src": "assets/scene/weapons/c4-planted.glb",
+    "sha256": "0739f3fbf83d69dfe08022d22cdc6cd8363e22e960d86309190a7de3b2739737"
+  },
+  {
+    "id": "backpack",
+    "sourceSha256": "83a286609dbd47ad7b6139b40abf59056d11d05cded15ccf95d5f782e53ff017",
+    "triangles": 44,
+    "bytes": 13756,
+    "sourceTriangles": 44,
+    "skippedDegenerateTriangles": 0,
+    "anchor": "Original model origin",
+    "blenderBounds": {
+      "min": [
+        -0.13118822872638702,
+        -0.17073890566825867,
+        0.00021153120906092227
+      ],
+      "max": [
+        0.12980012595653534,
+        0.17176029086112976,
+        0.14528706669807434
+      ]
+    },
+    "src": "assets/scene/weapons/c4-drop.glb",
+    "sha256": "96e1e34ed4dcab50aeb9651c76cbdc7cffb6e5030fc2995f202a7537bf617e8e"
+  }
+]

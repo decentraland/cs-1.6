@@ -1,0 +1,2 @@
+PASS: looking away weakens flash; middle door blocks flash but passes HE damage
+PASS: primed death throw, best-gun death drop, discarded spare grenades and round cleanup

@@ -1,0 +1,2332 @@
+{
+  "date": "2026-09-15T12:44:30.260Z",
+  "baseline": false,
+  "checks": [
+    {
+      "name": "Glock semi held",
+      "milliseconds": 650,
+      "initial": {
+        "shots": [],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "Glock-18",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789476277.718,
+          "damage": 25,
+          "ammoClip": 20,
+          "maxAmmoClip": 20,
+          "ammoReserve": 0,
+          "maxAmmoReserve": 120,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.200000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3596,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "final": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "Glock-18",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789476277.718,
+          "damage": 25,
+          "ammoClip": 19,
+          "maxAmmoClip": 20,
+          "ammoReserve": 0,
+          "maxAmmoReserve": 120,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 1789476279.039,
+          "lastShotId": 1,
+          "lastFiredShotId": 1,
+          "isReloading": false,
+          "reloadTime": 2.200000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3594,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "shots": [
+        {
+          "gun": "glock18",
+          "mode": 0,
+          "index": 0,
+          "id": 1,
+          "at": 1789476279.039,
+          "clip": 19,
+          "held": true
+        }
+      ],
+      "requests": [
+        {
+          "gun": "glock18",
+          "mode": 0,
+          "index": 0,
+          "id": 1,
+          "at": 1789476278.824,
+          "clip": 20,
+          "held": true
+        }
+      ]
+    },
+    {
+      "name": "Glock burst held",
+      "milliseconds": 1250,
+      "initial": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "Glock-18",
+          "revision": 4,
+          "mode": 1,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476280.475,
+          "readyAt": 1789476277.718,
+          "damage": 25,
+          "ammoClip": 19,
+          "maxAmmoClip": 20,
+          "ammoReserve": 0,
+          "maxAmmoReserve": 120,
+          "fireRate": 0.5,
+          "lastShotTime": 1789476279.039,
+          "lastShotId": 1,
+          "lastFiredShotId": 1,
+          "isReloading": false,
+          "reloadTime": 2.200000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3594,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "final": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 2,
+            "at": 1789476280.833,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 3,
+            "at": 1789476280.849,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 4,
+            "at": 1789476280.865,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 5,
+            "at": 1789476281.333,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 6,
+            "at": 1789476281.347,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 7,
+            "at": 1789476281.365,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 8,
+            "at": 1789476281.849,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 9,
+            "at": 1789476281.865,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 10,
+            "at": 1789476281.882,
+            "clip": 13,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "Glock-18",
+          "revision": 4,
+          "mode": 1,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476280.475,
+          "readyAt": 1789476277.718,
+          "damage": 25,
+          "ammoClip": 10,
+          "maxAmmoClip": 20,
+          "ammoReserve": 0,
+          "maxAmmoReserve": 120,
+          "fireRate": 0.5,
+          "lastShotTime": 1789476282.036,
+          "lastShotId": 10,
+          "lastFiredShotId": 10,
+          "isReloading": false,
+          "reloadTime": 2.200000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3592,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "shots": [
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 0,
+          "id": 2,
+          "at": 1789476281.001,
+          "clip": 18,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 1,
+          "id": 3,
+          "at": 1789476281.002,
+          "clip": 17,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 2,
+          "id": 4,
+          "at": 1789476281.038,
+          "clip": 16,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 0,
+          "id": 5,
+          "at": 1789476281.501,
+          "clip": 15,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 1,
+          "id": 6,
+          "at": 1789476281.502,
+          "clip": 14,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 2,
+          "id": 7,
+          "at": 1789476281.502,
+          "clip": 13,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 0,
+          "id": 8,
+          "at": 1789476282.001,
+          "clip": 12,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 1,
+          "id": 9,
+          "at": 1789476282.036,
+          "clip": 11,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 2,
+          "id": 10,
+          "at": 1789476282.036,
+          "clip": 10,
+          "held": true
+        }
+      ],
+      "requests": [
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 0,
+          "id": 2,
+          "at": 1789476280.833,
+          "clip": 19,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 1,
+          "id": 3,
+          "at": 1789476280.849,
+          "clip": 19,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 2,
+          "id": 4,
+          "at": 1789476280.865,
+          "clip": 19,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 0,
+          "id": 5,
+          "at": 1789476281.333,
+          "clip": 16,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 1,
+          "id": 6,
+          "at": 1789476281.347,
+          "clip": 16,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 2,
+          "id": 7,
+          "at": 1789476281.365,
+          "clip": 16,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 0,
+          "id": 8,
+          "at": 1789476281.849,
+          "clip": 13,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 1,
+          "id": 9,
+          "at": 1789476281.865,
+          "clip": 13,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 2,
+          "id": 10,
+          "at": 1789476281.882,
+          "clip": 13,
+          "held": true
+        }
+      ]
+    },
+    {
+      "name": "Glock semi after burst",
+      "milliseconds": 650,
+      "initial": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 2,
+            "at": 1789476280.833,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 3,
+            "at": 1789476280.849,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 4,
+            "at": 1789476280.865,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 5,
+            "at": 1789476281.333,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 6,
+            "at": 1789476281.347,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 7,
+            "at": 1789476281.365,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 8,
+            "at": 1789476281.849,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 9,
+            "at": 1789476281.865,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 10,
+            "at": 1789476281.882,
+            "clip": 13,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "Glock-18",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476283.338,
+          "readyAt": 1789476277.718,
+          "damage": 25,
+          "ammoClip": 10,
+          "maxAmmoClip": 20,
+          "ammoReserve": 0,
+          "maxAmmoReserve": 120,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 1789476282.036,
+          "lastShotId": 10,
+          "lastFiredShotId": 10,
+          "isReloading": false,
+          "reloadTime": 2.200000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3591,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "final": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 2,
+            "at": 1789476280.833,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 3,
+            "at": 1789476280.849,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 4,
+            "at": 1789476280.865,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 5,
+            "at": 1789476281.333,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 6,
+            "at": 1789476281.347,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 7,
+            "at": 1789476281.365,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 8,
+            "at": 1789476281.849,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 9,
+            "at": 1789476281.865,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 10,
+            "at": 1789476281.882,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 11,
+            "at": 1789476283.852,
+            "clip": 10,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "Glock-18",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476283.338,
+          "readyAt": 1789476277.718,
+          "damage": 25,
+          "ammoClip": 9,
+          "maxAmmoClip": 20,
+          "ammoReserve": 0,
+          "maxAmmoReserve": 120,
+          "fireRate": 0.15000000596046448,
+          "lastShotTime": 1789476284.001,
+          "lastShotId": 11,
+          "lastFiredShotId": 11,
+          "isReloading": false,
+          "reloadTime": 2.200000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3589,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "shots": [
+        {
+          "gun": "glock18",
+          "mode": 0,
+          "index": 0,
+          "id": 11,
+          "at": 1789476284.001,
+          "clip": 9,
+          "held": true
+        }
+      ],
+      "requests": [
+        {
+          "gun": "glock18",
+          "mode": 0,
+          "index": 0,
+          "id": 11,
+          "at": 1789476283.852,
+          "clip": 10,
+          "held": true
+        }
+      ]
+    },
+    {
+      "name": "FAMAS burst held",
+      "milliseconds": 1350,
+      "initial": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 2,
+            "at": 1789476280.833,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 3,
+            "at": 1789476280.849,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 4,
+            "at": 1789476280.865,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 5,
+            "at": 1789476281.333,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 6,
+            "at": 1789476281.347,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 7,
+            "at": 1789476281.365,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 8,
+            "at": 1789476281.849,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 9,
+            "at": 1789476281.865,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 10,
+            "at": 1789476281.882,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 11,
+            "at": 1789476283.852,
+            "clip": 10,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "FAMAS",
+          "revision": 5,
+          "mode": 1,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476287.74,
+          "readyAt": 1789476286.685,
+          "damage": 34,
+          "ammoClip": 25,
+          "maxAmmoClip": 25,
+          "ammoReserve": 90,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.550000011920929,
+          "lastShotTime": 0,
+          "lastShotId": 11,
+          "lastFiredShotId": 11,
+          "isReloading": false,
+          "reloadTime": 3.299999952316284,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3586,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "final": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 2,
+            "at": 1789476280.833,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 3,
+            "at": 1789476280.849,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 4,
+            "at": 1789476280.865,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 5,
+            "at": 1789476281.333,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 6,
+            "at": 1789476281.347,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 7,
+            "at": 1789476281.365,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 8,
+            "at": 1789476281.849,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 9,
+            "at": 1789476281.865,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 10,
+            "at": 1789476281.882,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 11,
+            "at": 1789476283.852,
+            "clip": 10,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 12,
+            "at": 1789476288.288,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 13,
+            "at": 1789476288.349,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 14,
+            "at": 1789476288.449,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 15,
+            "at": 1789476288.848,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 16,
+            "at": 1789476288.9,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 17,
+            "at": 1789476289.01,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 18,
+            "at": 1789476289.406,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 19,
+            "at": 1789476289.472,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 20,
+            "at": 1789476289.572,
+            "clip": 19,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "FAMAS",
+          "revision": 5,
+          "mode": 1,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476287.74,
+          "readyAt": 1789476286.685,
+          "damage": 34,
+          "ammoClip": 16,
+          "maxAmmoClip": 25,
+          "ammoReserve": 90,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.550000011920929,
+          "lastShotTime": 1789476289.7229998,
+          "lastShotId": 20,
+          "lastFiredShotId": 20,
+          "isReloading": false,
+          "reloadTime": 3.299999952316284,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3584,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "shots": [
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 0,
+          "id": 12,
+          "at": 1789476288.473,
+          "clip": 24,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 1,
+          "id": 13,
+          "at": 1789476288.523,
+          "clip": 23,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 2,
+          "id": 14,
+          "at": 1789476288.623,
+          "clip": 22,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 0,
+          "id": 15,
+          "at": 1789476289.023,
+          "clip": 21,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 1,
+          "id": 16,
+          "at": 1789476289.073,
+          "clip": 20,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 2,
+          "id": 17,
+          "at": 1789476289.1729999,
+          "clip": 19,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 0,
+          "id": 18,
+          "at": 1789476289.573,
+          "clip": 18,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 1,
+          "id": 19,
+          "at": 1789476289.623,
+          "clip": 17,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 2,
+          "id": 20,
+          "at": 1789476289.7229998,
+          "clip": 16,
+          "held": true
+        }
+      ],
+      "requests": [
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 0,
+          "id": 12,
+          "at": 1789476288.288,
+          "clip": 25,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 1,
+          "id": 13,
+          "at": 1789476288.349,
+          "clip": 25,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 2,
+          "id": 14,
+          "at": 1789476288.449,
+          "clip": 25,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 0,
+          "id": 15,
+          "at": 1789476288.848,
+          "clip": 22,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 1,
+          "id": 16,
+          "at": 1789476288.9,
+          "clip": 22,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 2,
+          "id": 17,
+          "at": 1789476289.01,
+          "clip": 22,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 0,
+          "id": 18,
+          "at": 1789476289.406,
+          "clip": 19,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 1,
+          "id": 19,
+          "at": 1789476289.472,
+          "clip": 19,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 2,
+          "id": 20,
+          "at": 1789476289.572,
+          "clip": 19,
+          "held": true
+        }
+      ]
+    },
+    {
+      "name": "FAMAS released during burst",
+      "milliseconds": 75,
+      "initial": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 2,
+            "at": 1789476280.833,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 3,
+            "at": 1789476280.849,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 4,
+            "at": 1789476280.865,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 5,
+            "at": 1789476281.333,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 6,
+            "at": 1789476281.347,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 7,
+            "at": 1789476281.365,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 8,
+            "at": 1789476281.849,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 9,
+            "at": 1789476281.865,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 10,
+            "at": 1789476281.882,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 11,
+            "at": 1789476283.852,
+            "clip": 10,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 12,
+            "at": 1789476288.288,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 13,
+            "at": 1789476288.349,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 14,
+            "at": 1789476288.449,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 15,
+            "at": 1789476288.848,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 16,
+            "at": 1789476288.9,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 17,
+            "at": 1789476289.01,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 18,
+            "at": 1789476289.406,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 19,
+            "at": 1789476289.472,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 20,
+            "at": 1789476289.572,
+            "clip": 19,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "FAMAS",
+          "revision": 5,
+          "mode": 1,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476287.74,
+          "readyAt": 1789476286.685,
+          "damage": 34,
+          "ammoClip": 16,
+          "maxAmmoClip": 25,
+          "ammoReserve": 90,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.550000011920929,
+          "lastShotTime": 1789476289.7229998,
+          "lastShotId": 20,
+          "lastFiredShotId": 20,
+          "isReloading": false,
+          "reloadTime": 3.299999952316284,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3584,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "final": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 1,
+            "at": 1789476278.824,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 2,
+            "at": 1789476280.833,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 3,
+            "at": 1789476280.849,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 4,
+            "at": 1789476280.865,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 5,
+            "at": 1789476281.333,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 6,
+            "at": 1789476281.347,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 7,
+            "at": 1789476281.365,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 8,
+            "at": 1789476281.849,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 9,
+            "at": 1789476281.865,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 10,
+            "at": 1789476281.882,
+            "clip": 13,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 0,
+            "index": 0,
+            "id": 11,
+            "at": 1789476283.852,
+            "clip": 10,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 12,
+            "at": 1789476288.288,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 13,
+            "at": 1789476288.349,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 14,
+            "at": 1789476288.449,
+            "clip": 25,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 15,
+            "at": 1789476288.848,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 16,
+            "at": 1789476288.9,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 17,
+            "at": 1789476289.01,
+            "clip": 22,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 18,
+            "at": 1789476289.406,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 19,
+            "at": 1789476289.472,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 20,
+            "at": 1789476289.572,
+            "clip": 19,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 0,
+            "id": 21,
+            "at": 1789476290.272,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 1,
+            "id": 22,
+            "at": 1789476290.322,
+            "clip": 16,
+            "held": true
+          },
+          {
+            "gun": "famas",
+            "mode": 1,
+            "index": 2,
+            "id": 23,
+            "at": 1789476290.437,
+            "clip": 16,
+            "held": false
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "FAMAS",
+          "revision": 5,
+          "mode": 1,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476287.74,
+          "readyAt": 1789476286.685,
+          "damage": 34,
+          "ammoClip": 13,
+          "maxAmmoClip": 25,
+          "ammoReserve": 90,
+          "maxAmmoReserve": 90,
+          "fireRate": 0.550000011920929,
+          "lastShotTime": 1789476290.5889997,
+          "lastShotId": 23,
+          "lastFiredShotId": 23,
+          "isReloading": false,
+          "reloadTime": 3.299999952316284,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x3b6a3b25b336759660296910f30e9ad6a41015e0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "0xb8c4df381c6c305758f806c3aa71f37aabbcbd92",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3583,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "shots": [
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 0,
+          "id": 21,
+          "at": 1789476290.439,
+          "clip": 15,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 1,
+          "id": 22,
+          "at": 1789476290.4889998,
+          "clip": 14,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 2,
+          "id": 23,
+          "at": 1789476290.5889997,
+          "clip": 13,
+          "held": false
+        }
+      ],
+      "requests": [
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 0,
+          "id": 21,
+          "at": 1789476290.272,
+          "clip": 16,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 1,
+          "id": 22,
+          "at": 1789476290.322,
+          "clip": 16,
+          "held": true
+        },
+        {
+          "gun": "famas",
+          "mode": 1,
+          "index": 2,
+          "id": 23,
+          "at": 1789476290.437,
+          "clip": 16,
+          "held": false
+        }
+      ]
+    }
+  ]
+}

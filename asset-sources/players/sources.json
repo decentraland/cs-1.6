@@ -1,0 +1,14 @@
+[
+  {
+    "name": "arctic",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/player/arctic/arctic.mdl",
+    "bytes": 2395944,
+    "sha256": "c81ec2842d0391023377d451e756e2084d06dd5d4194354f84f3e75f5a673ea3"
+  },
+  {
+    "name": "urban",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/player/urban/urban.mdl",
+    "bytes": 2329144,
+    "sha256": "5a369b9657705a5283a918685ead66ee3ffed78bb463d18713cda0a3aa27dc8c"
+  }
+]

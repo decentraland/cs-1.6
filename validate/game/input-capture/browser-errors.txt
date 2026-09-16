@@ -1,0 +1,43 @@
+Before console
+[info] webrtc stats Object
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cINFO%c crates/scene_runner/src/update_scene/pointer_lock.rs:171%c lock updated by scene color: whitesmoke; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/avatar/src/lib.rs:1538%c missing armature node in wearable mapping: Ok("Hair_springBone.L") color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/avatar/src/lib.rs:1538%c missing armature node in wearable mapping: Ok("Hair_springBone_end.L") color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/avatar/src/lib.rs:1538%c missing armature node in wearable mapping: Ok("Hair_springBone.R") color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/avatar/src/lib.rs:1538%c missing armature node in wearable mapping: Ok("Hair_springBone_end.R") color: orange; background: #444 color: gray; font-style: italic color: inherit
+[info] webrtc stats Object
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+
+Before page errors
+(none)
+
+After console
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe313282a1e409f96e1a4cd661851594a726f313f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[info] webrtc stats Object
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe313282a1e409f96e1a4cd661851594a726f313f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe313282a1e409f96e1a4cd661851594a726f313f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[log] %cWARN%c crates/comms/src/global_crdt.rs:947%c skipping unexpected update from authoritative-server: ProfileRequest(ProfileRequest { address: "0xe313282a1e409f96e1a4cd661851594a726f313f", profile_version: 0 }) color: orange; background: #444 color: gray; font-style: italic color: inherit
+[info] webrtc stats Object
+
+After page errors
+(none)
+
+Before server warnings
+[Server] 08:44:40 profile fetch failed for 0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb: error decoding response body
+[Server] 08:45:10 profile fetch failed for 0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb: error decoding response body
+[Server] 08:45:41 profile fetch failed for 0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb: error decoding response body
+[Server] 08:46:12 profile fetch failed for 0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb: error decoding response body
+[Server] 08:46:42 profile fetch failed for 0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb: error decoding response body
+[Server] 08:47:13 profile fetch failed for 0x1f0a6e4ced0d09d971f606a8cd6aa5dcb5cea8fb: error decoding response body
+
+After server warnings
+[Server] 08:42:32 profile fetch failed for 0xe313282a1e409f96e1a4cd661851594a726f313f: error decoding response body
+[Server] 08:43:03 profile fetch failed for 0xe313282a1e409f96e1a4cd661851594a726f313f: error decoding response body
+[Server] 08:43:34 profile fetch failed for 0xe313282a1e409f96e1a4cd661851594a726f313f: error decoding response body
+[Server] 08:44:04 profile fetch failed for 0xe313282a1e409f96e1a4cd661851594a726f313f: error decoding response body
+
+Earlier spawn-only scheduling trial (not the final reproduction):
+[engine error] unhandledrejection NotAllowedError: A user gesture is required to request Pointer Lock.

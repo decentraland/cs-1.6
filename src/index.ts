@@ -4,6 +4,7 @@ import { initializePractice } from './practice'
 import { weaponSystem } from './systems'
 import { setupUI } from './ui'
 import { delaySystem } from './delaySystem'
+import { initializeFalling } from './falling'
 import { setupServerAuthoritative, initializeServerEntities, setupServerMessageHandlers } from './server'
 import { setupClientMessageHandlers, addClientSystems } from './client'
 
@@ -16,6 +17,7 @@ const Messages = {
 
   // Client sends when they shoot
   playerShoot: Schemas.Map({
+    burstIndex: Schemas.Optional(Schemas.Int),
     shotId: Schemas.Int,
     revision: Schemas.Int,
     direction: Schemas.Vector3,
@@ -44,6 +46,22 @@ const Messages = {
   }),
 
   playerReload: Schemas.Map({}),
+  playerLanding: Schemas.Map({
+    round: Schemas.Int,
+    sequence: Schemas.Double,
+    speed: Schemas.Float,
+    position: Schemas.Vector3
+  }),
+  weaponAlternate: Schemas.Map({ round: Schemas.Int, revision: Schemas.Int }),
+  grenadeUse: Schemas.Map({
+    round: Schemas.Int,
+    revision: Schemas.Int,
+    held: Schemas.Boolean,
+    direction: Schemas.Vector3,
+    sequence: Schemas.Double
+  }),
+  weaponDrop: Schemas.Map({ round: Schemas.Int, revision: Schemas.Int, direction: Schemas.Vector3 }),
+  weaponPickup: Schemas.Map({ address: Schemas.String, position: Schemas.Vector3, round: Schemas.Int }),
   weaponSelect: Schemas.Map({ slot: Schemas.String, round: Schemas.Int, revision: Schemas.Int }),
   playerTrigger: Schemas.Map({ held: Schemas.Boolean, sequence: Schemas.Double }),
   practiceShot: Schemas.Map({
@@ -63,7 +81,7 @@ const Messages = {
   spectatorStart: Schemas.Map({ playerAddress: Schemas.String, round: Schemas.Int }),
   buyEquipment: Schemas.Map({ item: Schemas.String, round: Schemas.Int, sequence: Schemas.Double }),
   bombSelect: Schemas.Map({ selected: Schemas.Boolean, round: Schemas.Int }),
-  bombDrop: Schemas.Map({ round: Schemas.Int }),
+  bombDrop: Schemas.Map({ round: Schemas.Int, direction: Schemas.Vector3 }),
   bombUse: Schemas.Map({
     held: Schemas.Boolean,
     sequence: Schemas.Double,
@@ -74,7 +92,15 @@ const Messages = {
   teamRestart: Schemas.Map({}),
   botDifficulty: Schemas.Map({ level: Schemas.String }),
   matchNotice: Schemas.Map({ address: Schemas.String, message: Schemas.String }),
-  playerKill: Schemas.Map({ killer: Schemas.String, victim: Schemas.String, weapon: Schemas.String }),
+  playerKill: Schemas.Map({
+    killer: Schemas.String,
+    victim: Schemas.String,
+    weapon: Schemas.String,
+    killerTeam: Schemas.Optional(Schemas.Int),
+    victimTeam: Schemas.Optional(Schemas.Int),
+    headshot: Schemas.Optional(Schemas.Boolean),
+    suicide: Schemas.Optional(Schemas.Boolean)
+  }),
   practiceSpawn: Schemas.Map({
     playerAddress: Schemas.String,
     round: Schemas.Int,
@@ -82,10 +108,32 @@ const Messages = {
     yaw: Schemas.Float,
     seed: Schemas.Int
   }),
-  practiceAttack: Schemas.Map({ origin: Schemas.Vector3, target: Schemas.Vector3 }),
+  practiceAttack: Schemas.Map({
+    origin: Schemas.Vector3,
+    target: Schemas.Vector3,
+    gun: Schemas.Optional(Schemas.String)
+  }),
+
+  playerFlinch: Schemas.Map({
+    address: Schemas.String,
+    round: Schemas.Int,
+    sequence: Schemas.Double,
+    source: Schemas.Vector3,
+    large: Schemas.Boolean
+  }),
+  playerVoice: Schemas.Map({ address: Schemas.String, position: Schemas.Vector3, clip: Schemas.String }),
+  combatImpact: Schemas.Map({
+    target: Schemas.String,
+    position: Schemas.Vector3,
+    hitGroup: Schemas.String,
+    armor: Schemas.Boolean,
+    wasKill: Schemas.Boolean
+  }),
 
   // Server confirms damage was applied
   damageConfirmed: Schemas.Map({
+    kind: Schemas.Optional(Schemas.String),
+    splat: Schemas.Optional(Schemas.Boolean),
     targetPlayerAddress: Schemas.String,
     damage: Schemas.Int,
     newHealth: Schemas.Int,
@@ -113,6 +161,7 @@ export function main() {
     initializeServerEntities() // Create leaderboard entity (server only)
     setupServerMessageHandlers()
     initializePractice()
+    initializeFalling()
   } else {
     setupClientMessageHandlers()
     addClientSystems()

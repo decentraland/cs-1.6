@@ -1,0 +1,32 @@
+{
+  "name": "fixed_v_g3sg1",
+  "sourceSha256": "b18fdf66560716e905303569fe0a50829a382cecc375e5c3d568dd8123810dda",
+  "triangles": 1214,
+  "skippedDegenerateTriangles": 0,
+  "bones": 43,
+  "textures": 11,
+  "animations": {
+    "idle1": 0.625,
+    "shoot": 0.5,
+    "shoot2": 0.5,
+    "reload": 4.666666666666667,
+    "draw": 1.0
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.18487539887428284,
+      -0.2778072655200958,
+      -0.07062800973653793
+    ],
+    "max": [
+      0.07613460719585419,
+      -0.031347811222076416,
+      0.7281739711761475
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.4007091522216797e-06,
+  "bytes": 636532,
+  "blender": "5.2.1 LTS"
+}

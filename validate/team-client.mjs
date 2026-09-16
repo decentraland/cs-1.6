@@ -17,7 +17,9 @@ class Client {
   pending = new Map()
   mx = 400
   my = 300
-  constructor(endpoint) {
+  constructor(endpoint, previewUrlContains = '127.0.0.1:8123', sceneName = 'Counter-Strike') {
+    this.previewUrlContains = previewUrlContains
+    this.sceneName = sceneName
     this.socket = new WebSocket(endpoint)
   }
   async connect() {
@@ -37,7 +39,7 @@ class Client {
       else entry.resolve(response.result)
     })
     const { targetInfos } = await this.send('Target.getTargets')
-    const target = targetInfos.find((t) => t.type === 'page' && t.url.includes('127.0.0.1:8123'))
+    const target = targetInfos.find((t) => t.type === 'page' && t.url.includes(this.previewUrlContains))
     assert.ok(target, 'owned preview tab exists')
     this.sessionId = (await this.send('Target.attachToTarget', { targetId: target.targetId, flatten: true })).sessionId
     await this.send('Page.bringToFront')
@@ -68,7 +70,7 @@ class Client {
     return this.evaluate(`window.engine_console_command(${JSON.stringify(command)})`)
   }
   async snapshot() {
-    await this.command('/set_scene Counter-Strike')
+    await this.command('/set_scene ' + this.sceneName)
     return JSON.parse(await this.command('/crdt_snapshot'))
   }
   // Shift+1 holds the scoreboard (no Tab in the explorer).
@@ -86,7 +88,14 @@ class Client {
   async until(predicate, description, timeout = 15000, interval = 100) {
     const deadline = Date.now() + timeout
     while (Date.now() < deadline) {
-      const s = await this.snapshot()
+      let s
+      try {
+        s = await this.snapshot()
+      } catch (error) {
+        if (!/no scene matching|scene has no thread handle/.test(String(error))) throw error
+        await pause(interval)
+        continue
+      }
       if (predicate(s)) return s
       await pause(interval)
     }

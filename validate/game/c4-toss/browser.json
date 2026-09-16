@@ -1,0 +1,2369 @@
+{
+  "date": "2026-09-15T10:33:28.860Z",
+  "muted": true,
+  "freezeBefore": {
+    "inventory": {
+      "active": "awp",
+      "items": [
+        {
+          "id": "glock18",
+          "clip": 20,
+          "reserve": 40
+        },
+        {
+          "id": "awp",
+          "clip": 10,
+          "reserve": 30
+        }
+      ]
+    },
+    "weapon": {
+      "name": "AWP",
+      "revision": 2,
+      "mode": 0,
+      "zoom": 90,
+      "resumeZoom": 90,
+      "alternateAt": 0,
+      "readyAt": 1789468410.74,
+      "damage": 115,
+      "ammoClip": 10,
+      "maxAmmoClip": 10,
+      "ammoReserve": 30,
+      "maxAmmoReserve": 30,
+      "fireRate": 1.4500000476837158,
+      "lastShotTime": 0,
+      "lastShotId": 0,
+      "lastFiredShotId": 0,
+      "isReloading": false,
+      "reloadTime": 2.5,
+      "reloadStartTime": 0,
+      "reloadStage": 0,
+      "reloadStepAt": 0,
+      "reloadStep": 0
+    },
+    "health": {
+      "current": 100,
+      "max": 100,
+      "armor": 0,
+      "maxArmor": 100
+    },
+    "equipment": {
+      "bombSelected": false,
+      "defuseKit": false,
+      "helmet": false
+    },
+    "match": {
+      "roster": [
+        {
+          "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+          "team": 1,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:0",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:1",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:2",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        }
+      ],
+      "phase": "freeze",
+      "remaining": 3,
+      "timeLeft": 18,
+      "round": 1,
+      "ctScore": 0,
+      "tScore": 0,
+      "maxWins": 16,
+      "matchOver": false,
+      "botKills": [
+        0,
+        0,
+        0
+      ],
+      "botDeaths": [
+        0,
+        0,
+        0
+      ],
+      "botDifficulty": "normal"
+    },
+    "bomb": {
+      "phase": "carried",
+      "carrier": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+      "planter": "",
+      "defuser": "",
+      "site": "",
+      "position": {
+        "x": 23.452280044555664,
+        "y": 10.0260009765625,
+        "z": 62.65494918823242
+      },
+      "settled": false,
+      "yaw": 0,
+      "actionStarted": 0,
+      "actionEnds": 0,
+      "explodeAt": 0,
+      "readyAt": 0,
+      "progress": 0,
+      "round": 1
+    },
+    "animation": {
+      "selected": false,
+      "plantAt": -1,
+      "readyAt": 0,
+      "clip": "idle1",
+      "clipAt": 0,
+      "serial": 0,
+      "acknowledged": false
+    }
+  },
+  "freezeFeet": {
+    "x": 21,
+    "y": 16.2871,
+    "z": 60
+  },
+  "freezeFlight": [
+    {
+      "state": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "glock18",
+              "clip": 20,
+              "reserve": 40
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468410.74,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "freeze",
+          "remaining": 3,
+          "timeLeft": 18,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 20.999996185302734,
+            "y": 16.828506469726562,
+            "z": 60.93610763549805
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 0,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468411.861,
+        "motion": {
+          "position": {
+            "x": 20.999997437262355,
+            "y": 16.86971015173329,
+            "z": 60.56497989790612
+          },
+          "velocity": {
+            "x": -0.000045359525788470404,
+            "y": -0.6648732763699032,
+            "z": 9.999939076188035
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "glock18",
+              "clip": 20,
+              "reserve": 40
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468410.74,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "freeze",
+          "remaining": 3,
+          "timeLeft": 18,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 20.999988555908203,
+            "y": 16.30928611755371,
+            "z": 62.59213638305664
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 0,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468412.026,
+        "motion": {
+          "position": {
+            "x": 20.999989665622017,
+            "y": 16.450001132625363,
+            "z": 62.278311959570495
+          },
+          "velocity": {
+            "x": -0.000045359525788470404,
+            "y": -4.091558276369903,
+            "z": 9.999939076188035
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "glock18",
+              "clip": 20,
+              "reserve": 40
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468410.74,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "freeze",
+          "remaining": 3,
+          "timeLeft": 18,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 20.99997901916504,
+            "y": 14.933248519897461,
+            "z": 64.61157989501953
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 0,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468412.228,
+        "motion": {
+          "position": {
+            "x": 20.999980584711132,
+            "y": 15.21516934591156,
+            "z": 64.28028517271217
+          },
+          "velocity": {
+            "x": -0.000045359525788470404,
+            "y": -8.095529096369901,
+            "z": 9.999939076188035
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "glock18",
+              "clip": 20,
+              "reserve": 40
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468410.74,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "freeze",
+          "remaining": 3,
+          "timeLeft": 17,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 20.99997329711914,
+            "y": 13.577263832092285,
+            "z": 65.94536590576172
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 0,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468412.361,
+        "motion": {
+          "position": {
+            "x": 20.999974665833523,
+            "y": 13.97844916008879,
+            "z": 65.58515806288067
+          },
+          "velocity": {
+            "x": -0.000045359525788470404,
+            "y": -10.705290776369903,
+            "z": 9.999939076188035
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "glock18",
+              "clip": 20,
+              "reserve": 40
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468410.74,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "freeze",
+          "remaining": 3,
+          "timeLeft": 17,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 20.999967575073242,
+            "y": 12.280855178833008,
+            "z": 66.97964477539062
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 0,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468412.465,
+        "motion": {
+          "position": {
+            "x": 20.99997019799585,
+            "y": 12.820044492812473,
+            "z": 66.57013539198675
+          },
+          "velocity": {
+            "x": -0.000045359525788470404,
+            "y": -12.675257436369904,
+            "z": 9.999939076188035
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "glock18",
+              "clip": 20,
+              "reserve": 40
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468410.74,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "freeze",
+          "remaining": 3,
+          "timeLeft": 17,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 20.999963760375977,
+            "y": 10.883866310119629,
+            "z": 67.94072723388672
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 0,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468412.561,
+        "motion": {
+          "position": {
+            "x": 20.999965449624618,
+            "y": 11.375143384570933,
+            "z": 67.61695901429935
+          },
+          "velocity": {
+            "x": -0.000045359525788470404,
+            "y": -14.768917436369902,
+            "z": 9.999939076188035
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "glock18",
+              "clip": 20,
+              "reserve": 40
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468410.74,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "freeze",
+          "remaining": 3,
+          "timeLeft": 17,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 21.000205993652344,
+            "y": 10.42635440826416,
+            "z": 68.23130798339844
+          },
+          "settled": true,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 0,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468412.752,
+        "motion": {
+          "position": {
+            "x": 21.0002051985547,
+            "y": 10.426354058662072,
+            "z": 68.2313115299822
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "settled": true
+        }
+      }
+    }
+  ],
+  "freezePickup": {
+    "inventory": {
+      "active": "awp",
+      "items": [
+        {
+          "id": "glock18",
+          "clip": 20,
+          "reserve": 40
+        },
+        {
+          "id": "awp",
+          "clip": 10,
+          "reserve": 30
+        }
+      ]
+    },
+    "weapon": {
+      "name": "AWP",
+      "revision": 2,
+      "mode": 0,
+      "zoom": 90,
+      "resumeZoom": 90,
+      "alternateAt": 0,
+      "readyAt": 1789468410.74,
+      "damage": 115,
+      "ammoClip": 10,
+      "maxAmmoClip": 10,
+      "ammoReserve": 30,
+      "maxAmmoReserve": 30,
+      "fireRate": 1.4500000476837158,
+      "lastShotTime": 0,
+      "lastShotId": 0,
+      "lastFiredShotId": 0,
+      "isReloading": false,
+      "reloadTime": 2.5,
+      "reloadStartTime": 0,
+      "reloadStage": 0,
+      "reloadStepAt": 0,
+      "reloadStep": 0
+    },
+    "health": {
+      "current": 100,
+      "max": 100,
+      "armor": 0,
+      "maxArmor": 100
+    },
+    "equipment": {
+      "bombSelected": false,
+      "defuseKit": false,
+      "helmet": false
+    },
+    "match": {
+      "roster": [
+        {
+          "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+          "team": 1,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:0",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:1",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:2",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        }
+      ],
+      "phase": "freeze",
+      "remaining": 3,
+      "timeLeft": 17,
+      "round": 1,
+      "ctScore": 0,
+      "tScore": 0,
+      "maxWins": 16,
+      "matchOver": false,
+      "botKills": [
+        0,
+        0,
+        0
+      ],
+      "botDeaths": [
+        0,
+        0,
+        0
+      ],
+      "botDifficulty": "normal"
+    },
+    "bomb": {
+      "phase": "carried",
+      "carrier": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+      "planter": "",
+      "defuser": "",
+      "site": "",
+      "position": {
+        "x": 21.190622329711914,
+        "y": 10.526354789733887,
+        "z": 68.23130798339844
+      },
+      "settled": false,
+      "yaw": -0.000004535980224318337,
+      "actionStarted": 0,
+      "actionEnds": 0,
+      "explodeAt": 0,
+      "readyAt": 0,
+      "progress": 0,
+      "round": 1
+    },
+    "animation": {
+      "selected": false,
+      "plantAt": -1,
+      "readyAt": 0,
+      "clip": "idle1",
+      "clipAt": 0,
+      "serial": 0,
+      "acknowledged": false
+    }
+  },
+  "gunFlight": [
+    {
+      "data": {
+        "gun": "awp",
+        "clip": 10,
+        "reserve": 0,
+        "mode": 0,
+        "position": {
+          "x": 21.00126122157825,
+          "y": 11.936554177092138,
+          "z": 62.00014356833192
+        },
+        "yaw": -0.00000453597999752901,
+        "round": 1,
+        "settled": false
+      },
+      "motion": {
+        "position": {
+          "x": 21.00126122157825,
+          "y": 11.936554177092138,
+          "z": 62.00014356833192
+        },
+        "velocity": {
+          "x": -0.00004045173508708499,
+          "y": 0.5387093592242778,
+          "z": 8.917970341325086
+        },
+        "settled": false
+      }
+    },
+    {
+      "data": {
+        "gun": "awp",
+        "clip": 10,
+        "reserve": 0,
+        "mode": 0,
+        "position": {
+          "x": 21.001255592072077,
+          "y": 11.806459079041527,
+          "z": 63.2412218288528
+        },
+        "yaw": -0.00000453597999752901,
+        "round": 1,
+        "settled": false
+      },
+      "motion": {
+        "position": {
+          "x": 21.001255592072077,
+          "y": 11.806459079041527,
+          "z": 63.2412218288528
+        },
+        "velocity": {
+          "x": -0.00004045173508708499,
+          "y": -2.244610640775722,
+          "z": 8.917970341325086
+        },
+        "settled": false
+      }
+    },
+    {
+      "data": {
+        "gun": "awp",
+        "clip": 10,
+        "reserve": 0,
+        "mode": 0,
+        "position": {
+          "x": 21.001250244136923,
+          "y": 11.324620647712948,
+          "z": 64.42022507642973
+        },
+        "yaw": -0.00000453597999752901,
+        "round": 1,
+        "settled": false
+      },
+      "motion": {
+        "position": {
+          "x": 21.001250244136923,
+          "y": 11.324620647712948,
+          "z": 64.42022507642973
+        },
+        "velocity": {
+          "x": -0.00004045173508708499,
+          "y": -4.888717320775722,
+          "z": 8.917970341325086
+        },
+        "settled": false
+      }
+    },
+    {
+      "data": {
+        "gun": "awp",
+        "clip": 10,
+        "reserve": 0,
+        "mode": 0,
+        "position": {
+          "x": 21.001244801061006,
+          "y": 10.475095934888877,
+          "z": 65.6202030067768
+        },
+        "yaw": -0.00000453597999752901,
+        "round": 1,
+        "settled": false
+      },
+      "motion": {
+        "position": {
+          "x": 21.001244801061006,
+          "y": 10.475095934888877,
+          "z": 65.6202030067768
+        },
+        "velocity": {
+          "x": -0.00004045173508708499,
+          "y": -7.579863140775724,
+          "z": 8.917970341325086
+        },
+        "settled": false
+      }
+    },
+    {
+      "data": {
+        "gun": "awp",
+        "clip": 10,
+        "reserve": 0,
+        "mode": 0,
+        "position": {
+          "x": 21.001487075297955,
+          "y": 10.426033589476258,
+          "z": 65.67782759465973
+        },
+        "yaw": -0.00000453597999752901,
+        "round": 1,
+        "settled": true
+      },
+      "motion": {
+        "position": {
+          "x": 21.001487075297955,
+          "y": 10.426033589476258,
+          "z": 65.67782759465973
+        },
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "settled": true
+      }
+    }
+  ],
+  "death": {
+    "inventory": {
+      "active": "knife",
+      "items": [],
+      "ammo": []
+    },
+    "weapon": {
+      "name": "AWP",
+      "revision": 4,
+      "mode": 0,
+      "zoom": 90,
+      "resumeZoom": 90,
+      "alternateAt": 0,
+      "readyAt": 1789468435.1430001,
+      "damage": 115,
+      "ammoClip": 10,
+      "maxAmmoClip": 10,
+      "ammoReserve": 30,
+      "maxAmmoReserve": 30,
+      "fireRate": 1.4500000476837158,
+      "lastShotTime": 0,
+      "lastShotId": 0,
+      "lastFiredShotId": 0,
+      "isReloading": false,
+      "reloadTime": 2.5,
+      "reloadStartTime": 0,
+      "reloadStage": 0,
+      "reloadStepAt": 0,
+      "reloadStep": 0
+    },
+    "health": {
+      "current": 0,
+      "max": 100,
+      "armor": 0,
+      "maxArmor": 100
+    },
+    "equipment": {
+      "bombSelected": true,
+      "defuseKit": false,
+      "helmet": false
+    },
+    "match": {
+      "roster": [
+        {
+          "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+          "team": 1,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:0",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:1",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        },
+        {
+          "address": "bot:2",
+          "team": 2,
+          "eligibleRound": 1,
+          "connected": true
+        }
+      ],
+      "phase": "won",
+      "remaining": 3,
+      "timeLeft": 5,
+      "round": 1,
+      "ctScore": 1,
+      "tScore": 0,
+      "maxWins": 16,
+      "matchOver": false,
+      "botKills": [
+        0,
+        0,
+        0
+      ],
+      "botDeaths": [
+        0,
+        0,
+        0
+      ],
+      "botDifficulty": "normal"
+    },
+    "bomb": {
+      "phase": "dropped",
+      "carrier": "",
+      "planter": "",
+      "defuser": "",
+      "site": "",
+      "position": {
+        "x": 21.348190307617188,
+        "y": 11.514668464660645,
+        "z": 52.560489654541016
+      },
+      "settled": false,
+      "yaw": -0.000004535980224318337,
+      "actionStarted": 0,
+      "actionEnds": 0,
+      "explodeAt": 0,
+      "readyAt": 1789468434.973,
+      "progress": 0,
+      "round": 1
+    },
+    "animation": {
+      "selected": true,
+      "plantAt": -1,
+      "readyAt": 1789468434.973,
+      "clip": "idle1",
+      "clipAt": 1789468434.563,
+      "serial": 2,
+      "acknowledged": false
+    }
+  },
+  "deathFlight": [
+    {
+      "state": {
+        "inventory": {
+          "active": "knife",
+          "items": [],
+          "ammo": []
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468435.1430001,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 0,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": true,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "won",
+          "remaining": 3,
+          "timeLeft": 5,
+          "round": 1,
+          "ctScore": 1,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 21.348186492919922,
+            "y": 11.702071189880371,
+            "z": 53.10245895385742
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 1789468434.973,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 1789468434.973,
+          "clip": "idle1",
+          "clipAt": 1789468434.563,
+          "serial": 2,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468437.219,
+        "motion": {
+          "position": {
+            "x": 21.348188423684274,
+            "y": 11.619067957971021,
+            "z": 52.83582413347673
+          },
+          "velocity": {
+            "x": -0.000040451735087084996,
+            "y": 3.1498851992242782,
+            "z": 8.917970341325086
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "knife",
+          "items": [],
+          "ammo": []
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468435.1430001,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 0,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": true,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "won",
+          "remaining": 3,
+          "timeLeft": 5,
+          "round": 1,
+          "ctScore": 1,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 21.348180770874023,
+            "y": 11.854451179504395,
+            "z": 54.314308166503906
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 1789468434.973,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 1789468434.973,
+          "clip": "idle1",
+          "clipAt": 1789468434.563,
+          "serial": 2,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468437.355,
+        "motion": {
+          "position": {
+            "x": 21.348182915002393,
+            "y": 11.852787177040607,
+            "z": 54.05026553133435
+          },
+          "velocity": {
+            "x": -0.000040451735087084996,
+            "y": 0.4263026992242791,
+            "z": 8.917970341325086
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "knife",
+          "items": [],
+          "ammo": []
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468435.1430001,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 0,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": true,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "won",
+          "remaining": 3,
+          "timeLeft": 5,
+          "round": 1,
+          "ctScore": 1,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 21.348176956176758,
+            "y": 11.643771171569824,
+            "z": 55.50589370727539
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 1789468434.973,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 1789468434.973,
+          "clip": "idle1",
+          "clipAt": 1789468434.563,
+          "serial": 2,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468437.488,
+        "motion": {
+          "position": {
+            "x": 21.34817738736717,
+            "y": 11.713903254422597,
+            "z": 55.26888537285163
+          },
+          "velocity": {
+            "x": -0.000040451735087084996,
+            "y": -2.3066506407757212,
+            "z": 8.917970341325086
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "knife",
+          "items": [],
+          "ammo": []
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468435.1430001,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 0,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": true,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "won",
+          "remaining": 3,
+          "timeLeft": 5,
+          "round": 1,
+          "ctScore": 1,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 21.34817123413086,
+            "y": 11.086934089660645,
+            "z": 56.67936706542969
+          },
+          "settled": false,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 1789468434.973,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 1789468434.973,
+          "clip": "idle1",
+          "clipAt": 1789468434.563,
+          "serial": 2,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468437.62,
+        "motion": {
+          "position": {
+            "x": 21.34817199152204,
+            "y": 11.21834330479413,
+            "z": 56.45845083263363
+          },
+          "velocity": {
+            "x": -0.000040451735087084996,
+            "y": -4.974444800775723,
+            "z": 8.917970341325086
+          },
+          "settled": false
+        }
+      }
+    },
+    {
+      "state": {
+        "inventory": {
+          "active": "knife",
+          "items": [],
+          "ammo": []
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 4,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789468435.1430001,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 0,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": true,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "won",
+          "remaining": 3,
+          "timeLeft": 5,
+          "round": 1,
+          "ctScore": 1,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "dropped",
+          "carrier": "",
+          "planter": "",
+          "defuser": "",
+          "site": "",
+          "position": {
+            "x": 21.34840965270996,
+            "y": 10.339303016662598,
+            "z": 57.680625915527344
+          },
+          "settled": true,
+          "yaw": -0.000004535980224318337,
+          "actionStarted": 0,
+          "actionEnds": 0,
+          "explodeAt": 0,
+          "readyAt": 1789468434.973,
+          "progress": 0,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 1789468434.973,
+          "clip": "idle1",
+          "clipAt": 1789468434.563,
+          "serial": 2,
+          "acknowledged": false
+        }
+      },
+      "toss": {
+        "at": 1789468437.762,
+        "motion": {
+          "position": {
+            "x": 21.348166889088464,
+            "y": 10.422350189138145,
+            "z": 57.5833309182091
+          },
+          "velocity": {
+            "x": -0.000040451735087084996,
+            "y": -7.497171480775722,
+            "z": 8.917970341325086
+          },
+          "settled": false
+        }
+      }
+    }
+  ],
+  "reset": {
+    "state": {
+      "inventory": {
+        "active": "awp",
+        "items": [
+          {
+            "id": "glock18",
+            "clip": 20,
+            "reserve": 40
+          },
+          {
+            "id": "awp",
+            "clip": 10,
+            "reserve": 30
+          }
+        ]
+      },
+      "weapon": {
+        "name": "AWP",
+        "revision": 5,
+        "mode": 0,
+        "zoom": 90,
+        "resumeZoom": 90,
+        "alternateAt": 0,
+        "readyAt": 1789468443.579,
+        "damage": 115,
+        "ammoClip": 10,
+        "maxAmmoClip": 10,
+        "ammoReserve": 30,
+        "maxAmmoReserve": 30,
+        "fireRate": 1.4500000476837158,
+        "lastShotTime": 0,
+        "lastShotId": 0,
+        "lastFiredShotId": 0,
+        "isReloading": false,
+        "reloadTime": 2.5,
+        "reloadStartTime": 0,
+        "reloadStage": 0,
+        "reloadStepAt": 0,
+        "reloadStep": 0
+      },
+      "health": {
+        "current": 100,
+        "max": 100,
+        "armor": 0,
+        "maxArmor": 100
+      },
+      "equipment": {
+        "bombSelected": false,
+        "defuseKit": false,
+        "helmet": false
+      },
+      "match": {
+        "roster": [
+          {
+            "address": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:0",
+            "team": 2,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 2,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 2,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "freeze",
+        "remaining": 3,
+        "timeLeft": 20,
+        "round": 2,
+        "ctScore": 1,
+        "tScore": 0,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          0,
+          0,
+          0
+        ],
+        "botDeaths": [
+          0,
+          0,
+          0
+        ],
+        "botDifficulty": "normal"
+      },
+      "bomb": {
+        "phase": "carried",
+        "carrier": "0xe7c000b58aeb6d96a1d04760b994755a5fc3449a",
+        "planter": "",
+        "defuser": "",
+        "site": "",
+        "position": {
+          "x": 22.543155670166016,
+          "y": 10.04876708984375,
+          "z": 52
+        },
+        "settled": false,
+        "yaw": 0,
+        "actionStarted": 0,
+        "actionEnds": 0,
+        "explodeAt": 0,
+        "readyAt": 0,
+        "progress": 0,
+        "round": 2
+      },
+      "animation": {
+        "selected": false,
+        "plantAt": -1,
+        "readyAt": 1789468434.973,
+        "clip": "idle1",
+        "clipAt": 1789468434.563,
+        "serial": 2,
+        "acknowledged": false
+      }
+    },
+    "toss": {
+      "at": 1789468442.222
+    }
+  }
+}

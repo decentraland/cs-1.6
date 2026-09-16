@@ -1,0 +1,264 @@
+{
+  "date": "2026-09-15T12:42:45.841Z",
+  "baseline": true,
+  "checks": [
+    {
+      "name": "Glock burst held",
+      "milliseconds": 1250,
+      "initial": {
+        "shots": [],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "Glock-18",
+          "revision": 4,
+          "mode": 1,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476171.57,
+          "readyAt": 1789476170.15,
+          "damage": 25,
+          "ammoClip": 20,
+          "maxAmmoClip": 20,
+          "ammoReserve": 0,
+          "maxAmmoReserve": 120,
+          "fireRate": 0.5,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.200000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xdf358619d69abe6f0349c1405191ff5e7f0dc552",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3506,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "final": {
+        "shots": [
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 0,
+            "id": 1,
+            "at": 1789476172.068,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 1,
+            "id": 2,
+            "at": 1789476172.177,
+            "clip": 20,
+            "held": true
+          },
+          {
+            "gun": "glock18",
+            "mode": 1,
+            "index": 2,
+            "id": 3,
+            "at": 1789476172.277,
+            "clip": 20,
+            "held": true
+          }
+        ],
+        "input": {
+          "pointer": false,
+          "ready": true
+        },
+        "weapon": {
+          "name": "Glock-18",
+          "revision": 4,
+          "mode": 1,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 1789476171.57,
+          "readyAt": 1789476170.15,
+          "damage": 25,
+          "ammoClip": 17,
+          "maxAmmoClip": 20,
+          "ammoReserve": 0,
+          "maxAmmoReserve": 120,
+          "fireRate": 0.5,
+          "lastShotTime": 1789476172.4669998,
+          "lastShotId": 3,
+          "lastFiredShotId": 3,
+          "isReloading": false,
+          "reloadTime": 2.200000047683716,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0xdf358619d69abe6f0349c1405191ff5e7f0dc552",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3504,
+          "round": 1,
+          "ctScore": 0,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        }
+      },
+      "shots": [
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 0,
+          "id": 1,
+          "at": 1789476172.267,
+          "clip": 19,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 1,
+          "id": 2,
+          "at": 1789476172.3669999,
+          "clip": 18,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 2,
+          "id": 3,
+          "at": 1789476172.4669998,
+          "clip": 17,
+          "held": true
+        }
+      ],
+      "requests": [
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 0,
+          "id": 1,
+          "at": 1789476172.068,
+          "clip": 20,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 1,
+          "id": 2,
+          "at": 1789476172.177,
+          "clip": 20,
+          "held": true
+        },
+        {
+          "gun": "glock18",
+          "mode": 1,
+          "index": 2,
+          "id": 3,
+          "at": 1789476172.277,
+          "clip": 20,
+          "held": true
+        }
+      ]
+    }
+  ]
+}

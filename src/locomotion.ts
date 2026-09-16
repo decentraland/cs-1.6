@@ -1,8 +1,10 @@
+import { updateCsMovement } from './cs-movement'
 import { engine, AvatarLocomotionSettings, InputModifier, inputSystem, InputAction } from '@dcl/sdk/ecs'
 import { getPractice } from './practice'
 import { getLocalPlayerEntity } from './client'
-import { isLocalBombBusy } from './bomb-client'
-import { profileByName } from './weapon-profiles'
+import { hasBombSelected, isLocalBombBusy } from './bomb-client'
+import { profileByName, modeStats } from './weapon-profiles'
+import { C4_SPEED } from './bomb-rules'
 import { Dead, Weapon } from './components'
 
 // Initial scale calibration: a 72-unit standing hull corresponds to 1.8 metres.
@@ -20,11 +22,18 @@ export function locomotionSystem() {
   const phase = getPractice()?.phase
   const frozen = phase !== 'live' || player === null || Dead.has(player) || isLocalBombBusy()
   const walking = isWalking()
-  const gunSpeed = profileByName(player === null ? 'AK-47' : (Weapon.getOrNull(player)?.name ?? 'AK-47')).speed
+  const weapon = player === null ? undefined : Weapon.getOrNull(player)
+  const profile = profileByName(weapon?.name ?? 'AK-47')
+  const gunSpeed = hasBombSelected()
+    ? C4_SPEED
+    : profile.kind === 'gun'
+      ? modeStats(profile, weapon?.mode, weapon?.zoom).speed
+      : profile.speed
+  const speed = frozen ? 0 : gunSpeed * (walking ? 0.52 : 1)
+  updateCsMovement(speed, frozen, gunSpeed)
   const key = `${frozen}:${walking}:${gunSpeed}`
   if (key === previous) return
   previous = key
-  const speed = frozen ? 0 : gunSpeed * (walking ? 0.52 : 1)
   AvatarLocomotionSettings.createOrReplace(engine.PlayerEntity, {
     walkSpeed: speed,
     jogSpeed: speed,

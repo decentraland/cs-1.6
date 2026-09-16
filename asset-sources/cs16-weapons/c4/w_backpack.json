@@ -1,0 +1,21 @@
+{
+  "id": "backpack",
+  "sourceSha256": "83a286609dbd47ad7b6139b40abf59056d11d05cded15ccf95d5f782e53ff017",
+  "triangles": 44,
+  "bytes": 13756,
+  "sourceTriangles": 44,
+  "skippedDegenerateTriangles": 0,
+  "anchor": "Original model origin",
+  "blenderBounds": {
+    "min": [
+      -0.13118822872638702,
+      -0.17073890566825867,
+      0.00021153120906092227
+    ],
+    "max": [
+      0.12980012595653534,
+      0.17176029086112976,
+      0.14528706669807434
+    ]
+  }
+}

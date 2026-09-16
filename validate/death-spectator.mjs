@@ -106,13 +106,13 @@ try {
     hiddenViewMeshes.every((component) => component.VisibilityComponent?.visible === false),
     'spectating hides every first-person weapon mesh'
   )
-  const ammo = readHud(chase).clip
+  assert.equal(readHud(chase).clip, undefined, 'free chase hides the dead player ammunition')
   await client.shoot(70)
   const cycled = await client.until(
     (state) => spectatorLabel(state) !== undefined && spectatorLabel(state) !== firstTarget,
     'click cycles to another bot'
   )
-  assert.equal(readHud(cycled).clip, ammo, 'spectator click does not consume ammunition')
+  assert.equal(readHud(cycled).clip, undefined, 'cycling keeps the dead player ammunition hidden')
   if (evidencePath) {
     const capture = await client.send('Page.captureScreenshot', { format: 'png' })
     await writeFile(join(dirname(evidencePath), 'death-spectator.png'), Buffer.from(capture.data, 'base64'))
@@ -140,7 +140,7 @@ try {
             'three-second observer handoff',
             'hidden first-person weapon meshes',
             'living bot chase',
-            'click-to-cycle without firing'
+            'click-to-cycle with the dead player ammunition hidden'
           ]
         },
         null,
@@ -148,7 +148,7 @@ try {
       ) + '\n'
     )
   }
-  console.log('PASS: hit feedback → death transition → living bot chase → click cycles without firing')
+  console.log('PASS: hit feedback → death transition → living bot chase → click cycles with own ammo hidden')
 } finally {
   if (client.sessionId)
     await client.evaluate('document.exitPointerLock()').catch((error) => console.warn(error.message))

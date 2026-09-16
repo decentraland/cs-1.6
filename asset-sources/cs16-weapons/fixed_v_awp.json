@@ -1,0 +1,32 @@
+{
+  "name": "fixed_v_awp",
+  "sourceSha256": "2c60bb5f8fb9bfef7e317e5dba6796ce1347cde9a9871272db880f877bcbd744",
+  "triangles": 1366,
+  "bones": 42,
+  "textures": 13,
+  "animations": {
+    "idle1": 0.5,
+    "shoot1": 1.1714285714285715,
+    "shoot2": 1.1714285714285715,
+    "shoot3": 1.1714285714285715,
+    "reload": 2.9,
+    "draw": 1.0
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.19737568497657776,
+      -0.22192874550819397,
+      -0.13557268679141998
+    ],
+    "max": [
+      0.08053158223628998,
+      -0.009855362586677074,
+      0.7072999477386475
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.6987323760986328e-06,
+  "bytes": 708392,
+  "blender": "5.2.1 LTS"
+}

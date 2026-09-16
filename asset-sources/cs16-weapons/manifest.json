@@ -1,0 +1,396 @@
+{
+  "ak47": {
+    "src": "assets/scene/weapons/ak47-view.glb",
+    "prefix": "fixed_v_ak47 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.5333333333333333,
+      "reload": 2.4324324324324325,
+      "draw": 1.0,
+      "shoot1": 0.8,
+      "shoot2": 0.8,
+      "shoot3": 0.8
+    }
+  },
+  "aug": {
+    "src": "assets/scene/weapons/aug-view.glb",
+    "prefix": "fixed_v_aug ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.26666666666666666,
+      "reload": 3.3,
+      "draw": 0.8571428571428571,
+      "shoot1": 0.8571428571428571,
+      "shoot2": 0.8571428571428571,
+      "shoot3": 0.8571428571428571
+    }
+  },
+  "awp": {
+    "src": "assets/scene/weapons/awp-view.glb",
+    "prefix": "fixed_v_awp ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.5,
+      "shoot1": 1.1714285714285715,
+      "shoot2": 1.1714285714285715,
+      "shoot3": 1.1714285714285715,
+      "reload": 2.9,
+      "draw": 1.0
+    }
+  },
+  "deagle": {
+    "src": "assets/scene/weapons/deagle-view.glb",
+    "prefix": "fixed_v_deagle ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.0625,
+      "shoot1": 0.575,
+      "shoot2": 0.575,
+      "shoot_empty": 0.575,
+      "reload": 2.1666666666666665,
+      "draw": 1.0
+    }
+  },
+  "elite": {
+    "src": "assets/scene/weapons/elite-view.glb",
+    "prefix": "fixed_v_elite ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.5,
+      "idle_leftempty": 0.625,
+      "shoot_left1": 1.0,
+      "shoot_left2": 1.0,
+      "shoot_left3": 1.0,
+      "shoot_left4": 1.0,
+      "shoot_left5": 1.0,
+      "shoot_leftlast": 1.0,
+      "shoot_right1": 1.0,
+      "shoot_right2": 1.0,
+      "shoot_right3": 1.0,
+      "shoot_right4": 1.0,
+      "shoot_right5": 1.0,
+      "shoot_rightlast": 1.0,
+      "reload": 4.566666666666666,
+      "draw": 1.0666666666666667
+    }
+  },
+  "famas": {
+    "src": "assets/scene/weapons/famas-view.glb",
+    "prefix": "fixed_v_famas ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.03333333333333333,
+      "reload": 3.0,
+      "draw": 0.8571428571428571,
+      "shoot1": 0.8571428571428571,
+      "shoot2": 0.8571428571428571,
+      "shoot3": 0.8571428571428571
+    }
+  },
+  "fiveseven": {
+    "src": "assets/scene/weapons/fiveseven-view.glb",
+    "prefix": "fixed_v_fiveseven ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.125,
+      "shoot1": 0.6388888888888888,
+      "shoot2": 0.6388888888888888,
+      "shoot_empty": 0.6388888888888888,
+      "reload": 3.2,
+      "draw": 1.0
+    }
+  },
+  "g3sg1": {
+    "src": "assets/scene/weapons/g3sg1-view.glb",
+    "prefix": "fixed_v_g3sg1 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.625,
+      "shoot": 0.5,
+      "shoot2": 0.5,
+      "reload": 4.666666666666667,
+      "draw": 1.0
+    }
+  },
+  "galil": {
+    "src": "assets/scene/weapons/galil-view.glb",
+    "prefix": "fixed_v_galil ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.03333333333333333,
+      "reload": 2.5714285714285716,
+      "draw": 1.0,
+      "shoot1": 0.8571428571428571,
+      "shoot2": 0.8571428571428571,
+      "shoot3": 0.8571428571428571
+    }
+  },
+  "glock18": {
+    "src": "assets/scene/weapons/glock18-view.glb",
+    "prefix": "fixed_v_glock18 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.625,
+      "idle2": 0.5,
+      "idle3": 0.5555555555555556,
+      "shoot": 0.75,
+      "shoot2": 0.75,
+      "shoot3": 0.5,
+      "shoot_empty": 0.5714285714285714,
+      "reload": 2.142857142857143,
+      "draw": 1.0888888888888888,
+      "holster": 1.04,
+      "add_silencer": 1.3,
+      "draw2": 1.0888888888888888,
+      "reload2": 2.5
+    }
+  },
+  "knife": {
+    "src": "assets/scene/weapons/knife-view.glb",
+    "prefix": "fixed_v_knife ",
+    "idle": "idle",
+    "clips": {
+      "idle": 12.5,
+      "slash1": 0.03333333333333333,
+      "slash2": 0.03333333333333333,
+      "draw": 1.0,
+      "stab": 1.3142857142857143,
+      "stab_miss": 1.5,
+      "midslash1": 1.1818181818181819,
+      "midslash2": 1.1818181818181819
+    }
+  },
+  "m249": {
+    "src": "assets/scene/weapons/m249-view.glb",
+    "prefix": "fixed_v_m249 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.625,
+      "shoot1": 0.5,
+      "shoot2": 0.5,
+      "reload": 4.666666666666667,
+      "draw": 1.0
+    }
+  },
+  "m3": {
+    "src": "assets/scene/weapons/m3-view.glb",
+    "prefix": "fixed_v_m3 ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.8333333333333334,
+      "shoot1": 1.15625,
+      "shoot2": 1.0,
+      "insert": 0.4153846153846154,
+      "after_reload": 0.868421052631579,
+      "start_reload": 0.5,
+      "draw": 1.0
+    }
+  },
+  "m4a1": {
+    "src": "assets/scene/weapons/m4a1-view.glb",
+    "prefix": "fixed_v_m4a1 ",
+    "idle": "idle_unsil",
+    "clips": {
+      "idle": 0.5,
+      "shoot1": 1.5,
+      "shoot2": 1.5,
+      "shoot3": 1.5,
+      "reload": 3.054054054054054,
+      "draw": 1.0,
+      "add_silencer": 2.0,
+      "idle_unsil": 0.5,
+      "shoot1_unsil": 1.5,
+      "shoot2_unsil": 1.5,
+      "shoot3_unsil": 1.5,
+      "reload_unsil": 3.054054054054054,
+      "draw_unsil": 1.0,
+      "detach_silencer": 2.0
+    }
+  },
+  "mac10": {
+    "src": "assets/scene/weapons/mac10-view.glb",
+    "prefix": "fixed_v_mac10 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.6666666666666666,
+      "reload": 3.142857142857143,
+      "draw": 0.9090909090909091,
+      "shoot1": 0.9259259259259259,
+      "shoot2": 0.9259259259259259,
+      "shoot3": 0.9259259259259259
+    }
+  },
+  "mp5": {
+    "src": "assets/scene/weapons/mp5-view.glb",
+    "prefix": "fixed_v_mp5 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.6666666666666666,
+      "reload": 2.6315789473684212,
+      "draw": 0.8571428571428571,
+      "shoot1": 0.6666666666666666,
+      "shoot2": 0.6666666666666666,
+      "shoot3": 0.6666666666666666
+    }
+  },
+  "p228": {
+    "src": "assets/scene/weapons/p228-view.glb",
+    "prefix": "fixed_v_p228 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.625,
+      "shoot1": 0.7352941176470589,
+      "shoot2": 0.7352941176470589,
+      "shoot3": 0.7352941176470589,
+      "shoot_empty": 0.7352941176470589,
+      "reload": 2.7142857142857144,
+      "draw": 1.0
+    }
+  },
+  "p90": {
+    "src": "assets/scene/weapons/p90-view.glb",
+    "prefix": "fixed_v_p90 ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.26666666666666666,
+      "reload": 3.375,
+      "draw": 1.0,
+      "shoot1": 0.4,
+      "shoot2": 0.4666666666666667,
+      "shoot3": 0.4666666666666667
+    }
+  },
+  "scout": {
+    "src": "assets/scene/weapons/scout-view.glb",
+    "prefix": "fixed_v_scout ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.625,
+      "shoot_1": 1.2857142857142858,
+      "shoot_2": 1.2857142857142858,
+      "reload": 2.0,
+      "draw": 1.0
+    }
+  },
+  "sg550": {
+    "src": "assets/scene/weapons/sg550-view.glb",
+    "prefix": "fixed_v_sg550 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.125,
+      "shoot": 1.0,
+      "shoot2": 1.0,
+      "reload": 3.7857142857142856,
+      "draw": 1.0
+    }
+  },
+  "sg552": {
+    "src": "assets/scene/weapons/sg552-view.glb",
+    "prefix": "fixed_v_sg552 ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.26666666666666666,
+      "reload": 3.189189189189189,
+      "draw": 1.0,
+      "shoot1": 0.8571428571428571,
+      "shoot2": 0.8571428571428571,
+      "shoot3": 0.8571428571428571
+    }
+  },
+  "tmp": {
+    "src": "assets/scene/weapons/tmp-view.glb",
+    "prefix": "fixed_v_tmp ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.6666666666666666,
+      "reload": 2.12,
+      "draw": 0.8888888888888888,
+      "shoot_1": 0.8,
+      "shoot_2": 0.8,
+      "shoot_3": 0.8
+    }
+  },
+  "ump45": {
+    "src": "assets/scene/weapons/ump45-view.glb",
+    "prefix": "fixed_v_ump45 ",
+    "idle": "idle1",
+    "clips": {
+      "idle1": 0.16666666666666666,
+      "reload": 3.484848484848485,
+      "draw": 1.0,
+      "shoot1": 0.4375,
+      "shoot2": 0.4375,
+      "shoot3": 0.4375
+    }
+  },
+  "usp": {
+    "src": "assets/scene/weapons/usp-view.glb",
+    "prefix": "fixed_v_usp ",
+    "idle": "idle_unsil",
+    "clips": {
+      "idle": 0.625,
+      "shoot1": 1.0,
+      "shoot2": 1.0,
+      "shoot3": 1.0,
+      "shootlast": 0.9375,
+      "reload": 2.7027027027027026,
+      "draw": 1.0,
+      "add_silencer": 3.108108108108108,
+      "idle_unsil": 1.875,
+      "shoot1_unsil": 1.0,
+      "shoot2_unsil": 1.0,
+      "shoot3_unsil": 1.0,
+      "shootlast_unsil": 0.9375,
+      "reload_unsil": 2.7027027027027026,
+      "draw_unsil": 1.0,
+      "detach_silencer": 3.108108108108108
+    }
+  },
+  "xm1014": {
+    "src": "assets/scene/weapons/xm1014-view.glb",
+    "prefix": "fixed_v_xm1014 ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.6666666666666666,
+      "shoot1": 0.5,
+      "shoot2": 0.5,
+      "insert": 0.3888888888888889,
+      "after_reload": 0.4,
+      "start_reload": 0.6666666666666666,
+      "draw": 1.0
+    }
+  },
+  "hegrenade": {
+    "src": "assets/scene/weapons/hegrenade-view.glb",
+    "prefix": "fixed_v_hegrenade ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.3333333333333333,
+      "pullpin": 0.975609756097561,
+      "throw": 0.7666666666666667,
+      "deploy": 0.6666666666666666
+    }
+  },
+  "flashbang": {
+    "src": "assets/scene/weapons/flashbang-view.glb",
+    "prefix": "fixed_v_flashbang ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.3333333333333333,
+      "pullpin": 0.975609756097561,
+      "throw": 0.7666666666666667,
+      "deploy": 0.6666666666666666
+    }
+  },
+  "smokegrenade": {
+    "src": "assets/scene/weapons/smokegrenade-view.glb",
+    "prefix": "fixed_v_smokegrenade ",
+    "idle": "idle",
+    "clips": {
+      "idle": 0.3333333333333333,
+      "pullpin": 0.975609756097561,
+      "throw": 0.7666666666666667,
+      "deploy": 0.6666666666666666
+    }
+  }
+}

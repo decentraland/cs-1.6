@@ -15,14 +15,19 @@ export interface BotCombat {
 }
 export const BOT_EYE_HEIGHT = 1.4
 
-export function createBotCombat(readyAt: number, gun: GunId = 'ak47'): BotCombat {
+export function createBotCombat(
+  readyAt: number,
+  gun: GunId = 'ak47',
+  ammo?: { clip: number; reserve: number }
+): BotCombat {
   const profile = GUNS[gun]
   return {
     gun,
     weapon: {
-      ammoClip: profile.clip,
+      name: profile.name,
+      ammoClip: ammo?.clip ?? profile.clip,
       maxAmmoClip: profile.clip,
-      ammoReserve: profile.reserve,
+      ammoReserve: ammo?.reserve ?? profile.reserve,
       fireRate: profile.fireRate,
       lastShotTime: -Infinity,
       lastShotId: 0,
@@ -106,6 +111,7 @@ export function botShot<T>(
     random: options.random
   })
   state.burst--
+  if (!GUNS[state.gun].automatic) setTrigger(state.accuracy, false, now)
   if (state.burst === 0) {
     setTrigger(state.accuracy, false, now)
     state.nextBurst = now + (distance < 10 ? 0.5 : 0.8)

@@ -1,0 +1,10 @@
+Focused toss browser: agent-browser errors returned no runtime errors.
+Full C4 browser: agent-browser errors returned no runtime errors.
+
+Native preview server emitted guest-profile fetch warnings in both runs. The full
+run also logged: gltf was unloaded mysteriously. this shouldn't happen and things
+will be broken as a result.
+
+The full model/drop/plant/explosion/reset assertions still passed, and the captured
+backpack and planted C4 rendered. This native warning is retained here; its cause
+was not established by this scene change.

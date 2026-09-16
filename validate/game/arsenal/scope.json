@@ -1,0 +1,78 @@
+{
+  "levels": [
+    {
+      "zoom": 90,
+      "camera": {
+        "clearColor": null,
+        "farPlane": null,
+        "height": 639,
+        "layer": 0,
+        "mode": {
+          "perspective": {
+            "fieldOfView": 0.5329702
+          }
+        },
+        "volume": null,
+        "width": 1280
+      },
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 9,
+        "reserve": 30,
+        "money": 16000,
+        "seconds": 3204
+      }
+    },
+    {
+      "zoom": 40,
+      "camera": {
+        "clearColor": null,
+        "farPlane": null,
+        "height": 639,
+        "layer": 0,
+        "mode": {
+          "perspective": {
+            "fieldOfView": 0.5329702
+          }
+        },
+        "volume": null,
+        "width": 1280
+      },
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 9,
+        "reserve": 30,
+        "money": 16000,
+        "seconds": 3202
+      }
+    },
+    {
+      "zoom": 10,
+      "camera": {
+        "clearColor": null,
+        "farPlane": null,
+        "height": 639,
+        "layer": 0,
+        "mode": {
+          "perspective": {
+            "fieldOfView": 0.13104513
+          }
+        },
+        "volume": null,
+        "width": 1280
+      },
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 9,
+        "reserve": 30,
+        "money": 16000,
+        "seconds": 3201
+      }
+    }
+  ],
+  "boltUnscope": true,
+  "boltRescope": true
+}

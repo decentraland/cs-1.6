@@ -1,0 +1,34 @@
+{
+  "name": "fixed_v_m3",
+  "sourceSha256": "ec1cf518ffbf51b68b7c46380c41f371c429b70c1fd83f58a4441f8e3e9dab81",
+  "triangles": 1119,
+  "skippedDegenerateTriangles": 0,
+  "bones": 43,
+  "textures": 7,
+  "animations": {
+    "idle": 0.8333333333333334,
+    "shoot1": 1.15625,
+    "shoot2": 1.0,
+    "insert": 0.4153846153846154,
+    "after_reload": 0.868421052631579,
+    "start_reload": 0.5,
+    "draw": 1.0
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.17126311361789703,
+      -0.27100735902786255,
+      -0.15532203018665314
+    ],
+    "max": [
+      0.08336379379034042,
+      -0.0492614209651947,
+      0.546607494354248
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.7136335372924805e-06,
+  "bytes": 611364,
+  "blender": "5.2.1 LTS"
+}

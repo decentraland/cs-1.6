@@ -1,5 +1,6 @@
 import type { HitGroup, Point, ShotTarget } from './ballistics'
-import { boxDistance, mapDistance } from './world-query'
+import { hitMultiplier, regionDistance } from './hit-regions'
+import { mapDistance } from './world-query'
 
 export type KnifeAttack = 'swing' | 'stab'
 export interface KnifeCooldown {
@@ -48,7 +49,7 @@ export function resolveKnifeAttack(
   if (now + 1e-6 < (attack === 'swing' ? state.nextPrimary : state.nextSecondary)) return undefined
   const fast = state.nextPrimary + 0.4 < now
   const base = attack === 'stab' ? KNIFE_STAB_DAMAGE : fast ? KNIFE_SWING_DAMAGE_FAST : KNIFE_SWING_DAMAGE
-  const hitgroup = group === 'head' ? 4 : group === 'legs' ? 0.75 : 1
+  const hitgroup = hitMultiplier(group)
   const damage = targetHit ? base * hitgroup * (attack === 'stab' && backstab ? KNIFE_BACKSTAB_MULTIPLIER : 1) : 0
   if (attack === 'swing') {
     state.nextPrimary = now + (contact ? 0.4 : 0.35)
@@ -64,9 +65,7 @@ function targetDistance<T>(origin: Point, direction: Point, targets: readonly Sh
   let nearest: { target: T; group: HitGroup; distance: number } | undefined
   for (const target of targets)
     for (const region of target.regions) {
-      const center = { x: target.center.x, y: target.center.y + region.y, z: target.center.z }
-      const half = { x: region.half.x + expansion.x, y: region.half.y + expansion.y, z: region.half.z + expansion.z }
-      const distance = boxDistance(origin, direction, center, half)
+      const distance = regionDistance(origin, direction, target, region, expansion)
       if (distance !== undefined && (!nearest || distance < nearest.distance))
         nearest = { target: target.id, group: region.group, distance }
     }

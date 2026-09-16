@@ -1,0 +1,1 @@
+PASS: original C4 view, speed, cancel/draw/lowering, holster, backpack/pickup, three-second plant, best-weapon retirement, blink, explosion and next round

@@ -1,0 +1,32 @@
+{
+  "name": "fixed_v_m249",
+  "sourceSha256": "71eba79c9a22d40ce8e1bd009ecb6c04c799d9f08ca0d177470b784bfdcc8b46",
+  "triangles": 1362,
+  "skippedDegenerateTriangles": 0,
+  "bones": 50,
+  "textures": 12,
+  "animations": {
+    "idle1": 0.625,
+    "shoot1": 0.5,
+    "shoot2": 0.5,
+    "reload": 4.666666666666667,
+    "draw": 1.0
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.17237494885921478,
+      -0.26757246255874634,
+      -0.16057299077510834
+    ],
+    "max": [
+      0.10763897746801376,
+      -0.027960658073425293,
+      0.5282310843467712
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.7508864402770996e-06,
+  "bytes": 664536,
+  "blender": "5.2.1 LTS"
+}

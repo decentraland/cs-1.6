@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { authorizeShot, finishReload, startReload } from '../src/combat-rules.ts'
+import { compile } from './compile.mjs'
+const { authorizeShot, finishReload, startReload } = compile('combat-rules')('combat-rules')
 
 const epoch = 1789032000
 const fresh = (overrides = {}) => ({

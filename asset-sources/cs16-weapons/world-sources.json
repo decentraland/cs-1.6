@@ -1,0 +1,170 @@
+[
+  {
+    "path": "asset-sources/cs16-weapons/p_ak47.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_ak47.mdl",
+    "sha256": "8361462d88f8cc00dfc62b56bb808865dfed8eaec93d063d2af6fec80cfc80ca",
+    "bytes": 39204
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_aug.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_aug.mdl",
+    "sha256": "2c3afe158e5f18822c9a28ab9afaa5278e768bbb3771f972a2f53800280ad6c7",
+    "bytes": 39792
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_awp.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_awp.mdl",
+    "sha256": "d62600226265c4fab48b55fc80c7a0dbd9f0970e7bf312ad0f75079d841c836f",
+    "bytes": 23316
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_deagle.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_deagle.mdl",
+    "sha256": "9895a2e3b8197bf6e058a36ffa757d66d41f54fec4a95db8c1a223bb99bc6090",
+    "bytes": 22180
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_elite.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_elite.mdl",
+    "sha256": "dfb621c82fe160fdff5df1a1194807f22b6567ce416005c7842f1d60d8580668",
+    "bytes": 26088
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_famas.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_famas.mdl",
+    "sha256": "2ba517cebe96ae42bed2c872cde6e0d83deb3bde9223707838eddc3660d3ac72",
+    "bytes": 24368
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_fiveseven.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_fiveseven.mdl",
+    "sha256": "c75a0057f6d8822503abeb5c5e491f6fa4236ae196fdcf946987c5f22965af0f",
+    "bytes": 21600
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_g3sg1.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_g3sg1.mdl",
+    "sha256": "009a2790a8da319c2475dcc875ca91ba17306709d2678076b93b70d518528559",
+    "bytes": 23760
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_galil.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_galil.mdl",
+    "sha256": "96c9f8c20fc6e45aa033adcbe40cbea57df45c4c461ed3f849d48a800b14e054",
+    "bytes": 25152
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_glock18.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_glock18.mdl",
+    "sha256": "daac0a5b0f49c8312c2695acf0c4c41d94e8912a2534c0f0c48409ae8a35cb8a",
+    "bytes": 13588
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_knife.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_knife.mdl",
+    "sha256": "4cebffd0d1cb481a9a211353e34d75f52bfa94f0d5c5db1ed828767998b92078",
+    "bytes": 63632
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_m249.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_m249.mdl",
+    "sha256": "f2fc6910be048e23e653a72c5442884e9451b2546be104ef79ba3e49412dd6ff",
+    "bytes": 22912
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_m3.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_m3.mdl",
+    "sha256": "eaa05596427ff6ea35b367d10d8247cf7a6c6b8323c636024124019bae4d26d1",
+    "bytes": 23008
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_m4a1.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_m4a1.mdl",
+    "sha256": "b9c06509f5eceabec30e305e8d41cc2b5930cedf65fc984e2fbd7f4f939c1e85",
+    "bytes": 23332
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_mac10.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_mac10.mdl",
+    "sha256": "fc732df86cbb414ebfbe32c069e1626ccfb6f996ccf1dc241777fec2989fdaae",
+    "bytes": 44532
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_mp5.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_mp5.mdl",
+    "sha256": "7f897e2dabb28374e512247371ee49e2f3a197974b2fc70fa975eba275f4222a",
+    "bytes": 28180
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_p228.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_p228.mdl",
+    "sha256": "6cd3f69f868e6a21d7ae129168938cd65469951f34f07a32becfa48ff24f7679",
+    "bytes": 21660
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_p90.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_p90.mdl",
+    "sha256": "60ccab9a3c2780f3b6a7033916abc9c8685e357bc2542120e0d22dcdea845655",
+    "bytes": 38716
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_scout.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_scout.mdl",
+    "sha256": "46c4b3992088f5b1154384928299464fb74c81312aab38c826cc7b45f02c6058",
+    "bytes": 22032
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_sg550.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_sg550.mdl",
+    "sha256": "f17cfe20100735f8168decef6c2cedbda121c72c506e0c72de33b9a79b0c2ef9",
+    "bytes": 40288
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_sg552.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_sg552.mdl",
+    "sha256": "2d88adf7f36fa957719f631302e2654604ca536bffcd8bd224452c8187d34c2b",
+    "bytes": 40116
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_tmp.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_tmp.mdl",
+    "sha256": "f7329da8f3d89c32fddf7d790ac1750c702a3df20306e62f036ca751989ff526",
+    "bytes": 22388
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_ump45.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_ump45.mdl",
+    "sha256": "f8e9091ab16ec43d3a6ef8eaf1e02270f01c03cd215fa0f15fbc92d59f9ff8a2",
+    "bytes": 39888
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_usp.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_usp.mdl",
+    "sha256": "d613f4d00b2c3e501ffd59016d29bc65df710dcfa458344dc54bf496321e22a8",
+    "bytes": 38536
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_xm1014.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_xm1014.mdl",
+    "sha256": "f5736ee54c6f20bfc88c20e9f3e12b983f024afb98baf02f3d6c8524ca952e07",
+    "bytes": 23832
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_hegrenade.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_hegrenade.mdl",
+    "sha256": "494b329493f545298cdaa434edf70f32bafad964daf4d7a5c6383f8ef3f5d9cb",
+    "bytes": 25836
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_flashbang.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_flashbang.mdl",
+    "sha256": "b754a3577589525bea75e033a8a202e326bb0be3b7e9dfe35fb73b6f27247248",
+    "bytes": 25836
+  },
+  {
+    "path": "asset-sources/cs16-weapons/p_smokegrenade.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_smokegrenade.mdl",
+    "sha256": "61e9f3a0eb8b0a59f7f284f3e800538e5d1905ffa78b2048c3900969038e8a8c",
+    "bytes": 25836
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "id": "c4",
+  "sourceSha256": "fbd567e6a58c35be853d1d80d903eaa7d980cf3691b4191484b1040e4ac85106",
+  "triangles": 128,
+  "bytes": 27292,
+  "sourceTriangles": 128,
+  "skippedDegenerateTriangles": 0,
+  "anchor": "Bip01 R Hand",
+  "blenderBounds": {
+    "min": [
+      -0.01600000262260437,
+      -0.1686624437570572,
+      -0.054259851574897766
+    ],
+    "max": [
+      0.21577006578445435,
+      -3.178371121848045e-09,
+      0.06656951457262039
+    ]
+  }
+}

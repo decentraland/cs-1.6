@@ -1,0 +1,21 @@
+{
+  "id": "thighpack",
+  "sourceSha256": "3d3697d0e254646199c6a9106991d1fa8a18919e0d4852355b611d75f1f1bbad",
+  "triangles": 80,
+  "bytes": 6600,
+  "sourceTriangles": 80,
+  "skippedDegenerateTriangles": 0,
+  "anchor": "Original model origin",
+  "blenderBounds": {
+    "min": [
+      -0.13355784118175507,
+      -0.23687578737735748,
+      -0.002918808488175273
+    ],
+    "max": [
+      0.1529626101255417,
+      0.2551242411136627,
+      0.08527708053588867
+    ]
+  }
+}

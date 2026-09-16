@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-15T14:42:39.452691+00:00",
+  "status": "incomplete",
+  "muted": true,
+  "observedBeforeCaptureFix": {
+    "phase": "ready",
+    "observerActive": true,
+    "observerMode": "roaming",
+    "observerMenu": false,
+    "pointerLocked": false
+  },
+  "failures": [
+    "Initial lobby capture assertion failed; fixed missing server spectatorStart emission in lobby/results.",
+    "After reload, two Emulation.setFocusEmulationEnabled calls timed out; browser-level Target.getTargets remained responsive."
+  ],
+  "unverified": [
+    "rendered free-flight movement and stationary player body",
+    "lobby Escape/Resume",
+    "return to live camera on team join",
+    "runtime team restrictions and neutral Space mode toggle"
+  ],
+  "resourcesClosed": [
+    "cs16-observer-roaming browser",
+    "fixture server port 8011"
+  ]
+}

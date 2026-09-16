@@ -1,0 +1,140 @@
+{
+  "manual": {
+    "clip": 9,
+    "reserveInBox": 0,
+    "position": {
+      "x": 71.2385025024414,
+      "y": 6.613666534423828,
+      "z": 69.80635070800781
+    },
+    "scopeReleased": true
+  },
+  "recovered": {
+    "health": 100,
+    "armor": 0,
+    "clip": 9,
+    "reserve": 30,
+    "money": 16000,
+    "seconds": 3593
+  },
+  "botDrop": {
+    "clip": 30,
+    "reserve": 90,
+    "position": {
+      "x": 71.75929260253906,
+      "y": 6.613666534423828,
+      "z": 67.40143585205078
+    }
+  },
+  "enemyPickup": {
+    "health": 100,
+    "armor": 0,
+    "clip": 29,
+    "reserve": 90,
+    "money": 16000,
+    "seconds": 3583
+  },
+  "purchaseReplacement": {
+    "clip": 29,
+    "reserveInBox": 0,
+    "occupiedSlotPreserved": true,
+    "recovered": {
+      "health": 100,
+      "armor": 0,
+      "clip": 29,
+      "reserve": 90,
+      "money": 16000,
+      "seconds": 3578
+    }
+  },
+  "purchaseSelection": {
+    "keptRifle": true,
+    "pistol": "deagle",
+    "pistolClip": 7,
+    "rifle": {
+      "health": 100,
+      "armor": 0,
+      "clip": 29,
+      "reserve": 90,
+      "money": 16000,
+      "seconds": 3574
+    }
+  },
+  "humanDeath": {
+    "entity": "197185",
+    "transform": {
+      "parent": 0,
+      "position": {
+        "x": 85.5,
+        "y": 14.168313,
+        "z": 133.5
+      },
+      "rotation": {
+        "w": 0.99999505,
+        "x": 0,
+        "y": -0.0031418973,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    "gun": "ak47",
+    "clip": 29,
+    "reserve": 90,
+    "mode": 0,
+    "position": {
+      "x": 85.5,
+      "y": 14.151190757751465,
+      "z": 133.5
+    },
+    "yaw": -0.006283804774284363,
+    "round": 1,
+    "settled": false
+  },
+  "nextRound": {
+    "hud": {
+      "health": 100,
+      "armor": 0,
+      "clip": 10,
+      "reserve": 30,
+      "money": 16000,
+      "seconds": 3
+    },
+    "groundGuns": 0
+  },
+  "scoreboard": [
+    "Esc: Buy Equipment",
+    "Prepare to fight!",
+    "Enemies left: 3",
+    "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+1: Scores",
+    "Counter-Strike 1.6 - de_dust2",
+    "Latency",
+    "Terrorists   -   3 players",
+    "BOT Guerilla",
+    "0",
+    "-",
+    "0x61efa2f5...",
+    "1",
+    "1",
+    "-",
+    "Score",
+    "Deaths",
+    "-",
+    "BOT Arctic",
+    "1",
+    "BOT",
+    "1",
+    "Counter-Terrorists   -   1 player",
+    "0",
+    "1",
+    "0",
+    "BOT Phoenix",
+    "0",
+    "0",
+    "BOT",
+    "BOT"
+  ]
+}

@@ -1,0 +1,2788 @@
+{
+  "date": "2026-09-15T09:45:55.637Z",
+  "muted": true,
+  "samples": [
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3590,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465555.901,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3590,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 112.54469750039655,
+            "y": 13.04459278069526,
+            "z": 127.89610445922159
+          },
+          "velocity": {
+            "x": 0.15656361650548212,
+            "y": 0,
+            "z": -5.593589017155906
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 63.225710763889474,
+            "y": 10.026,
+            "z": 100.93466830458894
+          },
+          "velocity": {
+            "x": 4.1613560786447445,
+            "y": 0,
+            "z": -3.6350217686627952
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 60.29377836881163,
+            "y": 10.026,
+            "z": 125.83033481072282
+          },
+          "velocity": {
+            "x": -1.4741506946207175,
+            "y": 0,
+            "z": -2.4659711517746876
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3590,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465556.103,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3590,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 112.49376349702538,
+            "y": 12.764299067035315,
+            "z": 126.77492960458181
+          },
+          "velocity": {
+            "x": -0.4530961492918144,
+            "y": 0,
+            "z": -5.5260265803214885
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 64.07061811027656,
+            "y": 10.026,
+            "z": 100.20542814087528
+          },
+          "velocity": {
+            "x": 4.193562939920592,
+            "y": 0,
+            "z": -3.597388133602325
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 59.99618644151687,
+            "y": 10.026,
+            "z": 125.3320968230487
+          },
+          "velocity": {
+            "x": -1.4727553774593216,
+            "y": 0,
+            "z": -2.466804058709382
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3590,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465556.337,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3590,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 112.41195947576126,
+            "y": 12.552250697028105,
+            "z": 125.92673612455297
+          },
+          "velocity": {
+            "x": -0.22342474320387848,
+            "y": 0,
+            "z": -2.316602625814452
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 65.04306656876969,
+            "y": 10.026,
+            "z": 99.37882051106341
+          },
+          "velocity": {
+            "x": 4.219949004913142,
+            "y": 0,
+            "z": -3.566345222026973
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 59.65614272523478,
+            "y": 10.026,
+            "z": 124.762168135582
+          },
+          "velocity": {
+            "x": -1.471604569452422,
+            "y": 0,
+            "z": -2.467490679784685
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3590,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465556.572,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3590,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 112.38549374984733,
+            "y": 12.483647540919375,
+            "z": 125.65232350011806
+          },
+          "velocity": {
+            "x": -0.0403939878833386,
+            "y": 0,
+            "z": -0.4188292534457001
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 66.06502627275786,
+            "y": 10.026,
+            "z": 98.50591843793151
+          },
+          "velocity": {
+            "x": 4.124683174294002,
+            "y": 0,
+            "z": -3.694653697995615
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 59.32689371505375,
+            "y": 10.026,
+            "z": 124.13956416707195
+          },
+          "velocity": {
+            "x": -1.1133847145211049,
+            "y": 0,
+            "z": -2.7348531353597063
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3589,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465556.739,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3590,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 112.38549374984733,
+            "y": 12.483647540919375,
+            "z": 125.65232350011806
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 66.59799621955302,
+            "y": 10.026,
+            "z": 97.9984781671636
+          },
+          "velocity": {
+            "x": 3.9704666551073133,
+            "y": 0,
+            "z": -3.852262159758733
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 59.2125952395712,
+            "y": 10.026,
+            "z": 123.76996481380559
+          },
+          "velocity": {
+            "x": -0.787680171777734,
+            "y": 0,
+            "z": -2.790503193534618
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3589,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465556.938,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3589,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 112.98784037769512,
+            "y": 12.484520063471686,
+            "z": 125.65581359032728
+          },
+          "velocity": {
+            "x": 4.148335661634254,
+            "y": 0,
+            "z": 0.06590435042469962
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 67.35612005419416,
+            "y": 10.026,
+            "z": 97.20800109193195
+          },
+          "velocity": {
+            "x": 3.751813805825051,
+            "y": 0,
+            "z": -4.067491996159207
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 59.09242979743898,
+            "y": 10.026,
+            "z": 123.21204955263474
+          },
+          "velocity": {
+            "x": -0.5383926830970543,
+            "y": 0,
+            "z": -2.827474048813395
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3589,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465557.072,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3589,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 113.86572380761497,
+            "y": 12.497293713566624,
+            "z": 125.70690819070705
+          },
+          "velocity": {
+            "x": 5.527483122307006,
+            "y": 0,
+            "z": 0.44798144035481396
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 67.84979276326435,
+            "y": 10.026,
+            "z": 96.41845241631893
+          },
+          "velocity": {
+            "x": 2.2195465791356424,
+            "y": 0,
+            "z": -5.19942216972494
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 59.01428988581384,
+            "y": 10.026,
+            "z": 122.73538604045386
+          },
+          "velocity": {
+            "x": -0.43914141681726343,
+            "y": 0,
+            "z": -2.8407115127388676
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3589,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465557.396,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3589,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 115.15035909320491,
+            "y": 12.540651849763618,
+            "z": 125.88034073549503
+          },
+          "velocity": {
+            "x": 2.578224987519132,
+            "y": 0,
+            "z": 0.3822790727352675
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 68.08524417952316,
+            "y": 10.026,
+            "z": 94.74334987255698
+          },
+          "velocity": {
+            "x": 0.08545964966823352,
+            "y": 0,
+            "z": -5.5974516621561685
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 58.89784064266222,
+            "y": 10.026,
+            "z": 121.88417014224049
+          },
+          "velocity": {
+            "x": -0.36563880390210907,
+            "y": 0,
+            "z": -2.849790930888516
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3589,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465557.629,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3589,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 115.45251792405104,
+            "y": 12.55185228787838,
+            "z": 125.92514248795408
+          },
+          "velocity": {
+            "x": 0.6559238949819073,
+            "y": 0,
+            "z": 0.09725527429622546
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 67.99591306081871,
+            "y": 10.026,
+            "z": 93.45825373018751
+          },
+          "velocity": {
+            "x": -0.6052296950655672,
+            "y": 0,
+            "z": -5.50880464789592
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 58.81639534695417,
+            "y": 10.026,
+            "z": 121.22261671987948
+          },
+          "velocity": {
+            "x": -0.34463158024483753,
+            "y": 0,
+            "z": -2.852281145768917
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "live",
+          "remaining": 3,
+          "timeLeft": 3588,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 1,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            3,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465557.804,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3588,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 115.4980744103516,
+            "y": 12.55584583218507,
+            "z": 125.94111666518083
+          },
+          "velocity": {
+            "x": 0.9141400000528688,
+            "y": 0,
+            "z": 0.3916363669446795
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 67.82830922275392,
+            "y": 10.026,
+            "z": 92.34706935229411
+          },
+          "velocity": {
+            "x": -0.9502323879951349,
+            "y": 0,
+            "z": -5.452170073058006
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 58.74755249799595,
+            "y": 10.026,
+            "z": 120.6434724287513
+          },
+          "velocity": {
+            "x": -0.3363814845717211,
+            "y": 0,
+            "z": -2.853247051771289
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades",
+        "Enemies left: 3"
+      ]
+    },
+    {
+      "player": {
+        "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+        "match": {
+          "roster": [
+            {
+              "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "lost",
+          "remaining": 3,
+          "timeLeft": 5,
+          "round": 2,
+          "ctScore": 0,
+          "tScore": 2,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            4,
+            0,
+            0
+          ],
+          "botDeaths": [
+            1,
+            1,
+            1
+          ],
+          "botDifficulty": "normal"
+        },
+        "health": {
+          "current": 0,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789465465.32,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        }
+      },
+      "at": 1789465558.062,
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "connected": true,
+            "eligibleRound": 2
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3588,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "bots": [
+        {
+          "bot": {
+            "index": 0,
+            "team": 1,
+            "health": 100,
+            "name": "Guerilla",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 116.35160104299204,
+            "y": 12.65469011411224,
+            "z": 126.33649379288951
+          },
+          "velocity": {
+            "x": 4.451114901872727,
+            "y": 0,
+            "z": 2.1844029896796475
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 1,
+            "team": 1,
+            "health": 100,
+            "name": "Phoenix",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 67.5188039107462,
+            "y": 10.026,
+            "z": 90.95822778247602
+          },
+          "velocity": {
+            "x": -1.4329750243629662,
+            "y": 0,
+            "z": -5.3650392485433285
+          },
+          "modifier": 1
+        },
+        {
+          "bot": {
+            "index": 2,
+            "team": 1,
+            "health": 100,
+            "name": "Arctic",
+            "alive": true,
+            "weapon": "ak47"
+          },
+          "position": {
+            "x": 58.661994006151694,
+            "y": 10.026,
+            "z": 119.91008467910697
+          },
+          "velocity": {
+            "x": -0.33114281209088403,
+            "y": 0,
+            "z": -2.8538538799987805
+          },
+          "modifier": 1
+        }
+      ],
+      "labels": [
+        "Terrorists Win!"
+      ]
+    }
+  ],
+  "initial": {
+    "player": {
+      "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "live",
+        "remaining": 3,
+        "timeLeft": 3590,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 1,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          3,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "health": {
+        "current": 100,
+        "max": 100,
+        "armor": 0,
+        "maxArmor": 100
+      },
+      "weapon": {
+        "name": "AWP",
+        "revision": 2,
+        "mode": 0,
+        "zoom": 90,
+        "resumeZoom": 90,
+        "alternateAt": 0,
+        "readyAt": 1789465465.32,
+        "damage": 115,
+        "ammoClip": 10,
+        "maxAmmoClip": 10,
+        "ammoReserve": 30,
+        "maxAmmoReserve": 30,
+        "fireRate": 1.4500000476837158,
+        "lastShotTime": 0,
+        "lastShotId": 0,
+        "lastFiredShotId": 0,
+        "isReloading": false,
+        "reloadTime": 2.5,
+        "reloadStartTime": 0,
+        "reloadStage": 0,
+        "reloadStepAt": 0,
+        "reloadStep": 0
+      }
+    },
+    "at": 1789465555.738,
+    "match": {
+      "roster": [
+        {
+          "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+          "team": 2,
+          "connected": true,
+          "eligibleRound": 2
+        },
+        {
+          "address": "bot:0",
+          "team": 1,
+          "eligibleRound": 2,
+          "connected": true
+        },
+        {
+          "address": "bot:1",
+          "team": 1,
+          "eligibleRound": 2,
+          "connected": true
+        },
+        {
+          "address": "bot:2",
+          "team": 1,
+          "eligibleRound": 2,
+          "connected": true
+        }
+      ],
+      "phase": "live",
+      "remaining": 3,
+      "timeLeft": 3590,
+      "round": 2,
+      "ctScore": 0,
+      "tScore": 1,
+      "maxWins": 16,
+      "matchOver": false,
+      "botKills": [
+        3,
+        0,
+        0
+      ],
+      "botDeaths": [
+        1,
+        1,
+        1
+      ],
+      "botDifficulty": "normal"
+    },
+    "bots": [
+      {
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 112.45159001668011,
+          "y": 13.310857434312597,
+          "z": 128.96116307369095
+        },
+        "velocity": {
+          "x": 1.2790961755348786,
+          "y": 0,
+          "z": -5.039118132437612
+        },
+        "modifier": 1
+      },
+      {
+        "bot": {
+          "index": 1,
+          "team": 1,
+          "health": 100,
+          "name": "Phoenix",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 62.43398138801951,
+          "y": 10.026,
+          "z": 101.6325243654529
+        },
+        "velocity": {
+          "x": 4.109559652327213,
+          "y": 0,
+          "z": -3.694807553856597
+        },
+        "modifier": 1
+      },
+      {
+        "bot": {
+          "index": 2,
+          "team": 1,
+          "health": 100,
+          "name": "Arctic",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 60.575473942015165,
+          "y": 10.026,
+          "z": 126.30125591526789
+        },
+        "velocity": {
+          "x": -1.4763766636927083,
+          "y": 0,
+          "z": -2.4646412469230783
+        },
+        "modifier": 1
+      }
+    ]
+  },
+  "encounter": {
+    "x": 112.45159001668011,
+    "y": 14.310857434312597,
+    "z": 132.96116307369095
+  },
+  "result": {
+    "player": {
+      "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 2,
+            "connected": true
+          }
+        ],
+        "phase": "lost",
+        "remaining": 3,
+        "timeLeft": 5,
+        "round": 2,
+        "ctScore": 0,
+        "tScore": 2,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          4,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "health": {
+        "current": 0,
+        "max": 100,
+        "armor": 0,
+        "maxArmor": 100
+      },
+      "weapon": {
+        "name": "AWP",
+        "revision": 2,
+        "mode": 0,
+        "zoom": 90,
+        "resumeZoom": 90,
+        "alternateAt": 0,
+        "readyAt": 1789465465.32,
+        "damage": 115,
+        "ammoClip": 10,
+        "maxAmmoClip": 10,
+        "ammoReserve": 30,
+        "maxAmmoReserve": 30,
+        "fireRate": 1.4500000476837158,
+        "lastShotTime": 0,
+        "lastShotId": 0,
+        "lastFiredShotId": 0,
+        "isReloading": false,
+        "reloadTime": 2.5,
+        "reloadStartTime": 0,
+        "reloadStage": 0,
+        "reloadStepAt": 0,
+        "reloadStep": 0
+      }
+    },
+    "at": 1789465558.129,
+    "match": {
+      "roster": [
+        {
+          "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+          "team": 2,
+          "connected": true,
+          "eligibleRound": 2
+        },
+        {
+          "address": "bot:0",
+          "team": 1,
+          "eligibleRound": 2,
+          "connected": true
+        },
+        {
+          "address": "bot:1",
+          "team": 1,
+          "eligibleRound": 2,
+          "connected": true
+        },
+        {
+          "address": "bot:2",
+          "team": 1,
+          "eligibleRound": 2,
+          "connected": true
+        }
+      ],
+      "phase": "lost",
+      "remaining": 3,
+      "timeLeft": 5,
+      "round": 2,
+      "ctScore": 0,
+      "tScore": 2,
+      "maxWins": 16,
+      "matchOver": false,
+      "botKills": [
+        4,
+        0,
+        0
+      ],
+      "botDeaths": [
+        1,
+        1,
+        1
+      ],
+      "botDifficulty": "normal"
+    },
+    "bots": [
+      {
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 116.35160104299204,
+          "y": 12.65469011411224,
+          "z": 126.33649379288951
+        },
+        "velocity": {
+          "x": 4.451114901872727,
+          "y": 0,
+          "z": 2.1844029896796475
+        },
+        "modifier": 1
+      },
+      {
+        "bot": {
+          "index": 1,
+          "team": 1,
+          "health": 100,
+          "name": "Phoenix",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 67.5188039107462,
+          "y": 10.026,
+          "z": 90.95822778247602
+        },
+        "velocity": {
+          "x": -1.4329750243629662,
+          "y": 0,
+          "z": -5.3650392485433285
+        },
+        "modifier": 1
+      },
+      {
+        "bot": {
+          "index": 2,
+          "team": 1,
+          "health": 100,
+          "name": "Arctic",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 58.661994006151694,
+          "y": 10.026,
+          "z": 119.91008467910697
+        },
+        "velocity": {
+          "x": -0.33114281209088403,
+          "y": 0,
+          "z": -2.8538538799987805
+        },
+        "modifier": 1
+      }
+    ],
+    "labels": [
+      "Terrorists Win!",
+      "BOT Guerilla   AK-47   0xd38441f6..."
+    ]
+  },
+  "respawn": {
+    "player": {
+      "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+      "match": {
+        "roster": [
+          {
+            "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+            "team": 2,
+            "eligibleRound": 3,
+            "connected": true
+          },
+          {
+            "address": "bot:0",
+            "team": 1,
+            "eligibleRound": 3,
+            "connected": true
+          },
+          {
+            "address": "bot:1",
+            "team": 1,
+            "eligibleRound": 3,
+            "connected": true
+          },
+          {
+            "address": "bot:2",
+            "team": 1,
+            "eligibleRound": 3,
+            "connected": true
+          }
+        ],
+        "phase": "freeze",
+        "remaining": 3,
+        "timeLeft": 3,
+        "round": 3,
+        "ctScore": 0,
+        "tScore": 2,
+        "maxWins": 16,
+        "matchOver": false,
+        "botKills": [
+          4,
+          0,
+          0
+        ],
+        "botDeaths": [
+          1,
+          1,
+          1
+        ],
+        "botDifficulty": "normal"
+      },
+      "health": {
+        "current": 100,
+        "max": 100,
+        "armor": 0,
+        "maxArmor": 100
+      },
+      "weapon": {
+        "name": "AWP",
+        "revision": 3,
+        "mode": 0,
+        "zoom": 90,
+        "resumeZoom": 90,
+        "alternateAt": 0,
+        "readyAt": 1789465564.547,
+        "damage": 115,
+        "ammoClip": 10,
+        "maxAmmoClip": 10,
+        "ammoReserve": 30,
+        "maxAmmoReserve": 30,
+        "fireRate": 1.4500000476837158,
+        "lastShotTime": 0,
+        "lastShotId": 0,
+        "lastFiredShotId": 0,
+        "isReloading": false,
+        "reloadTime": 2.5,
+        "reloadStartTime": 0,
+        "reloadStage": 0,
+        "reloadStepAt": 0,
+        "reloadStep": 0
+      }
+    },
+    "at": 1789465563.236,
+    "match": {
+      "roster": [
+        {
+          "address": "0xd38441f61c277ed1940828c2c29a0f5d21bfefbd",
+          "team": 2,
+          "connected": true,
+          "eligibleRound": 3
+        },
+        {
+          "address": "bot:0",
+          "team": 1,
+          "eligibleRound": 3,
+          "connected": true
+        },
+        {
+          "address": "bot:1",
+          "team": 1,
+          "eligibleRound": 3,
+          "connected": true
+        },
+        {
+          "address": "bot:2",
+          "team": 1,
+          "eligibleRound": 3,
+          "connected": true
+        }
+      ],
+      "phase": "freeze",
+      "remaining": 3,
+      "timeLeft": 3,
+      "round": 3,
+      "ctScore": 0,
+      "tScore": 2,
+      "maxWins": 16,
+      "matchOver": false,
+      "botKills": [
+        4,
+        0,
+        0
+      ],
+      "botDeaths": [
+        1,
+        1,
+        1
+      ],
+      "botDifficulty": "normal"
+    },
+    "bots": [
+      {
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 85.5,
+          "y": 13.4393,
+          "z": 131
+        },
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "modifier": 1
+      },
+      {
+        "bot": {
+          "index": 1,
+          "team": 1,
+          "health": 100,
+          "name": "Phoenix",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 85.5,
+          "y": 13.4393,
+          "z": 133.5
+        },
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "modifier": 1
+      },
+      {
+        "bot": {
+          "index": 2,
+          "team": 1,
+          "health": 100,
+          "name": "Arctic",
+          "alive": true,
+          "weapon": "ak47"
+        },
+        "position": {
+          "x": 85.5,
+          "y": 13.4889,
+          "z": 136.5
+        },
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "modifier": 1
+      }
+    ]
+  }
+}

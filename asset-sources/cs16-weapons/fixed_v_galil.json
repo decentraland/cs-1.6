@@ -1,0 +1,33 @@
+{
+  "name": "fixed_v_galil",
+  "sourceSha256": "1cf403c285cd180da0f21760f3174e356ca10607db084928c239f00aeced002e",
+  "triangles": 1306,
+  "skippedDegenerateTriangles": 0,
+  "bones": 52,
+  "textures": 4,
+  "animations": {
+    "idle": 0.03333333333333333,
+    "reload": 2.5714285714285716,
+    "draw": 1.0,
+    "shoot1": 0.8571428571428571,
+    "shoot2": 0.8571428571428571,
+    "shoot3": 0.8571428571428571
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.28807780146598816,
+      -0.3314373791217804,
+      -0.019864670932292938
+    ],
+    "max": [
+      0.05757417157292366,
+      -0.038467779755592346,
+      0.7426409721374512
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.4825734345136343e-05,
+  "bytes": 697796,
+  "blender": "5.2.1 LTS"
+}

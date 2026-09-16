@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_thighpack.mdl",
+    "path": "asset-sources/cs16-weapons/w_thighpack.mdl",
+    "sha256": "3d3697d0e254646199c6a9106991d1fa8a18919e0d4852355b611d75f1f1bbad",
+    "bytes": 7752
+  },
+  {
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/items/kevlar.wav",
+    "path": "assets/sounds/player/original/kit-pickup.wav",
+    "sha256": "6fe1c8aa2235946ad984dcf8f3d871649c477ef7db01701f02ef57c9a11c2bb9",
+    "bytes": 11164
+  }
+]

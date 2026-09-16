@@ -28,7 +28,7 @@ after(() => rmSync(output, { recursive: true, force: true }))
 
 const feet = { x: 95, y: 10.026, z: 52 }
 const target = { x: 88, y: feet.y + 1.05, z: 52 }
-const targets = [{ id: 'player', center: { ...target, y: feet.y }, regions: PLAYER_HIT_REGIONS }]
+const targets = [{ id: 'player', center: { ...target, y: feet.y }, yaw: Math.PI / 2, regions: PLAYER_HIT_REGIONS }]
 const options = (now, extra = {}) => ({
   feet,
   target,

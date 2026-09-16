@@ -1,0 +1,335 @@
+{
+  "sourceRevision": "6ad155c7a610a85cfd443fcace2c97f2afcb2866",
+  "files": [
+    {
+      "file": "assets/sounds/movement/pl_step1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_step1.wav",
+      "sha256": "287fcb5e7514076308895f741c1f6c9eea49a301e6026e24b806c5516798028f",
+      "bytes": 3064,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 2937,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_step2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_step2.wav",
+      "sha256": "54ff1723d360277f38ea8afdbeeb91b3c0fd5136c23ff0ba603ba280d3a9b89a",
+      "bytes": 2556,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 2430,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_step3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_step3.wav",
+      "sha256": "fdfb38b853f854939da2ad4d9f73c8f0198ef77e465b965546a8c015171cc818",
+      "bytes": 2344,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 2217,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_step4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_step4.wav",
+      "sha256": "233580d4dadaf111df1ceaa2f1e93d2f7e487b34ce4a90f86f29f0241e3a36dc",
+      "bytes": 2948,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 2821,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_metal1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_metal1.wav",
+      "sha256": "7d4458e1ce4bb12fb016c5e47b5a38b7f0365e0f9bec0864ad2333eb4f510918",
+      "bytes": 6546,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 6420,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_metal2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_metal2.wav",
+      "sha256": "b2a5e41dafa1b1326d3b10b884d0cdb4c4badfc1f5382f673738e37904b6372e",
+      "bytes": 6216,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 6089,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_metal3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_metal3.wav",
+      "sha256": "1ed0c8e87a42b77bccf767524aaf884daadb3a6b47da87d1aa114bd419e04937",
+      "bytes": 6808,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 6682,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_metal4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_metal4.wav",
+      "sha256": "ad9916f30ed83c0dc832733ab961afeff54119f0863a7c182aa2b6ceedd05eed",
+      "bytes": 6190,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 6064,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_dirt1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_dirt1.wav",
+      "sha256": "fcb33d313c4a30a1eee6b0428881c06d1924aa8d753fd38079d1962268250fae",
+      "bytes": 3894,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 3767,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_dirt2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_dirt2.wav",
+      "sha256": "7eda8b0e72aa8c950f0f2249b1a6969e1534fda57e334c469b963bf59565f155",
+      "bytes": 3368,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 3241,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_dirt3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_dirt3.wav",
+      "sha256": "dc936d6d7001fdf6f75b98621a029df1bb0eae7dd38833cc6bcb1f9c609760c5",
+      "bytes": 4234,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 4107,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_dirt4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_dirt4.wav",
+      "sha256": "767404ec2f441c730e6081c6a482440d3a5d8518ee4a84f491db0d66905b27b6",
+      "bytes": 5060,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 4933,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_duct1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_duct1.wav",
+      "sha256": "b83fdaeeb2a3ae304bc34d4259ce90b623293446bc611eaff326e399743b43d4",
+      "bytes": 9500,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 9373,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_duct2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_duct2.wav",
+      "sha256": "a41d652c5857d18d2df63622260c7fc1615857e3f89c53f293f6bf364a8a9303",
+      "bytes": 9532,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 9406,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_duct3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_duct3.wav",
+      "sha256": "cc6315d5c1a30ed910029fb32d1b85c2cc3f497c3f03e7669109fd9c13b55c73",
+      "bytes": 10184,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 10057,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_duct4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_duct4.wav",
+      "sha256": "277b6b0b9f8f2b423bb335640c7dd0bf0fb840fb45c24426db147fa578b15417",
+      "bytes": 9160,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 9034,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_grate1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_grate1.wav",
+      "sha256": "1cdf3fed37f77c938c6666313eac0feff70ca10c50e28d5c38c0f01c548333ff",
+      "bytes": 9188,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 9062,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_grate2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_grate2.wav",
+      "sha256": "d49dade9765fd7bba37c607d60ea7573503ddf627bbbadee8ec7d44c972c0128",
+      "bytes": 9618,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 9491,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_grate3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_grate3.wav",
+      "sha256": "9177f653f4db8b73d283d9656a33c55a5add708172742481990f8bdad992579c",
+      "bytes": 9342,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 9215,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_grate4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_grate4.wav",
+      "sha256": "a32d5a993c4089ff5ef8dc0569fbe7a288e2a845e8bee41eb9b8e50e4337d5b1",
+      "bytes": 10314,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 10187,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_tile1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_tile1.wav",
+      "sha256": "759ea170ce2d62f1fbe30c234e9f2b95f3992f03e870ecf20407103b0a2d2cd2",
+      "bytes": 2636,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 2510,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_tile2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_tile2.wav",
+      "sha256": "7e6c3ebbadf820c49398767f4059000d3028f035e07e3115b839fb3745b66f01",
+      "bytes": 2626,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 2500,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_tile3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_tile3.wav",
+      "sha256": "e963052ac1e8b2d24740e1c11d48588acf2b48fde1af72494024de538dd401d2",
+      "bytes": 2990,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 2863,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_tile4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_tile4.wav",
+      "sha256": "6620397e2ee3a8c096a68b41f58906fb1cdd4a0dd12fefa7047cc6382b2e582f",
+      "bytes": 2840,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 2713,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_tile5.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_tile5.wav",
+      "sha256": "0073d81840934bf3762a63d252770207f36b4361b58756e37e724b233320e0eb",
+      "bytes": 3554,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 3421,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_slosh1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_slosh1.wav",
+      "sha256": "8f8e4d4402e70680c620090d4e2b91d739ce1836328ef789bb31d5a1515c0d1c",
+      "bytes": 9892,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 9766,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_slosh2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_slosh2.wav",
+      "sha256": "853baeea685193ea46908aa748e014afe097ad23b47c603152eeef822c3a4908",
+      "bytes": 9440,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 9314,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_slosh3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_slosh3.wav",
+      "sha256": "85bca96463e6e1be8c61b6ba8fb95256b079b0e2e7edf0de77be85416ee79eb3",
+      "bytes": 8990,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 8863,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_slosh4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_slosh4.wav",
+      "sha256": "f7072aaa82208f2b16144d6bde7a26652f0569c151848c86ae556ab012b28de0",
+      "bytes": 7688,
+      "channels": 1,
+      "sampleRate": 11025,
+      "frames": 7561,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_snow1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_snow1.wav",
+      "sha256": "8c4f8b24972048a7dd270d60fe8176560cca8691926bd8f83121637b44c7e64a",
+      "bytes": 9132,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 9088,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_snow2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_snow2.wav",
+      "sha256": "daea226034d9c72ff4e933ed755e7afe53b35dd88e8a251de1283d22c30242b8",
+      "bytes": 7148,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 7104,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_snow3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_snow3.wav",
+      "sha256": "4689b557da2c8e8ccf60eee0b324b0c4d81f7621ba2956daaf1f2070e5f7b305",
+      "bytes": 6124,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 6080,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/movement/pl_snow4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/player/pl_snow4.wav",
+      "sha256": "2616398d9b2897e4d07325abe6a663a0fed68fe476ebe61893ea965ef1be4d12",
+      "bytes": 9132,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 9088,
+      "sampleWidth": 1
+    }
+  ]
+}

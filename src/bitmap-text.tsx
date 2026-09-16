@@ -9,6 +9,11 @@ interface BitmapFont {
 }
 const atlas: { width: number; height: number; fonts: Record<string, BitmapFont> } = fontData
 
+export function bitmapTextWidth(value: string, size: number) {
+  const font = atlas.fonts[String(size)]
+  return Array.from(value).reduce((width, character) => width + (font?.glyphs[character]?.[4] ?? size * 0.6), 0)
+}
+
 export function scoreFontSize(height: number) {
   return height < 600 ? 12 : height < 768 ? 13 : height < 1024 ? 14 : height < 1200 ? 20 : 24
 }

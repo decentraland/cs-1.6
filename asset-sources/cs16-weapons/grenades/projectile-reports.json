@@ -1,0 +1,113 @@
+[
+  {
+    "id": "hegrenade",
+    "src": "assets/scene/weapons/hegrenade-projectile.glb",
+    "sha256": "eee21df7f07584696eb2ce8ca4ba79fb98c376030c42dae3b86b72b7719b5faf",
+    "name": "w_hegrenade",
+    "sourceSha256": "59bca29c4207ebfaab9f65e4b61dc26bfffa7cc2eb86b761bb11ca7b025e4458",
+    "triangles": 40,
+    "skippedDegenerateTriangles": 0,
+    "bones": 1,
+    "textures": 2,
+    "animations": {
+      "idle": 0.03333333333333333,
+      "roll1": 1.3333333333333333,
+      "roll2": 1.3333333333333333,
+      "roll3": 1.3333333333333333,
+      "toss1": 1.3333333333333333,
+      "toss2": 1.3333333333333333,
+      "toss3": 1.3333333333333333
+    },
+    "idle": "idle",
+    "idleBounds": {
+      "min": [
+        -0.16166934370994568,
+        0.0015493073733523488,
+        0.0468502901494503
+      ],
+      "max": [
+        0.27908122539520264,
+        0.20379936695098877,
+        0.28060147166252136
+      ]
+    },
+    "unitMetres": 0.025,
+    "maxPoseMatrixError": 3.725290298461914e-07,
+    "bytes": 30996,
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "id": "flashbang",
+    "src": "assets/scene/weapons/flashbang-projectile.glb",
+    "sha256": "3085d7f2a52c38721644edc9040f9f6420e17690c7325365d7e3d0fbdbe68c19",
+    "name": "w_flashbang",
+    "sourceSha256": "e17e5165696712a0a100de34ee6eb23016120abbd37b8a4b47ed445a5c1b088a",
+    "triangles": 40,
+    "skippedDegenerateTriangles": 0,
+    "bones": 1,
+    "textures": 2,
+    "animations": {
+      "idle": 0.03333333333333333,
+      "roll1": 1.3333333333333333,
+      "roll2": 1.3333333333333333,
+      "roll3": 1.3333333333333333,
+      "toss1": 1.3333333333333333,
+      "toss2": 1.3333333333333333,
+      "toss3": 1.3333333333333333
+    },
+    "idle": "idle",
+    "idleBounds": {
+      "min": [
+        -0.16166934370994568,
+        0.0015493073733523488,
+        0.0468502901494503
+      ],
+      "max": [
+        0.27908122539520264,
+        0.20379936695098877,
+        0.28060147166252136
+      ]
+    },
+    "unitMetres": 0.025,
+    "maxPoseMatrixError": 3.725290298461914e-07,
+    "bytes": 32024,
+    "blender": "5.2.1 LTS"
+  },
+  {
+    "id": "smokegrenade",
+    "src": "assets/scene/weapons/smokegrenade-projectile.glb",
+    "sha256": "407ac4aa352e1e9663e2ae5f602b663b5b90acc717253c1377280fd46066dfdf",
+    "name": "w_smokegrenade",
+    "sourceSha256": "ed5c5530f4ee4b0d59aa560565591fe44a7f1fc127fe7f745768ae35be4da2ed",
+    "triangles": 40,
+    "skippedDegenerateTriangles": 0,
+    "bones": 1,
+    "textures": 2,
+    "animations": {
+      "idle": 0.03333333333333333,
+      "roll1": 1.3333333333333333,
+      "roll2": 1.3333333333333333,
+      "roll3": 1.3333333333333333,
+      "toss1": 1.3333333333333333,
+      "toss2": 1.3333333333333333,
+      "toss3": 1.3333333333333333
+    },
+    "idle": "idle",
+    "idleBounds": {
+      "min": [
+        -0.16166934370994568,
+        0.0015493073733523488,
+        0.0468502901494503
+      ],
+      "max": [
+        0.27908122539520264,
+        0.20379936695098877,
+        0.28060147166252136
+      ]
+    },
+    "unitMetres": 0.025,
+    "maxPoseMatrixError": 3.725290298461914e-07,
+    "bytes": 30916,
+    "blender": "5.2.1 LTS"
+  }
+]

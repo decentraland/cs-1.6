@@ -4,14 +4,15 @@ import { inputSystem, InputAction, PointerEventType } from '@dcl/sdk/ecs'
 import { PlayerEquipment, PlayerHealth, PlayerMoney, PlayerTeam, PlayerInventory, Weapon } from './components'
 import { getLocalPlayerEntity } from './client'
 import { buyEquipment, canOpenBuyMenu, closeBuyMenu, isBuyMenuVisible, openBuyMenu } from './buy-client'
-import { isTouchPlatform } from './platform'
-import { GUNS, GunProfile, gunProfile } from './weapon-profiles'
+import { GunCategory, GunProfile, gunProfile, buyMenuGuns } from './weapon-profiles'
 import { equipmentPrice } from './economy-rules'
+import { GRENADES } from './grenade-profiles'
+import { grenadeCount } from './grenade-rules'
 import { getMenuCursor } from './menu-state'
 import { amber, isMenuButtonHovered, MenuButton, MenuFrame, MenuInfoPanel, menuLayout } from './menu-ui'
 
 // CS 1.6 BuyMenu.res flow: a category list, then a submenu per category; 6/7 buy ammo directly.
-type Category = 'root' | 'pistols' | 'rifles' | 'equipment'
+type Category = 'root' | GunCategory | 'equipment'
 interface BuyRow {
   label: string
   price?: number
@@ -37,7 +38,13 @@ function gunInfo(gun: GunProfile): string[] {
     `Clip: ${gun.clip}   Reserve: ${gun.reserve}`,
     `Damage: ${gun.damage}`,
     `Rate of fire: ${Math.round(60 / gun.fireRate)} rpm`,
-    gun.automatic ? 'Fully automatic' : 'Semi-automatic'
+    gun.pellets > 1
+      ? `${gun.pellets} pellets per shell`
+      : gun.id === 'awp' || gun.id === 'scout'
+        ? 'Bolt-action'
+        : gun.automatic
+          ? 'Automatic fire'
+          : 'Semi-automatic'
   ]
 }
 
@@ -62,7 +69,14 @@ function buyRows(): BuyRow[] {
     label,
     price,
     enabled: price !== undefined && funds >= price,
-    info,
+    info: [
+      ...info,
+      ...(price === undefined
+        ? ['', 'Already owned, full or unavailable.']
+        : funds < price
+          ? ['', 'Not enough money.']
+          : [])
+    ],
     action
   })
   const gunRow = (key: number, gun: GunProfile) =>
@@ -95,17 +109,8 @@ function buyRows(): BuyRow[] {
       category = next
     }
   })
-  const locked = (label: string): BuyRow => ({
-    label,
-    enabled: false,
-    info: ['Not available in this scene.'],
-    action: () => {}
-  })
-  const guns = Object.values(GUNS).filter((gun) => !gun.team || gun.team === team)
-  if (category === 'pistols')
-    return [...guns.filter((gun) => gun.slot === 'secondary').map((gun, index) => gunRow(index + 1, gun)), back()]
-  if (category === 'rifles')
-    return [...guns.filter((gun) => gun.slot === 'primary').map((gun, index) => gunRow(index + 1, gun)), back()]
+  if (category !== 'root' && category !== 'equipment')
+    return [...buyMenuGuns(team, category).map((gun, index) => gunRow(index + 1, gun)), back()]
   if (category === 'equipment') {
     const rows = [
       priced(
@@ -121,34 +126,49 @@ function buyRows(): BuyRow[] {
         () => buyEquipment('assaultsuit')
       )
     ]
+    for (const [index, id] of (['flashbang', 'hegrenade', 'smokegrenade'] as const).entries()) {
+      const grenade = GRENADES[id]
+      rows.push(
+        priced(
+          `${index + 3} ${grenade.name.toUpperCase()}`,
+          grenadeCount(inventory, id) < grenade.capacity ? grenade.price : undefined,
+          [
+            grenade.name.toUpperCase(),
+            '',
+            `Price: ${money(grenade.price)}`,
+            `Carry limit: ${grenade.capacity}`,
+            'Hold fire to pull the pin; release to throw.'
+          ],
+          () => buyEquipment('grenade:' + id)
+        )
+      )
+    }
+    rows.push(priced('6 NIGHTVISION', undefined, ['NIGHTVISION', '', 'Price: $1250'], () => {}))
     if (team === 2)
       rows.push(
         priced(
-          '3 DEFUSAL KIT',
+          '7 DEFUSAL KIT',
           equipmentPrice(account, 'defusekit', team),
           ['DEFUSAL KIT', '', 'Price: $200', 'Defuses the C4 in 5 seconds instead of 10.'],
           () => buyEquipment('defusekit')
         )
       )
+    if (team === 2) rows.push(priced('8 TACTICAL SHIELD', undefined, ['TACTICAL SHIELD', '', 'Price: $2200'], () => {}))
     return [...rows, back()]
   }
   return [
     open('1 PISTOLS', 'pistols', ['PISTOLS', '', 'Sidearms for both teams.']),
-    locked('2 SHOTGUNS'),
-    locked('3 SUB-MACHINE GUNS'),
-    open('4 RIFLES', 'rifles', [
-      'RIFLES',
-      '',
-      team === 1 ? 'AK-47 for the Terrorists.' : 'M4A1 for the Counter-Terrorists.'
-    ]),
-    locked('5 MACHINE GUN'),
-    priced('6 PRIMARY AMMO', ammoPrice('primary'), ['PRIMARY AMMO', '', 'One magazine for your rifle.'], () =>
+    open('2 SHOTGUNS', 'shotguns', ['SHOTGUNS', '', 'Pump-action and automatic shotguns.']),
+    open('3 SUB-MACHINE GUNS', 'smgs', ['SUB-MACHINE GUNS', '', 'Close-range automatic weapons.']),
+    open('4 RIFLES', 'rifles', ['RIFLES', '', 'Assault rifles and sniper rifles.']),
+    open('5 MACHINE GUN', 'machineguns', ['MACHINE GUN', '', 'M249 light machine gun.']),
+    priced('6 PRIMARY AMMO', ammoPrice('primary'), ['PRIMARY AMMO', '', 'One ammo pack for your primary.'], () =>
       buyEquipment('ammo')
     ),
-    priced('7 SECONDARY AMMO', ammoPrice('secondary'), ['SECONDARY AMMO', '', 'One magazine for your pistol.'], () =>
+    priced('7 SECONDARY AMMO', ammoPrice('secondary'), ['SECONDARY AMMO', '', 'One ammo pack for your pistol.'], () =>
       buyEquipment('secondaryammo')
     ),
-    open('8 EQUIPMENT', 'equipment', ['EQUIPMENT', '', 'Armor and defusal kit.']),
+    open('8 EQUIPMENT', 'equipment', ['EQUIPMENT', '', 'Armor, grenades and defusal kit.']),
     { label: '0 CANCEL', enabled: true, info: [], action: closeBuyMenu }
   ]
 }
@@ -208,19 +228,24 @@ export function BuyHud({ width, height }: { width: number; height: number }) {
         {equipment?.defuseKit && (
           <Label value="Defuse Kit" color={amber} fontSize={16} uiTransform={{ width: 320, height: 25 }} />
         )}
-        {canOpenBuyMenu() && !visible && !isTouchPlatform() && (
-          <Label value="Esc: Buy Equipment" color={amber} fontSize={16} uiTransform={{ width: 320, height: 25 }} />
-        )}
-        {canOpenBuyMenu() && !visible && isTouchPlatform() && (
-          <UiEntity
-            onMouseDown={openBuyMenu}
-            uiTransform={{ width: 120, height: 36, borderWidth: 1, borderColor: amber }}
-            uiBackground={{ color: Color4.create(0, 0, 0, 0.6) }}
-          >
-            <Label value="BUY" color={amber} fontSize={18} uiTransform={{ width: 120, height: 36 }} />
-          </UiEntity>
-        )}
       </UiEntity>
+      {canOpenBuyMenu() && !visible && (
+        <UiEntity
+          onMouseDown={openBuyMenu}
+          uiTransform={{
+            positionType: 'absolute',
+            // The HUD root is 0x0, so anchor from the left; mirrors the touch SCORES button above it.
+            position: { left: width - 132, top: 104 },
+            width: 110,
+            height: 36,
+            borderWidth: 1,
+            borderColor: amber
+          }}
+          uiBackground={{ color: Color4.create(0, 0, 0, 0.6) }}
+        >
+          <Label value="BUY" color={amber} fontSize={18} uiTransform={{ width: 110, height: 36 }} />
+        </UiEntity>
+      )}
       {visible && (
         <MenuFrame width={width} height={height} title="BUY" layout={layout} onBackdropClick={closeBuyMenu}>
           {buttons.map((props, index) => (

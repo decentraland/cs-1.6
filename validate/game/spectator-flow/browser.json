@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-15T13:49:30.785Z",
+  "muted": true,
+  "checks": [
+    "death transition precedes chase",
+    "own health/armor/ammo/money hidden in chase; timer retained",
+    "Escape opens clickable menu",
+    "Resume preserves target",
+    "forward/reverse target cycling without ammunition consumption"
+  ],
+  "deadHud": {
+    "health": 0,
+    "armor": 0,
+    "clip": 10,
+    "reserve": 30,
+    "money": 16000,
+    "seconds": 60
+  },
+  "chaseHud": {
+    "seconds": 57
+  },
+  "target": {
+    "address": "bot:0",
+    "name": "BOT Guerilla",
+    "team": 1,
+    "health": 100,
+    "position": {
+      "x": 85.5,
+      "y": 13.439299583435059,
+      "z": 131
+    }
+  }
+}

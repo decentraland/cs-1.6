@@ -21,3 +21,10 @@ src
 cursor.config
 cursorignore
 .github
+asset-sources/ak47-cs16
+asset-sources/cs16-weapons
+asset-sources/dust2
+
+asset-sources/players
+
+scripts

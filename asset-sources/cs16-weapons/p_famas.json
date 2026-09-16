@@ -1,0 +1,21 @@
+{
+  "id": "famas",
+  "sourceSha256": "2ba517cebe96ae42bed2c872cde6e0d83deb3bde9223707838eddc3660d3ac72",
+  "triangles": 161,
+  "bytes": 24300,
+  "anchor": "Bip01 R Hand",
+  "blenderBounds": {
+    "min": [
+      -0.04417489096522331,
+      -0.5694537162780762,
+      -0.09005472809076309
+    ],
+    "max": [
+      0.03615507856011391,
+      0.27893826365470886,
+      0.19755293428897858
+    ]
+  },
+  "sourceTriangles": 164,
+  "skippedDegenerateTriangles": 3
+}

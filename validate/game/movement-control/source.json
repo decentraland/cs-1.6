@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-15T09:07:39.914573+00:00",
+  "reGameDll": "b0889847fe6d03898be88acc9e366660efb40ab5",
+  "inspectedBevyCheckout": "0cfd373d94b707dbd37da33fe60d62be92b74dfc",
+  "browser": "Official hosted Bevy web; muted headless Brave 151.0.7922.169, WebGPU",
+  "sceneSdk": "7.27.1-33533530571.commit-451d001",
+  "files": {
+    "src/bevy-movement.ts": "887c6c286386e2cc961046211d17c7595300926497553954d305aa6c2699e37f",
+    "src/cs-movement.ts": "cfab04b54cae19c6f55662c92ea5efc3ad3c598dd76d40d3728a6715af02e4ab",
+    "src/cs-movement-rules.ts": "f71f94648ed3dd97919bb5171c9cd65ee025edb03d0d7fcdcbe1cf4b8f67ab91",
+    "src/movement-ground.ts": "02898cb33fc6632786ebe4419d4122824f6edd78d46f38a0d35e8e75248d3b03",
+    "src/locomotion.ts": "c75d6e16ec55b05811bf8e3e32ac477833e1d19946e5e69cd341e50c7c7090af",
+    "src/client.ts": "d64518db6ee6d538bb9f003214d05e5c4dc58160f204ed7680964493ac517f45",
+    "src/index.ts": "d86d35b120e27c834a7e682ba6e3e127c69e0e6537e8f2308f45b631bdc4bf6b",
+    "src/server.ts": "95e901597a34c3574601a486f688aaddabea01399e42eb724c88d1e0195cbbd3",
+    "tests/cs-movement.test.mjs": "9bb03a5100fc5f3ea582e2ffe7ea0ed03e81d2adbd168f08d34be21b797a609d",
+    "tests/movement-ground.test.mjs": "a1bab998e977a605c20d33f8c296f5232972e58265b1871054eb07e591b02a0f",
+    "validate/cs-movement.mjs": "271b9297f7078c181292d6d0ff3e1277ff568025078970257643e808afe99120",
+    "validate/cs-steps.mjs": "47adc7b0267ff2082c44d2ee5c17c0a504b80e1b89611b470e7e837adb1411a2",
+    "validate/prepare-cs-movement.mjs": "1c7f0d7a757e57641f620bb0ef35f3a26cd1285fb2096f51fc0c7cb76e4640a6",
+    "README.md": "6e125467488b83c61aede96945e896d831aae20937507d4a4a6f9b62fca1b5c8",
+    "CLAUDE.md": "f21730576207022510ed4bf1dea13ed9cf0e5eea03fa7c166956265b75509f3e",
+    "IMPLEMENTATION_PLAN.md": "fee346ff740164211d424fcfbbba06f32442c6f6c9624b917d8c7ca6ac77f8f1",
+    "docs/CS16-MOVEMENT.md": "e5c1539a273620580259632b4bdf674c18a89e8fc6a2a82349b3d02ff4d247f3",
+    "docs/CS16-MOVEMENT-AUDIO.md": "04e1f0b70c0b2dbcb3d4b0e0dafe6791f3ea473b52dd0bef6a2308ea01cd8bb8",
+    "docs/CS16-FALLING.md": "56dc721479ae246ce4c6992d4591d64c0ecac488159e2b92303d0a038a22036a",
+    "docs/CS16-ARSENAL.md": "2d04f78e9b6dea3969a38e5d7fb489e2528a6170c4b50cc107bff81a8e5be7b7"
+  }
+}

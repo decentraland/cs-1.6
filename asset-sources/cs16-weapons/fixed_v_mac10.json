@@ -1,0 +1,33 @@
+{
+  "name": "fixed_v_mac10",
+  "sourceSha256": "bdac2f7f8711ff448ec7d19017b35b8691b85037034c7dfa88256aedbdd9c7fb",
+  "triangles": 1034,
+  "skippedDegenerateTriangles": 0,
+  "bones": 46,
+  "textures": 6,
+  "animations": {
+    "idle1": 0.6666666666666666,
+    "reload": 3.142857142857143,
+    "draw": 0.9090909090909091,
+    "shoot1": 0.9259259259259259,
+    "shoot2": 0.9259259259259259,
+    "shoot3": 0.9259259259259259
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.17454488575458527,
+      -0.2835836112499237,
+      -0.01551074255257845
+    ],
+    "max": [
+      0.13848133385181427,
+      -0.043396785855293274,
+      0.39956918358802795
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.6689300537109375e-06,
+  "bytes": 656180,
+  "blender": "5.2.1 LTS"
+}

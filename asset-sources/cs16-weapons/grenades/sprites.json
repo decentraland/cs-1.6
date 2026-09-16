@@ -1,0 +1,2122 @@
+{
+  "black_smoke1": {
+    "src": "assets/ui/grenade-black_smoke1.png",
+    "width": 444,
+    "height": 370,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      }
+    ],
+    "mode": 2,
+    "sourceSha256": "4e1fc505cccad4afef2b6cb54e5869842b12ec83d216c973de8f8458ea0e4c06",
+    "sha256": "e6f8116f84553a7ea5a7e31f3615ff27bd6fd2c730685ad6e5d7d9e3ed98bb80"
+  },
+  "black_smoke2": {
+    "src": "assets/ui/grenade-black_smoke2.png",
+    "width": 444,
+    "height": 370,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      }
+    ],
+    "mode": 2,
+    "sourceSha256": "393c531e12a4625524a12cb840876b81882db54b9e0a489f2be0e2ac6b36a114",
+    "sha256": "0d55e226f8f8328e3e5c5f345ae56227901c0c8f0de684844b7d98db0a074a6f"
+  },
+  "black_smoke3": {
+    "src": "assets/ui/grenade-black_smoke3.png",
+    "width": 444,
+    "height": 370,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      }
+    ],
+    "mode": 2,
+    "sourceSha256": "8539f22177ae5ec673316d76939211dc9dc1c1c2dacdb6a52e100e1e7d5c15ea",
+    "sha256": "42f9bbdf9a9822f53f87a03caa525d8e288b726108ab4cb1b39db0da42075ee5"
+  },
+  "black_smoke4": {
+    "src": "assets/ui/grenade-black_smoke4.png",
+    "width": 444,
+    "height": 370,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 1,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 75,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 149,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 223,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 1,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 75,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 149,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 223,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 297,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      },
+      {
+        "x": 371,
+        "y": 297,
+        "width": 72,
+        "height": 72,
+        "origin": [
+          -36,
+          36
+        ]
+      }
+    ],
+    "mode": 2,
+    "sourceSha256": "8539f22177ae5ec673316d76939211dc9dc1c1c2dacdb6a52e100e1e7d5c15ea",
+    "sha256": "42f9bbdf9a9822f53f87a03caa525d8e288b726108ab4cb1b39db0da42075ee5"
+  },
+  "eexplo": {
+    "src": "assets/ui/grenade-eexplo.png",
+    "width": 410,
+    "height": 410,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 83,
+        "y": 1,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 165,
+        "y": 1,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 247,
+        "y": 1,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 329,
+        "y": 1,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 1,
+        "y": 83,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 83,
+        "y": 83,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 165,
+        "y": 83,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 247,
+        "y": 83,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 329,
+        "y": 83,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 1,
+        "y": 165,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 83,
+        "y": 165,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 165,
+        "y": 165,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 247,
+        "y": 165,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 329,
+        "y": 165,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 1,
+        "y": 247,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 83,
+        "y": 247,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 165,
+        "y": 247,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 247,
+        "y": 247,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 329,
+        "y": 247,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 1,
+        "y": 329,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 83,
+        "y": 329,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 165,
+        "y": 329,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 247,
+        "y": 329,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      },
+      {
+        "x": 329,
+        "y": 329,
+        "width": 80,
+        "height": 80,
+        "origin": [
+          -40,
+          40
+        ]
+      }
+    ],
+    "mode": 1,
+    "sourceSha256": "cebc88024c092fce37476a0ffac3744af521c8f9ff9808f392b1262d50186502",
+    "sha256": "989e575b8f325b4f8300e501bfd77383baca0b79ab137f46bff21d0ada7008c2"
+  },
+  "fexplo": {
+    "src": "assets/ui/grenade-fexplo.png",
+    "width": 492,
+    "height": 490,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 83,
+        "y": 1,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 165,
+        "y": 1,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 247,
+        "y": 1,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 329,
+        "y": 1,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 411,
+        "y": 1,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 1,
+        "y": 99,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 83,
+        "y": 99,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 165,
+        "y": 99,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 247,
+        "y": 99,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 329,
+        "y": 99,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 411,
+        "y": 99,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 1,
+        "y": 197,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 83,
+        "y": 197,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 165,
+        "y": 197,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 247,
+        "y": 197,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 329,
+        "y": 197,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 411,
+        "y": 197,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 1,
+        "y": 295,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 83,
+        "y": 295,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 165,
+        "y": 295,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 247,
+        "y": 295,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 329,
+        "y": 295,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 411,
+        "y": 295,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 1,
+        "y": 393,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 83,
+        "y": 393,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 165,
+        "y": 393,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 247,
+        "y": 393,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 329,
+        "y": 393,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      },
+      {
+        "x": 411,
+        "y": 393,
+        "width": 80,
+        "height": 96,
+        "origin": [
+          -40,
+          48
+        ]
+      }
+    ],
+    "mode": 1,
+    "sourceSha256": "b89ee20a8f588ac5517d43d4e73e2d5411b1f6962a057792c4f13741a9419255",
+    "sha256": "a653a9ae38591801618ba9be7ca6182c3ff79cfc7d3eaf1e0ae7c289585ab867"
+  },
+  "gas_puff_01": {
+    "src": "assets/ui/grenade-gas_puff_01.png",
+    "width": 132,
+    "height": 66,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 64,
+        "height": 64,
+        "origin": [
+          -32,
+          32
+        ]
+      },
+      {
+        "x": 67,
+        "y": 1,
+        "width": 64,
+        "height": 64,
+        "origin": [
+          -32,
+          32
+        ]
+      }
+    ],
+    "mode": 2,
+    "sourceSha256": "819c6c15cd4b4d2e9ea1c4dff2984c5f4a589fbd5b22875666b3f6aaf6580e07",
+    "sha256": "69cce1ededa15b94dc0f833664921801902af576c0fd4f74d3af1e26cde8ec56"
+  },
+  "smokepuff": {
+    "src": "assets/ui/grenade-smokepuff.png",
+    "width": 136,
+    "height": 102,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 35,
+        "y": 1,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 69,
+        "y": 1,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 103,
+        "y": 1,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 1,
+        "y": 35,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 35,
+        "y": 35,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 69,
+        "y": 35,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 103,
+        "y": 35,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 1,
+        "y": 69,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      },
+      {
+        "x": 35,
+        "y": 69,
+        "width": 32,
+        "height": 32,
+        "origin": [
+          -16,
+          16
+        ]
+      }
+    ],
+    "mode": 1,
+    "sourceSha256": "2be5eaa3f9fea75390c24fc35c072dd29cd013b3c2a266e3ce254e085dd1012d",
+    "sha256": "eef2899c62900d3ff830be09e719f95c5899212d8d3a24c8d2608c80e02c2b23"
+  },
+  "steam1": {
+    "src": "assets/ui/grenade-steam1.png",
+    "width": 136,
+    "height": 200,
+    "frames": [
+      {
+        "x": 1,
+        "y": 1,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 35,
+        "y": 1,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 69,
+        "y": 1,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 103,
+        "y": 1,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 1,
+        "y": 51,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 35,
+        "y": 51,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 69,
+        "y": 51,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 103,
+        "y": 51,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 1,
+        "y": 101,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 35,
+        "y": 101,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 69,
+        "y": 101,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 103,
+        "y": 101,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 1,
+        "y": 151,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 35,
+        "y": 151,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 69,
+        "y": 151,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      },
+      {
+        "x": 103,
+        "y": 151,
+        "width": 32,
+        "height": 48,
+        "origin": [
+          -16,
+          24
+        ]
+      }
+    ],
+    "mode": 2,
+    "sourceSha256": "ca839de89f7e47015b451a649a9411fa8827337bddc5712d73ecda311a23a0e3",
+    "sha256": "d02fdb72882041a3a1f1fc89c5e8d366bfba61247fa4e8f52853d4e14bd4b47e"
+  }
+}

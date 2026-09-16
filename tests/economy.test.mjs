@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import {
+import { compile } from './compile.mjs'
+const {
   purchaseEquipment,
   equipmentPrice,
   freshLossHistory,
@@ -8,8 +9,10 @@ import {
   creditedMoney,
   armorDamage,
   PurchaseSequences,
-  playerRoundPayment
-} from '../src/economy-rules.ts'
+  playerRoundPayment,
+  buyTimeRemaining,
+  BUY_SECONDS
+} = compile('economy-rules')('economy-rules')
 const account = (changes = {}) => ({ money: 800, armor: 0, helmet: false, defuseKit: false, reserve: 60, ...changes })
 const context = (changes = {}) => ({
   alive: true,
@@ -50,12 +53,13 @@ test('equipment purchases enforce money, team, ownership, ammo capacity, and ori
   assert.equal(ammo.money, 720)
 })
 
-test('dead, queued, wrong-zone, result-phase and expired purchases leave account unchanged', () => {
+test('dead, queued, wrong-zone, lobby, finished-match and expired purchases leave account unchanged', () => {
   for (const change of [
     { alive: false },
     { eligible: false },
     { inZone: false },
-    { phase: 'won' },
+    { matchOver: true },
+    { phase: 'ready' },
     { phase: 'waiting' },
     { elapsed: 90.001 }
   ]) {
@@ -67,6 +71,46 @@ test('dead, queued, wrong-zone, result-phase and expired purchases leave account
   assert.equal(purchaseEquipment(account(), 'kevlar', context({ elapsed: 90 })), undefined)
   assert.equal(purchaseEquipment(account(), 'kevlar', context({ phase: 'freeze', elapsed: 120 })), undefined)
   assert.ok(purchaseEquipment(account(), 'invalid', context()))
+})
+
+test('living survivors can buy after any round result until the original buy deadline', () => {
+  for (const phase of ['won', 'lost', 'draw']) {
+    const survivor = account()
+    assert.equal(purchaseEquipment(survivor, 'kevlar', context({ phase, elapsed: 90 })), undefined)
+    assert.equal(survivor.money, 150)
+    assert.equal(survivor.armor, 100)
+    for (const change of [{ elapsed: 90.001 }, { alive: false }, { inZone: false }, { matchOver: true }]) {
+      const state = account(),
+        before = { ...state }
+      assert.ok(purchaseEquipment(state, 'kevlar', context({ phase, ...change })))
+      assert.deepEqual(state, before)
+    }
+  }
+})
+
+test('buy time survives a result countdown and resets on the next freeze', () => {
+  assert.equal(buyTimeRemaining('ready', 0), -1)
+  assert.equal(buyTimeRemaining('waiting', 0), -1)
+  assert.equal(buyTimeRemaining('freeze', 120), 90)
+  assert.equal(buyTimeRemaining('live', 0), 90)
+  assert.equal(buyTimeRemaining('live', 20), 70)
+  assert.equal(buyTimeRemaining('won', 20), 70)
+  assert.equal(buyTimeRemaining('won', 25), 65)
+  assert.equal(buyTimeRemaining('freeze', 0), 90)
+  assert.equal(buyTimeRemaining('won', 25, true), -1)
+  assert.equal(buyTimeRemaining('freeze', 0, true), -1)
+})
+
+test('replicated buy time and the precise server clock agree at expiry', () => {
+  for (const phase of ['live', 'won', 'lost', 'draw']) {
+    for (const elapsed of [0, 20.4, 89, 89.999, 90, 90.001, 91, 120]) {
+      const remaining = buyTimeRemaining(phase, elapsed)
+      assert.equal(remaining >= 0, elapsed <= BUY_SECONDS)
+      const authoritative = purchaseEquipment(account(), 'kevlar', context({ phase, elapsed }))
+      const replicated = purchaseEquipment(account(), 'kevlar', context({ phase, elapsed: BUY_SECONDS - remaining }))
+      assert.equal(replicated, authoritative)
+    }
+  }
 })
 
 test('duplicate and reordered purchase requests cannot spend twice', () => {

@@ -7,6 +7,16 @@ connected human. Prioritize shooting, movement, scored rounds, and the leaderboa
 and character models after that loop works. Exact CS 1.6 UI remains a requirement.
 The game is not complete.
 
+## Current priority: playable MVP
+
+Focus on a complete guest match: join a team, buy/equip, fight visible bots,
+resolve rounds and bomb objectives, die/spectate, and return for another round
+or match. The creator will playtest weapon feel; do not spend extended browser
+sessions measuring individual shots while match-flow blockers remain.
+Keep the full fidelity goal and its remaining gaps below. Run the offline gate
+for changes and only a short, focused browser check when it resolves a specific
+MVP uncertainty. Always use the server-only launch command and close owned tests.
+
 ## Confirmed scope
 
 - Keep the existing Dust2 model and placement. Use stock Bevy Explorer to preview
@@ -16,6 +26,8 @@ The game is not complete.
   settings identical physics.
 - Playable rounds, persistent kills/deaths, team scores, and a leaderboard sorted
   by kills. Preserve those while adding mechanics.
+- Match format: first to 16 wins, with no automatic side switch or halftime money
+  reset (creator confirmed 2026-09-15). Do not convert this to MR15.
 - Recreate the original HUD, scoreboard, team/buy menus, and input behavior.
 - Use Decentraland's authoritative server for combat and match state. Extend the
   bot foundation to multiplayer, bomb defusal, and economy.
@@ -28,6 +40,11 @@ paid-asset budget remain unspecified. Use a two-client local regression before
 choosing server capacity; no public deployment or purchase is assumed.
 
 ## Current implementation and evidence
+
+Original Arctic/Urban bot bodies now include independent gait/weapon clips, full-body
+corpses and animated source hitboxes. Human avatars, aim blend/twist, directional
+throws and additional movement poses remain open. See [body implementation](docs/CS16-PLAYER-MODELS.md).
+
 
 The scene runs with SDK/runtime `7.27.1-33533530571.commit-451d001`. Keep this exact
 pin until a replacement proves the same authoritative APIs. Node 22.18+ is needed
@@ -71,8 +88,8 @@ for the current rule tests.
   bot kills, a scored victory, restored health/ammo, and a scored defeat. Full
   reference-image/aspect-ratio parity remains open. The team-selection screen now
   uses the pinned `Teammenu.res` layout, title logo, scheme colors/font tiers, and
-  exact Dust II briefing in a centered 4:3 area. Other UI/models are still
-  placeholders. Shared money, round rewards, equipment buying, armor, and survivor
+  exact Dust II briefing in a centered 4:3 area. Original weapon models and
+  animations cover the full roster; character models remain Decentraland avatars. Shared money, round rewards, equipment buying, armor, and survivor
   equipment/ammo retention are implemented.
 - Start/team menus now recover the cursor if the canvas captures it while the
   menu remains open, and noninteractive damage feedback no longer consumes clicks.
@@ -100,8 +117,8 @@ for the current rule tests.
   Verified only by type-check/tests; needs a run on a device.
 - The buy menu uses the same 640x480 VGUI frame as the team menu
   (`menu-ui.tsx`): CS 1.6 category list, per-category submenus, money and item
-  info panel, keys 1-4 for the first rows. Unavailable categories (shotguns,
-  SMGs, machine gun) are shown disabled.
+  info panel, keys 1-4 for the first rows. All original firearm categories are
+  available, with team, money and inventory restrictions.
 - Shared C4 defuse and explosion outcomes award the reference three frags once
   to the defuser or planter. Two-client browser evidence records rows at 4/0
   after one CT kill plus defuse and 3/1 for the successful T planter.
@@ -109,7 +126,7 @@ for the current rule tests.
   cooldowns, armor ratio, hitgroups, and three-times rear-stab multiplier.
   Stationary view yaw is synchronized for authoritative rear-stab checks.
 
-`npm run validate` passes 129 tests, asset integrity, bundling, and type checking;
+`npm run validate` passes 260 tests, asset integrity, bundling, and type checking;
 `npx prettier --check src tests validate` checks formatting.
 `validate/game/team-menu` records the exact visible team labels and source geometry
 at 800×450 and 1280×720 and two-client auto-assignment
@@ -144,8 +161,10 @@ comparison remains open; spread now uses a server-chosen shared per-round seed s
 
 The SDK maintainer confirmed that AvatarLocomotionSettings exposes speeds, jump
 heights, gliding limits, and hardLandingCooldown, but no acceleration, friction,
-gravity, or crouch collider setting. Keep these fidelity requirements open; a
-new SDK version is not an assumed solution. Measure supported speed/jump settings
+gravity, or crouch collider setting. A later hosted-Bevy check confirmed that
+`AvatarMovement`/`AvatarMovementInfo` let the scene supply CS movement rules while
+retaining native collision; see [the implementation and its limits](docs/CS16-MOVEMENT.md).
+Crouch and complete GoldSrc collision remain open; a new SDK version is not an assumed solution. Measure supported speed/jump settings
 and investigate scene-side options only if they preserve real collision and
 authoritative combat. Do not present speed tuning or a camera-height change as
 complete CS movement or crouching.
@@ -165,18 +184,23 @@ and need comparison against actual avatars. Team selection, original Dust2
 spawns, no mid-round respawns, shared round restart, and admission rules are now
 implemented. Two-client human combat and matching scores passed in Bevy; a
 third-client check exercised late joins and disconnect expiry. Dead players are
-frozen in place; the death transition and teammate/bot free-chase spectating
-are implemented, while other observer modes remain open. Bomb assignment, original A/B trigger planes, dropping/pickup, planting,
+frozen in place; the death transition, teammate/bot free-chase spectating and
+desktop neutral-spectator roaming are implemented. Neutral spectators can explore
+an empty lobby and return to team play. First-person and map observer modes remain
+open. Bomb assignment, original A/B trigger planes, dropping/pickup, planting,
 defusing, timed explosion, and post-plant win rules are now implemented.
 Kit buying and armor are implemented. Bot carrying, planting, retrieval, site
 defense and CT-bot defusing are implemented. Defusing and successful C4 explosions award the
 reference three scoreboard frags to the defuser or planter. Advanced bot tactics remain open.
 
 Money awards/losses, equipment buys restricted by zone/time, armor, reserve ammo,
-and survivor retention are implemented. USP/Glock starting pistols, AK/M4A1 buying, weapon switching, caliber ammo
-purchases, and knife attacks are implemented. Complete other weapons, alternate modes, and dropped
-equipment. Weapon-specific
-handling must use CS 1.6 references rather than the existing modern presets.
+and survivor retention are implemented. The server replicates buy time separately
+from the result countdown, allowing surviving players to buy after an early
+round result until the original deadline. Match end closes buying.
+All 24 firearms, alternate modes, weapon
+switching, caliber ammo, knife attacks, grenades, dropped guns and recoverable
+defuse kits are implemented. Shield/nightvision and the remaining source-level
+handling differences still need work; see `docs/CS16-ARSENAL.md`.
 Add bot routes, perception, target choice, and objective behavior across Dust2.
 
 Gate: two independent clients agree on shots, health, deaths, scores, round phase,
@@ -357,12 +381,10 @@ around the active site. A browser run observed the B traversal and plant in
 Victim hit feedback now travels through the authoritative damage result for both
 human and bot attacks. It carries the origin, hit group, and server-computed
 punch used by the original four-direction GoldSrc pain compass and ReGameDLL's
-hitgroup/armor-dependent camera reaction. The generated local impact sound
-restarts on every hit. Death then falls and rolls for the three-second CS dying
+hitgroup/armor-dependent camera reaction. The later hit-response pass replaces the generated impact sound with original positional player voices. Death then falls and rolls for the three-second CS dying
 window before solo bot or team teammate chase begins. Focused rules cover
 direction, fade, punch caps, armor suppression, target ordering, death pose, and
-handoff timing. The combined body hit region and generated sound remain lower
-fidelity than the original game's separate hitgroups and audio assets.
+handoff timing. The later hit-response pass splits the body proxy into chest, stomach and arms; animated CS character hitboxes remain outstanding.
 
 Final bot-combat browser validation passed the complete solo win/reset/loss
 loop with retained stats. `hits.json` also confirms muzzle/endpoint effects and
@@ -399,3 +421,202 @@ and closed after validation.
   still wait for the removed `Start game`/`PRACTICE WITH BOTS` labels and need
   a pass before they can produce fresh evidence. All existing evidence files
   record the earlier flow and camera.
+
+## Current priority: complete weapon behavior with approved models
+
+The user approved expanding the original GameBanana pack beyond the reviewed AK.
+Implement all 24 firearms plus knife, retaining playable rounds and scoreboard.
+See [arsenal status](docs/CS16-ARSENAL.md) for implemented rules, tests and remaining
+engine/scene parity gaps. Headless Bevy review and the full validation gate passed for the weapon expansion.
+Exact GoldSrc parity remains the broader target.
+
+Arsenal milestone validated: 24 firearms and knife loaded, fired and reloaded in headless Bevy; silencer/burst modes and AWP zoom/bolt cycling passed. Full scene gate: 158 tests, asset/source validation, bundle and typecheck. See `docs/CS16-ARSENAL.md` for remaining parity gaps.
+
+Bullet penetration now follows the source caliber, material, impact-count and damage
+rules. An exported point hull from the original Dust2 BSP supplies solid transitions
+and texture materials; render triangles no longer decide bullet wall traversal.
+The browser fixture verifies that the USP stops at the middle door while the AWP
+causes 56 damage per body hit through it. The menu's pointer-capture click is
+consumed until release. See `validate/game/penetration/README.md` for a runnable
+reproduction and evidence. The full gate now includes 164 rule tests and the
+source hull integrity check. Original player hulls and GoldSrc movement remain open.
+
+## 2026-09-15: weapon drops and pickup economy
+
+Original ground models now cover all 24 firearms. Manual drops, purchase
+replacements, enemy pickups and human/bot death drops use authoritative inventory
+and source ammo/weight rules. Shift+2 supplies the unavailable native drop key.
+Dropped guns toss against the original point hull, settle before pickup, and are
+removed on a round reset or after five minutes. Source ground-model pixels and
+geometry have their own validator. See `validate/game/pickups/README.md` for the
+runnable browser proof and fixture limitations. The muted headless run passed
+scoped dropping, walking pickup, enemy weapons, purchase replacement, human death
+and next-round cleanup. The gate includes 174 rule tests and 24 ground-model checks.
+
+Purchase selection now follows the original drop-then-weight comparison: buying
+a pistol with a rifle keeps the rifle selected. The regression failed with the
+previous unconditional selection; the headless pickup proof also exercises a
+Deagle purchase while holding a captured AK.
+
+
+### Grenades (2026-09-15)
+
+Original HE, flashbang and smoke models, prices/capacities, pin/throw animations, positional sounds, server-owned flight/fuses, HE armor/self-damage, flash facing/occlusion/stacking and smoke sight blocking are implemented. Flashbangs return to another weapon after throwing, even with another flash carried. Death drops a primed grenade and the best firearm; spare grenades are discarded. New rounds clear effects.
+
+The installed scene gate passed 183 tests, 28 original view/held models, 24 ground models, three animated grenade projectiles, nine original sprite atlases, source hashes, build and typecheck. Muted headless Bevy verified purchases/caps, slot cycling, no cooking, flash timing/facing/door blocking, HE armor and through-door damage, smoke rendering/lifetime, primed death and next-round cleanup. Camera-parallel sprite planes fix the intersecting billboard seams visible from inside smoke. See `docs/CS16-GRENADES.md` and `validate/game/grenades/README.md` for reproduction, evidence and remaining limits.
+
+## Original C4 models and source action timing
+
+C4 now uses the approved original first-person model and original held, planted
+and dropped-backpack models. Blender validated the 37-bone viewmodel and original
+clips; its largest sampled pose error is below 0.000002. Keypad sounds, LED blink,
+fireballs and smoke use original assets. Authoritative deployment/retry delays,
+local plant/cancel animation, holster cancellation, C4 movement speed, best-weapon
+retirement and bomb removal after defusing are implemented. C4 blast falloff now
+uses the established 0.025m weapon calibration and preserves fractional damage
+until armor handling. Terrorist use near a planted C4 no longer freezes movement.
+
+The gate passes 186 tests plus asset verification, bundle and typecheck. Muted
+headless Bevy exercises the complete plant/drop/explosion/next-round cycle and
+ten-/five-second defuses, including the bot's held C4 model. Reproduction and
+remaining differences are in `docs/CS16-C4.md`; evidence is in `validate/game/c4`.
+Backpack toss physics, carrier back attachment, native character animations and
+an exact C4 HUD/progress comparison remain pending.
+
+
+### Movement audio — September 15, 2026
+
+Original footsteps now use Dust2 BSP materials, alternating feet, the CS speed
+threshold and cadence. Running takeoff and high-landing sounds use original clips.
+Local velocity feedback prevents transform batching from determining local timing;
+remote humans/bots use synced positions. Walking, stopping, respawn and hidden
+scene handling are covered. See `docs/CS16-MOVEMENT-AUDIO.md` for the native Avatar
+audio setting and remaining movement/fall-damage/hearing limits.
+
+
+### Fall damage and landing feedback — September 15, 2026
+
+Implemented the original fall-damage formula, armor bypass, integer health damage,
+strict splat threshold and world-death scoring. The server requires an observed
+fall and bounds the client's native impact report; missing reports fall back to
+server motion. Landing roll and recoil-pitch reset are predicted locally without
+replaying on a late confirmation. Original pain/death/splat clips are installed.
+See `docs/CS16-FALLING.md` for source rules, validation and remaining physics limits.
+The pre-existing `validate/movement.mjs` regression is preserved; the newer
+footstep-only browser regression is `validate/movement-audio.mjs`.
+
+### Body-part damage and original player voices — September 15, 2026
+
+Added chest/stomach/arm separation and facing-aware shared proxy traces, source hit multipliers with fractional armor processing, and shotgun MultiDamage batches. Arms and protected hits no longer replace the current camera kick with an empty punch. Original flesh/headshot/helmet/Kevlar/death voices now play for humans and bots on one reusable channel per actor; falling uses that same voice channel. SDK Room authenticates client events and supplies no sender context, documented in CLAUDE.md.
+
+The gate passed 209 tests, asset hashes, bundle and typecheck. Muted headless Bevy verified ten incoming cases, HUD health, armor exhaustion, 67-damage armored XM1014 blast, real USP body/head shots at visible bots, deaths and the next round. WebAudio metadata and source samples identify all five sound categories, with independent sample-window gain normalization for Bevy's output chunks. See `docs/CS16-HIT-RESPONSE.md` and `validate/game/hits/README.md`. Original animated character hitboxes, hit slowdown/knockback and exact blood/spark/punch rendering remain open.
+
+### Desktop movement and flinch
+
+Implemented source-based ground/air acceleration, friction, counter-strafing,
+gravity, jump fatigue, a bounded stair lift and server-confirmed bullet velocity
+flinch. Native physics rays preserve slope contact and support SDK platforms.
+Muted headless Bevy checks cover keyboard movement, diagonal walking, platform
+jumps, damaging/fatal falls, round reset, stairs and blocking collisions. Exact
+GoldSrc hull/cadence parity, crouch and bot velocity response remain open. See
+`docs/CS16-MOVEMENT.md` and `validate/game/movement-control`.
+
+### Bot movement and gun-hit response
+
+Bots now apply the shared CS movement class to route intent, including acceleration,
+friction and small/large flinch from confirmed gun/knife hits. The server moves the
+visible avatar through sampled Dust2 body clearance, rejoining routes after hits.
+Route tests cover 20/30/60 Hz, walls, ramps and bomb destinations. Bot jump/crouch,
+airborne physics, exact hulls and original tactics remain unfinished. See
+`docs/CS16-BOT-MOVEMENT.md` and `validate/game/bot-movement`.
+
+### Dual Elites hand attachments
+
+Split the approved original held model by its left/right hand-bone ancestry. Each
+104-triangle pistol now follows its own avatar hand, and both hide on weapon
+switch/death. Bot held models read the equipped weapon component. Blender
+round-trip checks cover every original triangle and the asset gate compares every
+palette pixel. Headless Bevy exercises walking, AK/knife switches, a real AWP kill
+and despawn cleanup. Original CS character grips and firing animations remain
+open. See `validate/game/dual-hands/README.md`.
+
+### C4 backpack toss and weapon drop pitch
+
+C4 now shares original-style weapon-box motion with guns, using source body pitch,
+400-unit/s throws, gravity, point-hull wall/floor clipping and grounded pickup
+bounds. It remains unpickable in flight and retrievable during freeze; death
+tosses continue through round results and reset on the next round. The former
+one-second owner exclusion is removed. Back-mounted carrier models, crouched
+origins and exact GoldSrc collision/cadence remain open. See
+`docs/CS16-C4.md` and `validate/game/c4-toss/README.md`.
+
+### Recoverable defuse kits
+
+Dead CTs drop the original 80-triangle thighpack. Living CT humans/bots without a
+kit can recover it for free and defuse in five seconds. Human and bot survivors
+retain kits; unclaimed kits are removed on round reset. Original pickup audio,
+localized notice and green status icon provide feedback. Exact GoldSrc item hulls,
+body-mounted kit visuals and status-icon stacking remain open. See
+`docs/CS16-DEFUSE-KITS.md` and `validate/game/defuse-kits/README.md`.
+
+### First action after delayed cursor capture
+
+The release gate now reads the stored pointer button state, so capture
+that arrives after menu mouse-up does not require a spare click before firing
+or using C4. Held clicks used to capture the world or close the buy menu remain
+suppressed. The isolated delayed-capture fixture records the old failure and
+checks first action, menu/world recapture, next round and pistol semi-auto. See
+`validate/game/input-capture/README.md`.
+
+### Empty-trigger reloads and controlled preview launches
+
+Magazine-fed guns now wait for authenticated trigger release before automatically
+reloading an empty magazine. M3 and XM1014 retain their empty-trigger reload path.
+The isolated regression reproduces the old M4 behavior and checks M4/USP release,
+full-magazine/reserve conservation and both shotguns' reload-and-fire path.
+See `validate/game/empty-reload/README.md`.
+
+Use `npm run start:server` for every automated fixture: it passes `--web`,
+`--no-browser` and `--no-client`, then the harness connects one isolated muted
+headless browser. Plain `--web` was opening unwanted default-browser tabs.
+The hosted FOV limitation is now tracked in upstream issue #1268; support already
+merged in #1231 but the official hosted preview still selects an older build.
+The SDK maintainer confirmed that native avatar audio cannot be muted per scene.
+
+### MVP bot economy
+
+Bots now share player start money, prices, armor and round/kill income. Their
+actual inventory survives or is lost with the round result; paid ammo replaces
+free rifle refills. Pistol taps, gun models and firing sounds use the equipped
+weapon. Seven focused tests bring the offline gate to 244 tests. Browser balance
+and presentation await the creator's playtest. The buying policy and remaining
+AI limits are documented in `docs/CS16-BOT-ECONOMY.md`. Arsenal-derived historical
+fixtures explicitly retain fixed unarmored rifles and bypass bot purchases.
+
+Bot inventory follow-up: exhausted primaries now switch to the carried pistol,
+respecting original draw/reload durations and shared ammo. Death uses the same
+weighted gun selection as humans, preserving the rifle drop after switching.
+Six rule regressions bring the offline gate to 250 tests; runtime presentation
+remains for the creator's playtest.
+
+### MVP spectator flow
+
+Free chase now hides the dead player's health/armor/ammo/money, retains the
+round timer and labels the watched player's health in team color. Neutral
+spectators cycle humans and bots together. Resume clicks are consumed by
+cursor capture before another click can cycle targets. Five rule tests bring
+the gate to 255 tests. One muted headless Bevy run passed the three-second
+death handoff, HUD, Escape/Resume and forward/reverse target cycling without
+spending ammunition; screenshots and reproduction are in
+`validate/game/spectator-flow`. The owned browser and port 8011 server were closed.
+
+### Original kill-feed sprites
+
+The feed now uses all 24 gun icons, knife/explosive/skull sprites, server-confirmed
+headshot markers and team-colored names. It retains four notices in chronological
+order with independent six-second expiry. Human, bot and C4 kill messages include
+team/headshot/suicide metadata. Five rule tests and a pixel-coverage asset check
+bring the gate to 260 tests. One muted headless run verified a production lethal
+headshot plus explicitly staged notices covering all three sprite sheets, queue
+order and expiry; evidence is in `validate/game/kill-feed`. The owned browser and
+port 8011 server were closed.

@@ -66,7 +66,8 @@ export function victimPunch(
   armorProtected: boolean,
   random = Math.random
 ): VictimPunch {
-  if (armorProtected || group === 'legs' || !Number.isFinite(damage) || damage <= 0) return { pitch: 0, roll: 0 }
+  if (armorProtected || group === 'legs' || group === 'arms' || !Number.isFinite(damage) || damage <= 0)
+    return { pitch: 0, roll: 0 }
   if (group === 'head') {
     return {
       pitch: Math.min(12, damage * 0.5),

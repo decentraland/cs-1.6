@@ -1,0 +1,160 @@
+{
+  "src": "assets/ui/grenade-zerogxplode.png",
+  "width": 264,
+  "height": 264,
+  "frames": [
+    {
+      "x": 1,
+      "y": 1,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 67,
+      "y": 1,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 133,
+      "y": 1,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 199,
+      "y": 1,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 1,
+      "y": 67,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 67,
+      "y": 67,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 133,
+      "y": 67,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 199,
+      "y": 67,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 1,
+      "y": 133,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 67,
+      "y": 133,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 133,
+      "y": 133,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 199,
+      "y": 133,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 1,
+      "y": 199,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 67,
+      "y": 199,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    },
+    {
+      "x": 133,
+      "y": 199,
+      "width": 64,
+      "height": 64,
+      "origin": [
+        -32,
+        32
+      ]
+    }
+  ],
+  "mode": 1,
+  "sourceSha256": "c0fe1514c05b1d05691afcf3e76d7c928c8f7720125260eaa6ac276cfdf986ce",
+  "sha256": "0e1368382856d259fb29fe4df0ff392529ab43b40093739900078139a5f173b6"
+}

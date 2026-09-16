@@ -1,0 +1,3 @@
+PASS: prices/caps, grenade cycling, hold without cooking, original flash fuse/fade and weapon return
+PASS: visible original smoke, animated canister, HE self-damage/armor and weapon return
+PASS: smoke visual lifetime and entity cleanup

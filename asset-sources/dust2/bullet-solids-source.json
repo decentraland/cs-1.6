@@ -1,0 +1,13 @@
+{
+  "bsp": {
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/maps/de_dust2.bsp",
+    "sha256": "15945389528d113562ede0a2c80647ebfa799079ed1c05a25379bcf84e4e9286"
+  },
+  "materials": {
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/materials.txt",
+    "sha256": "0d35d708cb3737fc99caf50e41ae32680e197218d2a51488489ecb7561b3ab6c"
+  },
+  "generatedSha256": "1848e9d419f45301ca7133d44d7789f87d3e9bbe9160b45aba7b8f7e7025eedb",
+  "engineReference": "https://github.com/rehlds/ReHLDS/blob/6266cd23faee4a6e9cf3974f9605b2cadd86f0a4/rehlds/engine/world.cpp",
+  "gameReference": "https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/cbase.cpp"
+}

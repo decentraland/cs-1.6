@@ -1,0 +1,44 @@
+[
+  {
+    "path": "asset-sources/cs16-weapons/c4/p_c4.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_c4.mdl",
+    "sha256": "fbd567e6a58c35be853d1d80d903eaa7d980cf3691b4191484b1040e4ac85106",
+    "bytes": 25760
+  },
+  {
+    "path": "asset-sources/cs16-weapons/c4/w_c4.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_c4.mdl",
+    "sha256": "6d1014eb9fd47a05b726098c51b8632cc5dc6d627306f980035da03ce96b3f5b",
+    "bytes": 23992
+  },
+  {
+    "path": "asset-sources/cs16-weapons/c4/w_backpack.mdl",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_backpack.mdl",
+    "sha256": "83a286609dbd47ad7b6139b40abf59056d11d05cded15ccf95d5f782e53ff017",
+    "bytes": 18104
+  },
+  {
+    "path": "asset-sources/cs16-weapons/c4/c4_click.wav",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/c4_click.wav",
+    "sha256": "27869247f2682193585c17be5f062223fad22cc518cfc53f8ec67605de57bdb3",
+    "bytes": 3167
+  },
+  {
+    "path": "asset-sources/cs16-weapons/c4/ledglow.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/ledglow.spr",
+    "sha256": "3ad8e2e3e1299f087d0fe244aa2e638f32d1bfad5445da0686ac5a55b010834e",
+    "bytes": 9042
+  },
+  {
+    "path": "asset-sources/cs16-weapons/c4/fixed_v_c4.mdl",
+    "url": "https://gamebanana.com/mods/227246",
+    "sha256": "7f41ccf45307ca3db7063787f01089035fb66bae406a76e819b09a6e1f3269f5",
+    "bytes": 181384
+  },
+  {
+    "path": "asset-sources/cs16-weapons/c4/zerogxplode.spr",
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sprites/zerogxplode.spr",
+    "sha256": "c0fe1514c05b1d05691afcf3e76d7c928c8f7720125260eaa6ac276cfdf986ce",
+    "bytes": 62550
+  }
+]

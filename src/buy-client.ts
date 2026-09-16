@@ -1,17 +1,16 @@
-import { engine, PointerLock, Transform } from '@dcl/sdk/ecs'
+import { engine, Transform } from '@dcl/sdk/ecs'
 import { isPointerLocked, isTouchPlatform } from './platform'
 import { myProfile } from '@dcl/sdk/network'
 import { Dead, PlayerTeam } from './components'
-import { getLocalPlayerEntity } from './client'
+import { getLocalPlayerEntity, requestPointerLock } from './client'
 import { getPractice } from './practice'
 import { inBuyZone } from './buy-zones'
-import { buyRestriction } from './economy-rules'
+import { BUY_SECONDS, buyRestriction } from './economy-rules'
 import { room } from './index'
-import { delay } from './delaySystem'
 
 let sequence = 0
-// Touch has no Esc: the HUD BUY button toggles this instead of the pointer lock.
-let touchMenuOpen = false
+// Explicit toggle on every platform: the HUD BUY button (or 0 CANCEL) opens and closes it, Esc only frees the cursor.
+let menuOpen = false
 export function canOpenBuyMenu() {
   const player = getLocalPlayerEntity(),
     match = getPractice(),
@@ -25,19 +24,22 @@ export function canOpenBuyMenu() {
     ),
     team,
     phase: match.phase,
-    elapsed: 120 - match.timeLeft,
+    matchOver: match.matchOver,
+    elapsed: BUY_SECONDS - match.buyTimeLeft,
     inZone: inBuyZone(position, team)
   })
 }
 export function isBuyMenuVisible() {
   if (!canOpenBuyMenu()) {
-    touchMenuOpen = false
+    menuOpen = false
     return false
   }
-  return isTouchPlatform() ? touchMenuOpen : !isPointerLocked()
+  return menuOpen
 }
 export function openBuyMenu() {
-  touchMenuOpen = true
+  if (menuOpen || !canOpenBuyMenu()) return
+  menuOpen = true
+  if (!isTouchPlatform()) requestPointerLock(false)
 }
 export function buyEquipment(item: string) {
   const match = getPractice()
@@ -46,9 +48,7 @@ export function buyEquipment(item: string) {
   room.send('buyEquipment', { item, round: match.round, sequence })
 }
 export function closeBuyMenu() {
-  touchMenuOpen = false
-  if (isTouchPlatform()) return
-  const request = engine.addEntity()
-  PointerLock.create(request, { isPointerLocked: true })
-  delay(1000, () => engine.removeEntity(request))
+  if (!menuOpen) return
+  menuOpen = false
+  if (!isTouchPlatform()) requestPointerLock(true)
 }

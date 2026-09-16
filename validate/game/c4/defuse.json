@@ -1,0 +1,271 @@
+{
+  "date": "2026-09-15T06:52:31.351Z",
+  "rounds": [
+    {
+      "kit": false,
+      "started": 1789455160.879,
+      "ends": 1789455170.879,
+      "heldModel": true,
+      "plantedModel": true,
+      "final": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 24
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789455153.2350001,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": false,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x0b55cffefa6e687dda61c990ece64a1fbeb86807",
+              "team": 2,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 1,
+              "connected": true
+            }
+          ],
+          "phase": "won",
+          "remaining": 3,
+          "timeLeft": 5,
+          "round": 1,
+          "ctScore": 1,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "defused",
+          "carrier": "",
+          "planter": "bot:0",
+          "defuser": "0x0b55cffefa6e687dda61c990ece64a1fbeb86807",
+          "site": "A",
+          "position": {
+            "x": 33,
+            "y": 12.589099884033203,
+            "z": 46.5
+          },
+          "actionStarted": 1789455160.879,
+          "actionEnds": 1789455170.879,
+          "explodeAt": 1789455202.876,
+          "readyAt": 0,
+          "progress": 1,
+          "round": 1
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      }
+    },
+    {
+      "kit": true,
+      "started": 1789455183.579,
+      "ends": 1789455188.579,
+      "heldModel": true,
+      "plantedModel": true,
+      "final": {
+        "inventory": {
+          "active": "awp",
+          "items": [
+            {
+              "id": "usp",
+              "clip": 12,
+              "reserve": 24
+            },
+            {
+              "id": "awp",
+              "clip": 10,
+              "reserve": 30
+            }
+          ]
+        },
+        "weapon": {
+          "name": "AWP",
+          "revision": 2,
+          "mode": 0,
+          "zoom": 90,
+          "resumeZoom": 90,
+          "alternateAt": 0,
+          "readyAt": 1789455153.2350001,
+          "damage": 115,
+          "ammoClip": 10,
+          "maxAmmoClip": 10,
+          "ammoReserve": 30,
+          "maxAmmoReserve": 30,
+          "fireRate": 1.4500000476837158,
+          "lastShotTime": 0,
+          "lastShotId": 0,
+          "lastFiredShotId": 0,
+          "isReloading": false,
+          "reloadTime": 2.5,
+          "reloadStartTime": 0,
+          "reloadStage": 0,
+          "reloadStepAt": 0,
+          "reloadStep": 0
+        },
+        "health": {
+          "current": 100,
+          "max": 100,
+          "armor": 0,
+          "maxArmor": 100
+        },
+        "equipment": {
+          "bombSelected": false,
+          "defuseKit": true,
+          "helmet": false
+        },
+        "match": {
+          "roster": [
+            {
+              "address": "0x0b55cffefa6e687dda61c990ece64a1fbeb86807",
+              "team": 2,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:0",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:1",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            },
+            {
+              "address": "bot:2",
+              "team": 1,
+              "eligibleRound": 2,
+              "connected": true
+            }
+          ],
+          "phase": "won",
+          "remaining": 3,
+          "timeLeft": 5,
+          "round": 2,
+          "ctScore": 2,
+          "tScore": 0,
+          "maxWins": 16,
+          "matchOver": false,
+          "botKills": [
+            0,
+            0,
+            0
+          ],
+          "botDeaths": [
+            0,
+            0,
+            0
+          ],
+          "botDifficulty": "normal"
+        },
+        "bomb": {
+          "phase": "defused",
+          "carrier": "",
+          "planter": "bot:1",
+          "defuser": "0x0b55cffefa6e687dda61c990ece64a1fbeb86807",
+          "site": "A",
+          "position": {
+            "x": 33,
+            "y": 12.589099884033203,
+            "z": 46.5
+          },
+          "actionStarted": 1789455183.579,
+          "actionEnds": 1789455188.579,
+          "explodeAt": 1789455226.983,
+          "readyAt": 0,
+          "progress": 1,
+          "round": 2
+        },
+        "animation": {
+          "selected": false,
+          "plantAt": -1,
+          "readyAt": 0,
+          "clip": "idle1",
+          "clipAt": 0,
+          "serial": 0,
+          "acknowledged": false
+        }
+      }
+    }
+  ]
+}

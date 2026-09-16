@@ -1,0 +1,33 @@
+{
+  "name": "fixed_v_fiveseven",
+  "sourceSha256": "b1f5d2dfabf5d0f9ebdc7e42729e116a88b335d8fc3591233fc4ac288d5f48bd",
+  "triangles": 1357,
+  "skippedDegenerateTriangles": 0,
+  "bones": 42,
+  "textures": 5,
+  "animations": {
+    "idle1": 0.125,
+    "shoot1": 0.6388888888888888,
+    "shoot2": 0.6388888888888888,
+    "shoot_empty": 0.6388888888888888,
+    "reload": 3.2,
+    "draw": 1.0
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.14202460646629333,
+      -0.3226854205131531,
+      0.00111957429908216
+    ],
+    "max": [
+      0.11380865424871445,
+      -0.0639190822839737,
+      0.42856565117836
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 8.344650268554688e-07,
+  "bytes": 587796,
+  "blender": "5.2.1 LTS"
+}

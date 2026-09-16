@@ -1,3 +1,6 @@
+import type { HitGroup } from './ballistics'
+import { armorCovers } from './hit-regions'
+
 export const START_MONEY = 800
 export const KILL_REWARD = 300
 export const MAX_MONEY = 16000
@@ -14,15 +17,23 @@ export interface BuyContext {
   eligible: boolean
   team: number
   phase: string
+  matchOver?: boolean
   elapsed: number
   inZone: boolean
 }
 export type BuyItem = 'kevlar' | 'assaultsuit' | 'defusekit' | 'ammo'
+const BUY_PHASES = ['freeze', 'live', 'won', 'lost', 'draw']
+export function buyTimeRemaining(phase: string, elapsed: number, matchOver = false): number {
+  if (matchOver || !BUY_PHASES.includes(phase)) return -1
+  // Zero is still inside the buy window; -1 closes it after the exact deadline.
+  return phase === 'freeze' ? BUY_SECONDS : Math.max(-1, Math.floor(BUY_SECONDS - elapsed))
+}
 export function buyRestriction(context: BuyContext): string | undefined {
   if (!context.alive || !context.eligible) return 'You must be alive to buy.'
-  if (!['freeze', 'live'].includes(context.phase)) return 'Buying is unavailable between rounds.'
+  if (context.matchOver) return 'The match has ended.'
+  if (!BUY_PHASES.includes(context.phase)) return 'Buying is unavailable before the round starts.'
   if (!context.inZone) return 'You must be in your buy zone.'
-  if (context.phase === 'live' && context.elapsed > BUY_SECONDS) return 'The buy time has expired.'
+  if (buyTimeRemaining(context.phase, context.elapsed) < 0) return 'The buy time has expired.'
   return undefined
 }
 export function equipmentPrice(account: EquipmentAccount, item: string, team: number): number | undefined {
@@ -74,11 +85,11 @@ export function armorDamage(
   damage: number,
   armor: number,
   helmet: boolean,
-  group: 'head' | 'body' | 'legs',
+  group: HitGroup,
   blast = false,
   bulletRatio = 0.775
 ) {
-  if (armor <= 0 || (!blast && (group === 'legs' || (group === 'head' && !helmet)))) return { damage, armor }
+  if (armor <= 0 || (!blast && !armorCovers(group, armor, helmet))) return { damage, armor }
   const ratio = blast ? 0.5 : bulletRatio
   const absorbed = damage * (1 - ratio) * 0.5
   if (absorbed > armor) return { damage: damage - armor * (blast ? 1 : 2), armor: 0 }

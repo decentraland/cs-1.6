@@ -1,0 +1,31 @@
+{
+  "name": "fixed_v_scout",
+  "sourceSha256": "09cd04adfd61773d248f8ad04c98177c58a08a5659becabe8fba0f8d7d83926c",
+  "triangles": 1126,
+  "bones": 42,
+  "textures": 8,
+  "animations": {
+    "idle1": 0.625,
+    "shoot_1": 1.2857142857142858,
+    "shoot_2": 1.2857142857142858,
+    "reload": 2.0,
+    "draw": 1.0
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.24348056316375732,
+      -0.21480000019073486,
+      -0.1318569928407669
+    ],
+    "max": [
+      0.09029747545719147,
+      -0.02934272773563862,
+      0.664634108543396
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 1.7583370208740234e-06,
+  "bytes": 573700,
+  "blender": "5.2.1 LTS"
+}

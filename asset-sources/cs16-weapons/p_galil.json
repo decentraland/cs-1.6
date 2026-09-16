@@ -1,0 +1,21 @@
+{
+  "id": "galil",
+  "sourceSha256": "96c9f8c20fc6e45aa033adcbe40cbea57df45c4c461ed3f849d48a800b14e054",
+  "triangles": 167,
+  "bytes": 21812,
+  "anchor": "Bip01 R Hand",
+  "blenderBounds": {
+    "min": [
+      -0.05938229709863663,
+      -0.7768562436103821,
+      -0.13278093934059143
+    ],
+    "max": [
+      0.03931418061256409,
+      0.21822324395179749,
+      0.14034253358840942
+    ]
+  },
+  "sourceTriangles": 182,
+  "skippedDegenerateTriangles": 15
+}

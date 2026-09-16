@@ -85,11 +85,32 @@ test('ammo purchases use each caliber price, pack and capacity independently of 
 test('pistol purchase replaces only the secondary slot and preserves the rifle', () => {
   const inventory = startingInventory(2)
   buyGun(inventory, 'm4a1', 2, 4000)
-  assert.deepEqual(buyGun(inventory, 'glock18', 2, 800), { money: 400 })
+  assert.deepEqual(buyGun(inventory, 'glock18', 2, 800), { money: 400, dropped: { id: 'usp', clip: 12, reserve: 0 } })
   assert.deepEqual(
     inventory.items.map((i) => i.id),
     ['m4a1', 'glock18']
   )
+  assert.equal(inventory.active, 'm4a1')
+})
+test('buying selects the best weapon left after a replacement before considering the new gun', () => {
+  const ct = startingInventory(2, 'awp')
+  ct.items[1].clip = 4
+  assert.equal(buyGun(ct, 'deagle', 2, 1000).money, 350)
+  assert.equal(ct.active, 'awp')
+  assert.equal(ct.items.find((item) => item.id === 'awp').clip, 4)
+  const t = startingInventory(1, 'ak47')
+  t.active = 'knife'
+  buyGun(t, 'deagle', 1, 16000)
+  assert.equal(t.active, 'ak47')
+  const pistol = startingInventory(2)
+  buyGun(pistol, 'glock18', 2, 16000)
+  assert.equal(pistol.active, 'glock18')
+  const missing = { active: 'awp', items: [{ id: 'awp', clip: 0, reserve: 0 }] }
+  buyGun(missing, 'usp', 2, 16000)
+  assert.equal(missing.active, 'awp')
+  const empty = { active: 'knife', items: [] }
+  buyGun(empty, 'usp', 2, 16000)
+  assert.equal(empty.active, 'usp')
 })
 test('one pistol shot per press also works when a short tap is released before the shot arrives', () => {
   const trigger = new SemiAutoTrigger()
@@ -125,10 +146,10 @@ test('USP and Glock use previous-shot accuracy, rapid-tap penalties and their ow
     assert.ok(gunSpread(state, id, 103, 0, false) > 0.1 * (1 - base) * 5)
   }
 })
-test('M4A1 accuracy uses floating point division and its own moving recoil limits', () => {
+test('M4A1 compatibility accuracy uses integer division and its own moving recoil limits', () => {
   const state = freshGunAccuracy('m4a1')
   near(gunSpread(state, 'm4a1', 100, 0, true), 0.004)
-  near(state.accuracy, 1 / 220 + 0.3)
+  near(state.accuracy, 0.3)
   gunKick(state, 'm4a1', 0, true, () => 0.5)
   near(state.pitch, 0.65)
   for (let i = 0; i < 30; i++) {

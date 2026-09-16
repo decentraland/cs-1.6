@@ -1,0 +1,727 @@
+[
+  {
+    "id": "ak47",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_ak47.mdl",
+    "sourceSha256": "7236c83db8d8ece776dc6eed8981547a6c53ba133c95f59b3604c3b8ca80215a",
+    "sourceBytes": 37596,
+    "report": {
+      "id": "ak47",
+      "sourceSha256": "7236c83db8d8ece776dc6eed8981547a6c53ba133c95f59b3604c3b8ca80215a",
+      "triangles": 116,
+      "bytes": 28448,
+      "sourceTriangles": 116,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.4444989562034607,
+          -0.18665394186973572,
+          -0.011937767267227173
+        ],
+        "max": [
+          0.4414064884185791,
+          0.19743424654006958,
+          0.04900903254747391
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/ak47-drop.glb",
+    "sha256": "970fab1867b4237ad8d548241d3fc35e828713a8a47f4c7d375250dcba314ae2"
+  },
+  {
+    "id": "aug",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_aug.mdl",
+    "sourceSha256": "88ce447e6ec592773094509dab34760d20c8954200f9433d81f96b9ef143277d",
+    "sourceBytes": 38184,
+    "report": {
+      "id": "aug",
+      "sourceSha256": "88ce447e6ec592773094509dab34760d20c8954200f9433d81f96b9ef143277d",
+      "triangles": 142,
+      "bytes": 22288,
+      "sourceTriangles": 142,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.3649853765964508,
+          -0.29058653116226196,
+          -0.006910768337547779
+        ],
+        "max": [
+          0.399783730506897,
+          0.26617303490638733,
+          0.029585769400000572
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/aug-drop.glb",
+    "sha256": "dcf62778d9d182986126a42090399fa3aa31316d0d46958e89b6252b85566672"
+  },
+  {
+    "id": "awp",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_awp.mdl",
+    "sourceSha256": "3b5426b5ecc9b7226784137e2d164c83ddaa1c21130ec8c335dff601e362f211",
+    "sourceBytes": 21676,
+    "report": {
+      "id": "awp",
+      "sourceSha256": "3b5426b5ecc9b7226784137e2d164c83ddaa1c21130ec8c335dff601e362f211",
+      "triangles": 144,
+      "bytes": 16568,
+      "sourceTriangles": 144,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.4073719084262848,
+          -0.2202090322971344,
+          -0.012477494776248932
+        ],
+        "max": [
+          0.5433013439178467,
+          0.20598945021629333,
+          0.03968031331896782
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/awp-drop.glb",
+    "sha256": "80d033754de6054987c8f8651dc2ca3d7a8c4e23c943359c788d5c08ad0c7b5f"
+  },
+  {
+    "id": "deagle",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_deagle.mdl",
+    "sourceSha256": "b3bc78c88503d19162bb880d7ad4c2a789947cbef4faa9b7a48f1da01b43fa41",
+    "sourceBytes": 20572,
+    "report": {
+      "id": "deagle",
+      "sourceSha256": "b3bc78c88503d19162bb880d7ad4c2a789947cbef4faa9b7a48f1da01b43fa41",
+      "triangles": 88,
+      "bytes": 17548,
+      "sourceTriangles": 88,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.07964347302913666,
+          -0.10404571145772934,
+          -0.0020099433604627848
+        ],
+        "max": [
+          0.14263218641281128,
+          0.08221385627985,
+          0.020039791241288185
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/deagle-drop.glb",
+    "sha256": "52f4aa040dad24fa12064a4b752bb2ca022fdf9ff256a13b3547ab3736495086"
+  },
+  {
+    "id": "elite",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_elite.mdl",
+    "sourceSha256": "faf9edc6e7695fa84fe55f572602240549b18a935d942db6c100c3e5df0cca96",
+    "sourceBytes": 23584,
+    "report": {
+      "id": "elite",
+      "sourceSha256": "faf9edc6e7695fa84fe55f572602240549b18a935d942db6c100c3e5df0cca96",
+      "triangles": 208,
+      "bytes": 26240,
+      "sourceTriangles": 208,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.1343090832233429,
+          -0.1218123584985733,
+          -0.002880349988117814
+        ],
+        "max": [
+          0.20920318365097046,
+          0.15361346304416656,
+          0.0597221665084362
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/elite-drop.glb",
+    "sha256": "6ff955cdc901273e8d4f9223818b7454e6304120b8072978f512e6408402d3bd"
+  },
+  {
+    "id": "famas",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_famas.mdl",
+    "sourceSha256": "f71e0f246e6e9fd0c2d714b93237c38c68f23a46dfeb6850f6d040b6fa593966",
+    "sourceBytes": 22916,
+    "report": {
+      "id": "famas",
+      "sourceSha256": "f71e0f246e6e9fd0c2d714b93237c38c68f23a46dfeb6850f6d040b6fa593966",
+      "triangles": 161,
+      "bytes": 24228,
+      "sourceTriangles": 164,
+      "skippedDegenerateTriangles": 3,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.3580491542816162,
+          -0.5136266350746155,
+          0.000566780217923224
+        ],
+        "max": [
+          0.3079110383987427,
+          0.506613552570343,
+          0.05181512236595154
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/famas-drop.glb",
+    "sha256": "6ecb73ff7a2fbc9faf1cea07e9c217c1124290ce04005cfc88cb9a824d8752a5"
+  },
+  {
+    "id": "fiveseven",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_fiveseven.mdl",
+    "sourceSha256": "71d1baef7d66cc805523cf2a5616c04e8fab568248726de3e42fabe249be54d6",
+    "sourceBytes": 19992,
+    "report": {
+      "id": "fiveseven",
+      "sourceSha256": "71d1baef7d66cc805523cf2a5616c04e8fab568248726de3e42fabe249be54d6",
+      "triangles": 58,
+      "bytes": 18460,
+      "sourceTriangles": 58,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.10826772451400757,
+          -0.06147611513733864,
+          -0.0013485950184985995
+        ],
+        "max": [
+          0.11378446221351624,
+          0.07464712858200073,
+          0.01719675213098526
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/fiveseven-drop.glb",
+    "sha256": "26bac2d0e8d75e77a5d6122515577437b88548c382b512d1f61b137411d63b00"
+  },
+  {
+    "id": "g3sg1",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_g3sg1.mdl",
+    "sourceSha256": "d5ba9dd6c5a88da3540d8138d3e2aec8fea23dadb481ca8bb2b94a1bed0c395f",
+    "sourceBytes": 22120,
+    "report": {
+      "id": "g3sg1",
+      "sourceSha256": "d5ba9dd6c5a88da3540d8138d3e2aec8fea23dadb481ca8bb2b94a1bed0c395f",
+      "triangles": 158,
+      "bytes": 16244,
+      "sourceTriangles": 158,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.4893327057361603,
+          -0.24823129177093506,
+          -0.009681974537670612
+        ],
+        "max": [
+          0.5078782439231873,
+          0.1957935094833374,
+          0.05036907270550728
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/g3sg1-drop.glb",
+    "sha256": "645a65038b70d89aa888cd9bd2491a0aa2b075f662aef2079095fe0ff3c8070a"
+  },
+  {
+    "id": "galil",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_galil.mdl",
+    "sourceSha256": "c73285b1cd4cb59453bb0e86f30668fc97fd656b8e176e4bb41337fb98daafc7",
+    "sourceBytes": 23668,
+    "report": {
+      "id": "galil",
+      "sourceSha256": "c73285b1cd4cb59453bb0e86f30668fc97fd656b8e176e4bb41337fb98daafc7",
+      "triangles": 167,
+      "bytes": 21644,
+      "sourceTriangles": 182,
+      "skippedDegenerateTriangles": 15,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.20706090331077576,
+          -0.7066357135772705,
+          0.003501194529235363
+        ],
+        "max": [
+          0.20719189941883087,
+          0.6001291275024414,
+          0.05982585251331329
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/galil-drop.glb",
+    "sha256": "fd725e9102ba61de638d5ce981ebdd284ef65876072b13ba8d6d8750ab9fd48a"
+  },
+  {
+    "id": "glock18",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_glock18.mdl",
+    "sourceSha256": "673a86ae9a5e762348493d071828cd7e4e981fc1cae6004387dfe0da77b39ed1",
+    "sourceBytes": 11980,
+    "report": {
+      "id": "glock18",
+      "sourceSha256": "673a86ae9a5e762348493d071828cd7e4e981fc1cae6004387dfe0da77b39ed1",
+      "triangles": 76,
+      "bytes": 11240,
+      "sourceTriangles": 78,
+      "skippedDegenerateTriangles": 2,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.0658893883228302,
+          -0.09890874475240707,
+          -0.0007557388162240386
+        ],
+        "max": [
+          0.10990002751350403,
+          0.0747772678732872,
+          0.022622952237725258
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/glock18-drop.glb",
+    "sha256": "40a68ce2569ea32eb561aee803941a2679c48c116ee6c8ee1469a56f69720afd"
+  },
+  {
+    "id": "m249",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_m249.mdl",
+    "sourceSha256": "253bea2c0193bae68a4aa1a499514497acfe4ef2ff699a26272d387e086be994",
+    "sourceBytes": 21272,
+    "report": {
+      "id": "m249",
+      "sourceSha256": "253bea2c0193bae68a4aa1a499514497acfe4ef2ff699a26272d387e086be994",
+      "triangles": 128,
+      "bytes": 17748,
+      "sourceTriangles": 128,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.3839028775691986,
+          -0.18363706767559052,
+          -0.005502473097294569
+        ],
+        "max": [
+          0.47369709610939026,
+          0.10710970312356949,
+          0.11305860430002213
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/m249-drop.glb",
+    "sha256": "f99fd0bb38f7d782f6734f7be4118905a7a676b8d00aef9806fff6f93494c768"
+  },
+  {
+    "id": "m3",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_m3.mdl",
+    "sourceSha256": "65bc2dd8ba9d5debe7a353730204acf0299a8d113a56310b60ad64b5e2e309e7",
+    "sourceBytes": 21456,
+    "report": {
+      "id": "m3",
+      "sourceSha256": "65bc2dd8ba9d5debe7a353730204acf0299a8d113a56310b60ad64b5e2e309e7",
+      "triangles": 120,
+      "bytes": 15548,
+      "sourceTriangles": 120,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.4397640526294708,
+          -0.39099860191345215,
+          -0.004264948423951864
+        ],
+        "max": [
+          0.29133084416389465,
+          0.24198853969573975,
+          0.028420845046639442
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/m3-drop.glb",
+    "sha256": "f591e2c28d3eebf5fc866eb1bbbea5e54049ad05a8c5f4d2a32736cdd869b2c3"
+  },
+  {
+    "id": "m4a1",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_m4a1.mdl",
+    "sourceSha256": "b8369a85b4f87dd791fc726696a40c7f3a06e64943126dc01b83b418dacb2013",
+    "sourceBytes": 21780,
+    "report": {
+      "id": "m4a1",
+      "sourceSha256": "b8369a85b4f87dd791fc726696a40c7f3a06e64943126dc01b83b418dacb2013",
+      "triangles": 140,
+      "bytes": 16144,
+      "sourceTriangles": 140,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.3700753450393677,
+          -0.32205843925476074,
+          -0.01378342229872942
+        ],
+        "max": [
+          0.5179248452186584,
+          0.25405463576316833,
+          0.041935112327337265
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/m4a1-drop.glb",
+    "sha256": "b7794629e7edbc65ec625c735d80b38ce7627c6f7c4fa735d18d94687e14669d"
+  },
+  {
+    "id": "mac10",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_mac10.mdl",
+    "sourceSha256": "def41d92f100a1981d1f949e2cb1031887c3d45203df13a47387cfae318ca025",
+    "sourceBytes": 42956,
+    "report": {
+      "id": "mac10",
+      "sourceSha256": "def41d92f100a1981d1f949e2cb1031887c3d45203df13a47387cfae318ca025",
+      "triangles": 122,
+      "bytes": 21084,
+      "sourceTriangles": 122,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.22233986854553223,
+          -0.2503592073917389,
+          0.0033846974838525057
+        ],
+        "max": [
+          0.2632601261138916,
+          0.28598544001579285,
+          0.05400067940354347
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/mac10-drop.glb",
+    "sha256": "03dbea0a2aac93b6f1bb85cc06d284ed2376e1984d822720acac2fd9cb53a01c"
+  },
+  {
+    "id": "mp5",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_mp5.mdl",
+    "sourceSha256": "3c00b7e41c5790a36fe3843a9dcfff50d3384652ab788ab54284f2162862e9c9",
+    "sourceBytes": 24884,
+    "report": {
+      "id": "mp5",
+      "sourceSha256": "3c00b7e41c5790a36fe3843a9dcfff50d3384652ab788ab54284f2162862e9c9",
+      "triangles": 136,
+      "bytes": 18928,
+      "sourceTriangles": 136,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.1875087469816208,
+          -0.4102403223514557,
+          -0.0030002184212207794
+        ],
+        "max": [
+          0.19916954636573792,
+          0.3084739148616791,
+          0.04999978467822075
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/mp5-drop.glb",
+    "sha256": "d0b30820eb546c0abce268f2c21c49b8a02945bbfb44d5466b4a55ed0b15b8b3"
+  },
+  {
+    "id": "p228",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_p228.mdl",
+    "sourceSha256": "a28da8ccd0578ee55fda5dc931348d7c6a9cecc1801b368e7aaedbcb66f38e7b",
+    "sourceBytes": 20084,
+    "report": {
+      "id": "p228",
+      "sourceSha256": "a28da8ccd0578ee55fda5dc931348d7c6a9cecc1801b368e7aaedbcb66f38e7b",
+      "triangles": 80,
+      "bytes": 18460,
+      "sourceTriangles": 80,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.11647801846265793,
+          -0.05929920822381973,
+          -0.0014280355535447598
+        ],
+        "max": [
+          0.11958000063896179,
+          0.07276134192943573,
+          0.01865982823073864
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/p228-drop.glb",
+    "sha256": "16a9fbaeb6bf5bcc9b4510b0f492df789b6073ecdb808f6c9d73cfe3dab7521f"
+  },
+  {
+    "id": "p90",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_p90.mdl",
+    "sourceSha256": "677f4dd3622e757e610995c649bb27c952c50bf32195500e4d9f5db485ed6c51",
+    "sourceBytes": 37108,
+    "report": {
+      "id": "p90",
+      "sourceSha256": "677f4dd3622e757e610995c649bb27c952c50bf32195500e4d9f5db485ed6c51",
+      "triangles": 108,
+      "bytes": 24516,
+      "sourceTriangles": 108,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.27689749002456665,
+          -0.20152440667152405,
+          -0.002437707269564271
+        ],
+        "max": [
+          0.22157667577266693,
+          0.22020427882671356,
+          0.03783659264445305
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/p90-drop.glb",
+    "sha256": "b60fe3e2eeaaad52cfe97259f367bd29d5c1aa7b0d654d56b48c1a5f8d97451d"
+  },
+  {
+    "id": "scout",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_scout.mdl",
+    "sourceSha256": "09919c1b85c6c90b1468c6f8b2b397327ffcd8e86a1f95009152156e122e2a9e",
+    "sourceBytes": 20480,
+    "report": {
+      "id": "scout",
+      "sourceSha256": "09919c1b85c6c90b1468c6f8b2b397327ffcd8e86a1f95009152156e122e2a9e",
+      "triangles": 92,
+      "bytes": 16640,
+      "sourceTriangles": 92,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.4911460280418396,
+          -0.22291922569274902,
+          -0.00622677244246006
+        ],
+        "max": [
+          0.5169194936752319,
+          0.1532343626022339,
+          0.03233145549893379
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/scout-drop.glb",
+    "sha256": "9d5abe1e5220a02a4f53a1ebe4f412710912ade995e3a53ec771534b219b70a6"
+  },
+  {
+    "id": "sg550",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_sg550.mdl",
+    "sourceSha256": "278e5153a26a3e0c97b6ef7542df77248658abf8ba7c488bdbcf63c1b3ebf3a1",
+    "sourceBytes": 38648,
+    "report": {
+      "id": "sg550",
+      "sourceSha256": "278e5153a26a3e0c97b6ef7542df77248658abf8ba7c488bdbcf63c1b3ebf3a1",
+      "triangles": 162,
+      "bytes": 30080,
+      "sourceTriangles": 162,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.43229392170906067,
+          -0.27046310901641846,
+          -0.007903805002570152
+        ],
+        "max": [
+          0.5226907730102539,
+          0.2555674910545349,
+          0.03832360729575157
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/sg550-drop.glb",
+    "sha256": "ba2a4e032bc04f27b260be8b4aaf727b26af1ecf6cc4ca643d09ac45b7f761aa"
+  },
+  {
+    "id": "sg552",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_sg552.mdl",
+    "sourceSha256": "db9f242e2e1e57602317aab91c6b7e72235186cec45f798222778e28bcc6e02d",
+    "sourceBytes": 38508,
+    "report": {
+      "id": "sg552",
+      "sourceSha256": "db9f242e2e1e57602317aab91c6b7e72235186cec45f798222778e28bcc6e02d",
+      "triangles": 160,
+      "bytes": 27024,
+      "sourceTriangles": 160,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.31118834018707275,
+          -0.32000237703323364,
+          -0.018399106338620186
+        ],
+        "max": [
+          0.2813163697719574,
+          0.2608850598335266,
+          0.040229808539152145
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/sg552-drop.glb",
+    "sha256": "c47ef864ac19369f7a089a39f9cf3ade08ba075d63241fa478c76477f42d0712"
+  },
+  {
+    "id": "tmp",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_tmp.mdl",
+    "sourceSha256": "90f0e623c57375f1757bf90e8820c72650c6a377486026872c4b909683f368ab",
+    "sourceBytes": 20780,
+    "report": {
+      "id": "tmp",
+      "sourceSha256": "90f0e623c57375f1757bf90e8820c72650c6a377486026872c4b909683f368ab",
+      "triangles": 104,
+      "bytes": 15044,
+      "sourceTriangles": 104,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.1655234694480896,
+          -0.15939484536647797,
+          -0.006970197893679142
+        ],
+        "max": [
+          0.16885681450366974,
+          0.2317763864994049,
+          0.023937268182635307
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/tmp-drop.glb",
+    "sha256": "f967154c7681369e6fa2c374dd2d6ddfaf0975e65a45b397ea77bba63cd94c3d"
+  },
+  {
+    "id": "ump45",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_ump45.mdl",
+    "sourceSha256": "7120ce6296f63eddf2adc114a4fa226a96e48574bc6df5f8cdcb0f8c4d15113d",
+    "sourceBytes": 38280,
+    "report": {
+      "id": "ump45",
+      "sourceSha256": "7120ce6296f63eddf2adc114a4fa226a96e48574bc6df5f8cdcb0f8c4d15113d",
+      "triangles": 139,
+      "bytes": 28996,
+      "sourceTriangles": 139,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.3351370394229889,
+          -0.20253360271453857,
+          -0.0034250151365995407
+        ],
+        "max": [
+          0.21235612034797668,
+          0.19048498570919037,
+          0.02072405256330967
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/ump45-drop.glb",
+    "sha256": "2e579d763f3355b5719f41d78c031db337b83a3852a350bae5a6c156bfe9bdfe"
+  },
+  {
+    "id": "usp",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_usp.mdl",
+    "sourceSha256": "9201967d7bbae1637ed344fa7266c75a9d02d264b8f2a77bec44a2342f3e8148",
+    "sourceBytes": 36924,
+    "report": {
+      "id": "usp",
+      "sourceSha256": "9201967d7bbae1637ed344fa7266c75a9d02d264b8f2a77bec44a2342f3e8148",
+      "triangles": 100,
+      "bytes": 21296,
+      "sourceTriangles": 100,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.1133262887597084,
+          -0.11450807750225067,
+          -0.004012230318039656
+        ],
+        "max": [
+          0.2577262222766876,
+          0.06106271594762802,
+          0.024895809590816498
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/usp-drop.glb",
+    "sha256": "0ca47ac95f66e7003770b05c0549f4ebb6f9c462d1ed430cc6b3b68e4c416d09"
+  },
+  {
+    "id": "xm1014",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_xm1014.mdl",
+    "sourceSha256": "4b7a18446b752b921126370d16f38577f118c644fcb252851446cb53361ac6f7",
+    "sourceBytes": 22224,
+    "report": {
+      "id": "xm1014",
+      "sourceSha256": "4b7a18446b752b921126370d16f38577f118c644fcb252851446cb53361ac6f7",
+      "triangles": 136,
+      "bytes": 16844,
+      "sourceTriangles": 136,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.10128172487020493,
+          -0.695942759513855,
+          -0.007032745983451605
+        ],
+        "max": [
+          0.12558625638484955,
+          0.4097420275211334,
+          0.06369476765394211
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/xm1014-drop.glb",
+    "sha256": "eff45073b42439eb86dbf70a61a30de606ead3f436a8d40f43e6034f2c802058"
+  },
+  {
+    "id": "thighpack",
+    "sourceUrl": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_thighpack.mdl",
+    "sourceSha256": "3d3697d0e254646199c6a9106991d1fa8a18919e0d4852355b611d75f1f1bbad",
+    "sourceBytes": 7752,
+    "report": {
+      "id": "thighpack",
+      "sourceSha256": "3d3697d0e254646199c6a9106991d1fa8a18919e0d4852355b611d75f1f1bbad",
+      "triangles": 80,
+      "bytes": 6600,
+      "sourceTriangles": 80,
+      "skippedDegenerateTriangles": 0,
+      "anchor": "Original model origin",
+      "blenderBounds": {
+        "min": [
+          -0.13355784118175507,
+          -0.23687578737735748,
+          -0.002918808488175273
+        ],
+        "max": [
+          0.1529626101255417,
+          0.2551242411136627,
+          0.08527708053588867
+        ]
+      }
+    },
+    "src": "assets/scene/weapons/thighpack-drop.glb",
+    "sha256": "b73a8c5a7af3e4a0dc431447c686e987799602f81950bccd102fc6422fa9f572"
+  }
+]

@@ -1,0 +1,6991 @@
+{
+  "date": "2026-09-15T07:18:07.978Z",
+  "muted": true,
+  "start": {
+    "player": {
+      "AvatarBase": {
+        "bodyShapeUrn": "urn:decentraland:off-chain:base-avatars:BaseFemale",
+        "eyesColor": {
+          "b": 0.99,
+          "g": 0.22352941,
+          "r": 0.3
+        },
+        "hairColor": {
+          "b": 0.21568628,
+          "g": 0.37254903,
+          "r": 0.59607846
+        },
+        "name": "Bevy_User",
+        "skinColor": {
+          "b": 0.2784314,
+          "g": 0.3647059,
+          "r": 0.49019608
+        }
+      },
+      "AvatarEquippedData": {
+        "emoteUrns": [
+          "handsair",
+          "wave",
+          "fistpump",
+          "dance",
+          "raisehand",
+          "clap",
+          "money",
+          "kiss",
+          "headexplode",
+          "shrug"
+        ],
+        "forceRender": [],
+        "wearableUrns": [
+          "urn:decentraland:off-chain:base-avatars:f_sweater",
+          "urn:decentraland:off-chain:base-avatars:f_jeans",
+          "urn:decentraland:off-chain:base-avatars:bun_shoes",
+          "urn:decentraland:off-chain:base-avatars:standard_hair",
+          "urn:decentraland:off-chain:base-avatars:f_eyes_01",
+          "urn:decentraland:off-chain:base-avatars:f_eyebrows_00",
+          "urn:decentraland:off-chain:base-avatars:f_mouth_00"
+        ]
+      },
+      "AvatarLocomotionSettings": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "AvatarMovementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 9,
+          "playbackTime": 0.18708038,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.016985107,
+        "requestedVelocity": null,
+        "stepTime": 0.015939942,
+        "walkTarget": null,
+        "walkThreshold": null
+      },
+      "InputModifier": {
+        "mode": {
+          "standard": {
+            "disableAll": null,
+            "disableDoubleJump": true,
+            "disableEmote": true,
+            "disableGliding": true,
+            "disableJog": false,
+            "disableJump": false,
+            "disableRun": false,
+            "disableWalk": false
+          }
+        }
+      },
+      "PlayerIdentityData": {
+        "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+        "isGuest": true
+      },
+      "Transform": {
+        "parent": 0,
+        "position": {
+          "x": 21.003832,
+          "y": 10.433717,
+          "z": 51.00383
+        },
+        "rotation": {
+          "w": 0.56640613,
+          "x": 0,
+          "y": 0.82412624,
+          "z": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      }
+    },
+    "movement": {
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.00383186340332,
+        "y": 10.433716773986816,
+        "z": 51.00382995605469
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 0,
+      "events": []
+    }
+  },
+  "walk": [
+    {
+      "at": 1789456694.374,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.003843307495117,
+        "y": 10.433595657348633,
+        "z": 51.0421142578125
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 9,
+          "playbackTime": 0.3383255,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.0005983025,
+          "y": -0.0062579312,
+          "z": 1.2620254
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.013985107,
+        "requestedVelocity": {
+          "x": -0.000005724522,
+          "y": -0.0086740395,
+          "z": 1.2620254
+        },
+        "stepTime": 0.018139891,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456694.539,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.00387191772461,
+        "y": 10.433587074279785,
+        "z": 51.4163818359375
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 1.9956142253634532,
+      "vertical": 0.000011089209921516117,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0,
+          "speed": 0.3300581,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00021816055,
+          "y": -0.000113770395,
+          "z": 2.9823287
+        },
+        "externalVelocity": {
+          "x": 0.000017241664,
+          "y": 0.000068966656,
+          "z": 1.5073136e-12
+        },
+        "previousStepTime": 0.015664795,
+        "requestedVelocity": {
+          "x": 0.00021816055,
+          "y": -0.000113770395,
+          "z": 2.9823287
+        },
+        "stepTime": 0.017175049,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456694.689,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.0039119720459,
+        "y": 10.433577537536621,
+        "z": 51.899200439453125
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.22701174228323,
+      "vertical": 0,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.057491574,
+          "speed": 0.39658907,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.0002680658,
+          "y": -0.00012938262,
+          "z": 3.25
+        },
+        "externalVelocity": {
+          "x": 0.000012003696,
+          "y": 0.000048014783,
+          "z": 1.0493967e-12
+        },
+        "previousStepTime": 0.017535156,
+        "requestedVelocity": {
+          "x": 0.0002680658,
+          "y": -0.00012938262,
+          "z": 3.25
+        },
+        "stepTime": 0.015114991,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456694.84,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.00395393371582,
+        "y": 10.433568000793457,
+        "z": 52.3934326171875
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.198755695326321,
+      "vertical": -0.00009082600575609811,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.11687054,
+          "speed": 0.39728445,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00018925282,
+          "y": -0.000028128945,
+          "z": 3.25
+        },
+        "externalVelocity": {
+          "x": 0.00011826921,
+          "y": 0.00047307683,
+          "z": 1.0339432e-11
+        },
+        "previousStepTime": 0.017254883,
+        "requestedVelocity": {
+          "x": 0.00018925282,
+          "y": -0.000028128945,
+          "z": 3.25
+        },
+        "stepTime": 0.017640136,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456694.99,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.00399398803711,
+        "y": 10.433555603027344,
+        "z": 52.87419128417969
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.3416770430361606,
+      "vertical": -0.00014937077560775235,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.17649552,
+          "speed": 0.39730963,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00021246962,
+          "y": -0.0001850228,
+          "z": 3.25
+        },
+        "externalVelocity": {
+          "x": 0.0001127945,
+          "y": 0.000451178,
+          "z": 9.8607815e-12
+        },
+        "previousStepTime": 0.01665503,
+        "requestedVelocity": {
+          "x": 0.00021246962,
+          "y": -0.0001850228,
+          "z": 3.25
+        },
+        "stepTime": 0.015489991,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456695.139,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.004037857055664,
+        "y": 10.433544158935547,
+        "z": 53.364559173583984
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.201398738067462,
+      "vertical": -0.0000908262635494336,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.23561338,
+          "speed": 0.3973105,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00020922394,
+          "y": -0.00021356443,
+          "z": 3.25
+        },
+        "externalVelocity": {
+          "x": 0.000092862196,
+          "y": 0.00037144878,
+          "z": 8.118272e-12
+        },
+        "previousStepTime": 0.015640136,
+        "requestedVelocity": {
+          "x": 0.00020922394,
+          "y": -0.00021356443,
+          "z": 3.25
+        },
+        "stepTime": 0.017579835,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456695.291,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.004079818725586,
+        "y": 10.4335355758667,
+        "z": 53.845497131347656
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.30552753997381,
+      "vertical": -0.00013956206586748,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.29493174,
+          "speed": 0.39731053,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00021730583,
+          "y": -0.000092746624,
+          "z": 3.25
+        },
+        "externalVelocity": {
+          "x": 0.00011404672,
+          "y": 0.00045618688,
+          "z": 9.9702685e-12
+        },
+        "previousStepTime": 0.015839843,
+        "requestedVelocity": {
+          "x": 0.00021730583,
+          "y": -0.000092746624,
+          "z": 3.25
+        },
+        "stepTime": 0.01626001,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456695.439,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.004125595092773,
+        "y": 10.433520317077637,
+        "z": 54.33839416503906
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.2764594646203653,
+      "vertical": -0.00013788071594561754,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.35547587,
+          "speed": 0.39731053,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00023339804,
+          "y": -0.00035730153,
+          "z": 3.25
+        },
+        "externalVelocity": {
+          "x": 0.000061426996,
+          "y": 0.00024570798,
+          "z": 5.3701175e-12
+        },
+        "previousStepTime": 0.018049804,
+        "requestedVelocity": {
+          "x": 0.00023339804,
+          "y": -0.00035730153,
+          "z": 3.25
+        },
+        "stepTime": 0.015535156,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    }
+  ],
+  "diagonalWalk": [
+    {
+      "at": 1789456695.591,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.029340744018555,
+        "y": 10.431405067443848,
+        "z": 54.83251190185547
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.110798159481579,
+      "vertical": -0.00003326772199273655,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.41475666,
+          "speed": 0.39053944,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.8973208,
+          "y": -0.10857948,
+          "z": 3.131152
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.017975098,
+        "requestedVelocity": {
+          "x": 0.8973208,
+          "y": -0.10857948,
+          "z": 3.131152
+        },
+        "stepTime": 0.019380128,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456695.74,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.29639434814453,
+        "y": 10.36977767944336,
+        "z": 55.23991394042969
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.272214975684767,
+      "vertical": -0.4868273908526859,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.4749574,
+          "speed": 0.39929274,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 2.0953686,
+          "y": -0.3563174,
+          "z": 2.5008235
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.018129883,
+        "requestedVelocity": {
+          "x": 2.0953686,
+          "y": -0.3563174,
+          "z": 2.5008235
+        },
+        "stepTime": 0.01713501,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456695.892,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.626136779785156,
+        "y": 10.287378311157227,
+        "z": 55.59560012817383
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.2261166347639487,
+      "vertical": -0.5564688471301097,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.5346569,
+          "speed": 0.39735803,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 2.2624872,
+          "y": -0.52435213,
+          "z": 2.3337066
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.01658496,
+        "requestedVelocity": {
+          "x": 2.2624872,
+          "y": -0.52435213,
+          "z": 2.3337066
+        },
+        "stepTime": 0.016235108,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456696.056,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 22.00743293762207,
+        "y": 10.191195487976074,
+        "z": 55.98168182373047
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.2856383438463053,
+      "vertical": -0.6035251401783253,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.6004335,
+          "speed": 0.39731047,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 2.2928734,
+          "y": -0.6399597,
+          "z": 2.3033206
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.01513501,
+        "requestedVelocity": {
+          "x": 2.2928734,
+          "y": -0.6399597,
+          "z": 2.3033206
+        },
+        "stepTime": 0.01764502,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456696.208,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 22.349767684936523,
+        "y": 10.107442855834961,
+        "z": 56.32468795776367
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.3310685016013304,
+      "vertical": -0.5721712431527163,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.66081685,
+          "speed": 0.39731047,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 2.2971952,
+          "y": -0.53048795,
+          "z": 2.2989988
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.01827002,
+        "requestedVelocity": {
+          "x": 2.2971952,
+          "y": -0.53048795,
+          "z": 2.2989988
+        },
+        "stepTime": 0.014774902,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456696.357,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 22.694950103759766,
+        "y": 10.026373863220215,
+        "z": 56.66999053955078
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.1790729401693207,
+      "vertical": -0.5759180513637536,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 1,
+          "playbackTime": 0.053744674,
+          "speed": 0.39731047,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 2.2979307,
+          "y": -0.117588386,
+          "z": 2.2982635
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.01827002,
+        "requestedVelocity": {
+          "x": 2.2979307,
+          "y": -0.117588386,
+          "z": 2.2982635
+        },
+        "stepTime": 0.015010009,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456696.507,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 23.04021644592285,
+        "y": 10.025994300842285,
+        "z": 57.01527404785156
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 3.418499002102219,
+      "vertical": 0.00011773743962276925,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 3.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 3.25,
+        "walkSpeed": 3.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 1,
+          "playbackTime": 0.11251891,
+          "speed": 0.39731047,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 3.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 3.25,
+          "walkSpeed": 3.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 2.2980585,
+          "y": -0.00036903942,
+          "z": 2.2981355
+        },
+        "externalVelocity": {
+          "x": 2.6075573e-17,
+          "y": 0.00027523143,
+          "z": -6.5188934e-18
+        },
+        "previousStepTime": 0.01472998,
+        "requestedVelocity": {
+          "x": 2.2980585,
+          "y": -0.00036903942,
+          "z": 2.2981355
+        },
+        "stepTime": 0.017324952,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    }
+  ],
+  "run": [
+    {
+      "at": 1789456698.391,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.012418746948242,
+        "y": 10.431442260742188,
+        "z": 51.051368713378906
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.8172251,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": -0.0000062980334,
+          "y": -0.0006019206,
+          "z": 1.3884614
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.017745119,
+        "requestedVelocity": {
+          "x": -0.0000062980334,
+          "y": -0.0006019206,
+          "z": 1.3884614
+        },
+        "stepTime": 0.016014893,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456698.556,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.012454986572266,
+        "y": 10.431437492370605,
+        "z": 51.60707092285156
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 2.7135610695065444,
+      "vertical": -0.00009865581452706869,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.034401115,
+          "speed": 0.5551368,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00020074403,
+          "y": -0.00039630107,
+          "z": 4.86071
+        },
+        "externalVelocity": {
+          "x": 0.000065022214,
+          "y": 0.00026008885,
+          "z": 5.6844243e-12
+        },
+        "previousStepTime": 0.014919922,
+        "requestedVelocity": {
+          "x": 0.00020074403,
+          "y": -0.00039630107,
+          "z": 4.86071
+        },
+        "stepTime": 0.016620116,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456698.709,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.01250648498535,
+        "y": 10.431427001953125,
+        "z": 52.505794525146484
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 5.960836858962379,
+      "vertical": -0.00013623939532415042,
+      "total": 0,
+      "events": [],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.1390198,
+          "speed": 0.7638352,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00029436854,
+          "y": -0.00024271701,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.000094337396,
+          "y": 0.00037734958,
+          "z": 8.24725e-12
+        },
+        "previousStepTime": 0.018589845,
+        "requestedVelocity": {
+          "x": 0.00029436854,
+          "y": -0.00024271701,
+          "z": 6.25
+        },
+        "stepTime": 0.014975098,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456698.873,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.0125789642334,
+        "y": 10.431410789489746,
+        "z": 53.55191421508789
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.403899491106919,
+      "vertical": -0.000023547557235281304,
+      "total": 1,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.26433706,
+          "speed": 0.7640529,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.0003810845,
+          "y": -0.00016964732,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.000052314015,
+          "y": 0.00020925606,
+          "z": 4.573436e-12
+        },
+        "previousStepTime": 0.015224853,
+        "requestedVelocity": {
+          "x": 0.0003810845,
+          "y": -0.00016964732,
+          "z": 6.25
+        },
+        "stepTime": 0.018324953,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456699.023,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.01263999938965,
+        "y": 10.431394577026367,
+        "z": 54.485443115234375
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.216489972885885,
+      "vertical": -0.00009192047729707837,
+      "total": 1,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.37908307,
+          "speed": 0.7640586,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00038960317,
+          "y": -0.00024061374,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.000048065533,
+          "y": 0.00019226213,
+          "z": 4.20202e-12
+        },
+        "previousStepTime": 0.016649902,
+        "requestedVelocity": {
+          "x": 0.00038960317,
+          "y": -0.00024061374,
+          "z": 6.25
+        },
+        "stepTime": 0.01751001,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456699.173,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.012697219848633,
+        "y": 10.431380271911621,
+        "z": 55.42019271850586
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.045933431712281,
+      "vertical": -0.00012341662085292105,
+      "total": 2,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.49392503,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00037721437,
+          "y": -0.0001795705,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.000076683165,
+          "y": 0.00030673266,
+          "z": 6.703862e-12
+        },
+        "previousStepTime": 0.01695996,
+        "requestedVelocity": {
+          "x": 0.00037721437,
+          "y": -0.0001795705,
+          "z": 6.25
+        },
+        "stepTime": 0.016764892,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456699.323,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.012758255004883,
+        "y": 10.43136215209961,
+        "z": 56.35894012451172
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.1866899654549075,
+      "vertical": -0.00014937034653920398,
+      "total": 2,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.6100237,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00037698724,
+          "y": -0.0004071568,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.000047933496,
+          "y": 0.00019173398,
+          "z": 4.1904744e-12
+        },
+        "previousStepTime": 0.018255128,
+        "requestedVelocity": {
+          "x": 0.00037698724,
+          "y": -0.0004071568,
+          "z": 6.25
+        },
+        "stepTime": 0.015014893,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456699.474,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.012819290161133,
+        "y": 10.431347846984863,
+        "z": 57.289215087890625
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.2079297154631075,
+      "vertical": -0.00007947298060575441,
+      "total": 3,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 1,
+          "playbackTime": 0.057006836,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00041109987,
+          "y": -0.0003139946,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.000032453983,
+          "y": 0.00012981593,
+          "z": 2.8372177e-12
+        },
+        "previousStepTime": 0.01626001,
+        "requestedVelocity": {
+          "x": 0.00041109987,
+          "y": -0.0003139946,
+          "z": 6.25
+        },
+        "stepTime": 0.01511499,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456699.622,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.01288604736328,
+        "y": 10.431329727172852,
+        "z": 58.22858810424805
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.201281798634575,
+      "vertical": -0.00013623900863414718,
+      "total": 3,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 1,
+          "playbackTime": 0.17188704,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.0004141152,
+          "y": -0.0004118933,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.00002480191,
+          "y": 0.00009920764,
+          "z": 2.168251e-12
+        },
+        "previousStepTime": 0.01803003,
+        "requestedVelocity": {
+          "x": 0.0004141152,
+          "y": -0.0004118933,
+          "z": 6.25
+        },
+        "stepTime": 0.015059814,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456699.773,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.012954711914062,
+        "y": 10.431312561035156,
+        "z": 59.189029693603516
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 5.9555110661740835,
+      "vertical": -0.00004768376129509096,
+      "total": 4,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 1,
+          "playbackTime": 0.2849905,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00046423418,
+          "y": -0.0003769395,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.00001781405,
+          "y": 0.0000712562,
+          "z": 1.5573547e-12
+        },
+        "previousStepTime": 0.013879883,
+        "requestedVelocity": {
+          "x": 0.00046423418,
+          "y": -0.0003769395,
+          "z": 6.25
+        },
+        "stepTime": 0.020700196,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456699.94,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.013031005859375,
+        "y": 10.431297302246094,
+        "z": 60.225189208984375
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.108483413904493,
+      "vertical": -0.00014937077560775235,
+      "total": 4,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 1,
+          "playbackTime": 0.41252726,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00041957226,
+          "y": -0.0001558377,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.00005298106,
+          "y": 0.00021192424,
+          "z": 4.6317507e-12
+        },
+        "previousStepTime": 0.015350098,
+        "requestedVelocity": {
+          "x": 0.00041957226,
+          "y": -0.0001558377,
+          "z": 6.25
+        },
+        "stepTime": 0.01956494,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    }
+  ],
+  "runAudio": [
+    {
+      "AudioSource": {
+        "audioClipUrl": "assets/sounds/movement/pl_step2.wav",
+        "currentTime": 0,
+        "global": null,
+        "loop": null,
+        "pitch": null,
+        "playing": true,
+        "volume": 0.5
+      },
+      "Transform": {
+        "parent": 2,
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "w": 1,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      }
+    }
+  ],
+  "preload": [
+    {
+      "1214": [
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfZHVjdDEud2F2GDA=",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfdGlsZTEud2F2GDE=",
+        "0:CAQSJGFzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfZ3JhdGU0Lndhdhgy",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfZHVjdDQud2F2GDM=",
+        "0:CAQSJGFzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfZ3JhdGUxLndhdhg0",
+        "0:CAQSJGFzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfZ3JhdGUyLndhdhg1",
+        "0:CAQSJGFzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfZ3JhdGUzLndhdhg2",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfc25vdzQud2F2GDc=",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfc25vdzMud2F2GDg=",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfc25vdzIud2F2GDk=",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfc25vdzEud2F2GDo=",
+        "0:CAQSJGFzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfc2xvc2g0Lndhdhg7",
+        "0:CAQSJGFzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfc2xvc2gzLndhdhg8",
+        "0:CAQSJGFzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfc2xvc2gyLndhdhg9",
+        "0:CAQSJGFzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfc2xvc2gxLndhdhg+",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfdGlsZTUud2F2GD8=",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfdGlsZTQud2F2GEA=",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfdGlsZTMud2F2GEE=",
+        "0:CAQSI2Fzc2V0cy9zb3VuZHMvbW92ZW1lbnQvcGxfdGlsZTIud2F2GEI="
+      ],
+      "AssetLoad": {
+        "assets": [
+          "assets/sounds/movement/pl_step1.wav",
+          "assets/sounds/movement/pl_step2.wav",
+          "assets/sounds/movement/pl_step3.wav",
+          "assets/sounds/movement/pl_step4.wav",
+          "assets/sounds/movement/pl_metal1.wav",
+          "assets/sounds/movement/pl_metal2.wav",
+          "assets/sounds/movement/pl_metal3.wav",
+          "assets/sounds/movement/pl_metal4.wav",
+          "assets/sounds/movement/pl_dirt1.wav",
+          "assets/sounds/movement/pl_dirt2.wav",
+          "assets/sounds/movement/pl_dirt3.wav",
+          "assets/sounds/movement/pl_dirt4.wav",
+          "assets/sounds/movement/pl_duct1.wav",
+          "assets/sounds/movement/pl_duct2.wav",
+          "assets/sounds/movement/pl_duct3.wav",
+          "assets/sounds/movement/pl_duct4.wav",
+          "assets/sounds/movement/pl_grate1.wav",
+          "assets/sounds/movement/pl_grate2.wav",
+          "assets/sounds/movement/pl_grate3.wav",
+          "assets/sounds/movement/pl_grate4.wav",
+          "assets/sounds/movement/pl_tile1.wav",
+          "assets/sounds/movement/pl_tile2.wav",
+          "assets/sounds/movement/pl_tile3.wav",
+          "assets/sounds/movement/pl_tile4.wav",
+          "assets/sounds/movement/pl_tile5.wav",
+          "assets/sounds/movement/pl_slosh1.wav",
+          "assets/sounds/movement/pl_slosh2.wav",
+          "assets/sounds/movement/pl_slosh3.wav",
+          "assets/sounds/movement/pl_slosh4.wav",
+          "assets/sounds/movement/pl_snow1.wav",
+          "assets/sounds/movement/pl_snow2.wav",
+          "assets/sounds/movement/pl_snow3.wav",
+          "assets/sounds/movement/pl_snow4.wav"
+        ]
+      }
+    }
+  ],
+  "stationaryJump": [
+    {
+      "at": 1789456703.341,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.016294479370117,
+        "y": 11.195427894592285,
+        "z": 51.015628814697266
+      },
+      "grounded": false,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 6.763387055036882,
+      "total": 5,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.2,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.06623511,
+          "speed": 1,
+          "src": "assets/animations/Jump_Start.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0,
+          "y": 4.406246,
+          "z": 0
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.015804932,
+        "requestedVelocity": {
+          "x": 0,
+          "y": 4.406246,
+          "z": 0
+        },
+        "stepTime": 0.018475099,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456703.491,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.016294479370117,
+        "y": 11.240732192993164,
+        "z": 51.015628814697266
+      },
+      "grounded": false,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": -0.4006914149312701,
+      "total": 5,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.43333334,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.050985113,
+          "speed": 1,
+          "src": "assets/animations/Jump_Mid.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0,
+          "y": -0.83614993,
+          "z": 0
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.01523999,
+        "requestedVelocity": {
+          "x": 0,
+          "y": -0.83614993,
+          "z": 0
+        },
+        "stepTime": 0.016359864,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456703.655,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.016294479370117,
+        "y": 10.945357322692871,
+        "z": 51.015628814697266
+      },
+      "grounded": false,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": -2.2785373477875663,
+      "total": 5,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.43333334,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.21758497,
+          "speed": 1,
+          "src": "assets/animations/Jump_Mid.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0,
+          "y": -2.5021484,
+          "z": 0
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.01703003,
+        "requestedVelocity": {
+          "x": 0,
+          "y": -2.5021484,
+          "z": 0
+        },
+        "stepTime": 0.017995115,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456703.807,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.016294479370117,
+        "y": 10.448822975158691,
+        "z": 51.015628814697266
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": -3.0023985499544708,
+      "total": 5,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.43333334,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.3689551,
+          "speed": 1,
+          "src": "assets/animations/Jump_Mid.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0,
+          "y": -4.0158496,
+          "z": 0
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.018550048,
+        "requestedVelocity": {
+          "x": 0,
+          "y": -4.0158496,
+          "z": 0
+        },
+        "stepTime": 0.015199951,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456703.976,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.016294479370117,
+        "y": 10.435327529907227,
+        "z": 51.015628814697266
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": -0.16259536722125195,
+      "total": 5,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 1,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.7963575,
+          "speed": 1.5,
+          "src": "assets/animations/Hard_Landing.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.01708496,
+        "requestedVelocity": null,
+        "stepTime": 0.017909912,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456704.139,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.016294479370117,
+        "y": 10.435327529907227,
+        "z": 51.015628814697266
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 5,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.017704833,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.017704833,
+        "requestedVelocity": null,
+        "stepTime": 0.01659497,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456704.289,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.016294479370117,
+        "y": 10.435327529907227,
+        "z": 51.015628814697266
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 5,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.1690149,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.017994871,
+        "requestedVelocity": null,
+        "stepTime": 0.016419921,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    }
+  ],
+  "runningJump": [
+    {
+      "at": 1789456706.723,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.00948715209961,
+        "y": 11.183713912963867,
+        "z": 55.109962463378906
+      },
+      "grounded": false,
+      "material": "C",
+      "horizontal": 6.164060627264227,
+      "vertical": 6.196020106664093,
+      "total": 7,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.23333333,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.06667505,
+          "speed": 1,
+          "src": "assets/animations/Jog_Jump_Start.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00036920357,
+          "y": 4.5227447,
+          "z": 6.25
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.016709961,
+        "requestedVelocity": {
+          "x": 0.00036920357,
+          "y": 4.5227447,
+          "z": 6.25
+        },
+        "stepTime": 0.016170166,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456706.873,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.009536743164062,
+        "y": 11.244007110595703,
+        "z": 56.045894622802734
+      },
+      "grounded": false,
+      "material": "C",
+      "horizontal": 6.29569132163875,
+      "vertical": 1.2078515292222614,
+      "total": 7,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.4,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.050219968,
+          "speed": 1,
+          "src": "assets/animations/Jog_Jump_Mid.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00029757796,
+          "y": -0.8280493,
+          "z": 6.25
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.015425049,
+        "requestedVelocity": {
+          "x": 0.00029757796,
+          "y": -0.8280493,
+          "z": 6.25
+        },
+        "stepTime": 0.016930176,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456707.022,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.00957489013672,
+        "y": 10.994390487670898,
+        "z": 56.98358154296875
+      },
+      "grounded": false,
+      "material": "C",
+      "horizontal": 6.318207330444696,
+      "vertical": -1.528146470388128,
+      "total": 7,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.4,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.20058498,
+          "speed": 1,
+          "src": "assets/animations/Jog_Jump_Mid.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00023836746,
+          "y": -2.3316991,
+          "z": 6.25
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.016659912,
+        "requestedVelocity": {
+          "x": 0.00023836746,
+          "y": -2.3316991,
+          "z": 6.25
+        },
+        "stepTime": 0.01659497,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456707.173,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.00960922241211,
+        "y": 10.516655921936035,
+        "z": 57.926273345947266
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.325531761956004,
+      "vertical": -3.2116983895413855,
+      "total": 8,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.4,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.35090017,
+          "speed": 1,
+          "src": "assets/animations/Jog_Jump_Mid.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00018992805,
+          "y": -3.834851,
+          "z": 6.25
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.015075196,
+        "requestedVelocity": {
+          "x": 0.00018992805,
+          "y": -3.834851,
+          "z": 6.25
+        },
+        "stepTime": 0.017109863,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456707.341,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.009939193725586,
+        "y": 10.432063102722168,
+        "z": 58.966304779052734
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.319670699068195,
+      "vertical": -0.00009192047729707837,
+      "total": 8,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 1,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.7735199,
+          "speed": 1.5,
+          "src": "assets/animations/Hard_Landing.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.0002886651,
+          "y": -0.00052999577,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.0000018681033,
+          "y": 0.000007472413,
+          "z": 1.6331485e-13
+        },
+        "previousStepTime": 0.014199951,
+        "requestedVelocity": {
+          "x": 0.0002886651,
+          "y": -0.00052999577,
+          "z": 6.25
+        },
+        "stepTime": 0.017780028,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456707.506,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.01000213623047,
+        "y": 10.432049751281738,
+        "z": 60.00521469116211
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.231390616318258,
+      "vertical": -0.00004541300287804906,
+      "total": 9,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.06305779,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00032562698,
+          "y": -0.0004786903,
+          "z": 6.25
+        },
+        "externalVelocity": null,
+        "previousStepTime": 0.016824951,
+        "requestedVelocity": {
+          "x": 0.00032562698,
+          "y": -0.0004786903,
+          "z": 6.25
+        },
+        "stepTime": 0.015025147,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456707.657,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.010059356689453,
+        "y": 10.432037353515625,
+        "z": 60.942588806152344
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 6.235495483407392,
+      "vertical": -0.000034059848831037604,
+      "total": 9,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.17734183,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00037786347,
+          "y": -0.0003743567,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.000008760323,
+          "y": 0.000035041292,
+          "z": 7.6585315e-13
+        },
+        "previousStepTime": 0.016699951,
+        "requestedVelocity": {
+          "x": 0.00037786347,
+          "y": -0.0003743567,
+          "z": 6.25
+        },
+        "stepTime": 0.015430175,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456707.807,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.010120391845703,
+        "y": 10.432023048400879,
+        "z": 61.874332427978516
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 5.92862032664838,
+      "vertical": -0.00007853784963367704,
+      "total": 10,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 0.6666667,
+          "idle": false,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.29128975,
+          "speed": 0.7640587,
+          "src": "assets/animations/Jog.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": {
+          "x": 0.00042356522,
+          "y": -0.00029899937,
+          "z": 6.25
+        },
+        "externalVelocity": {
+          "x": 0.00000848,
+          "y": 0.00003392,
+          "z": 7.413449e-13
+        },
+        "previousStepTime": 0.016569825,
+        "requestedVelocity": {
+          "x": 0.00042356522,
+          "y": -0.00029899937,
+          "z": 6.25
+        },
+        "stepTime": 0.015375,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    }
+  ],
+  "fall": [
+    {
+      "at": 1789456709.522,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 1,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.38436985,
+          "speed": 1,
+          "src": "assets/animations/Hard_Landing.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.01689502,
+        "requestedVelocity": null,
+        "stepTime": 0.01610498,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456709.68,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 1,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.53455,
+          "speed": 1,
+          "src": "assets/animations/Hard_Landing.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.017340088,
+        "requestedVelocity": null,
+        "stepTime": 0.017139891,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456709.839,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 1,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.70101494,
+          "speed": 1,
+          "src": "assets/animations/Hard_Landing.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.017819824,
+        "requestedVelocity": null,
+        "stepTime": 0.016084962,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456709.989,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 1,
+          "idle": false,
+          "loop": false,
+          "loopCount": 0,
+          "playbackTime": 0.850075,
+          "speed": 1,
+          "src": "assets/animations/Hard_Landing.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.01676001,
+        "requestedVelocity": null,
+        "stepTime": 0.015995117,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456710.139,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 1,
+          "idle": false,
+          "loop": false,
+          "loopCount": 2,
+          "playbackTime": 1,
+          "speed": 1,
+          "src": "assets/animations/Hard_Landing.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.01675,
+        "requestedVelocity": null,
+        "stepTime": 0.01681006,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456710.288,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.115814954,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.015360107,
+        "requestedVelocity": null,
+        "stepTime": 0.016375,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456710.438,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.2661499,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.018034913,
+        "requestedVelocity": null,
+        "stepTime": 0.016275147,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456710.589,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.41603005,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.01654004,
+        "requestedVelocity": null,
+        "stepTime": 0.0165,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456710.738,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.56575,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.016775146,
+        "requestedVelocity": null,
+        "stepTime": 0.015979981,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    },
+    {
+      "at": 1789456710.888,
+      "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+      "position": {
+        "x": 21.002897262573242,
+        "y": 10.433832168579102,
+        "z": 53.97334289550781
+      },
+      "grounded": true,
+      "material": "C",
+      "horizontal": 0,
+      "vertical": 0,
+      "total": 11,
+      "events": [
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456698.7,
+          "position": {
+            "x": 21.01251792907715,
+            "y": 10.43142032623291,
+            "z": 52.70941925048828
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.016,
+          "position": {
+            "x": 21.012651443481445,
+            "y": 10.431388854980469,
+            "z": 54.68560028076172
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.315,
+          "position": {
+            "x": 21.012773513793945,
+            "y": 10.431361198425293,
+            "z": 56.56543731689453
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.634,
+          "position": {
+            "x": 21.012910842895508,
+            "y": 10.43132209777832,
+            "z": 58.583213806152344
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456699.948,
+          "position": {
+            "x": 21.013051986694336,
+            "y": 10.431293487548828,
+            "z": 60.5206298828125
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456706.463,
+          "position": {
+            "x": 21.0093994140625,
+            "y": 10.432206153869629,
+            "z": 53.769840240478516
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 1,
+          "kind": "jump",
+          "at": 1789456706.581,
+          "position": {
+            "x": 21.00944709777832,
+            "y": 10.549141883850098,
+            "z": 54.49030685424805
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.131,
+          "position": {
+            "x": 21.00960922241211,
+            "y": 10.516655921936035,
+            "z": 57.926273345947266
+          }
+        },
+        {
+          "clip": "pl_step3.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.431,
+          "position": {
+            "x": 21.009990692138672,
+            "y": 10.432055473327637,
+            "z": 59.80615234375
+          }
+        },
+        {
+          "clip": "pl_step2.wav",
+          "volume": 0.5,
+          "kind": "step",
+          "at": 1789456707.749,
+          "position": {
+            "x": 21.010114669799805,
+            "y": 10.432026863098145,
+            "z": 61.77824020385742
+          }
+        },
+        {
+          "clip": "pl_step4.wav",
+          "volume": 0.85,
+          "kind": "land",
+          "at": 1789456709.065,
+          "position": {
+            "x": 21.00023651123047,
+            "y": 10.4678373336792,
+            "z": 53.96493911743164
+          }
+        }
+      ],
+      "locomotion": {
+        "doubleJumpHeight": null,
+        "glidingFallingSpeed": null,
+        "glidingSpeed": null,
+        "hardLandingCooldown": 0,
+        "jogSpeed": 6.25,
+        "jumpHeight": 1.125,
+        "runJumpHeight": 1.125,
+        "runSpeed": 6.25,
+        "walkSpeed": 6.25
+      },
+      "movementInfo": {
+        "activeAnimationState": {
+          "duration": 2,
+          "idle": true,
+          "loop": true,
+          "loopCount": 0,
+          "playbackTime": 0.7166599,
+          "speed": 1,
+          "src": "assets/animations/Idle.glb"
+        },
+        "activeAvatarLocomotionSettings": {
+          "doubleJumpHeight": null,
+          "glidingFallingSpeed": null,
+          "glidingSpeed": null,
+          "hardLandingCooldown": 0,
+          "jogSpeed": 6.25,
+          "jumpHeight": 1.125,
+          "runJumpHeight": 1.125,
+          "runSpeed": 6.25,
+          "walkSpeed": 6.25
+        },
+        "activeInputModifier": {
+          "mode": {
+            "standard": {
+              "disableAll": null,
+              "disableDoubleJump": true,
+              "disableEmote": true,
+              "disableGliding": true,
+              "disableJog": false,
+              "disableJump": false,
+              "disableRun": false,
+              "disableWalk": false
+            }
+          }
+        },
+        "actualVelocity": null,
+        "externalVelocity": null,
+        "previousStepTime": 0.017699951,
+        "requestedVelocity": null,
+        "stepTime": 0.015850099,
+        "walkTarget": null,
+        "walkThreshold": null
+      }
+    }
+  ],
+  "fallEvents": [
+    {
+      "clip": "pl_step2.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456698.7,
+      "position": {
+        "x": 21.01251792907715,
+        "y": 10.43142032623291,
+        "z": 52.70941925048828
+      }
+    },
+    {
+      "clip": "pl_step3.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456699.016,
+      "position": {
+        "x": 21.012651443481445,
+        "y": 10.431388854980469,
+        "z": 54.68560028076172
+      }
+    },
+    {
+      "clip": "pl_step4.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456699.315,
+      "position": {
+        "x": 21.012773513793945,
+        "y": 10.431361198425293,
+        "z": 56.56543731689453
+      }
+    },
+    {
+      "clip": "pl_step3.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456699.634,
+      "position": {
+        "x": 21.012910842895508,
+        "y": 10.43132209777832,
+        "z": 58.583213806152344
+      }
+    },
+    {
+      "clip": "pl_step2.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456699.948,
+      "position": {
+        "x": 21.013051986694336,
+        "y": 10.431293487548828,
+        "z": 60.5206298828125
+      }
+    },
+    {
+      "clip": "pl_step2.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456706.463,
+      "position": {
+        "x": 21.0093994140625,
+        "y": 10.432206153869629,
+        "z": 53.769840240478516
+      }
+    },
+    {
+      "clip": "pl_step3.wav",
+      "volume": 1,
+      "kind": "jump",
+      "at": 1789456706.581,
+      "position": {
+        "x": 21.00944709777832,
+        "y": 10.549141883850098,
+        "z": 54.49030685424805
+      }
+    },
+    {
+      "clip": "pl_step2.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456707.131,
+      "position": {
+        "x": 21.00960922241211,
+        "y": 10.516655921936035,
+        "z": 57.926273345947266
+      }
+    },
+    {
+      "clip": "pl_step3.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456707.431,
+      "position": {
+        "x": 21.009990692138672,
+        "y": 10.432055473327637,
+        "z": 59.80615234375
+      }
+    },
+    {
+      "clip": "pl_step2.wav",
+      "volume": 0.5,
+      "kind": "step",
+      "at": 1789456707.749,
+      "position": {
+        "x": 21.010114669799805,
+        "y": 10.432026863098145,
+        "z": 61.77824020385742
+      }
+    },
+    {
+      "clip": "pl_step4.wav",
+      "volume": 0.85,
+      "kind": "land",
+      "at": 1789456709.065,
+      "position": {
+        "x": 21.00023651123047,
+        "y": 10.4678373336792,
+        "z": 53.96493911743164
+      }
+    }
+  ],
+  "final": {
+    "address": "0xdbbab1ea17574c303c983a46ec34cf0258240931",
+    "position": {
+      "x": 21.002897262573242,
+      "y": 10.433832168579102,
+      "z": 53.97334289550781
+    },
+    "grounded": true,
+    "material": "C",
+    "horizontal": 0,
+    "vertical": 0,
+    "total": 11,
+    "events": [
+      {
+        "clip": "pl_step2.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456698.7,
+        "position": {
+          "x": 21.01251792907715,
+          "y": 10.43142032623291,
+          "z": 52.70941925048828
+        }
+      },
+      {
+        "clip": "pl_step3.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456699.016,
+        "position": {
+          "x": 21.012651443481445,
+          "y": 10.431388854980469,
+          "z": 54.68560028076172
+        }
+      },
+      {
+        "clip": "pl_step4.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456699.315,
+        "position": {
+          "x": 21.012773513793945,
+          "y": 10.431361198425293,
+          "z": 56.56543731689453
+        }
+      },
+      {
+        "clip": "pl_step3.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456699.634,
+        "position": {
+          "x": 21.012910842895508,
+          "y": 10.43132209777832,
+          "z": 58.583213806152344
+        }
+      },
+      {
+        "clip": "pl_step2.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456699.948,
+        "position": {
+          "x": 21.013051986694336,
+          "y": 10.431293487548828,
+          "z": 60.5206298828125
+        }
+      },
+      {
+        "clip": "pl_step2.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456706.463,
+        "position": {
+          "x": 21.0093994140625,
+          "y": 10.432206153869629,
+          "z": 53.769840240478516
+        }
+      },
+      {
+        "clip": "pl_step3.wav",
+        "volume": 1,
+        "kind": "jump",
+        "at": 1789456706.581,
+        "position": {
+          "x": 21.00944709777832,
+          "y": 10.549141883850098,
+          "z": 54.49030685424805
+        }
+      },
+      {
+        "clip": "pl_step2.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456707.131,
+        "position": {
+          "x": 21.00960922241211,
+          "y": 10.516655921936035,
+          "z": 57.926273345947266
+        }
+      },
+      {
+        "clip": "pl_step3.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456707.431,
+        "position": {
+          "x": 21.009990692138672,
+          "y": 10.432055473327637,
+          "z": 59.80615234375
+        }
+      },
+      {
+        "clip": "pl_step2.wav",
+        "volume": 0.5,
+        "kind": "step",
+        "at": 1789456707.749,
+        "position": {
+          "x": 21.010114669799805,
+          "y": 10.432026863098145,
+          "z": 61.77824020385742
+        }
+      },
+      {
+        "clip": "pl_step4.wav",
+        "volume": 0.85,
+        "kind": "land",
+        "at": 1789456709.065,
+        "position": {
+          "x": 21.00023651123047,
+          "y": 10.4678373336792,
+          "z": 53.96493911743164
+        }
+      }
+    ]
+  }
+}

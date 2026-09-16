@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-15T14:07:01.430Z",
+  "muted": true,
+  "firstProductionKill": {
+    "icon": "ak47",
+    "headshot": true,
+    "killer": "Review bot",
+    "victim": "0xe3382437...",
+    "top": 44.6
+  },
+  "displayFixtureRows": [
+    {
+      "icon": "ak47",
+      "headshot": true,
+      "killer": "Review bot",
+      "victim": "0xe3382437...",
+      "top": 44.6
+    },
+    {
+      "icon": "galil",
+      "headshot": false,
+      "killer": "CT Rifle",
+      "victim": "T Target",
+      "top": 64.6
+    },
+    {
+      "icon": "fiveseven",
+      "headshot": true,
+      "killer": "T Pistol",
+      "victim": "CT Target",
+      "top": 84.6
+    },
+    {
+      "icon": "skull",
+      "headshot": false,
+      "killer": "",
+      "victim": "Fallen Player",
+      "top": 104.6
+    }
+  ],
+  "checks": [
+    "production human death sends headshot flag",
+    "all three original icon sheets render",
+    "four chronological notices",
+    "headshot/body/world variants",
+    "notices expire"
+  ]
+}

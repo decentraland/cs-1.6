@@ -1,0 +1,33 @@
+{
+  "name": "fixed_v_ump45",
+  "sourceSha256": "646f5acbaf7a0e2d3fa59533fff996882852198e8f6845458c58953e5c8df579",
+  "triangles": 1536,
+  "skippedDegenerateTriangles": 0,
+  "bones": 43,
+  "textures": 6,
+  "animations": {
+    "idle1": 0.16666666666666666,
+    "reload": 3.484848484848485,
+    "draw": 1.0,
+    "shoot1": 0.4375,
+    "shoot2": 0.4375,
+    "shoot3": 0.4375
+  },
+  "idle": "idle1",
+  "idleBounds": {
+    "min": [
+      -0.17200066149234772,
+      -0.3531380891799927,
+      -0.06636406481266022
+    ],
+    "max": [
+      0.08749175816774368,
+      -0.04762246087193489,
+      0.5201770067214966
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 8.940696716308594e-07,
+  "bytes": 638064,
+  "blender": "5.2.1 LTS"
+}

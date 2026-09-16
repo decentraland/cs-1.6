@@ -1,0 +1,28 @@
+{
+  "captureDidNotFire": true,
+  "pistol": {
+    "ammoBefore": 12,
+    "ammoAfter": 11,
+    "healthAfter": 100
+  },
+  "awp": {
+    "healthAfterFirst": 44,
+    "healthAfterSecond": 0,
+    "ammoAfter": 8
+  },
+  "labels": [
+    "AWP (E: Zoom)   1: Primary   2: Pistol   3: Knife   4: C4   Shift+1: Scores",
+    "Enemies left: 2",
+    "0x0f0d81e3...   AWP   BOT Guerilla"
+  ],
+  "origin": {
+    "x": 72.68839,
+    "y": 8.212667,
+    "z": 69.39561
+  },
+  "target": {
+    "x": 71.7592916,
+    "y": 6.6927,
+    "z": 67.40143921
+  }
+}

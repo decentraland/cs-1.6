@@ -1,0 +1,531 @@
+{
+  "date": "2026-09-15T15:26:10.169Z",
+  "muted": true,
+  "loaded": {
+    "bots": [
+      {
+        "entity": 66059,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 100,
+          "name": "Guerilla",
+          "alive": true,
+          "weapon": "ak47",
+          "defuseKit": false
+        },
+        "transform": {
+          "position": {
+            "x": 85.5,
+            "y": 13.439299583435059,
+            "z": 131
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0.8241261839866638,
+            "z": 0,
+            "w": 0.56640625
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "parent": 0
+        },
+        "model": {
+          "src": "assets/scene/players/arctic.glb",
+          "visibleMeshesCollisionMask": 0,
+          "invisibleMeshesCollisionMask": 0
+        },
+        "loading": {
+          "currentState": 4
+        },
+        "animator": {
+          "states": [
+            {
+              "clip": "ref_aim_ak47",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            },
+            {
+              "clip": "idle1",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            }
+          ]
+        }
+      },
+      {
+        "entity": 66060,
+        "bot": {
+          "index": 1,
+          "team": 1,
+          "health": 100,
+          "name": "Phoenix",
+          "alive": true,
+          "weapon": "ak47",
+          "defuseKit": false
+        },
+        "transform": {
+          "position": {
+            "x": 85.5,
+            "y": 13.439299583435059,
+            "z": 133.5
+          },
+          "rotation": {
+            "x": 0,
+            "y": -0.7660444378852844,
+            "z": 0,
+            "w": 0.6427875757217407
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "parent": 0
+        },
+        "model": {
+          "src": "assets/scene/players/arctic.glb",
+          "visibleMeshesCollisionMask": 0,
+          "invisibleMeshesCollisionMask": 0
+        },
+        "loading": {
+          "currentState": 4
+        },
+        "animator": {
+          "states": [
+            {
+              "clip": "ref_aim_ak47",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            },
+            {
+              "clip": "idle1",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            }
+          ]
+        }
+      },
+      {
+        "entity": 66180,
+        "bot": {
+          "index": 2,
+          "team": 1,
+          "health": 100,
+          "name": "Arctic",
+          "alive": true,
+          "weapon": "ak47",
+          "defuseKit": false
+        },
+        "transform": {
+          "position": {
+            "x": 85.5,
+            "y": 13.488900184631348,
+            "z": 136.5
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0.8241261839866638,
+            "z": 0,
+            "w": 0.56640625
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "parent": 0
+        },
+        "model": {
+          "src": "assets/scene/players/arctic.glb",
+          "visibleMeshesCollisionMask": 0,
+          "invisibleMeshesCollisionMask": 0
+        },
+        "loading": {
+          "currentState": 4
+        },
+        "animator": {
+          "states": [
+            {
+              "clip": "ref_aim_ak47",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            },
+            {
+              "clip": "idle1",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            }
+          ]
+        }
+      }
+    ],
+    "hands": [
+      {
+        "entity": 66177,
+        "node": {
+          "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+        },
+        "transform": {
+          "position": {
+            "x": 0.2538728713989258,
+            "y": 0.9916355609893799,
+            "z": -0.02154906652867794
+          },
+          "rotation": {
+            "x": -0.4632280468940735,
+            "y": 0.4276137351989746,
+            "z": -0.6063050031661987,
+            "w": -0.4847274720668793
+          },
+          "scale": {
+            "x": 1.0000001192092896,
+            "y": 1.0000003576278687,
+            "z": 1.0000003576278687
+          },
+          "parent": 66059
+        },
+        "state": {
+          "state": 2
+        }
+      },
+      {
+        "entity": 66179,
+        "node": {
+          "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+        },
+        "transform": {
+          "position": {
+            "x": 0.2538728713989258,
+            "y": 0.9916355609893799,
+            "z": -0.02154906652867794
+          },
+          "rotation": {
+            "x": -0.4632280468940735,
+            "y": 0.4276137351989746,
+            "z": -0.6063050031661987,
+            "w": -0.4847274720668793
+          },
+          "scale": {
+            "x": 1.0000001192092896,
+            "y": 1.0000003576278687,
+            "z": 1.0000003576278687
+          },
+          "parent": 66060
+        },
+        "state": {
+          "state": 2
+        }
+      },
+      {
+        "entity": 1137,
+        "node": {
+          "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+        },
+        "transform": {
+          "position": {
+            "x": 0.2538728713989258,
+            "y": 0.9916355609893799,
+            "z": -0.02154906652867794
+          },
+          "rotation": {
+            "x": -0.4632280468940735,
+            "y": 0.4276137351989746,
+            "z": -0.6063050031661987,
+            "w": -0.4847274720668793
+          },
+          "scale": {
+            "x": 1.0000001192092896,
+            "y": 1.0000003576278687,
+            "z": 1.0000003576278687
+          },
+          "parent": 66180
+        },
+        "state": {
+          "state": 2
+        }
+      }
+    ]
+  },
+  "scriptedDeath": {
+    "bots": [
+      {
+        "entity": 66059,
+        "bot": {
+          "index": 0,
+          "team": 1,
+          "health": 0,
+          "name": "Guerilla",
+          "alive": false,
+          "weapon": "ak47",
+          "defuseKit": false
+        },
+        "transform": {
+          "position": {
+            "x": 85.5,
+            "y": 13.439299583435059,
+            "z": 131
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0.8241261839866638,
+            "z": 0,
+            "w": 0.56640625
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "parent": 0
+        },
+        "model": {
+          "src": "assets/scene/players/arctic.glb",
+          "visibleMeshesCollisionMask": 0,
+          "invisibleMeshesCollisionMask": 0
+        },
+        "loading": {
+          "currentState": 4
+        },
+        "animator": {
+          "states": [
+            {
+              "clip": "head",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": false,
+              "shouldReset": false
+            }
+          ]
+        }
+      },
+      {
+        "entity": 66060,
+        "bot": {
+          "index": 1,
+          "team": 1,
+          "health": 100,
+          "name": "Phoenix",
+          "alive": true,
+          "weapon": "ak47",
+          "defuseKit": false
+        },
+        "transform": {
+          "position": {
+            "x": 85.5,
+            "y": 13.439299583435059,
+            "z": 133.5
+          },
+          "rotation": {
+            "x": 0,
+            "y": -0.7660444378852844,
+            "z": 0,
+            "w": 0.6427875757217407
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "parent": 0
+        },
+        "model": {
+          "src": "assets/scene/players/arctic.glb",
+          "visibleMeshesCollisionMask": 0,
+          "invisibleMeshesCollisionMask": 0
+        },
+        "loading": {
+          "currentState": 4
+        },
+        "animator": {
+          "states": [
+            {
+              "clip": "ref_aim_ak47",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            },
+            {
+              "clip": "idle1",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            }
+          ]
+        }
+      },
+      {
+        "entity": 66180,
+        "bot": {
+          "index": 2,
+          "team": 1,
+          "health": 100,
+          "name": "Arctic",
+          "alive": true,
+          "weapon": "ak47",
+          "defuseKit": false
+        },
+        "transform": {
+          "position": {
+            "x": 85.5,
+            "y": 13.488900184631348,
+            "z": 136.5
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0.8241261839866638,
+            "z": 0,
+            "w": 0.56640625
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "parent": 0
+        },
+        "model": {
+          "src": "assets/scene/players/arctic.glb",
+          "visibleMeshesCollisionMask": 0,
+          "invisibleMeshesCollisionMask": 0
+        },
+        "loading": {
+          "currentState": 4
+        },
+        "animator": {
+          "states": [
+            {
+              "clip": "ref_aim_ak47",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            },
+            {
+              "clip": "idle1",
+              "playing": true,
+              "weight": 1,
+              "speed": 1,
+              "loop": true,
+              "shouldReset": false
+            }
+          ]
+        }
+      }
+    ],
+    "hands": [
+      {
+        "entity": 66177,
+        "node": {
+          "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+        },
+        "transform": {
+          "position": {
+            "x": 0.2611750662326813,
+            "y": 1.430762529373169,
+            "z": -0.2715669870376587
+          },
+          "rotation": {
+            "x": -0.5302975177764893,
+            "y": 0.29785120487213135,
+            "z": -0.6993937492370605,
+            "w": -0.37539002299308777
+          },
+          "scale": {
+            "x": 0.999999463558197,
+            "y": 0.9999998211860657,
+            "z": 0.9999992847442627
+          },
+          "parent": 66059
+        },
+        "state": {
+          "state": 2
+        }
+      },
+      {
+        "entity": 66179,
+        "node": {
+          "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+        },
+        "transform": {
+          "position": {
+            "x": 0.2396591305732727,
+            "y": 0.9913457036018372,
+            "z": -0.01579493284225464
+          },
+          "rotation": {
+            "x": -0.47137129306793213,
+            "y": 0.4289086163043976,
+            "z": -0.593174159526825,
+            "w": -0.4919258952140808
+          },
+          "scale": {
+            "x": 1,
+            "y": 0.9999998807907104,
+            "z": 1.0000001192092896
+          },
+          "parent": 66060
+        },
+        "state": {
+          "state": 2
+        }
+      },
+      {
+        "entity": 1137,
+        "node": {
+          "path": "Body/Bip01/Bip01 Pelvis/Bip01 Spine/Bip01 Spine1/Bip01 Spine2/Bip01 Spine3/Bip01 Neck/Bip01 R Clavicle/Bip01 R UpperArm/Bip01 R Forearm/Bip01 R Hand"
+        },
+        "transform": {
+          "position": {
+            "x": 0.2396591305732727,
+            "y": 0.9913457036018372,
+            "z": -0.01579493284225464
+          },
+          "rotation": {
+            "x": -0.47137129306793213,
+            "y": 0.4289086163043976,
+            "z": -0.593174159526825,
+            "w": -0.4919258952140808
+          },
+          "scale": {
+            "x": 1,
+            "y": 0.9999998807907104,
+            "z": 1.0000001192092896
+          },
+          "parent": 66180
+        },
+        "state": {
+          "state": 2
+        }
+      }
+    ]
+  },
+  "status": "rendered; scripted death verified; shooting input unverified"
+}

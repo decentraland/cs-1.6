@@ -79,8 +79,12 @@ export function Hud(props: {
   reserve: number
   money: number
   seconds: number
+  defuseKit?: boolean
   hideTime?: boolean
   hideAmmo?: boolean
+  hideClip?: boolean
+  hidePlayerStats?: boolean
+  ammoIcon?: Rect
 }) {
   const scale = Math.min(1, props.width / 640)
   const y = props.height - 37 * scale
@@ -103,13 +107,28 @@ export function Hud(props: {
         pointerFilter: 'none'
       }}
     >
-      <Sprite rect={[48, 25, 24, 24]} left={12 * scale} top={y} scale={scale} color={healthColor} />
-      <NumberSprites value={props.health} places={3} left={34 * scale} top={y} scale={scale} color={healthColor} />
-      <Sprite rect={[0, 25, 24, 24]} left={armorX} top={y} scale={scale} />
-      {fill > 0 && (
-        <Sprite rect={[24, 49 - fill, 24, fill]} left={armorX} top={y + (24 - fill) * scale} scale={scale} />
+      {props.defuseKit && (
+        <Sprite
+          rect={[32, 148, 32, 32]}
+          left={5 * scale}
+          top={props.height / 2 - 37 * scale}
+          scale={scale}
+          color={Color4.create(0, 160 / 255, 0, 1)}
+        />
       )}
-      <NumberSprites value={props.armor} places={3} left={armorX + 24 * scale} top={y} scale={scale} />
+      {!props.hidePlayerStats && (
+        <UiEntity
+          uiTransform={{ positionType: 'absolute', width: props.width, height: props.height, pointerFilter: 'none' }}
+        >
+          <Sprite rect={[48, 25, 24, 24]} left={12 * scale} top={y} scale={scale} color={healthColor} />
+          <NumberSprites value={props.health} places={3} left={34 * scale} top={y} scale={scale} color={healthColor} />
+          <Sprite rect={[0, 25, 24, 24]} left={armorX} top={y} scale={scale} />
+          {fill > 0 && (
+            <Sprite rect={[24, 49 - fill, 24, fill]} left={armorX} top={y + (24 - fill) * scale} scale={scale} />
+          )}
+          <NumberSprites value={props.armor} places={3} left={armorX + 24 * scale} top={y} scale={scale} />
+        </UiEntity>
+      )}
       {!props.hideTime && (
         <UiEntity
           uiTransform={{ positionType: 'absolute', width: props.width, height: props.height, pointerFilter: 'none' }}
@@ -151,23 +170,32 @@ export function Hud(props: {
         <UiEntity
           uiTransform={{ positionType: 'absolute', width: props.width, height: props.height, pointerFilter: 'none' }}
         >
-          <NumberSprites value={props.clip} places={3} left={ammoX} top={y} scale={scale} />
-          <UiEntity
-            uiTransform={{
-              positionType: 'absolute',
-              position: { left: ammoX + 70 * scale, top: y },
-              width: 2 * scale,
-              height: 25 * scale,
-              pointerFilter: 'none'
-            }}
-            uiBackground={{ color: amber }}
-          />
+          {!props.hideClip && <NumberSprites value={props.clip} places={3} left={ammoX} top={y} scale={scale} />}
+          {!props.hideClip && (
+            <UiEntity
+              uiTransform={{
+                positionType: 'absolute',
+                position: { left: ammoX + 70 * scale, top: y },
+                width: 2 * scale,
+                height: 25 * scale,
+                pointerFilter: 'none'
+              }}
+              uiBackground={{ color: amber }}
+            />
+          )}
           <NumberSprites value={props.reserve} places={3} left={ammoX + 82 * scale} top={y} scale={scale} />
-          <Sprite rect={[72, 72, 24, 24]} left={ammoX + 142 * scale} top={y - 3 * scale} scale={scale} />
+          <Sprite
+            rect={props.ammoIcon ?? [72, 72, 24, 24]}
+            left={ammoX + 142 * scale}
+            top={y - 3 * scale}
+            scale={scale}
+          />
         </UiEntity>
       )}
-      <Sprite rect={[192, 25, 18, 25]} left={moneyX} top={moneyY} scale={scale} />
-      <NumberSprites value={props.money} places={5} left={moneyX + 18 * scale} top={moneyY} scale={scale} />
+      {!props.hidePlayerStats && <Sprite rect={[192, 25, 18, 25]} left={moneyX} top={moneyY} scale={scale} />}
+      {!props.hidePlayerStats && (
+        <NumberSprites value={props.money} places={5} left={moneyX + 18 * scale} top={moneyY} scale={scale} />
+      )}
     </UiEntity>
   )
 }

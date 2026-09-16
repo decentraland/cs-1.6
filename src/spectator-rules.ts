@@ -1,4 +1,4 @@
-import { TeamSeat } from './team-rules'
+import { isBotAddress, TeamSeat } from './team-rules'
 
 interface Point {
   x: number
@@ -19,6 +19,47 @@ export const DEATH_ROLL_DEGREES = 80
 const DEATH_FALL_SECONDS = 0.6
 const STANDING_EYE_HEIGHT = 1.6
 const DEAD_EYE_HEIGHT = 28 * 0.025
+
+export class SpectatorMenuState {
+  open = false
+  private captured = false
+
+  update(spectator: boolean, captured: boolean) {
+    if (!spectator) this.open = false
+    else if (this.captured && !captured) this.open = true
+    this.captured = spectator && captured
+  }
+
+  close() {
+    this.open = false
+  }
+}
+
+export class SpectatorCycleInput {
+  private armed = false
+  private nextSwitch = 0
+  constructor(private readonly delay = SPECTATOR_SWITCH_DELAY) {}
+
+  step(enabled: boolean, held: boolean, pressed: boolean, reverse: boolean, now: number): number {
+    if (!enabled) {
+      this.armed = false
+      return 0
+    }
+    if (!held) {
+      this.armed = true
+      return 0
+    }
+    if (!this.armed || !pressed || now < this.nextSwitch) return 0
+    this.armed = false
+    this.nextSwitch = now + this.delay
+    return reverse ? -1 : 1
+  }
+
+  reset() {
+    this.armed = false
+    this.nextSwitch = 0
+  }
+}
 
 export function spectatorTargets(
   candidates: readonly SpectatorCandidate[],
@@ -43,6 +84,22 @@ export function botSpectatorTargets(candidates: readonly BotSpectatorCandidate[]
     .filter((candidate) => candidate.alive)
     .sort((a, b) => a.index - b.index)
     .map((candidate) => `bot:${candidate.index}`)
+}
+
+export function matchSpectatorTargets(
+  candidates: readonly SpectatorCandidate[],
+  address: string,
+  team: number,
+  round: number
+): string[] {
+  const teammates = spectatorTargets(candidates, address, team, round)
+  if (teammates.length || team === 0) return teammates
+  return spectatorTargets(
+    candidates.filter((candidate) => isBotAddress(candidate.address)),
+    address,
+    0,
+    round
+  )
 }
 
 export function selectSpectatorTarget(

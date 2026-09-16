@@ -1,0 +1,33 @@
+{
+  "name": "fixed_v_p90",
+  "sourceSha256": "be975fb9e06ea5928f431ac4ad5b1c7cbf2d68df8c9b411d5101792f502af381",
+  "triangles": 1248,
+  "skippedDegenerateTriangles": 0,
+  "bones": 41,
+  "textures": 8,
+  "animations": {
+    "idle": 0.26666666666666666,
+    "reload": 3.375,
+    "draw": 1.0,
+    "shoot1": 0.4,
+    "shoot2": 0.4666666666666667,
+    "shoot3": 0.4666666666666667
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.1461046040058136,
+      -0.273671418428421,
+      -0.04807032644748688
+    ],
+    "max": [
+      0.06840428709983826,
+      -0.029396723955869675,
+      0.3879415988922119
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 2.5480985641479492e-06,
+  "bytes": 609308,
+  "blender": "5.2.1 LTS"
+}

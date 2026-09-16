@@ -1,0 +1,21 @@
+{
+  "id": "smokegrenade",
+  "sourceSha256": "61e9f3a0eb8b0a59f7f284f3e800538e5d1905ffa78b2048c3900969038e8a8c",
+  "triangles": 52,
+  "bytes": 21856,
+  "sourceTriangles": 52,
+  "skippedDegenerateTriangles": 0,
+  "anchor": "Bip01 R Hand",
+  "blenderBounds": {
+    "min": [
+      -0.04580284282565117,
+      -0.13547782599925995,
+      -0.07634198665618896
+    ],
+    "max": [
+      0.07819749414920807,
+      -1.0371208247761388e-07,
+      0.10725933313369751
+    ]
+  }
+}

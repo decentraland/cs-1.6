@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { writeFile } from 'node:fs/promises'
 import { Client, pause, labels, readHud } from './team-client.mjs'
 import { isBotRoundLive } from './solo-flow.mjs'
+import { readKillFeed } from './read-kill-feed.mjs'
 if (!process.argv[2])
   throw new Error('Usage: node validate/bot-combat.mjs <browser-CDP-websocket> (joins CT if needed)')
 const c = new Client(process.argv[2]),
@@ -33,7 +34,7 @@ try {
         evidence.effects.push({ time, position: v.Transform.position, material: v.Material })
       }
     if (hud.health === 0) {
-      evidence.killFeed = labels(s).filter((t) => t.includes('AK-47'))
+      evidence.killFeed = readKillFeed(s)
       break
     }
     await pause(30)
@@ -41,7 +42,7 @@ try {
   assert.equal(previous, 0, 'bot bullets eliminate an idle player')
   assert.ok(
     evidence.health.some((h) => h.damage > 0 && h.damage !== 10),
-    'damage comes from AK bullets instead of fixed 10-point attacks'
+    'damage comes from the equipped gun instead of fixed 10-point attacks'
   )
   const colors = evidence.effects.map((effect) => effect.material.material?.pbr?.albedoColor)
   assert.ok(
@@ -53,13 +54,13 @@ try {
     'traced bullet impact effects render'
   )
   const announced = await c.until(
-    (s) => labels(s).some((t) => t.includes('AK-47') && /Guerilla|Phoenix|Arctic/.test(t)),
+    (s) => readKillFeed(s).some((kill) => /Guerilla|Phoenix|Arctic/.test(kill.killer)),
     'bot kill announcement',
     2500
   )
-  evidence.killFeed = labels(announced).filter((t) => t.includes('AK-47'))
+  evidence.killFeed = readKillFeed(announced)
   evidence.checks.push(
-    'live AK damage replaces fixed health subtraction',
+    'equipped-gun damage replaces fixed health subtraction',
     'actual bullet effects and bot weapon kill feed are visible',
     'bot kill still ends the round'
   )

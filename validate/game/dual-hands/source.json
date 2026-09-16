@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-15T10:10:18.502034+00:00",
+  "browser": "Official hosted Bevy web; muted headless Brave 151.0.7922.169, WebGPU",
+  "sceneSdk": "7.27.1-33533530571.commit-451d001",
+  "blender": "5.2, connected official MCP",
+  "files": {
+    "README.md": "2253320ed655244a03c9d315c9afd4e0d3a8e9a8b3c26bcd2be9cffe889987cf",
+    "CLAUDE.md": "9e9a28949b5c7a3f6032c90d58cbbacecb02226287ba91eb2b16a830e8407473",
+    "IMPLEMENTATION_PLAN.md": "1063e30e6319a5a0e36290a246a99e17104f2c8913f6cd87a398821c5216ae99",
+    "docs/CS16-ARSENAL.md": "ead54f473bc740c6a7e2eadf013bddc94b01aaaae31e0b4b0530ce79d78ed00d",
+    "src/world-weapons.ts": "37b7d6a6616af281357ef7c20f206a35ac15c1a636b57b42afa9b7ac056f4207",
+    "asset-sources/cs16-weapons/export_world.py": "62675673ff96f87dac94e9d2834fbc81fd8166a83fba20f4b4c3baae1e3c248a",
+    "asset-sources/cs16-weapons/validate_dual.py": "afe6b42838d66f1cbba24c823c124af69551f3a86ee0edd68693647ac57c569c",
+    "asset-sources/cs16-weapons/p_elite.json": "e37cd728c9cc08c5653bd2fc04ec53f6fa44483fb229f6163b5955b5e86c013d",
+    "asset-sources/cs16-weapons/p_elite-left.json": "f3aeeb4a456ed6d7c71bf8d5db27305dfa60d4c852367ca1d792e3d8177c2731",
+    "asset-sources/cs16-weapons/SOURCE.md": "22b351bdf11758f47d3a5821a8e4147a155007a120ab9e64c22ede32c74ee667",
+    "assets/scene/weapons/elite-world.glb": "2f3a6d6536bf290589a3334cc8031b4f6e79801fcaf1554a6cb6163477caa698",
+    "assets/scene/weapons/elite-left-world.glb": "8c5a3559f119497a6d5bc83fabdd90604c229e0fe8cf43b602b09e196ed96422",
+    "validate/cs16-weapons.mjs": "7908475a05042cc77b572dd9f57c561f614053d64099833a6abf956088ed2173",
+    "validate/prepare-dual-hands.mjs": "b1a03d82fd66f2b2904c427ffab83e993590ed312e70dd648602494e564cda52",
+    "validate/dual-hands.mjs": "f2e67438c224b0c5fb2e678a02ddd43b977b2f3cf41c13f27ba67988e6d7d13c",
+    "asset-sources/cs16-weapons/p_elite.mdl": "dfb621c82fe160fdff5df1a1194807f22b6567ce416005c7842f1d60d8580668",
+    "asset-sources/cs16-weapons/goldsrc.py": "0b2494d1b754a8f7e2b49f868c1db5c7448227c3c21180167f2b059cf9f9cb2d",
+    "asset-sources/cs16-weapons/convert_blender.py": "95e5eaf58d78823d8029ff532a7cb37cf435020d4a8ccaba4669561cb848cd1a",
+    "src/weapon-profiles.ts": "ca86f0b5b3ee3d285585269640e748037c227df3d654b568277d18898a64379b",
+    "src/components.ts": "67e8dc1123e12718cc1315986d63b1f92891a530ba139ca288c09c85ce454417",
+    "validate/prepare-arsenal.mjs": "9ff0d624725748202e4a058ff631ca5946ffa00ffa0290bfbf3bb57a877a1730",
+    "validate/team-client.mjs": "298f7edfea264f465c58772e5c215f611c725833add9a5ffae08067792f01cbe"
+  }
+}

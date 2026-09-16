@@ -61,3 +61,32 @@ in cs16-client at the revision linked above. This is a reconstructed client
 reference, not Valve's original client source. No C++ code was copied.
 
 Radar source SHA-256: `bbeeda2977d17f7a2d950362f4a9f2711e23d36d2e4fc3642b8006ad61bb1fa1`.
+
+## Death notices
+
+`640hud1.spr`, `640hud2.spr` and `640hud16.spr` use the same pinned CS-Server
+revision above. The 30 `d_` entries in the existing `hud.txt` supply all icon
+rectangles. Source hashes are recorded in `death-icons.json`; the scene maps
+MP5 to `mp5navy`, C4/HE to `grenade`, and unknown/world causes to `skull`.
+
+Rebuild from the repository root:
+
+```sh
+python3 asset-sources/hud/generate_death_icons.py
+npx prettier --write src/death-icons.ts
+node validate/kill-feed-assets.mjs
+```
+
+The asset check compares every output pixel's coverage to the original indexed
+palette and every rectangle to `hud.txt`. The conversion is the existing additive
+SPR-to-RGBA adaptation, with orange icon tint in the UI. Original-asset provenance
+and redistribution limitations described above apply to these sprites too.
+
+Behavior reference: [cs16-client death.cpp at 9c891b8](https://github.com/Velaron/cs16-client/blob/9c891b8ebeb5ff0b84e00af769c2f5e35a0280be/cl_dll/death.cpp).
+It is a reconstructed client reference, not Valve's original CS client source.
+The feed uses four notices, six-second lifetimes, chronological insertion,
+right alignment, headshot icons and an observer-specific vertical offset.
+Headshot classification follows the final lethal hit group from
+[ReGameDLL player code](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/player.cpp).
+No C++ implementation was copied. The existing bitmap font and alpha blending
+remain adaptations; larger font tiers increase row spacing to avoid overlap.

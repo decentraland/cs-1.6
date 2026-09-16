@@ -28,7 +28,7 @@ after(() => rmSync(output, { recursive: true, force: true }))
 const feet = { x: 95, y: 10.026, z: 52 }
 const eye = { ...feet, y: feet.y + 1.6 }
 const west = { x: -1, y: 0, z: 0 }
-const human = (id, x) => ({ id, center: { x, y: feet.y, z: feet.z }, regions: PLAYER_HIT_REGIONS })
+const human = (id, x) => ({ id, center: { x, y: feet.y, z: feet.z }, yaw: Math.PI / 2, regions: PLAYER_HIT_REGIONS })
 const aimAt = (from, to) => {
   const delta = { x: to.x - from.x, y: to.y - from.y, z: to.z - from.z }
   const length = Math.hypot(delta.x, delta.y, delta.z)
@@ -73,7 +73,7 @@ test('the first avatar on the actual ray wins regardless of registry ordering', 
 })
 
 test('human head, body, and leg shots use distinct hit regions and range damage', () => {
-  const results = [1.6, 1.0, 0.3].map((y) => fire({ aim: aimAt(eye, { x: 88, y: feet.y + y, z: feet.z }) }))
+  const results = [1.6, 1.2, 0.3].map((y) => fire({ aim: aimAt(eye, { x: 88, y: feet.y + y, z: feet.z }) }))
   assert.deepEqual(
     results.map((result) => result.hit?.group),
     ['head', 'body', 'legs']

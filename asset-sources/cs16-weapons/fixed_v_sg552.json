@@ -1,0 +1,33 @@
+{
+  "name": "fixed_v_sg552",
+  "sourceSha256": "f152d6d658693110ced6900d0e7f10b2c7839528ce522494dbef2fc45369cbcf",
+  "triangles": 1310,
+  "skippedDegenerateTriangles": 0,
+  "bones": 43,
+  "textures": 8,
+  "animations": {
+    "idle": 0.26666666666666666,
+    "reload": 3.189189189189189,
+    "draw": 1.0,
+    "shoot1": 0.8571428571428571,
+    "shoot2": 0.8571428571428571,
+    "shoot3": 0.8571428571428571
+  },
+  "idle": "idle",
+  "idleBounds": {
+    "min": [
+      -0.15235480666160583,
+      -0.2553550899028778,
+      -0.08938004076480865
+    ],
+    "max": [
+      0.10367511212825775,
+      -0.02795746736228466,
+      0.5593466758728027
+    ]
+  },
+  "unitMetres": 0.025,
+  "maxPoseMatrixError": 2.339482307434082e-06,
+  "bytes": 709256,
+  "blender": "5.2.1 LTS"
+}
