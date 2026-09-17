@@ -83,6 +83,15 @@ can be pasted into an explorer or infra issue.
 - **Effect on the scene:** `getUserData` answers without a `userId`, `@dcl/sdk/network` throws "Couldn't fetch profile data" and the scene stops updating (entity count 0, no UI). Reproduced on the desktop build with `--skip-lobby`, which enters the explorer without creating any account. The preview deep link and `--guest-profile` paths do create a disposable account (`lobby.gd`), so they are not the phone's path.
 - **Next step:** stream the phone's boot log with the unified debug channel (`cargo run -- debug-hub` on the Mac, phone opens `decentraland://open?scene-inspector=ws://<mac-ip>:9231`) and read the `[Startup]`/`[DEEPLINK]`/auth lines to see which branch of `lobby.gd` skipped the account screen.
 
+## 14. Unity prod: first-person weapon renders only the forearm (9 of 10 renderers culled)
+
+- **Where:** Unity desktop on the deployed world (asset-bundle path). The local preview (raw GLB path) renders the same viewmodels fully.
+- **Symptom:** with any gun or the knife selected, only a forearm piece shows at the bottom right; the gun, glove and finger parts never appear.
+- **Runtime evidence (Unity MCP, 2026-09-16, entity `glock18-view.glb`):** `GltfContainer` loaded, `VisibilityComponent.visible = true`, Transform parented to the camera entity at the origin, Animator playing `fixed_v_glock18 idle1`, `Partition: (Bucket 0, IsBehind True)`. `get_scene_content_breakdown` reports 10 renderers / 882 triangles for the GLB but 1 visible renderer / 24 triangles (exactly the `view_skin` forearm piece) at three different map positions.
+- **Bundle checked offline (UnityPy on `usp-view`, `knife-view`, `urban` bundles):** one `SkinnedMeshRenderer` per GLTF primitive, bones in GLB joint order, opaque URP materials with their textures, clips for every animation. Rest pose, bind poses and idle keyframes match the GLB up to the handedness flip; skinning the gun with the bundle's own idle keyframe places it 0.26-0.45 m in front of the camera, so the data is right. Renderer AABBs are zero with `updateWhenOffscreen = true`, same as the bot body bundle, which animates and renders fine.
+- **What differs from the bots:** the viewmodel entity sits exactly at the camera position (partition marks it `IsBehind`), its GLB root has scale (-1,-1,-1) plus a 180-degree rotation (all 25 `*-view.glb`), and the parts are small. At the rest pose the whole model lies to the side of the camera; only the played clip brings it in front.
+- **Report:** ask the Unity team why a camera-parented skinned GLTF loaded from an asset bundle has all but one renderer culled while the same GLB loaded raw renders, starting with the `IsBehind` partition flag (throttled animator/renderer systems) and the culling bounds of those renderers.
+
 ## Earlier, already tracked
 
 - Bevy `AvatarAttach` needs a retry when the avatar loads after the component (bevy-explorer#1255).
