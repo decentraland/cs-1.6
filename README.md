@@ -290,8 +290,10 @@ Spectator NEXT/PREVIOUS also preserve quick taps and their direction, with one
 switch per press. Desktop quick clicks, Shift-click and Space mode changes share
 the correction. [Spectator input regression](validate/game/spectator-taps/README.md).
 The mobile buy menu follows the desktop CS list: numbered categories on the left,
-Auto Buy/Rebuy beside them, and numbered item submenus. It uses the same bitmap
-font, amber borders, prices and availability rules. Tap and release an item to buy;
+Auto Buy/Rebuy beside them, and numbered item submenus. Both desktop and mobile
+buy menus use real text labels, amber borders, prices and the same availability rules.
+Menu text does not depend on image textures; this avoids the solid glyph blocks
+reported on iOS. Tap and release an item to buy;
 sliding off cancels. Lists fit the screen without scrolling or a separate cart.
 Team selection retains its responsive cards. Both menus stop movement while open.
 Purchase/error notices sit below the scroll area, with space reserved

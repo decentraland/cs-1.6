@@ -1,6 +1,6 @@
-import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
+import ReactEcs, { Label, UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
-import { BitmapText, bitmapTextWidth, scoreFontSize } from './bitmap-text'
+import { bitmapTextWidth, scoreFontSize } from './bitmap-text'
 import { MenuCursor, pointInRect } from './menu-state'
 
 // Shared ClientScheme.res styling for the 640x480 letterboxed VGUI menus (team menu, buy menu).
@@ -10,6 +10,37 @@ export const disabled = Color4.create(80 / 255, 48 / 255, 0, 1)
 export const panel = Color4.create(0, 0, 0, 200 / 255)
 const button = Color4.create(0, 0, 0, 64 / 255)
 const selected = Color4.create(1, 176 / 255, 0, 100 / 255)
+
+export function MenuText(props: {
+  key?: string
+  value: string
+  left: number
+  top?: number
+  width: number
+  height: number
+  size: number
+  color: Color4
+  align?: 'left' | 'right'
+}) {
+  return (
+    <Label
+      value={props.value}
+      font="sans-serif"
+      color={props.color}
+      fontSize={props.size}
+      textWrap="nowrap"
+      textAlign={props.align === 'right' ? 'middle-right' : 'middle-left'}
+      uiTransform={{
+        positionType: 'absolute',
+        position: { left: props.left, top: props.top ?? 0 },
+        width: props.width,
+        height: props.height,
+        overflow: 'hidden',
+        pointerFilter: 'none'
+      }}
+    />
+  )
+}
 
 export interface MenuLayout {
   scale: number
@@ -120,7 +151,7 @@ export function MenuButton(props: MenuButtonProps) {
       }}
       uiBackground={{ color: active ? selected : button }}
     >
-      <BitmapText
+      <MenuText
         value={props.label}
         left={6}
         width={props.width - 12 - (detailWidth ? detailWidth + 6 : 0)}
@@ -129,7 +160,7 @@ export function MenuButton(props: MenuButtonProps) {
         color={color}
       />
       {props.detail !== undefined && (
-        <BitmapText
+        <MenuText
           value={props.detail}
           left={props.width - 6 - detailWidth}
           width={detailWidth}
@@ -177,21 +208,8 @@ export function MenuFrame(props: {
         }}
         uiBackground={{ color: panel }}
       />
-      <UiEntity
-        uiTransform={{
-          positionType: 'absolute',
-          position: { left: x(26), top: y(20) },
-          width: size(32),
-          height: size(32),
-          pointerFilter: 'none'
-        }}
-        uiBackground={{
-          texture: { src: 'assets/ui/cs-logo.png', filterMode: 'point' },
-          textureMode: 'stretch',
-          color: amber
-        }}
-      />
-      <BitmapText
+      <MenuText value="CS" left={x(26)} top={y(20)} width={size(32)} height={size(32)} size={titleFont} color={amber} />
+      <MenuText
         value={props.title}
         left={x(76)}
         top={y(22)}
@@ -211,7 +229,7 @@ export function MenuFrame(props: {
         uiBackground={{ color: border }}
       />
       {props.notice && (
-        <BitmapText
+        <MenuText
           value={props.notice}
           left={x(76)}
           top={y(80)}
@@ -243,7 +261,7 @@ export function MenuInfoPanel(props: { layout: MenuLayout; lines: readonly strin
       uiBackground={{ color: panel }}
     >
       {props.lines.map((line, index) => (
-        <BitmapText
+        <MenuText
           key={String(index)}
           value={line}
           left={size(4)}

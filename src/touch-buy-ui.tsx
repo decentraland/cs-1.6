@@ -1,7 +1,7 @@
 import ReactEcs, { UiEntity } from '@dcl/sdk/react-ecs'
 import { engine, UiCanvasInformation } from '@dcl/sdk/ecs'
-import { BitmapText, bitmapTextWidth } from './bitmap-text'
-import { amber, border, panel, MenuButton, clearTouchMenuPress } from './menu-ui'
+import { bitmapTextWidth } from './bitmap-text'
+import { amber, border, panel, MenuButton, MenuText, clearTouchMenuPress } from './menu-ui'
 import { touchControlLayout } from './touch-layout'
 import { touchNoticeText } from './touch-menu-ui'
 
@@ -73,21 +73,16 @@ export function ClassicTouchBuyMenu(props: {
       uiTransform={{ positionType: 'absolute', width: props.width, height: props.height, pointerFilter: 'block' }}
       uiBackground={{ color: panel }}
     >
-      <UiEntity
-        uiTransform={{
-          positionType: 'absolute',
-          position: { left, top },
-          width: 32 * s,
-          height: 32 * s,
-          pointerFilter: 'none'
-        }}
-        uiBackground={{
-          texture: { src: 'assets/ui/cs-logo.png', filterMode: 'point' },
-          textureMode: 'stretch',
-          color: amber
-        }}
+      <MenuText
+        value="CS"
+        left={left}
+        top={top}
+        width={32 * s}
+        height={32 * s}
+        size={font >= 18 ? 24 : 18}
+        color={amber}
       />
-      <BitmapText
+      <MenuText
         value={props.title}
         left={left + 40 * s}
         top={top}
@@ -171,7 +166,7 @@ export function ClassicTouchBuyMenu(props: {
         uiBackground={{ color: panel }}
       >
         {lines.map((line, index) => (
-          <BitmapText
+          <MenuText
             key={String(index)}
             value={line}
             left={4}
@@ -184,7 +179,7 @@ export function ClassicTouchBuyMenu(props: {
         ))}
       </UiEntity>
       {props.notice && (
-        <BitmapText
+        <MenuText
           value={touchNoticeText(props.notice)}
           left={left}
           top={top + height - noticeHeight}

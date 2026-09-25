@@ -313,7 +313,7 @@ test('desktop armor details quote the actual $350 helmet upgrade and $650 vest r
   const lines = []
   const ui = touchUI({
     onElement: (kind, props) => {
-      if (kind.name === 'BitmapText') lines.push(props.value)
+      if (kind === 'Label') lines.push(props.value)
     }
   })
   const buy = ui.load('buy-ui.tsx')

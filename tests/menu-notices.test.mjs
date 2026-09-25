@@ -28,7 +28,7 @@ for (const submenu of [false, true]) {
       render(width, height)
       const before = elements.filter((e) => e.kind === 'MenuButton').map((e) => e.props)
       const tree = render(width, height, 'Bought M4A1.')
-      const notices = elements.filter((e) => e.kind === 'BitmapText' && e.props.value === 'Bought M4A1.')
+      const notices = elements.filter((e) => e.kind === 'MenuText' && e.props.value === 'Bought M4A1.')
       assert.equal(notices.length, 1, 'confirmation is rendered inside the menu')
       const rect = notices[0].props
       const layout = ui.frame.menuLayout(width, height)

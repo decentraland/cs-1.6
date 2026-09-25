@@ -67,7 +67,11 @@ continue to use the atlas. `validate/touch-icon-assets.mjs` checks both forms.
 
 The mobile buy menu reuses the desktop rows and `MenuButton` styling: numbered
 categories, Auto Buy/Rebuy in the right column, numbered item submenus, money and
-item details. There are no category cards, reordered quick-buy rows, scroll area,
+item details. Both desktop and mobile buying use the shared `MenuText` native
+labels, including the title, prices, notices and CS header. No font atlas or logo
+image is needed to read the buy menu. The previous bitmap menu rendered as solid
+blocks on iOS even though its deployed PNGs were intact.
+There are no category cards, reordered quick-buy rows, scroll area,
 or extra purchase cart. A completed tap purchases; leaving a row before release
 cancels. Disabled items remain unavailable and display their reason in the info
 panel. Release uses the current row availability. Closing clears any held row.
@@ -75,6 +79,10 @@ Lists and notices have fixed positions inside safe bounds. Team selection keeps
 its responsive cards. Movement stops while either menu is open.
 
 ## Verification
+
+`node --experimental-strip-types --test tests/menu-text.test.mjs` checks that desktop
+and mobile buy menus render native labels with no image dependencies. It covers
+categories, prices and notices; the previous bitmap implementation fails both cases.
 
 Run `npm run validate` for tests, asset integrity and the scene build/typecheck.
 Focused regressions:
