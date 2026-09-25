@@ -1,9 +1,10 @@
-import { engine, inputSystem, InputAction, PointerEventType, Transform } from '@dcl/sdk/ecs'
+import { engine, InputAction, PointerEventType, Transform } from '@dcl/sdk/ecs'
 import { myProfile } from '@dcl/sdk/network'
 import { Bot, Dead, MatchLeaderboard, PlayerAddress, PlayerHealth, PlayerPose } from './components'
 import { getLocalPlayerEntity } from './client'
 import { getPractice } from './practice'
 import { hasAimControl, isTouchPlatform } from './platform'
+import { fireInputAction, isCombatInputPressed, isCombatInputTriggered } from './combat-input'
 import { setSpectatorView } from './fps-camera'
 import { botAddress } from './team-rules'
 import { isTeamMenuOpen } from './menu-state'
@@ -146,16 +147,17 @@ export function spectatorSystem() {
   const controls = !isDeathTransitioning() && hasAimControl() && !isTeamMenuOpen()
   const step = cycleInput.step(
     controls,
-    inputSystem.isPressed(InputAction.IA_POINTER),
-    inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_DOWN),
-    inputSystem.isPressed(InputAction.IA_MODIFIER),
+    isCombatInputPressed(fireInputAction()),
+    isCombatInputTriggered(fireInputAction(), PointerEventType.PET_DOWN),
+    isCombatInputPressed(InputAction.IA_MODIFIER) ||
+      isCombatInputTriggered(InputAction.IA_MODIFIER, PointerEventType.PET_DOWN),
     now
   )
   target = selectSpectatorTarget(eligible, target, step)
   const toggle = modeInput.step(
     controls,
-    inputSystem.isPressed(InputAction.IA_JUMP),
-    inputSystem.isTriggered(InputAction.IA_JUMP, PointerEventType.PET_DOWN),
+    isCombatInputPressed(InputAction.IA_JUMP),
+    isCombatInputTriggered(InputAction.IA_JUMP, PointerEventType.PET_DOWN),
     false,
     now
   )

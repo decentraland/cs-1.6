@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Bought M4A1 for $3100; owned item tap kept menu open and did not spend money or fire",
+    "Ammo menu filled M4 reserve 0→90 for $180 and USP 24→100 for $175; full-reserve tap spent nothing",
+    "Slot buttons selected knife and M4A1; dedicated alternate toggled silencer",
+    "Rendered controls and buy menu at 1280x720, 844x390 and 390x844"
+  ],
+  "limitations": [
+    "forced mobile layout in Bevy; native held/multitouch not tested",
+    "fixture $16000, 1h round/buy window, bots paused"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "reference": "ReGameDLL_CS b0889847fe6d03898be88acc9e366660efb40ab5 original compatibility branches",
+  "referenceSha256": {
+    "weapons.cpp": "e6f0fb2a50ad2a43affd7c48e6d5d07085990af19f748b49df6d6c8571f70cae",
+    "weapons.h": "b266455df20267bebf7ccb9b449a005912c00464c566a45374d41629d9af7c7f",
+    "wpn_m3.cpp": "e693cf6d309dc7dedacb11652ccd670fa5813578b4dd4954bbc2724d233502af",
+    "wpn_xm1014.cpp": "92f4881be6a728aeed54786a261c586dea1b2ae39fa004c0095ad16a3a50bc96"
+  },
+  "beforeSourceSha256": {
+    "src/combat-rules.ts": "c4df289a738d4f4cdaddb614f683ead665ad8976f8f733793249ff5698b955ef",
+    "src/weapon-sounds.ts": "931d86800a6e11b34b0faed3e82c72c66894748f34a8cf6b673ca30176737a30",
+    "src/bot-combat.ts": "a583371427b5427cd29b45b13603df1614d179ed10b4f34c5bf31d546154f226",
+    "src/practice.ts": "50b8e5b83374dc500d074ed4d1bf3d1b659564afe97a3d39a4a1a2f529b723b3",
+    "src/client.ts": "bb77b6939f3410c4edc21618c3d4b33d1df60ad3ce061cb47ab635874133de52",
+    "src/reload-audio.ts": "e33176a78084db157b4c334b0b39f4e36ce341d177a43f71788138bcb745bde2",
+    "src/index.ts": "597dfcaa3048fed24c57f0fe0c9e9bd3b448801d5004ba27f9ffad4b1dfd7b22",
+    "src/systems.ts": "fba572c5b8befa9fc632471f33397978d2d65d15737237a5e9eb6c9b7316e434",
+    "src/server.ts": "1e786f2dd5e91400e34b017a544464598e2e4340910bf67c3980ce6ee70e038e",
+    "asset-sources/cs16-weapons/stock-media.json": "fcae24c5708369dccb4806f42c63a19fc3d540247bd719f00cd8ccd08d86ce45"
+  },
+  "afterSourceSha256": {
+    "src/combat-rules.ts": "f785436eb1eaa0d3b87855b17eb47eb2428363401717283409333bac8c3669b5",
+    "src/weapon-sounds.ts": "5fdbfa5b14f4e186b1d604b85986863a902543b1b9bd846459cf979d04d6f225",
+    "src/bot-combat.ts": "5aa9c5f3c94316d27177e7d7b046ed21ea1891542df86db67bb8c114a3e39617",
+    "src/practice.ts": "376f93f5109230043365895779062bdfe620722119712c65955510022a59fb82",
+    "src/client.ts": "52d1cd97e496fa6daa2a137967052de748f43ccaf3e2651eed087c02eb849296",
+    "src/reload-audio.ts": "fab2d6c44f53016f6d0384aed36bd27c3966f00801b833dad73fb96e2391913f",
+    "src/index.ts": "8f96139d5e7dc353be789993517d8b177c186bfffef091965e9e495aa405dc8b",
+    "src/systems.ts": "19b83435dffbb5a79b01fe113ec53ab332c523d02d2820d0aad71c83d50f657b",
+    "src/server.ts": "f4fe437e128adc5311f4468f211a305a7aad8701a9bc68034dcfd20366b38baf",
+    "tests/shell-reload-audio.test.mjs": "9a11bb69c2fa20f004a7693a264d4fe30d4109d51b83f05ebc1227d35fd4a960",
+    "assets/sounds/weapons/shell_reload1.wav": "ef3d655a98fff205594e93f384fd91bcc502e0b8ed3b046e6fdf246322543e4d",
+    "assets/sounds/weapons/shell_reload3.wav": "e4ec314af2dee6fb0266c940a02253931b683ad0ad096da29d0212b0e0bcb34d",
+    "asset-sources/cs16-weapons/stock-media.json": "0f4dcdcf5282a8c38b1749d39447a36682e5edf09948e4b390f7d75eab819a49"
+  },
+  "newRegressions": 7,
+  "beforeFailures": 5,
+  "focusedPassed": 22,
+  "fullGatePassed": 539,
+  "runtime": "Production handlers and client callbacks over actual SDK Room binary serialization; actual AudioSource state. No native/browser/original CS execution."
+}

@@ -1,0 +1,302 @@
+✖ all 24 firearms preserve their item attack clocks except the explicit AWP/Scout draw resets (46.506084ms)
+✖ silencer changes survive knife switching until the original M4A1/USP deadline (6.989667ms)
+✖ a secondary-only stored deadline blocks mode changes without blocking ready primary fire (2.823959ms)
+✖ a dropped silenced gun carries its remaining action lock to its next owner (8.078ms)
+✔ holstering a magazine reload cancels its player lock without preserving the reload duration as an item timer (4.345375ms)
+✖ desktop and touch fire use the draw snapshot without letting later network updates stretch automatic cadence (7.97525ms)
+✖ knife attack cooldown survives a pistol switch and still expires at the original contact deadline (4.166375ms)
+✖ desktop and touch knife feedback wait for the retained draw timers (1.80025ms)
+✖ bots retain stored attack deadlines through combat and death pickup (2.821291ms)
+✖ SDK wire preserves zero and fractional epoch deadlines for held guns, knife, drops and draw snapshots (3.888291ms)
+✔ replacing a used item or starting a new life does not carry the previous weapon or knife lock (5.600792ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 2
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1064.168334
+
+✖ failing tests:
+
+test at tests/switch-timers.test.mjs:43:1
+✖ all 24 firearms preserve their item attack clocks except the explicit AWP/Scout draw resets (46.506084ms)
+  AssertionError [ERR_ASSERTION]: undefined != 20.125
+      at near (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:18:31)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:49:5)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/switch-timers.test.mjs:56:1
+✖ silencer changes survive knife switching until the original M4A1/USP deadline (6.989667ms)
+  AssertionError [ERR_ASSERTION]: m4a1: switching must not bypass the silencer lock
+  
+  29 !== 30
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:70:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 29,
+    expected: 30,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/switch-timers.test.mjs:79:1
+✖ a secondary-only stored deadline blocks mode changes without blocking ready primary fire (2.823959ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  55 !== 90
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:85:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 55,
+    expected: 90,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/switch-timers.test.mjs:91:1
+✖ a dropped silenced gun carries its remaining action lock to its next owner (8.078ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  29 !== 30
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:103:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 29,
+    expected: 30,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/switch-timers.test.mjs:125:1
+✖ desktop and touch fire use the draw snapshot without letting later network updates stretch automatic cadence (7.97525ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:138:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/switch-timers.test.mjs:147:1
+✖ knife attack cooldown survives a pistol switch and still expires at the original contact deadline (4.166375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 35
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:168:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 35,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/switch-timers.test.mjs:174:1
+✖ desktop and touch knife feedback wait for the retained draw timers (1.80025ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:182:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/switch-timers.test.mjs:190:1
+✖ bots retain stored attack deadlines through combat and death pickup (2.821291ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   damage: 0,
+  +   direction: {
+  +     x: -1,
+  +     y: 8.881784197001253e-17,
+  +     z: 6.123233995736766e-17
+  +   },
+  +   distance: 24.61583333,
+  +   hit: undefined,
+  +   impacts: [
+  +     {
+  +       damage: 0,
+  +       distance: 24.61583333,
+  +       hit: undefined,
+  +       material: 'C',
+  +       normal: {
+  +         x: 1,
+  +         y: -0,
+  +         z: 0
+  +       },
+  +       position: {
+  +         x: 70.38416667,
+  +         y: 11.426000000000002,
+  +         z: 52
+  +       },
+  +       texture: '-0csSandWall'
+  +     },
+  +     {
+  +       damage: 0,
+  +       distance: 45.09583332999999,
+  +       hit: undefined,
+  +       material: 'C',
+  +       normal: {
+  +         x: 1,
+  +         y: -0,
+  +         z: -0
+  +       },
+  +       position: {
+  +         x: 49.90416667,
+  +         y: 11.426000000000004,
+  +         z: 52
+  +       },
+  +       texture: '-0csSandWall'
+  +     }
+  +   ],
+  +   material: 'C',
+  +   normal: {
+  +     x: 1,
+  +     y: -0,
+  +     z: 0
+  +   },
+  +   origin: {
+  +     x: 95,
+  +     y: 11.426,
+  +     z: 52
+  +   },
+  +   pellets: [
+  +     {
+  +       damage: 0,
+  +       direction: {
+  +         x: -1,
+  +         y: 8.881784197001253e-17,
+  +         z: 6.123233995736766e-17
+  +       },
+  +       distance: 24.61583333,
+  +       hit: undefined,
+  +       material: 'C',
+  +       normal: {
+  +         x: 1,
+  +         y: -0,
+  +         z: 0
+  +       },
+  +       position: {
+  +         x: 70.38416667,
+  +         y: 11.426000000000002,
+  +         z: 52
+  +       },
+  +       texture: '-0csSandWall'
+  +     }
+  +   ],
+  +   pitch: 0.65,
+  +   position: {
+  +     x: 70.38416667,
+  +     y: 11.426000000000002,
+  +     z: 52
+  +   },
+  +   spread: 0.004,
+  +   texture: '-0csSandWall',
+  +   yaw: -0.35
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:213:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { hit: undefined, distance: 24.61583333, position: { x: 70.38416667, y: 11.426000000000002, z: 52 }, material: 'C', normal: { x: 1, y: -0, z: 0 }, texture: '-0csSandWall', damage: 0, direction: { x: -1, y: 8.881784197001253e-17, z: 6.123233995736766e-17 }, pellets: [ [Object] ], impacts: [ [Object], [Object] ], spread: 0.004, origin: { x: 95, y: 11.426, z: 52 }, pitch: 0.65, yaw: -0.35 },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/switch-timers.test.mjs:220:1
+✖ SDK wire preserves zero and fractional epoch deadlines for held guns, knife, drops and draw snapshots (3.888291ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + {}
+  - {
+  -   primary: 0,
+  -   secondary: 0
+  - }
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-switch-timers/before-check/tests/switch-timers.test.mjs:249:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {},
+    expected: { primary: 0, secondary: 0 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

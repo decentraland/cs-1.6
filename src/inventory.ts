@@ -1,3 +1,4 @@
+import { canHandleWeapons } from './round-rules'
 import { Entity } from '@dcl/sdk/ecs'
 import { PlayerInventory, PlayerEquipment, PlayerAddress, PlayerHealth, Dead, Weapon } from './components'
 import { startingInventory, selectWeapon } from './inventory-rules'
@@ -33,7 +34,7 @@ export function equipActiveWeapon(player: Entity) {
   }
   if (item && gun) {
     PlayerEquipment.getMutable(player).bombSelected = false
-    equipGun(player, gun.id, item.clip, item.reserve, item.mode ?? 0)
+    equipGun(player, gun.id, item.clip, item.reserve, item.mode ?? 0, item.timing)
   }
 }
 export function initializeInventory() {
@@ -46,7 +47,7 @@ export function initializeInventory() {
       player === undefined ||
       !match ||
       data.round !== match.round ||
-      !['freeze', 'live'].includes(match.phase) ||
+      !canHandleWeapons(match) ||
       !canPlayRound(address) ||
       Dead.has(player) ||
       PlayerHealth.get(player).current <= 0 ||
@@ -68,7 +69,7 @@ export function initializeInventory() {
       player === undefined ||
       !match ||
       data.round !== match.round ||
-      !['freeze', 'live'].includes(match.phase) ||
+      !canHandleWeapons(match) ||
       !canPlayRound(address) ||
       Dead.has(player) ||
       PlayerHealth.get(player).current <= 0 ||

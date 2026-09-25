@@ -1,0 +1,17 @@
+{
+  "nativeBindings": false,
+  "clipBefore": 30,
+  "clipAfter": 23,
+  "walkingSpeed": 2.99,
+  "releaseStopped": true,
+  "viewports": [
+    [
+      844,
+      390
+    ],
+    [
+      390,
+      844
+    ]
+  ]
+}

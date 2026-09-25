@@ -1,0 +1,35 @@
+{
+  "hud": {
+    "health": 100,
+    "armor": 0,
+    "clip": 10,
+    "reserve": 0,
+    "money": 10150,
+    "seconds": 3550
+  },
+  "labels": [
+    "OWNED / FULL / UNAVAILABLE",
+    "SCOUT",
+    "M4A1",
+    "$3100",
+    "$3500",
+    "AUG",
+    "SG550",
+    "$4200",
+    "AWP",
+    "$4750",
+    "BACK",
+    "OWNED / FULL / UNAVAILABLE",
+    "Bought Scout.",
+    "SCOUT",
+    "BUY / RIFLES   $10150",
+    "FAMAS",
+    "$2250"
+  ],
+  "cart": {
+    "x": 785,
+    "y": 279,
+    "width": 48,
+    "height": 48
+  }
+}

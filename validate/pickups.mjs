@@ -1,3 +1,4 @@
+import { cameraAtZoom } from './read-camera.mjs'
 import assert from 'node:assert/strict'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -73,13 +74,13 @@ try {
   await c.until((s) => readHud(s).clip === 9, 'AWP fired once')
   await pause(1700)
   await c.aimAt(target)
-  await c.until((s) => !model(s, 'awp') && Object.values(s).some((v) => v.TextureCamera), 'AWP scope active')
+  await c.until((s) => !model(s, 'awp') && cameraAtZoom(s, 40), 'AWP scope active')
   await drop()
   s = await c.until((s) => model(s, 'usp') && drops(s).some((d) => d.gun === 'awp' && d.settled), 'scoped AWP dropped')
   let awp = drops(s).find((d) => d.gun === 'awp')
   assert.equal(awp.clip, 9)
   assert.equal(awp.reserve, 0)
-  assert.ok(!Object.values(s).some((v) => v.TextureCamera), 'scope target released')
+  assert.ok(cameraAtZoom(s, 90), 'dropping the scoped gun restores normal FOV')
   evidence.manual = { clip: awp.clip, reserveInBox: awp.reserve, position: awp.position, scopeReleased: true }
   await c.aimAt({ ...awp.position, y: awp.position.y + 0.08 })
   await save('awp-on-ground')

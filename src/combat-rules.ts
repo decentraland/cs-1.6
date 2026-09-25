@@ -1,5 +1,6 @@
 import { profileByName } from './weapon-profiles'
 export interface WeaponState {
+  mode?: number
   name?: string
   readyAt?: number
   reloadStage?: number
@@ -9,6 +10,8 @@ export interface WeaponState {
   maxAmmoClip: number
   ammoReserve: number
   fireRate: number
+  nextPrimaryAt?: number
+  alternateAt?: number
   lastShotTime: number
   lastShotId: number
   isReloading: boolean
@@ -16,13 +19,18 @@ export interface WeaponState {
   reloadStartTime: number
 }
 
+export function primaryDeadline(weapon: Pick<WeaponState, 'nextPrimaryAt' | 'lastShotTime' | 'fireRate'>): number {
+  return weapon.nextPrimaryAt ?? weapon.lastShotTime + weapon.fireRate
+}
+
 export type ShotRejection = 'sequence' | 'dead' | 'reloading' | 'empty' | 'cooldown'
 
-export function finishReload(weapon: WeaponState, now: number): boolean {
+export function finishReload(weapon: WeaponState, now: number, onInsert?: () => void): boolean {
   if (!weapon.isReloading) return false
   const gun = profileByName(weapon.name ?? '')
   if (gun.kind === 'gun' && gun.shellReload) {
-    let changed = false
+    let changed = false,
+      inserted = false
     while (weapon.isReloading && now + 1e-6 >= (weapon.reloadStepAt ?? Infinity)) {
       const at = weapon.reloadStepAt ?? now
       if (weapon.reloadStage === 2) {
@@ -34,11 +42,13 @@ export function finishReload(weapon: WeaponState, now: number): boolean {
         weapon.isReloading = false
         weapon.reloadStage = 0
       } else {
+        inserted = true
         weapon.reloadStage = 2
         weapon.reloadStep = (weapon.reloadStep ?? 0) + 1
         weapon.reloadStepAt = at + (gun.id === 'm3' ? 0.45 : 0.3)
       }
     }
+    if (inserted && weapon.isReloading) onInsert?.()
     return changed
   }
   if (now - weapon.reloadStartTime + 1e-6 < weapon.reloadTime) return false
@@ -61,14 +71,15 @@ export function canAutoReload(weapon: Readonly<WeaponState>, alive: boolean, tri
 }
 
 export function startReload(weapon: WeaponState, now: number, alive: boolean): boolean {
-  if (!canReload(weapon, alive) || now < (weapon.readyAt ?? 0) || now < weapon.lastShotTime + weapon.fireRate)
-    return false
+  if (!canReload(weapon, alive) || now < (weapon.readyAt ?? 0) || now < primaryDeadline(weapon)) return false
   const gun = profileByName(weapon.name ?? '')
   if (gun.kind === 'gun' && gun.shellReload) {
     weapon.reloadStage = 1
     weapon.reloadStep = (weapon.reloadStep ?? 0) + 1
     weapon.reloadStepAt = now + 0.55
     weapon.readyAt = now + 0.55
+    weapon.nextPrimaryAt = now + 0.55
+    weapon.alternateAt = now + 0.55
   }
   weapon.isReloading = true
   weapon.reloadStartTime = now
@@ -85,19 +96,22 @@ export function fireShot(
   weapon: WeaponState,
   now: number,
   alive: boolean,
-  scheduledTime = now
+  scheduledTime = now,
+  continuation = false,
+  onInsert?: () => void
 ): ShotRejection | undefined {
   if (!alive) return 'dead'
-  finishReload(weapon, now)
+  finishReload(weapon, now, onInsert)
   if (weapon.isReloading) {
     if (!canInterruptReload(weapon, now)) return 'reloading'
     weapon.isReloading = false
     weapon.reloadStage = 0
   }
   if (weapon.ammoClip <= 0) return 'empty'
-  if (now + 1e-6 < scheduledTime || scheduledTime - weapon.lastShotTime + 1e-6 < weapon.fireRate) return 'cooldown'
+  if (now + 1e-6 < scheduledTime || (!continuation && scheduledTime + 1e-6 < primaryDeadline(weapon))) return 'cooldown'
   weapon.ammoClip--
   weapon.lastShotTime = scheduledTime
+  if (!continuation) weapon.nextPrimaryAt = scheduledTime + weapon.fireRate
   return undefined
 }
 

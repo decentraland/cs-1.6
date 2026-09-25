@@ -11,7 +11,7 @@ const load = compile(
   'shared-random'
 )
 const { GUNS, modeStats, buyMenuGuns } = load('weapon-profiles')
-const { alternateWeapon, leaveScope, firedScope, resumeScope, beginBurst, advanceBurst } = load('weapon-modes')
+const { alternateWeapon, leaveScope, firedWeapon, resumeScope, beginBurst, advanceBurst } = load('weapon-modes')
 const { freshGunAccuracy, gunSpread } = load('gun-accuracy')
 const { startingInventory, buyGun, buyGunAmmo, syncAmmoPool } = load('inventory-rules')
 const { startReload, finishReload, fireShot } = load('combat-rules')
@@ -151,7 +151,7 @@ test('AWP cycles 40/10 FOV, loses no-scope penalty when zoomed, and re-scopes af
   near(gunSpread(freshGunAccuracy('awp'), 'awp', 101, 0, true, 0, 10), 0.001)
   near(modeStats(GUNS.awp, 0, 10).speed, 3.75)
   w.lastShotTime = 101
-  firedScope(w, GUNS.awp)
+  firedWeapon(w, GUNS.awp)
   assert.equal(w.zoom, 90)
   resumeScope(w, 102.44)
   assert.equal(w.zoom, 90)

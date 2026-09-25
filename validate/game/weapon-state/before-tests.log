@@ -1,0 +1,220 @@
+✖ all firearm deploys preserve the returning item history and use only their source resets (0.778208ms)
+✖ an unused SG550 has the original broad first two shots, then updates from its last shot (0.079584ms)
+✖ SG550 returning from another weapon uses retained accuracy rather than a fresh deploy value (0.146458ms)
+✖ prediction keeps authoritative item state through old-shot confirmations and rejection (0.244458ms)
+✖ the server deploy reads the selected inventory item without importing another weapon history (96.469292ms)
+✖ bot survivors draw their stored item state and death/drop preserves it for a new owner (0.194666ms)
+✖ buying a different copy starts new item history while fallback draws the stored pistol history (0.194083ms)
+✖ actual firing, slot selection and equipment adapters retain the same SG550 and leave ammo unchanged on draw (51.875584ms)
+✖ installed SDK schemas preserve zero/false item state and subsecond epoch times through inventory, drops and draw snapshots (4.958208ms)
+✔ the production camera keeps recoil when switching to a pistol or knife and clears it on respawn (10.8215ms)
+✔ switching to any firearm preserves decaying player punch while applying its deploy accuracy (0.638875ms)
+✔ late confirmations replay weapon switches, later shots and reload with their original gun rules (0.191333ms)
+✔ rejecting the old gun shot removes its punch without replaying a kick on the new gun (0.086916ms)
+✔ switching back to the same gun does not reserve its new magazine for an old shot (0.051333ms)
+✔ the production server retains recoil across a knife/pistol switch and clears it for a new life (70.301083ms)
+✔ bots carry residual recoil into a paid fallback pistol instead of resetting it (0.232ms)
+✖ the camera applies a synced draw snapshot once and retains later shot history on repeated updates (2.032541ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 7
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1486.154708
+
+✖ failing tests:
+
+test at tests/weapon-item-state.test.mjs:23:1
+✖ all firearm deploys preserve the returning item history and use only their source resets (0.778208ms)
+  AssertionError [ERR_ASSERTION]: glock18
+  
+  0 !== 12
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:29:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 12,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weapon-item-state.test.mjs:38:1
+✖ an unused SG550 has the original broad first two shots, then updates from its last shot (0.079584ms)
+  AssertionError [ERR_ASSERTION]: 0.9 != 0
+      at near (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:19:43)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:40:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weapon-item-state.test.mjs:46:1
+✖ SG550 returning from another weapon uses retained accuracy rather than a fresh deploy value (0.146458ms)
+  AssertionError [ERR_ASSERTION]: 0.004999999999999999 != 0.013125
+      at near (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:19:43)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:48:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weapon-item-state.test.mjs:52:1
+✖ prediction keeps authoritative item state through old-shot confirmations and rejection (0.244458ms)
+  AssertionError [ERR_ASSERTION]: 0.9 != 0.7375
+      at near (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:19:43)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:58:5)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weapon-item-state.test.mjs:68:1
+✖ the server deploy reads the selected inventory item without importing another weapon history (96.469292ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(f.logs.findLast((line) => line.includes('[SHOT]')).includes('spread=0.0131'))
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:79:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weapon-item-state.test.mjs:83:1
+✖ bot survivors draw their stored item state and death/drop preserves it for a new owner (0.194666ms)
+  AssertionError [ERR_ASSERTION]: 0.9 != 0.7375
+      at near (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:19:43)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:91:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weapon-item-state.test.mjs:107:1
+✖ buying a different copy starts new item history while fallback draws the stored pistol history (0.194083ms)
+  AssertionError [ERR_ASSERTION]: 0 != 10
+      at near (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:19:43)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:115:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weapon-item-state.test.mjs:123:1
+✖ actual firing, slot selection and equipment adapters retain the same SG550 and leave ammo unchanged on draw (51.875584ms)
+  TypeError: Cannot read properties of undefined (reading 'accuracy')
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:134:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7)
+
+test at tests/weapon-item-state.test.mjs:153:1
+✖ installed SDK schemas preserve zero/false item state and subsecond epoch times through inventory, drops and draw snapshots (4.958208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + {}
+  - {
+  -   accuracy: 0,
+  -   lastFire: 0,
+  -   right: false,
+  -   shots: 0
+  - }
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-item-state.test.mjs:173:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {},
+    expected: { shots: 0, accuracy: 0, lastFire: 0, right: false },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weapon-switch-recoil.test.mjs:212:1
+✖ the camera applies a synced draw snapshot once and retains later shot history on repeated updates (2.032541ms)
+  AssertionError [ERR_ASSERTION]: 0.04499999999999999 != 0.118125
+      at near (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-switch-recoil.test.mjs:15:43)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-weapon-state/before-check/tests/weapon-switch-recoil.test.mjs:217:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

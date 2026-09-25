@@ -1,3 +1,6 @@
+import { rememberAttackTimers } from './weapon-modes'
+import { broadcastReloadSound, broadcastShellReloadSound } from './reload-audio'
+import { surfaceImpacts } from './bullet-impact-rules'
 import { createBotBody, updateBotBody, killBotBody, botBodyHitRegions, clearBotBodies } from './bot-model'
 import { clearGrenades, initializeGrenades, blindedByGrenade, smokeBlocksSight } from './grenades'
 import { botAccount, botAccounts, botArmorHit, buyBotRound, storeBotAmmo } from './bot-economy'
@@ -26,9 +29,16 @@ import {
 } from './components'
 import { room } from './index'
 import { mapDistance } from './world-query'
-import { avatarForward, applyPlayerDamage, recordPracticeStats, resetPlayerAccuracy, matchStats } from './server'
+import {
+  avatarForward,
+  applyPlayerDamage,
+  recordPracticeStats,
+  resetPlayerAccuracy,
+  resetPlayerRewind,
+  matchStats
+} from './server'
 import { initializeInventory, spawnInventory } from './inventory'
-import { finishRound } from './round-rules'
+import { canFight, finishRound } from './round-rules'
 import {
   creditPlayer,
   initializeEconomy,
@@ -77,6 +87,17 @@ import { bombSiteAt } from './bomb-sites'
 import { newRoundSeed, shotRandom } from './shared-random'
 import { recordSample } from './hit-claims'
 import type { PositionSample } from './hit-claims'
+import {
+  BOT_CLAIM_DISTANCE,
+  BOT_CLAIM_EARLY,
+  BOT_CLAIM_LATE,
+  nearestOnPath,
+  recordRewind,
+  REWIND_SECONDS,
+  rewindTo
+} from './rewind-rules'
+import type { RewindSample } from './rewind-rules'
+import { bodyHitRegions } from './player-model-rules'
 export { isBotAddress } from './team-rules'
 
 export interface Attacker {
@@ -116,6 +137,7 @@ const botNavigation = new Map<Entity, BotNavigation>()
 const botMovements = new Map<Entity, CsMovement>()
 const botWorld = groundedBotWorld(bulletWorldTrace)
 const botHistory = new Map<Entity, PositionSample[]>()
+const botRewind = new Map<Entity, RewindSample[]>()
 const botSees = new Map<Entity, boolean>()
 // Re-sends the match state to every client (getMutable bumps the CRDT timestamp).
 export function touchMatchState() {
@@ -275,6 +297,7 @@ export function initializePractice() {
 }
 
 function benchPlayer(entity: Entity) {
+  resetPlayerRewind(PlayerAddress.get(entity).address)
   if (!Dead.has(entity) && PlayerHealth.get(entity).current > 0) dropDeadPlayer(entity)
   PlayerHealth.getMutable(entity).current = 0
   Dead.createOrReplace(entity, { deathTime: Date.now() / 1000, respawnTime: 0 })
@@ -309,7 +332,7 @@ function joinSpectators(address: string) {
   const state = Practice.getMutable(roundEntity)
   if (!admitSpectator(state, address)) return
   rememberedTeams.set(address, Team.NONE)
-  if (wasPlaying && state.phase === 'live' && PlayerHealth.get(player).current > 0) recordPracticeStats(address, 0, 1)
+  if (wasPlaying && canFight(state) && PlayerHealth.get(player).current > 0) recordPracticeStats(address, 0, 1)
   lastSeen.set(address, Date.now() / 1000)
   PlayerTeam.getMutable(player).team = Team.NONE
   benchPlayer(player)
@@ -332,9 +355,10 @@ function disconnectPlayer(address: string) {
   if (index < 0 || !Practice.get(roundEntity).roster[index].connected) return
   const state = Practice.getMutable(roundEntity)
   state.roster[index].connected = false
+  resetPlayerRewind(address, true)
   const entity = playerEntity(address)
   if (entity !== undefined) {
-    if (state.phase === 'live' && PlayerHealth.get(entity).current > 0) recordPracticeStats(address, 0, 1)
+    if (canFight(state) && PlayerHealth.get(entity).current > 0) recordPracticeStats(address, 0, 1)
     benchPlayer(entity)
     PlayerTeam.getMutable(entity).team = Team.NONE
   }
@@ -395,11 +419,18 @@ function startTeamRound() {
     health.current = health.max
     if (respawning) {
       health.armor = 0
-      PlayerEquipment.createOrReplace(player, { bombSelected: false, defuseKit: false, helmet: false })
+      PlayerEquipment.createOrReplace(player, {
+        bombSelected: false,
+        defuseKit: false,
+        helmet: false,
+        nightVision: false,
+        nightVisionOn: false
+      })
       spawnInventory(player, seat.team)
     } else {
       Weapon.getMutable(player).isReloading = false
     }
+    PlayerEquipment.getMutable(player).nightVisionOn = false
     Dead.deleteFrom(player)
     PlayerTeam.getMutable(player).team = seat.team
     PlayerPose.createOrReplace(player, { position: spawn.position, valid: true })
@@ -455,10 +486,12 @@ function recordBombFrags(event: BombEvent | undefined) {
 function practiceSystem() {
   const now = Date.now() / 1000
   const state = Practice.get(roundEntity)
-  if (state.phase !== 'live') {
+  if (!canFight(state)) {
     for (const entity of aliveBots()) {
       const combat = botWeapons.get(entity)!
-      finishReload(combat.weapon, now)
+      finishReload(combat.weapon, now, () =>
+        broadcastShellReloadSound(botAddress(Bot.get(entity).index), combat.weapon, botNavigation.get(entity)?.position)
+      )
       updateBotBody(entity, combat, 0, now, false)
     }
   }
@@ -483,6 +516,7 @@ function practiceSystem() {
     const timeLeft = Math.max(0, Math.ceil(RESULT_SECONDS - (now - endedAt)))
     if (state.timeLeft !== timeLeft) Practice.getMutable(roundEntity).timeLeft = timeLeft
     if (now - endedAt >= RESULT_SECONDS) startTeamRound()
+    else botLoop(now)
     return
   }
   if (state.phase === 'freeze') {
@@ -522,7 +556,15 @@ function spawnBots(roster: readonly TeamSeat[], slots: Record<PlayingTeam, numbe
       combat = botWeapons.get(entity)
     if (bot.alive) survivors.add(bot.index)
     if (account && combat) {
-      storeBotAmmo(account, combat.gun, combat.weapon.ammoClip, combat.weapon.ammoReserve)
+      storeBotAmmo(
+        account,
+        combat.gun,
+        combat.weapon.ammoClip,
+        combat.weapon.ammoReserve,
+        combat.weapon.mode,
+        combat.accuracy,
+        rememberAttackTimers(combat.weapon)
+      )
       account.defuseKit = bot.defuseKit
     }
   }
@@ -561,6 +603,7 @@ function spawnBot(index: number, team: PlayingTeam, start: Vector3, yaw: number,
   botNavigation.set(entity, navigation)
   botMovements.set(entity, new CsMovement())
   botHistory.set(entity, [{ at: Date.now() / 1000, position: { ...navigation.position } }])
+  botRewind.set(entity, [])
   Transform.create(entity, {
     position: navigation.position,
     rotation: Quaternion.fromEulerDegrees(0, navigation.yaw, 0)
@@ -571,7 +614,8 @@ function spawnBot(index: number, team: PlayingTeam, start: Vector3, yaw: number,
   const stored = account.inventory.items.find((item) => item.id === gun)!
   Bot.create(entity, { index, team, health: 100, name, alive: true, weapon: gun, defuseKit: account.defuseKit })
   const combat = createBotCombat(Date.now() / 1000 + 6 + index, gun, stored)
-  startReload(combat.weapon, Date.now() / 1000, true)
+  if (startReload(combat.weapon, Date.now() / 1000, true))
+    broadcastReloadSound(botAddress(index), combat.weapon, navigation.position)
   createBotBody(entity, team, combat, Date.now() / 1000)
   Transform.validateBeforeChange(entity, (v) => v.senderAddress === AUTH_SERVER_PEER_ID)
   MeshCollider.validateBeforeChange(entity, (v) => v.senderAddress === AUTH_SERVER_PEER_ID)
@@ -597,6 +641,7 @@ function clearBots() {
   botNavigation.clear()
   botMovements.clear()
   botHistory.clear()
+  botRewind.clear()
   botSees.clear()
   lastBotTick = 0
 }
@@ -609,13 +654,65 @@ function aliveBots(): Entity[] {
   return botEntities.filter((entity) => Bot.get(entity).alive)
 }
 
-export function practiceTargets(): ShotTarget<Entity>[] {
-  return aliveBots().map((entity) => ({
+function practiceTarget(entity: Entity): ShotTarget<Entity> {
+  return {
     id: entity,
     center: Transform.get(entity).position,
     yaw: hitboxYaw(Transform.get(entity).rotation),
     regions: botBodyHitRegions(entity, Date.now() / 1000)
-  }))
+  }
+}
+export function practiceTargets(): ShotTarget<Entity>[] {
+  return aliveBots().map(practiceTarget)
+}
+
+// Bot targets as the shooter saw them: position, facing and animation frame rewound to `at`.
+export function practiceTargetsAt(at: number): ShotTarget<Entity>[] {
+  return aliveBots().map((entity) => {
+    const sample = rewindTo(botRewind.get(entity) ?? [], at)
+    if (!sample) return practiceTarget(entity)
+    return {
+      id: entity,
+      center: sample.position,
+      yaw: sample.yaw,
+      regions: sample.pose ? bodyHitRegions(sample.pose.model, sample.pose, at) : botBodyHitRegions(entity, at)
+    }
+  })
+}
+
+// Applies the shooter's observed bot position when it lies on the bot's path around `seenAt`.
+export function acceptBotObservation(
+  targets: ShotTarget<Entity>[],
+  address: string | undefined,
+  position: Vector3 | undefined,
+  seenAt: number | undefined,
+  receivedAt: number
+): 'none' | 'accepted' | 'rejected' {
+  if (address === undefined || !isBotAddress(address) || !position || seenAt === undefined) return 'none'
+  const entity = botEntityByAddress(address)
+  const claimed = entity === undefined ? undefined : targets.find((target) => target.id === entity)
+  if (!claimed || ![position.x, position.y, position.z].every(Number.isFinite)) return 'rejected'
+  const from = Math.max(seenAt - BOT_CLAIM_EARLY, receivedAt - REWIND_SECONDS)
+  const to = Math.min(seenAt + BOT_CLAIM_LATE, receivedAt)
+  const observed = nearestOnPath(botRewind.get(claimed.id) ?? [], from, to, position, BOT_CLAIM_DISTANCE)
+  if (!observed) return 'rejected'
+  claimed.center = { ...position }
+  claimed.yaw = observed.yaw
+  claimed.regions = observed.pose
+    ? bodyHitRegions(observed.pose.model, observed.pose, observed.at)
+    : botBodyHitRegions(claimed.id, observed.at)
+  return 'accepted'
+}
+
+export function rewindDisplacement(at: number): number {
+  let largest = 0
+  for (const entity of aliveBots()) {
+    const sample = rewindTo(botRewind.get(entity) ?? [], at)
+    if (!sample) continue
+    const current = Transform.get(entity).position
+    largest = Math.max(largest, Math.hypot(sample.position.x - current.x, sample.position.z - current.z))
+  }
+  return largest
 }
 
 export function botEntityByAddress(address: string): Entity | undefined {
@@ -705,7 +802,7 @@ function botLoop(now: number) {
   const navigate = dt >= BOT_TICK
   if (navigate) lastBotTick = now
   const humans = aliveHumansByTeam(state)
-  const objectives = botObjectives(state.round)
+  const objectives = state.phase === 'live' ? botObjectives(state.round) : new Map<string, NavPoint>()
   const bots = practiceTargets()
   const hotspots = dust2Hotspots(dust2Navigation)
   const sightings = new Map<Entity, (Enemy & { aim: Vector3 }) | undefined>()
@@ -759,8 +856,17 @@ function botLoop(now: number) {
         transform.position = navigation.position
         transform.rotation = Quaternion.fromEulerDegrees(0, navigation.yaw, 0)
       }
+      recordRewind(botRewind.get(entity) ?? [], {
+        at: now,
+        position: { ...navigation.position },
+        yaw: hitboxYaw(Transform.get(entity).rotation),
+        pose: BotBodyPose.getOrNull(entity) ?? undefined
+      })
     }
+    const firingMode = combat.weapon.mode ?? 0
     const shot = botShot<Entity>(combat, {
+      onReload: (weapon) => broadcastReloadSound(botAddress(bot.index), weapon, navigation.position),
+      onShellReload: (weapon) => broadcastShellReloadSound(botAddress(bot.index), weapon, navigation.position),
       feet: navigation.position,
       target: enemy && !isBombBusy(botAddress(bot.index)) ? enemy.aim : undefined,
       speed: botSpeeds.get(entity) ?? 0,
@@ -789,7 +895,14 @@ function botLoop(now: number) {
       bomb?.phase === 'planting' && bomb.carrier === botAddress(bot.index)
     )
     if (!shot) continue
-    room.send('practiceAttack', { origin: shot.origin, target: shot.position, gun: combat.gun })
+    room.send('practiceAttack', {
+      fire: { gun: combat.gun, mode: firingMode, origin: shot.origin },
+      origin: shot.origin,
+      target: shot.position,
+      gun: combat.gun,
+      round: state.round,
+      impacts: surfaceImpacts(shot.impacts)
+    })
     const attacker: Attacker = {
       address: botAddress(bot.index),
       name: botDisplayName(bot.name),
@@ -868,7 +981,7 @@ export function damageBot(
   armorRatio = 0.775
 ): boolean {
   const bot = Bot.getOrNull(target)
-  if (Practice.get(roundEntity).phase !== 'live' || !bot?.alive || bot.team === attacker.team) return false
+  if (!canFight(Practice.get(roundEntity)) || !bot?.alive || bot.team === attacker.team) return false
   if (!isBotAddress(attacker.address) && !canPlayRound(attacker.address)) return false
   const result = hurtBot(target, damage, attacker, group, armorRatio)
   if (result === 'kill') creditKill(attacker)

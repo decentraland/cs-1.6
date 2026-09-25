@@ -1,25 +1,39 @@
+import { broadcastReloadSound, broadcastShellReloadSound } from './reload-audio'
 import { engine, Entity } from '@dcl/sdk/ecs'
 import { Weapon, Dead, PlayerAddress, PlayerInventory } from './components'
 import { isServer } from '@dcl/sdk/network'
-import { canAutoReload, finishReload, startReload } from './combat-rules'
-import { isPlayerTriggerHeld, resetPlayerAccuracy } from './server'
+import { canAutoReload, finishReload, startReload, primaryDeadline } from './combat-rules'
+import { isPlayerTriggerHeld, resetPlayerAccuracy, playerGunAccuracy } from './server'
 
 import { syncAmmoPool } from './inventory-rules'
-import { leaveScope, resumeScope } from './weapon-modes'
+import { leaveScope, resumeScope, deployedGunMode, deployAttackTimers, rememberAttackTimers } from './weapon-modes'
 import { GunId, GUNS, modeStats } from './weapon-profiles'
+import type { AttackTimers } from './weapon-modes'
 import { GrenadeId, GRENADES } from './grenade-profiles'
 
-export function equipGun(player: Entity, id: GunId, clip: number, reserve: number, mode = 0) {
+export function equipGun(
+  player: Entity,
+  id: GunId,
+  clip: number,
+  reserve: number,
+  mode = 0,
+  stored?: Readonly<AttackTimers>
+) {
   const previous = Weapon.getOrNull(player),
-    gun = GUNS[id]
+    gun = GUNS[id],
+    now = Date.now() / 1000,
+    timing = deployAttackTimers(gun, now, stored)
+  mode = deployedGunMode(id, clip, mode)
   Weapon.createOrReplace(player, {
     name: gun.name,
     revision: (previous?.revision ?? 0) + 1,
     mode,
     zoom: 90,
     resumeZoom: 90,
-    alternateAt: 0,
-    readyAt: Date.now() / 1000 + gun.drawTime,
+    alternateAt: timing.secondary,
+    nextPrimaryAt: timing.primary,
+    deployedTimers: timing,
+    readyAt: now + gun.drawTime,
     damage: modeStats(gun, mode).damage,
     ammoClip: clip,
     maxAmmoClip: gun.clip,
@@ -38,15 +52,18 @@ export function equipGun(player: Entity, id: GunId, clip: number, reserve: numbe
   })
   resetPlayerAccuracy(PlayerAddress.getOrNull(player)?.address ?? '')
 }
-export function equipKnife(player: Entity) {
-  const previous = Weapon.getOrNull(player)
+export function equipKnife(player: Entity, restoreTimers = true) {
+  const previous = Weapon.getOrNull(player),
+    timing = (restoreTimers && PlayerInventory.getOrNull(player)?.knifeTiming) || { primary: 0, secondary: 0 }
   Weapon.createOrReplace(player, {
     name: 'Knife',
     revision: (previous?.revision ?? 0) + 1,
     mode: 0,
     zoom: 90,
     resumeZoom: 90,
-    alternateAt: 0,
+    alternateAt: timing.secondary,
+    nextPrimaryAt: timing.primary,
+    deployedTimers: { ...timing },
     readyAt: Date.now() / 1000 + 0.75,
     damage: 0,
     ammoClip: 0,
@@ -70,16 +87,22 @@ export function storeActiveGun(player: Entity) {
   const weapon = Weapon.getOrNull(player),
     inventory = PlayerInventory.getMutableOrNull(player)
   if (!weapon || !inventory) return
+  if (weapon.name === 'Knife') {
+    inventory.knifeTiming = rememberAttackTimers(weapon)
+    return
+  }
   const gun = Object.values(GUNS).find((profile) => profile.name === weapon.name)
   const item = gun && inventory.items.find((candidate) => candidate.id === gun.id)
   if (item) {
     item.clip = weapon.ammoClip
     syncAmmoPool(inventory, item.id, weapon.ammoReserve)
     item.mode = weapon.mode
+    item.accuracy = playerGunAccuracy(PlayerAddress.getOrNull(player)?.address ?? '')
+    item.timing = rememberAttackTimers(weapon)
   }
 }
 export function equipGrenade(player: Entity, id: GrenadeId, count: number) {
-  equipKnife(player)
+  equipKnife(player, false)
   Object.assign(Weapon.getMutable(player), {
     name: GRENADES[id].name,
     ammoClip: -1,
@@ -105,14 +128,15 @@ export function weaponSystem() {
     if (
       canAutoReload(weapon, true, isPlayerTriggerHeld(address)) &&
       now >= weapon.readyAt &&
-      now - weapon.lastShotTime >= weapon.fireRate
+      now >= primaryDeadline(weapon)
     ) {
       if (startReload(mutable, now, true)) {
         const gun = Object.values(GUNS).find((profile) => profile.name === weapon.name)
         if (gun) leaveScope(mutable, gun)
         resetPlayerAccuracy(address, false, true)
+        broadcastReloadSound(address, mutable)
       }
     }
-    if (finishReload(mutable, now)) storeActiveGun(entity)
+    if (finishReload(mutable, now, () => broadcastShellReloadSound(address, mutable))) storeActiveGun(entity)
   }
 }

@@ -1,3 +1,4 @@
+import { canFight } from './round-rules'
 import {
   engine,
   EngineInfo,
@@ -56,7 +57,7 @@ export function initializeCsMovement() {
     if (
       data.address !== myProfile.userId?.toLowerCase() ||
       data.round !== match?.round ||
-      match.phase !== 'live' ||
+      !canFight(match) ||
       data.sequence <= sequence
     )
       return

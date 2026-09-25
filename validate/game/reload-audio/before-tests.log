@@ -1,0 +1,126 @@
+✖ accepted primary magazine reloads notify nearby listeners once with source volume (12.80675ms)
+✖ accepted secondary magazine reloads notify nearby listeners once with source volume (3.403375ms)
+✔ rejected reloads and shell reloads do not emit the magazine cue (19.067041ms)
+✖ the production empty-magazine auto reload emits the same cue without a reload request (0.845584ms)
+✖ bot combat reports an accepted auto reload exactly once, including when its enemy is hidden (0.269333ms)
+✖ SDK Room delivers the private cue to the nearby client, preserving volume and excluding owner/far peers (20.410416ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 1
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 901.032875
+
+✖ failing tests:
+
+test at tests/reload-audio.test.mjs:22:48
+✖ accepted primary magazine reloads notify nearby listeners once with source volume (12.80675ms)
+  AssertionError [ERR_ASSERTION]: mac10
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-reload-audio/check/tests/reload-audio.test.mjs:34:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/reload-audio.test.mjs:22:48
+✖ accepted secondary magazine reloads notify nearby listeners once with source volume (3.403375ms)
+  AssertionError [ERR_ASSERTION]: glock18
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-reload-audio/check/tests/reload-audio.test.mjs:34:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/reload-audio.test.mjs:63:1
+✖ the production empty-magazine auto reload emits the same cue without a reload request (0.845584ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-reload-audio/check/tests/reload-audio.test.mjs:81:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/reload-audio.test.mjs:88:1
+✖ bot combat reports an accepted auto reload exactly once, including when its enemy is hidden (0.269333ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-reload-audio/check/tests/reload-audio.test.mjs:93:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/reload-audio.test.mjs:103:1
+✖ SDK Room delivers the private cue to the nearby client, preserving volume and excluding owner/far peers (20.410416ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   {
+  -     name: 'reload',
+  -     volume: 0.4980392156862745
+  -   }
+  - ]
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-reload-audio/check/tests/reload-audio.test.mjs:120:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ { name: 'reload', volume: 0.4980392156862745 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

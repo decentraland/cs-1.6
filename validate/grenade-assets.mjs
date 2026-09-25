@@ -60,7 +60,7 @@ for (const [name, atlas] of Object.entries(sprites)) {
   assert.equal(source.toString('ascii', 0, 4), 'IDSP')
   assert.equal(source.readInt32LE(28), atlas.frames.length)
   const chunks = []
-  for (let offset = 8; offset < png.length; ) {
+  for (let offset = 8; offset < png.length;) {
     const length = png.readUInt32BE(offset),
       type = png.toString('ascii', offset + 4, offset + 8)
     if (type === 'IDAT') chunks.push(png.subarray(offset + 8, offset + 8 + length))

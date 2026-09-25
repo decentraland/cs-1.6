@@ -45,12 +45,10 @@ export class SpectatorCycleInput {
       this.armed = false
       return 0
     }
-    if (!held) {
-      this.armed = true
-      return 0
-    }
-    if (!this.armed || !pressed || now < this.nextSwitch) return 0
-    this.armed = false
+    const armed = this.armed
+    if (!held) this.armed = true
+    else if (pressed) this.armed = false
+    if (!armed || !pressed || now < this.nextSwitch) return 0
     this.nextSwitch = now + this.delay
     return reverse ? -1 : 1
   }

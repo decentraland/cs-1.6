@@ -1,0 +1,34 @@
+✔ mobile FIRE starts and stops actual client shots with only UI callbacks and no native binding events (29.933458ms)
+✔ leaving an untouched FIRE button does not disable native firing (4.171541ms)
+✔ native FIRE can start a new gesture after a callback-controlled gesture ends (7.642625ms)
+✔ two FIRE buttons keep independent holds and ignore stale bound input after release (5.812042ms)
+✔ menu/death/round transitions cancel touch fire until a new press (3.33525ms)
+✔ native FIRE rearms after release across a menu transition without resuming a stale hold (4.124708ms)
+✔ ordinary icon taps do not fire and reload/defuse release without native bindings (3.810291ms)
+✔ combat buttons draw icons and walk toggles visibly after one tap and release (1.90975ms)
+✔ latched walk changes real locomotion speed, survives menus, and leaves desktop hold behavior intact (1.11675ms)
+✔ native combat presses survive a newer UI pointer event in the pinned SDK (4.140667ms)
+✔ native release cannot get stuck behind a newer UI pointer event (2.082875ms)
+✔ only native root actions drive mobile controls; old events never replay (0.362417ms)
+✔ desktop input continues to use the SDK including entity-bound actions (0.308084ms)
+✔ actual client starts and stops automatic fire across overlapping native/UI events (8.887791ms)
+✔ actual client reload starts from native press and stops retrying after release (2.717708ms)
+✔ all 24 firearms preserve a short FIRE tap for one update through real SDK UI callbacks and native input (253.3365ms)
+✔ a short RELOAD tap starts when ready and never retries after release (10.509167ms)
+✔ short knife slash and stab taps attack once instead of disappearing or repeating (3.395125ms)
+✔ a short grenade tap pulls the pin then releases the throw for all three grenades (7.560709ms)
+✔ a short burst-mode tap finishes exactly three rounds after the finger is released (8.425542ms)
+✔ real UI press dispatch and native binding together do not add a second automatic shot after release (2.559416ms)
+✔ short taps still obey menus, death, round phases, C4 ownership and weapon readiness (23.100875ms)
+✔ replaced FIRE and RELOAD buttons cannot leave attacks held on knife, grenade or C4 controls (40.62125ms)
+✔ removing the left FIRE control cancels its hold, including a late native press (6.151458ms)
+✔ gun-to-gun changes retain the same FIRE gesture and release normally (3.52125ms)
+✔ C4 to gun and grenade to knife require a fresh press on the replacement control (7.870375ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 738.375708

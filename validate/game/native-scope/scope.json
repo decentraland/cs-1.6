@@ -1,0 +1,134 @@
+{
+  "results": [
+    {
+      "zoom": 90,
+      "camera": {
+        "defaultTransition": {
+          "transitionMode": {
+            "time": 0
+          }
+        },
+        "fov": 73.73979,
+        "lookAtEntity": null
+      },
+      "transform": {
+        "parent": 0,
+        "position": {
+          "x": 51.61083,
+          "y": 8.212667,
+          "z": 46.70173
+        },
+        "rotation": {
+          "w": 0.9914449,
+          "x": 0,
+          "y": 0.1305262,
+          "z": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      },
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 10,
+        "reserve": 30,
+        "money": 16000,
+        "seconds": 3600
+      }
+    },
+    {
+      "zoom": 40,
+      "camera": {
+        "defaultTransition": {
+          "transitionMode": {
+            "time": 0
+          }
+        },
+        "fov": 30.536943,
+        "lookAtEntity": null
+      },
+      "transform": {
+        "parent": 0,
+        "position": {
+          "x": 51.61083,
+          "y": 8.212667,
+          "z": 46.70173
+        },
+        "rotation": {
+          "w": 0.9914449,
+          "x": 0,
+          "y": 0.1305262,
+          "z": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      },
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 10,
+        "reserve": 30,
+        "money": 16000,
+        "seconds": 3599
+      }
+    },
+    {
+      "zoom": 10,
+      "camera": {
+        "defaultTransition": {
+          "transitionMode": {
+            "time": 0
+          }
+        },
+        "fov": 7.508333,
+        "lookAtEntity": null
+      },
+      "transform": {
+        "parent": 0,
+        "position": {
+          "x": 51.61083,
+          "y": 8.212667,
+          "z": 46.70173
+        },
+        "rotation": {
+          "w": 0.9914449,
+          "x": 0,
+          "y": 0.1305262,
+          "z": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      },
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 10,
+        "reserve": 30,
+        "money": 16000,
+        "seconds": 3598
+      }
+    }
+  ],
+  "page": {
+    "scripts": [
+      "https://t.contentsquare.net/uxa/c07af53c07b18.js",
+      "https://cdn.decentraland.org/@dcl-regenesislabs/bevy-explorer-web/0.1.0-35345436542.commit-593f384/assets/index-DHkE8YmE.js",
+      "https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.umd.min.js",
+      "https://cdn.jsdelivr.net/npm/hls.js@1",
+      "https://decentraland.org/bevy-web/engine/boot.js"
+    ],
+    "rollouts": "0.1.0-35345436542.commit-593f384"
+  },
+  "boltUnscope": true,
+  "boltRescope": true,
+  "textureCamera": false
+}

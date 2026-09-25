@@ -1,3 +1,4 @@
+import type { GunAccuracyMemory } from './gun-accuracy'
 import {
   engine,
   Entity,
@@ -12,14 +13,13 @@ import {
 import { Quaternion, Vector3 } from '@dcl/sdk/math'
 import { AimAngles, moveAim, aimDirection } from './aim'
 import { ConfirmedRecoil, RecoilPrediction } from './recoil-prediction'
-import { GunId, GUNS } from './weapon-profiles'
+import { GunId } from './weapon-profiles'
 import { mapDistance } from './world-query'
 import { chasePosition, deathCameraPose, DEATH_TRANSITION_SECONDS } from './spectator-rules'
 import { decayVictimPunch } from './damage-feedback'
 import type { VictimPunch } from './damage-feedback'
 import { isPointerLocked, isTouchPlatform, pointerScreenDelta } from './platform'
 import { aimShot, ShotPlan } from './ballistics'
-import { updateScopeCamera } from './scope-camera'
 import { shotRandom } from './shared-random'
 import { fallDamage } from './fall-rules'
 import { ObserverMode, ObserverRoaming } from './observer-roaming'
@@ -58,14 +58,21 @@ export function spawnedRound() {
   return round
 }
 
-export function syncCameraWeapon(gun: GunId, revision: number, mode = 0, zoom = 90, firedShotId = 0) {
+export function syncCameraWeapon(
+  gun: GunId,
+  revision: number,
+  mode = 0,
+  zoom = 90,
+  firedShotId = 0,
+  stored?: Readonly<GunAccuracyMemory>
+) {
   cameraMode = mode
   if (scopeShot && (scopeShot.revision !== revision || firedShotId >= scopeShot.id)) scopeShot = undefined
   cameraZoom = scopeShot ? 90 : zoom
   if (gun !== cameraGun || revision !== cameraRevision) {
     cameraGun = gun
     cameraRevision = revision
-    recoil = new RecoilPrediction(gun, roundSeed)
+    recoil.deploy(gun, Date.now() / 1000, stored)
   }
 }
 
@@ -194,13 +201,18 @@ export function pendingCameraShots(lastFiredShotId: number) {
 
 // Applies the shot to the predicted recoil and returns where the bullet should land, using the same
 // shared random stream as the server so the impact marker matches the confirmation.
-export function predictCameraKick(shotId: number, speed: number, continuationSpread?: number): ShotPlan | undefined {
+export function predictCameraKick(
+  shotId: number,
+  speed: number,
+  continuationSpread?: number,
+  firingMode = cameraMode
+): ShotPlan | undefined {
   const feet = Transform.get(engine.PlayerEntity).position
   const now = Date.now() / 1000
   const grounded = mapDistance({ x: feet.x, y: feet.y + 0.1, z: feet.z }, { x: 0, y: -1, z: 0 }, 0.35) < 0.3
   const plan = aimShot({
     gun: cameraGun,
-    mode: cameraMode,
+    mode: firingMode,
     zoom: cameraZoom,
     continuationSpread,
     feet,
@@ -211,7 +223,7 @@ export function predictCameraKick(shotId: number, speed: number, continuationSpr
     now,
     random: shotRandom(roundSeed, shotId)
   })
-  recoil.predict(shotId, now, speed, grounded, cameraMode, cameraZoom, continuationSpread !== undefined)
+  recoil.predict(shotId, now, speed, grounded, firingMode, cameraZoom, continuationSpread !== undefined)
   if ((cameraGun === 'awp' || cameraGun === 'scout') && cameraZoom !== 90) {
     scopeShot = { id: shotId, revision: cameraRevision }
     cameraZoom = 90
@@ -302,5 +314,4 @@ export function fpsCameraSystem(dt: number) {
       transitioning || holdingDeathView ? deathPose.roll : pain.roll
     )
   })
-  updateScopeCamera(camera, spectating ? 90 : cameraZoom, spectating ? 90 : (GUNS[cameraGun].zoomLevels?.[0] ?? 90))
 }

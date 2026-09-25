@@ -1,0 +1,49 @@
+{
+  "hud": {
+    "health": 100,
+    "armor": 0,
+    "clip": 12,
+    "reserve": 24,
+    "money": 14750,
+    "seconds": 3595
+  },
+  "lights": [
+    {
+      "light": {
+        "active": true,
+        "color": {
+          "b": 0.19607843,
+          "g": 1,
+          "r": 0.19607843
+        },
+        "intensity": 5000,
+        "range": 19.525,
+        "shadow": false,
+        "shadowMaskTexture": null,
+        "type": {
+          "point": {}
+        }
+      },
+      "transform": {
+        "parent": 0,
+        "position": {
+          "x": 51.61083,
+          "y": 6.6139326,
+          "z": 46.70173
+        },
+        "rotation": {
+          "w": 1,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        }
+      }
+    }
+  ],
+  "labels": []
+}

@@ -1,3 +1,4 @@
+import { canHandleWeapons } from './round-rules'
 import { dropDeadPlayer } from './dropped-weapons'
 import { engine, Entity, Transform, GltfContainer, AudioSource } from '@dcl/sdk/ecs'
 import { Quaternion, Vector3 } from '@dcl/sdk/math'
@@ -82,7 +83,7 @@ function validActor(address: string, round: number) {
   const match = getPractice(),
     player = playerEntities.get(address)
   return match?.round === round &&
-    (match.phase === 'live' || match.phase === 'freeze') &&
+    canHandleWeapons(match) &&
     canPlayRound(address) &&
     player !== undefined &&
     !Dead.has(player) &&

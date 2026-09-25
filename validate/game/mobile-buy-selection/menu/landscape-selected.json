@@ -1,0 +1,34 @@
+{
+  "hud": {
+    "health": 100,
+    "armor": 0,
+    "clip": 24,
+    "reserve": 0,
+    "money": 12900,
+    "seconds": 3552
+  },
+  "labels": [
+    "$2750",
+    "SCOUT",
+    "M4A1",
+    "OWNED / FULL / UNAVAILABLE",
+    "$3500",
+    "AUG",
+    "SG550",
+    "$4200",
+    "AWP",
+    "$4750",
+    "BACK",
+    "$2750",
+    "SCOUT",
+    "BUY / RIFLES   $12900",
+    "FAMAS",
+    "$2250"
+  ],
+  "cart": {
+    "x": 785,
+    "y": 279,
+    "width": 48,
+    "height": 48
+  }
+}

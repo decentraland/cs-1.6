@@ -1,0 +1,65 @@
+✖ replaced FIRE and RELOAD buttons cannot leave attacks held on knife, grenade or C4 controls (22.07375ms)
+✖ removing the left FIRE control cancels its hold, including a late native press (2.384917ms)
+✔ gun-to-gun changes retain the same FIRE gesture and release normally (2.508959ms)
+✖ C4 to gun and grenade to knife require a fresh press on the replacement control (2.073833ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.608042
+
+✖ failing tests:
+
+test at tests/touch-equipment.test.mjs:31:1
+✖ replaced FIRE and RELOAD buttons cannot leave attacks held on knife, grenade or C4 controls (22.07375ms)
+  AssertionError [ERR_ASSERTION]: Knife old fire
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-touch-equipment/tests/touch-equipment.test.mjs:40:12)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/touch-equipment.test.mjs:53:1
+✖ removing the left FIRE control cancels its hold, including a late native press (2.384917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-touch-equipment/tests/touch-equipment.test.mjs:60:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/touch-equipment.test.mjs:82:1
+✖ C4 to gun and grenade to knife require a fresh press on the replacement control (2.073833ms)
+  AssertionError [ERR_ASSERTION]: C4
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-touch-equipment/tests/touch-equipment.test.mjs:93:12)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

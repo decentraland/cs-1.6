@@ -10,6 +10,7 @@ export interface EquipmentAccount {
   armor: number
   helmet: boolean
   defuseKit: boolean
+  nightVision?: boolean
   reserve: number
 }
 export interface BuyContext {
@@ -21,7 +22,7 @@ export interface BuyContext {
   elapsed: number
   inZone: boolean
 }
-export type BuyItem = 'kevlar' | 'assaultsuit' | 'defusekit' | 'ammo'
+export type BuyItem = 'kevlar' | 'assaultsuit' | 'defusekit' | 'nightvision' | 'ammo'
 const BUY_PHASES = ['freeze', 'live', 'won', 'lost', 'draw']
 export function buyTimeRemaining(phase: string, elapsed: number, matchOver = false): number {
   if (matchOver || !BUY_PHASES.includes(phase)) return -1
@@ -41,6 +42,7 @@ export function equipmentPrice(account: EquipmentAccount, item: string, team: nu
   if (item === 'assaultsuit')
     return account.armor >= 100 ? (account.helmet ? undefined : 350) : account.helmet ? 650 : 1000
   if (item === 'defusekit') return team === 2 && !account.defuseKit ? 200 : undefined
+  if (item === 'nightvision') return !account.nightVision && (team === 1 || team === 2) ? 1250 : undefined
   if (item === 'ammo') return account.reserve < 90 ? 80 : undefined
   return undefined
 }
@@ -54,6 +56,7 @@ export function purchaseEquipment(account: EquipmentAccount, item: string, conte
   if (item === 'kevlar' || item === 'assaultsuit') account.armor = 100
   if (item === 'assaultsuit') account.helmet = true
   if (item === 'defusekit') account.defuseKit = true
+  if (item === 'nightvision') account.nightVision = true
   if (item === 'ammo') account.reserve = Math.min(90, account.reserve + 30)
   return undefined
 }

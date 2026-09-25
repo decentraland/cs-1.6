@@ -1,0 +1,32 @@
+✔ an open buy menu releases camera capture, including a repeated renderer or resync capture (7.249292ms)
+✔ the team menu releases the actual camera entity required by Unity, not only its request entity (1.7715ms)
+✔ a new-round spawn or same-round resync cannot leave a visible buy menu locked (2.265583ms)
+✔ closing BUY restores capture while its held click cannot shoot through the menu (2.255459ms)
+✔ ordinary spawns still capture gameplay and menu-free frames never steal an Escape release (0.692167ms)
+✔ mobile spawn and menu updates never request a pointer lock (0.71ms)
+✔ desktop buy categories keeps confirmations clear of money and buttons (66.863833ms)
+✔ desktop buy rifle submenu keeps confirmations clear of money and buttons (4.18025ms)
+✔ touching or dragging across gun rows only selects; the fixed cart purchases the displayed gun (66.493666ms)
+✔ the cart respects updated funds and ownership, and unavailable rows never purchase (4.749084ms)
+✔ closing, changing category and automatic buy-menu closure clear the selection (2.981334ms)
+✔ the cart stays outside scrolling content and above notices within every tested safe area (2.837167ms)
+(node:93660) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/tmp/cs16-menu-notices-check/src/touch-layout.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/tmp/cs16-menu-notices-check/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ touch controls keep hold actions separate from ordinary UI taps (48.140708ms)
+✔ all alternate weapon modes have a dedicated touch action, independent of defuse (3.472916ms)
+✔ knife, grenade, C4 and spectator controls expose their actual actions (1.557458ms)
+✔ opening either menu removes every bound control so the renderer releases held actions (1.274ms)
+✔ touch buttons remain separate and inside phone safe areas in portrait and landscape (6.981041ms)
+✔ mobile buy rows remain large, scroll when needed, show prices and ignore disabled taps (2.391291ms)
+✔ clicking a disabled desktop buy item cannot close the menu through the backdrop (1.53475ms)
+✔ mobile menu notices stay below the scroll area without moving rows and use touch hints (6.699167ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 148.53175

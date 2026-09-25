@@ -5,6 +5,7 @@ import {
   nearRecent,
   recordSample,
   ORIGIN_TOLERANCE,
+  ORIGIN_LEAD_SECONDS,
   TARGET_TOLERANCE,
   SPEED_TOLERANCE
 } from '../src/hit-claims.ts'
@@ -49,6 +50,16 @@ test('an origin far from everything the server saw falls back to the server posi
   assert.deepEqual(accepted.feet, feet)
 })
 
+test('a running shooter may be ahead of the server sample by its comms lead', () => {
+  const running = { ...context(), serverSpeed: 6 }
+  const lead = 6 * ORIGIN_LEAD_SECONDS + ORIGIN_TOLERANCE - 0.1
+  const accepted = acceptShotClaim(claim({ origin: { ...eye, x: eye.x + lead }, speed: 6 }), running)
+  assert.deepEqual(accepted.rejected, [])
+  assert.equal(accepted.feet.x, feet.x + lead)
+  const still = acceptShotClaim(claim({ origin: { ...eye, x: eye.x + lead } }), context())
+  assert.deepEqual(still.rejected, ['origin'])
+})
+
 test('speed is trusted within tolerance and grounded only when the server cannot see the shooter airborne', () => {
   const near = acceptShotClaim(claim({ speed: 1.5 }), { ...context(), serverSpeed: 3 })
   assert.equal(near.speed, 1.5)
@@ -80,4 +91,22 @@ test('a lagging target position is accepted when the target was recently there, 
   assert.deepEqual(invented.rejected, ['target'])
   const unknown = acceptShotClaim(claim({ target: 'bot:9', targetPosition: { x: 80, y: 10, z: 50 } }), context())
   assert.deepEqual(unknown.rejected, ['target'])
+})
+
+test('a forged speed cannot authorize a remote muzzle position', () => {
+  const accepted = acceptShotClaim(claim({ origin: { ...eye, x: eye.x + 100 }, speed: 1000 }), context())
+  assert.deepEqual(accepted.feet, feet)
+  assert.ok(accepted.rejected.includes('origin'))
+  assert.ok(accepted.rejected.includes('speed'))
+  const teleport = acceptShotClaim(claim({ origin: { ...eye, x: eye.x + 100 } }), {
+    ...context(),
+    serverSpeed: 1000
+  })
+  assert.deepEqual(teleport.feet, feet)
+})
+
+test('a plausible running origin still works when the movement channel has not caught up', () => {
+  const accepted = acceptShotClaim(claim({ origin: { ...eye, x: eye.x + 2 }, speed: 6 }), context())
+  assert.equal(accepted.feet.x, feet.x + 2)
+  assert.deepEqual(accepted.rejected, ['speed'])
 })

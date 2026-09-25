@@ -1,0 +1,146 @@
+[
+  {
+    "path": "server/cstrike/classes/shield.res",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/classes/shield.res",
+    "bytes": 2210,
+    "sha256": "8179c8bf2eaae2f7d7150b92449e48c35cc817048ad05bb5fd915a8909822ef3"
+  },
+  {
+    "path": "server/cstrike/gfx/vgui/shield.tga",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/gfx/vgui/shield.tga",
+    "bytes": 131116,
+    "sha256": "d638cbb67420b2f9ddee408acced0a1d0ee47a342d45b6eebeea08985695ef39"
+  },
+  {
+    "path": "server/cstrike/models/p_shield.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/p_shield.mdl",
+    "bytes": 93388,
+    "sha256": "302afeb636720e604db99f4491608beaefb02a38d7fc294429cac2a7729d1bd5"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_deagle.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_deagle.mdl",
+    "bytes": 102312,
+    "sha256": "32307045f9f17eb18df76de5abd87326639773da0ee99157abb98b5e144ae622"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_fiveseven.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_fiveseven.mdl",
+    "bytes": 101736,
+    "sha256": "6b1559492031c0acb12bd37c857c8beb764928bd4dfbd7fdd96dadb736672b88"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_flashbang.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_flashbang.mdl",
+    "bytes": 103664,
+    "sha256": "82bf468ae00df6f703799fbaae111c16eb8832624edc09a6beff0ae02af0cf2b"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_glock18.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_glock18.mdl",
+    "bytes": 93720,
+    "sha256": "56e59b085c42aca6c683c6ae09da3c9cd9885b07347275b60c09fd506ae0d24d"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_hegrenade.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_hegrenade.mdl",
+    "bytes": 103664,
+    "sha256": "0a36743dd1468ea17dd4759aabab0c68c00de88e573a2a0c2695b3a91e530584"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_knife.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_knife.mdl",
+    "bytes": 95612,
+    "sha256": "35785e68be9cbe881a06028c586616bb830e4eae8e5fae90f9b0a11e84294c24"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_p228.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_p228.mdl",
+    "bytes": 101732,
+    "sha256": "a15eb7362da0bbe73f88867c4e1bc3f0d38e29145af735e6dd4a5b528601cbf8"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_smokegrenade.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_smokegrenade.mdl",
+    "bytes": 103664,
+    "sha256": "ba02d64463cb600694196f3ef87b18b2aa4122516d594074f63f9be1a28e34d3"
+  },
+  {
+    "path": "server/cstrike/models/shield/p_shield_usp.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/p_shield_usp.mdl",
+    "bytes": 118672,
+    "sha256": "490b683b084810c4a5874887bc05e0c9a3ea41bb094deccc3d5a55ce88c4dfa5"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_deagle.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_deagle.mdl",
+    "bytes": 311280,
+    "sha256": "df64b3b9eed3bd0d55fcb0f63d54f9a8af4fc358e531e95deed02d154c0a19c7"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_fiveseven.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_fiveseven.mdl",
+    "bytes": 313236,
+    "sha256": "9aa4525eafbcda936600f8a2bf7dce25ea243991f99cfab10321d255cc8b0fca"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_flashbang.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_flashbang.mdl",
+    "bytes": 325256,
+    "sha256": "c8c36abd9ac35a180698b7d1d6ea542c1c7dc31ac9b06ba7b9df79cab9d2ac4e"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_glock18.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_glock18.mdl",
+    "bytes": 303636,
+    "sha256": "e540bba0b86bf9cf7af4b35924e1ccaa6bdcc0c1fe37a77ef8af54e0e23540a5"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_hegrenade.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_hegrenade.mdl",
+    "bytes": 325256,
+    "sha256": "f44691a0ea07939bd725346a09c001fc63eab50b441ef3c2072cf5d6dfa97b92"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_knife.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_knife.mdl",
+    "bytes": 493444,
+    "sha256": "275e6e98eb20be9739f2a676bbb95eccce32a8d9089646b1a9d7448ca663c12f"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_p228.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_p228.mdl",
+    "bytes": 302296,
+    "sha256": "50d1b1e4012b483704f3af74b9be8140185e55e012152f9dcd2697a11bda4e4c"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_smokegrenade.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_smokegrenade.mdl",
+    "bytes": 325256,
+    "sha256": "32936ef32bfa11bd00862c84116888e3bc8f9abb5919a4275a7c0eb1b1bae734"
+  },
+  {
+    "path": "server/cstrike/models/shield/v_shield_usp.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/shield/v_shield_usp.mdl",
+    "bytes": 328464,
+    "sha256": "58a5840fd09c1dc3d7ee9a8430102a1f6f51dfd1025c7ed396a2d2b3e51bf063"
+  },
+  {
+    "path": "server/cstrike/models/w_shield.mdl",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/models/w_shield.mdl",
+    "bytes": 80336,
+    "sha256": "2c906196495d692d75da3dd2236940c0ae94349009f651a1c5752d2e1a204ac1"
+  },
+  {
+    "path": "server/cstrike/sprites/weapon_shield.txt",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/weapon_shield.txt",
+    "bytes": 345,
+    "sha256": "6971fbaca9114fb0915823cc8b778a834a0489877dc08ed9c30518c14ac296f3"
+  },
+  {
+    "path": "server/cstrike/sprites/weapon_shieldgun.txt",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sprites/weapon_shieldgun.txt",
+    "bytes": 355,
+    "sha256": "b8eaa6d8a3927d00f92ea01b32317a2f84e15959677b79f7dab1afe54e83a145"
+  }
+]

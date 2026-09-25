@@ -1,0 +1,54 @@
+{
+  "revision": "6ad155c7a610a85cfd443fcace2c97f2afcb2866",
+  "files": [
+    {
+      "file": "assets/sounds/weapons/knife_deploy1.wav",
+      "source": "server/cstrike/sound/weapons/knife_deploy1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/knife_deploy1.wav",
+      "sha256": "a04167a1c9f4a54aa99423d5ae1876bc2ca7113fd9cbe53328fe480471895b08",
+      "bytes": 7614
+    },
+    {
+      "file": "assets/sounds/weapons/knife_hit2.wav",
+      "source": "server/cstrike/sound/weapons/knife_hit2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/knife_hit2.wav",
+      "sha256": "7c61fe404910abbc2a007865606fb34ee265deb1c7391c00ad9c5291acc10c0c",
+      "bytes": 13284
+    },
+    {
+      "file": "assets/sounds/weapons/knife_hit3.wav",
+      "source": "server/cstrike/sound/weapons/knife_hit3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/knife_hit3.wav",
+      "sha256": "16cef29b959affed7f56a69ce09306d17638d36a96d2e1f0e6fe66c9a17376ec",
+      "bytes": 9080
+    },
+    {
+      "file": "assets/sounds/weapons/knife_hit4.wav",
+      "source": "server/cstrike/sound/weapons/knife_hit4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/knife_hit4.wav",
+      "sha256": "49aab2b56de7e926bb6a4312fbfc94ff2479bdfe216eb1187c1f7693614e73ec",
+      "bytes": 13284
+    },
+    {
+      "file": "assets/sounds/weapons/knife_slash2.wav",
+      "source": "server/cstrike/sound/weapons/knife_slash2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/knife_slash2.wav",
+      "sha256": "d757123a07a381749034c03d305e946a129e8acac315210babbd1271e8d36818",
+      "bytes": 2916
+    },
+    {
+      "file": "assets/sounds/weapons/knife_stab.wav",
+      "source": "server/cstrike/sound/weapons/knife_stab.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/knife_stab.wav",
+      "sha256": "84b8e8acd0e311a59c526bd41f6948139a8922c0d5a3e4eaf10a6ecd29ccb562",
+      "bytes": 29418
+    },
+    {
+      "file": "assets/sounds/weapons/knife_hitwall1.wav",
+      "source": "server/cstrike/sound/weapons/knife_hitwall1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/knife_hitwall1.wav",
+      "sha256": "8f04f1a580f13c21b02b8beaa8de9894ba69d9ee70e87fbb1197f011d556d82a",
+      "bytes": 10858
+    }
+  ]
+}

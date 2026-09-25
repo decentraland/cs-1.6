@@ -28,3 +28,13 @@ asset-sources/dust2
 asset-sources/players
 
 scripts
+
+asset-sources
+tests
+validate
+docs
+dclcontext
+*.md
+*.mjs
+*.py
+*.pyc

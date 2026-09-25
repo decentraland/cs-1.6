@@ -1,0 +1,101 @@
+✖ short spectator NEXT taps reach the next teammate through SDK callbacks and native/desktop input (29.386333ms)
+✖ short spectator PREVIOUS retains its reverse modifier after both actions release (4.005ms)
+✖ spectator taps respect switch cooldown without delaying rejected taps (4.674ms)
+✖ death, menu closure and respawn discard stale spectator input (6.64325ms)
+✔ held spectator inputs switch once and require release across menu capture (3.483708ms)
+✖ a short desktop mode tap toggles neutral roaming once (3.793791ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 1
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 207.778208
+
+✖ failing tests:
+
+test at tests/spectator-input.test.mjs:102:1
+✖ short spectator NEXT taps reach the next teammate through SDK callbacks and native/desktop input (29.386333ms)
+  AssertionError [ERR_ASSERTION]: ui
+  
+  'bot:0' !== 'bot:1'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-spectator-taps/check/tests/spectator-input.test.mjs:109:12)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'bot:0',
+    expected: 'bot:1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/spectator-input.test.mjs:121:1
+✖ short spectator PREVIOUS retains its reverse modifier after both actions release (4.005ms)
+  AssertionError [ERR_ASSERTION]: ui
+  
+  'bot:0' !== 'bot:2'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-spectator-taps/check/tests/spectator-input.test.mjs:127:12)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'bot:0',
+    expected: 'bot:2',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/spectator-input.test.mjs:134:1
+✖ spectator taps respect switch cooldown without delaying rejected taps (4.674ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'bot:0' !== 'bot:1'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-spectator-taps/check/tests/spectator-input.test.mjs:141:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'bot:0',
+    expected: 'bot:1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/spectator-input.test.mjs:149:1
+✖ death, menu closure and respawn discard stale spectator input (6.64325ms)
+  AssertionError [ERR_ASSERTION]: fresh input after menu close works
+  
+  'bot:0' !== 'bot:1'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-spectator-taps/check/tests/spectator-input.test.mjs:164:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'bot:0',
+    expected: 'bot:1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/spectator-input.test.mjs:191:1
+✖ a short desktop mode tap toggles neutral roaming once (3.793791ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'chase' !== 'roaming'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-spectator-taps/check/tests/spectator-input.test.mjs:196:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'chase',
+    expected: 'roaming',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -19,6 +19,15 @@ export const PlayerTeam = engine.defineComponent('PlayerTeam', {
   team: Schemas.EnumNumber<Team>(Team, Team.NONE)
 })
 
+const gunAccuracyMemory = Schemas.Map({
+  shots: Schemas.Int,
+  accuracy: Schemas.Double,
+  lastFire: Schemas.Double,
+  right: Schemas.Boolean
+})
+
+const attackTimers = Schemas.Map({ primary: Schemas.Double, secondary: Schemas.Double })
+
 // Weapon data
 export const Weapon = engine.defineComponent('Weapon', {
   name: Schemas.String,
@@ -35,6 +44,7 @@ export const Weapon = engine.defineComponent('Weapon', {
   maxAmmoReserve: Schemas.Int,
   fireRate: Schemas.Float, // seconds between shots
   lastShotTime: Schemas.Double,
+  nextPrimaryAt: Schemas.Optional(Schemas.Double),
   lastShotId: Schemas.Int,
   lastFiredShotId: Schemas.Int,
   isReloading: Schemas.Boolean,
@@ -42,15 +52,25 @@ export const Weapon = engine.defineComponent('Weapon', {
   reloadStartTime: Schemas.Double,
   reloadStage: Schemas.Int,
   reloadStepAt: Schemas.Double,
-  reloadStep: Schemas.Int
+  reloadStep: Schemas.Int,
+  deployedAccuracy: Schemas.Optional(gunAccuracyMemory),
+  deployedTimers: Schemas.Optional(attackTimers)
 })
 
 export const PlayerInventory = engine.defineComponent('PlayerInventory', {
   active: Schemas.String,
   items: Schemas.Array(
-    Schemas.Map({ id: Schemas.String, clip: Schemas.Int, reserve: Schemas.Int, mode: Schemas.Optional(Schemas.Int) })
+    Schemas.Map({
+      id: Schemas.String,
+      clip: Schemas.Int,
+      reserve: Schemas.Int,
+      mode: Schemas.Optional(Schemas.Int),
+      accuracy: Schemas.Optional(gunAccuracyMemory),
+      timing: Schemas.Optional(attackTimers)
+    })
   ),
-  ammo: Schemas.Optional(Schemas.Array(Schemas.Map({ type: Schemas.String, amount: Schemas.Int })))
+  ammo: Schemas.Optional(Schemas.Array(Schemas.Map({ type: Schemas.String, amount: Schemas.Int }))),
+  knifeTiming: Schemas.Optional(attackTimers)
 })
 
 export const DroppedWeapon = engine.defineComponent('DroppedWeapon', {
@@ -61,7 +81,9 @@ export const DroppedWeapon = engine.defineComponent('DroppedWeapon', {
   position: Schemas.Vector3,
   yaw: Schemas.Float,
   round: Schemas.Int,
-  settled: Schemas.Boolean
+  settled: Schemas.Boolean,
+  accuracy: Schemas.Optional(gunAccuracyMemory),
+  timing: Schemas.Optional(attackTimers)
 })
 
 export const GrenadeProjectile = engine.defineComponent('GrenadeProjectile', {
@@ -103,7 +125,9 @@ export const PlayerStats = engine.defineComponent('PlayerStats', {
 export const PlayerEquipment = engine.defineComponent('PlayerEquipment', {
   bombSelected: Schemas.Boolean,
   defuseKit: Schemas.Boolean,
-  helmet: Schemas.Boolean
+  helmet: Schemas.Boolean,
+  nightVision: Schemas.Boolean,
+  nightVisionOn: Schemas.Boolean
 })
 
 export const BombObjective = engine.defineComponent('BombObjective', {
@@ -210,3 +234,4 @@ export const BotBodyPose = engine.defineComponent('BotBodyPose', {
   upper: bodyLayer,
   lower: Schemas.Optional(bodyLayer)
 })
+export const ServerClock = engine.defineComponent('ServerClock', { now: Schemas.Double })

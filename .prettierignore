@@ -5,3 +5,11 @@ bin/
 validate/game/
 validate/baseline/
 src/dust2-solids.ts
+src/dust2-knife-hull.ts
+tests/fixtures/knife-hull.json
+
+src/c4-fireball.json
+src/c4-led.json
+src/grenade-sprites.json
+src/player-arctic.json
+src/player-urban.json

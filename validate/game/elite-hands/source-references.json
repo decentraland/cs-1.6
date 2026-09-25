@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_elite.cpp",
+    "bytes": 5324,
+    "sha256": "073d2d703b99463bd3af03227cb25db9aa6580d5381565fc9f57586a28b122cb"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Velaron/cs16-client/2d125db28d2c043fd0730c9970066d845574dbb0/cl_dll/events/event_elite.cpp",
+    "bytes": 3491,
+    "sha256": "03c46ef84a6048f2137c759906d5c26c481e38a5af3e688c6be5d786a1e6d931"
+  }
+]

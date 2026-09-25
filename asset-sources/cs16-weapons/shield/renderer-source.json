@@ -1,0 +1,45 @@
+{
+  "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/cl_dlls/client.so",
+  "bytes": 9081204,
+  "sha256": "0d379680b7545ed352a696539a8049432651edb7056efbf2ce8354347d0feded",
+  "format": "ELF32 i386",
+  "executed": false,
+  "functions": [
+    {
+      "name": "CBasePlayerWeapon::SendWeaponAnim(int, int)",
+      "address": "0x000c0f10",
+      "bytes": 68
+    },
+    {
+      "name": "HUD_SendWeaponAnim(int, int, int, int)",
+      "address": "0x000f8fc0",
+      "bytes": 56
+    },
+    {
+      "name": "CStudioModelRenderer::StudioDrawModel(int)",
+      "address": "0x0011d940",
+      "bytes": 2091
+    },
+    {
+      "name": "CStudioModelRenderer::StudioRenderModel()",
+      "address": "0x0011d620",
+      "bytes": 209
+    },
+    {
+      "name": "CStudioModelRenderer::StudioRenderFinal_Hardware()",
+      "address": "0x0011be00",
+      "bytes": 345
+    }
+  ],
+  "observations": [
+    "The predicted SendWeaponAnim path calls HUD_SendWeaponAnim with the third argument (body) set to zero.",
+    "HUD_SendWeaponAnim forwards that body argument to the engine weapon-animation callback.",
+    "The inspected hardware renderer delegates bodygroup selection and mesh drawing to the engine studio API.",
+    "The approved shield viewmodel glass textures have flags=0; their transparency cannot be recovered from a texture alpha flag."
+  ],
+  "limits": [
+    "The original client was not run.",
+    "The engine studio implementation and final framebuffer were not inspected.",
+    "No conclusion that the glass variant is never drawn or that a specific opacity matches CS 1.6 is established."
+  ]
+}

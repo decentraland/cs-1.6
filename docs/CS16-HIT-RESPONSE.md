@@ -6,7 +6,7 @@ Damage is truncated at the source bullet-falloff step, multiplied by the hit gro
 
 Shotguns accumulate consecutive pellets hitting the same player, retaining fractional damage. A different target flushes that batch; misses retain it. Armor coverage uses the last hit group, reproducing the source `MultiDamage` behavior. Victim punch uses individual trace damage, not the summed shotgun damage. Arms and legs don't start a new camera kick; chest/stomach kick up to four degrees, and unprotected head hits use the existing twelve-degree/roll caps. Protected hits don't start punch.
 
-Standing proxy regions now separate torso and arms and rotate with the target's horizontal facing. Humans and bots share these regions; client impact prediction, authoritative bullet penetration and knife queries all use the same oriented boxes. These are **approximate AvatarShape bounds**, not the original animated character hitboxes. Client/server facing can differ in transit; pose rewind still uses current facing.
+Human standing proxy regions separate torso and arms and rotate with the target's horizontal facing. They remain approximate avatar bounds. Bots now use [original animated character hitboxes](CS16-PLAYER-MODELS.md). Firearm queries rewind bot position, yaw and animation pose; [human rewind](CS16-HUMAN-REWIND.md) uses historical position/yaw with bounded observations. Knife queries use current targets. Client/server pose differences remain possible.
 
 ## MVP visual feedback
 
@@ -16,8 +16,13 @@ hit region. Kills produce a larger burst. The client pools at most 96 transient
 particles; none has a collider or changes damage. These are temporary procedural
 effects, not converted GoldSrc blood sprites or exact impact-point decals.
 
-Predicted impacts use a neutral marker and cannot claim confirmed damage.
-Rejected shots remove their marker. The original pain sprites scale with the
+Predicted wall impacts draw original bullet-hole decals for every pellet and
+penetration contact. They never claim confirmed damage. Confirmation corrects
+existing holes without replaying sounds; rejected shots remove their predictions.
+[Surface feedback and limits](CS16-BULLET-IMPACTS.md). Target observations also use
+the full shot for bounded rewind, including targets behind doors.
+[Observation regression](../validate/game/pellet-claims/README.md).
+The original pain sprites scale with the
 640×480 menu reference and briefly flash red on an incoming confirmed hit.
 The kill feed keeps four recent kills instead of replacing the previous one.
 See [the creator playtest](MVP-PLAYTEST.md) for the pending visual checks.
@@ -34,7 +39,7 @@ The five added clips are byte-for-byte original WAV files with pinned URLs and S
 
 Rules were checked against [ReGameDLL player.cpp](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/player.cpp) (`TraceAttack`, `TakeDamage`, `Pain`, `DeathSound`), [weapons.cpp](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/weapons.cpp) (`AddMultiDamage`) and [cbase.cpp](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/cbase.cpp) (`FireBullets`). The original behavior outside the optional ReGameDLL fixes/additions is the reference.
 
-Hit slowdown/knockback remains open. The source applies a 0.5 or 0.65 velocity modifier, recovers it per grounded player command, and adds a 170-unit impulse for qualifying rifle/Deagle hits below 300 units/s. Multiplying `AvatarLocomotionSettings` speeds would only approximate that actual-velocity behavior. This pass leaves movement unchanged. Native gravity, acceleration, friction, crouch bounds and original player animation hitboxes remain engine/model gaps. Blood/sparks and combined punch/recoil timing still need visual comparison against the original client.
+Desktop Bevy now applies the source's 0.5/0.65 flinch velocity modifier and qualifying 170-unit impulse through the [movement controller](CS16-MOVEMENT.md); bots use the shared grounded rules. Mobile and unsupported clients retain the native locomotion fallback. Native collision/update cadence, crouch bounds and original animated human hitboxes remain gaps. Blood/sparks and combined punch/recoil timing still need visual comparison against the original client. Earlier hit captures below do not validate these later movement and rewind changes.
 
 ## Verification
 

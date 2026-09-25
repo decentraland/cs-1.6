@@ -1,0 +1,174 @@
+✔ knife cues distinguish misses, flesh, stabs and walls with original sound pitch (0.378667ms)
+✖ the original knife Animator selects stab-hit and restarts slash order only on deployment (2.590959ms)
+✖ desktop and touch predict a contacted stab immediately and wait its 1.1-second cooldown (13.556417ms)
+✖ a clear miss and a nearby actual Dust2 wall choose different local knife feedback (1.252208ms)
+✖ a real knife intent crosses SDK Room, damages once, sounds on both clients and keeps the local animation (14.820042ms)
+✖ correction sounds once, while old-round, expired and replaced-weapon acknowledgements stay silent (4.893666ms)
+✖ the server rejects a previous-round knife request before claiming its sequence (4.236041ms)
+✖ actual SDK audio sources carry knife pitch and reset it when their pooled emitter plays another sound (2.544125ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 1
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 861.532375
+
+✖ failing tests:
+
+test at tests/knife-feedback.test.mjs:77:1
+✖ the original knife Animator selects stab-hit and restarts slash order only on deployment (2.590959ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'fixed_v_knife stab_miss'
+  - 'fixed_v_knife stab'
+                       ^
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-feedback-check/tests/knife-feedback.test.mjs:80:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'fixed_v_knife stab_miss',
+    expected: 'fixed_v_knife stab',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-feedback.test.mjs:95:1
+✖ desktop and touch predict a contacted stab immediately and wait its 1.1-second cooldown (13.556417ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== 1
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-feedback-check/tests/knife-feedback.test.mjs:99:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-feedback.test.mjs:109:1
+✖ a clear miss and a nearby actual Dust2 wall choose different local knife feedback (1.252208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'stab',
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-feedback-check/tests/knife-feedback.test.mjs:112:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'stab' ],
+    expected: [ 'stab', false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-feedback.test.mjs:119:1
+✖ a real knife intent crosses SDK Room, damages once, sounds on both clients and keeps the local animation (14.820042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-feedback-check/tests/knife-feedback.test.mjs:126:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-feedback.test.mjs:140:1
+✖ correction sounds once, while old-round, expired and replaced-weapon acknowledgements stay silent (4.893666ms)
+  AssertionError [ERR_ASSERTION]: none
+  
+  3 !== 2
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-feedback-check/tests/knife-feedback.test.mjs:149:12)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-feedback.test.mjs:154:1
+✖ the server rejects a previous-round knife request before claiming its sequence (4.236041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 100
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-feedback-check/tests/knife-feedback.test.mjs:159:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 100,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-feedback.test.mjs:165:1
+✖ actual SDK audio sources carry knife pitch and reset it when their pooled emitter plays another sound (2.544125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 0.94
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-feedback-check/tests/knife-feedback.test.mjs:174:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 0.94,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

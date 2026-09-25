@@ -34,10 +34,10 @@ def texture_png(texture, path):
     path.write_bytes(content)
 
 
-def import_weapon(source, output):
+def import_weapon(source, output, bodygroups=None):
     source, output = Path(source), Path(output)
     output.mkdir(parents=True, exist_ok=True)
-    model = Model(source)
+    model = Model(source, bodygroups=bodygroups)
     name = source.stem
     previous_scene = bpy.context.window.scene
     if bpy.context.object and bpy.context.object.mode != 'OBJECT':
@@ -207,7 +207,7 @@ def import_weapon(source, output):
     bpy.context.view_layer.update()
     bpy.data.libraries.write(str(output / (name + '.blend')), {scene}, fake_user=True)
     report = {'name': name, 'sourceSha256': scene['source_sha256'], 'triangles': sum(len(p['faces']) for p in model.meshes) - skipped_degenerate,
-              'skippedDegenerateTriangles': skipped_degenerate,
+              'skippedDegenerateTriangles': skipped_degenerate, 'bodygroups': model.bodygroups,
               'bones': len(model.bones), 'textures': len(model.textures), 'animations': durations,
               'idle': idle, 'idleBounds': bounds, 'unitMetres': UNIT, 'maxPoseMatrixError': max_pose_error,
               'bytes': path.stat().st_size, 'blender': bpy.app.version_string}

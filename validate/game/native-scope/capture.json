@@ -1,0 +1,20 @@
+{
+  "scopedWeaponSwitchPassed": true,
+  "captures": [
+    {
+      "duration": 10,
+      "before": 12,
+      "after": 11
+    },
+    {
+      "duration": 70,
+      "before": 11,
+      "after": 10
+    },
+    {
+      "duration": 250,
+      "before": 10,
+      "after": 9
+    }
+  ]
+}

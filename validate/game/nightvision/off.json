@@ -1,0 +1,14 @@
+{
+  "hud": {
+    "health": 100,
+    "armor": 0,
+    "clip": 12,
+    "reserve": 24,
+    "money": 14750,
+    "seconds": 3599
+  },
+  "lights": [],
+  "labels": [
+    "Nightvision purchased."
+  ]
+}

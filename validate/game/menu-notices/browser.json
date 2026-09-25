@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-22T07:23:11.000Z",
+  "muted": true,
+  "before": {
+    "requests": 0,
+    "spawns": 1,
+    "round": 1,
+    "buy": true,
+    "locked": false,
+    "money": 16000,
+    "clip": 12
+  },
+  "resync": {
+    "requests": 1,
+    "spawns": 2,
+    "round": 1,
+    "buy": true,
+    "locked": false,
+    "money": 16000,
+    "clip": 12
+  },
+  "purchased": {
+    "requests": 1,
+    "spawns": 2,
+    "round": 1,
+    "buy": true,
+    "locked": false,
+    "money": 12900,
+    "clip": 30
+  },
+  "submenuNotice": {
+    "top": 120,
+    "height": 42,
+    "count": 1
+  },
+  "rootNotice": {
+    "top": 120,
+    "height": 42,
+    "count": 1
+  },
+  "hudNotice": {
+    "count": 1,
+    "buy": false
+  },
+  "noticeExpired": true
+}

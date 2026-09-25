@@ -1,0 +1,162 @@
+✖ desktop and touch knife requests carry the traced target, origin, zero speed and drawn bot time through SDK Room (12.005875ms)
+✖ real desktop/touch knife attacks hit the crossing human where drawn and damage only once through SDK Room (20.035833ms)
+✔ client bot time and target claims cannot substitute a measured human latency (6.375042ms)
+✖ backstab damage uses the victim facing at the historical contact rather than its new direction (6.566208ms)
+✖ a running knife origin may lead sampled movement, while remote and nonfinite origins fall back (8.37675ms)
+✖ small target smoothing is accepted inside the unchanged bound; an invented nearby victim is rejected (5.360333ms)
+✔ rewound knife targets remain blocked by actual Dust2 walls (4.611917ms)
+✖ rewind does not revive dead, disconnected or respawned humans, and teammates still block without damage (23.05125ms)
+✖ knife bot traces select the bounded historical pose and facing through the practice adapter (3.494ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 2
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 898.505125
+
+✖ failing tests:
+
+test at tests/knife-rewind.test.mjs:82:1
+✖ desktop and touch knife requests carry the traced target, origin, zero speed and drawn bot time through SDK Room (12.005875ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(f.request?.view)
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-rewind-check/tests/knife-rewind.test.mjs:93:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/knife-rewind.test.mjs:107:1
+✖ real desktop/touch knife attacks hit the crossing human where drawn and damage only once through SDK Room (20.035833ms)
+  AssertionError [ERR_ASSERTION]: swing/true
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-rewind-check/tests/knife-rewind.test.mjs:124:14)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/knife-rewind.test.mjs:148:1
+✖ backstab damage uses the victim facing at the historical contact rather than its new direction (6.566208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  35 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-rewind-check/tests/knife-rewind.test.mjs:162:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 35,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-rewind.test.mjs:167:1
+✖ a running knife origin may lead sampled movement, while remote and nonfinite origins fall back (8.37675ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-rewind-check/tests/knife-rewind.test.mjs:176:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-rewind.test.mjs:185:1
+✖ small target smoothing is accepted inside the unchanged bound; an invented nearby victim is rejected (5.360333ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-rewind-check/tests/knife-rewind.test.mjs:198:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-rewind.test.mjs:221:1
+✖ rewind does not revive dead, disconnected or respawned humans, and teammates still block without damage (23.05125ms)
+  AssertionError [ERR_ASSERTION]: respawn
+  
+  0 !== 100
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-rewind-check/tests/knife-rewind.test.mjs:235:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 100,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-rewind.test.mjs:241:1
+✖ knife bot traces select the bounded historical pose and facing through the practice adapter (3.494ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   10.7
+  - ]
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-rewind-check/tests/knife-rewind.test.mjs:274:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 10.7 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

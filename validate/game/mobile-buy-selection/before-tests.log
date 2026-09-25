@@ -1,0 +1,92 @@
+✖ touching or dragging across gun rows only selects; the fixed cart purchases the displayed gun (55.292ms)
+✖ the cart respects updated funds and ownership, and unavailable rows never purchase (2.582125ms)
+✖ closing, changing category and automatic buy-menu closure clear the selection (2.418083ms)
+✖ the cart stays outside scrolling content and above notices within every tested safe area (4.680167ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.863917
+
+✖ failing tests:
+
+test at tests/mobile-buy-selection.test.mjs:18:1
+✖ touching or dragging across gun rows only selects; the fixed cart purchases the displayed gun (55.292ms)
+  AssertionError [ERR_ASSERTION]: touch-down cannot spend money before a scroll is recognized
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-buy-selection/tests/mobile-buy-selection.test.mjs:22:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/mobile-buy-selection.test.mjs:30:1
+✖ the cart respects updated funds and ownership, and unavailable rows never purchase (2.582125ms)
+  AssertionError [ERR_ASSERTION]: PURCHASE
+      at Object.click (file:///private/tmp/cs16-buy-selection/tests/mobile-buy-selection.test.mjs:12:12)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-buy-selection/tests/mobile-buy-selection.test.mjs:35:5)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/mobile-buy-selection.test.mjs:48:1
+✖ closing, changing category and automatic buy-menu closure clear the selection (2.418083ms)
+  AssertionError [ERR_ASSERTION]: PURCHASE
+      at Object.click (file:///private/tmp/cs16-buy-selection/tests/mobile-buy-selection.test.mjs:12:12)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-buy-selection/tests/mobile-buy-selection.test.mjs:53:5)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/mobile-buy-selection.test.mjs:70:1
+✖ the cart stays outside scrolling content and above notices within every tested safe area (4.680167ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(cart)
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-buy-selection/tests/mobile-buy-selection.test.mjs:78:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

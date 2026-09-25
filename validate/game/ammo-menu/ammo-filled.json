@@ -1,0 +1,38 @@
+{
+  "canvas": {
+    "devicePixelRatio": 1,
+    "height": 720,
+    "interactableArea": {
+      "bottom": 43.2,
+      "left": 194.40001,
+      "right": 86.4,
+      "top": 43.2
+    },
+    "width": 1280
+  },
+  "hud": {
+    "health": 100,
+    "armor": 0,
+    "clip": 30,
+    "reserve": 90,
+    "money": 12545,
+    "seconds": 3594
+  },
+  "labels": [
+    "Enemies left: 3",
+    "CANCEL",
+    "CLOSE",
+    "BUY   $12545",
+    "SHOTGUNS",
+    "SUB-MACHINE GUNS",
+    "RIFLES",
+    "MACHINE GUN",
+    "OWNED / FULL / UNAVAILABLE",
+    "PRIMARY AMMO",
+    "OWNED / FULL / UNAVAILABLE",
+    "SECONDARY AMMO",
+    "EQUIPMENT",
+    "Ammunition purchased.",
+    "PISTOLS"
+  ]
+}

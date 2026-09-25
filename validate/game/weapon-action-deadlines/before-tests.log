@@ -1,0 +1,138 @@
+✖ a rifle shot replaces the preceding zoom-action deadline with its firing cycle (16.299917ms)
+✖ Glock and FAMAS continuations do not postpone mode changes beyond the original burst deadline (6.089209ms)
+✖ switching to a slower fire mode does not delay a primary attack that is already ready (3.932916ms)
+✖ manual reload becomes ready at the first bullet burst deadline, including an empty final burst (5.998833ms)
+✔ mode actions still obey draw, reload, revision, phase, life and bomb guards (17.102208ms)
+✖ desktop and touch prediction retain the firing interval captured before a mode change (1.801ms)
+✖ held client reload is ready when the burst ends without waiting again after the third bullet (0.636958ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 1
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 419.875917
+
+✖ failing tests:
+
+test at tests/weapon-action-deadlines.test.mjs:41:1
+✖ a rifle shot replaces the preceding zoom-action deadline with its firing cycle (16.299917ms)
+  AssertionError [ERR_ASSERTION]: aug: the shot replaced the old 0.3-second zoom deadline
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/weapon-action-deadlines.test.mjs:53:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 55,
+    expected: 55,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weapon-action-deadlines.test.mjs:57:1
+✖ Glock and FAMAS continuations do not postpone mode changes beyond the original burst deadline (6.089209ms)
+  AssertionError [ERR_ASSERTION]: glock18: switching is ready after the first bullet's cycle
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/weapon-action-deadlines.test.mjs:67:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weapon-action-deadlines.test.mjs:71:1
+✖ switching to a slower fire mode does not delay a primary attack that is already ready (3.932916ms)
+  AssertionError [ERR_ASSERTION]: aug: mode change preserves the preceding shot's deadline
+  
+  29 !== 28
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/weapon-action-deadlines.test.mjs:80:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 29,
+    expected: 28,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weapon-action-deadlines.test.mjs:86:1
+✖ manual reload becomes ready at the first bullet burst deadline, including an empty final burst (5.998833ms)
+  AssertionError [ERR_ASSERTION]: glock18/3: continuations do not restart reload cooldown
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/weapon-action-deadlines.test.mjs:97:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weapon-action-deadlines.test.mjs:115:1
+✖ desktop and touch prediction retain the firing interval captured before a mode change (1.801ms)
+  AssertionError [ERR_ASSERTION]: true/aug
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/weapon-action-deadlines.test.mjs:128:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weapon-action-deadlines.test.mjs:132:1
+✖ held client reload is ready when the burst ends without waiting again after the third bullet (0.636958ms)
+  AssertionError [ERR_ASSERTION]: glock18
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/weapon-action-deadlines.test.mjs:146:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

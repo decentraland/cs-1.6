@@ -1,3 +1,4 @@
+import { canFight } from './round-rules'
 import { engine, Entity, Transform } from '@dcl/sdk/ecs'
 import { syncEntity } from '@dcl/sdk/network'
 import { AUTH_SERVER_PEER_ID } from '@dcl/sdk/network/message-bus-sync'
@@ -325,7 +326,7 @@ export function initializeGrenades() {
       player === undefined ||
       !match ||
       data.round !== match.round ||
-      !['live', 'end'].includes(match.phase) ||
+      !canFight(match) ||
       !canPlayRound(address) ||
       Dead.has(player) ||
       PlayerHealth.get(player).current <= 0 ||
@@ -356,12 +357,22 @@ export function initializeGrenades() {
     }
     action.held = data.held
     action.direction = { x: data.direction.x / length, y: data.direction.y / length, z: data.direction.z / length }
+    // Press and release can arrive together before the next grenade system update.
+    if (
+      action.held &&
+      action.mode === 0 &&
+      advanceGrenadeAction(action, grenadeCount(inventory, inventory.active), Date.now() / 1000) === 'pin'
+    ) {
+      const mutable = Weapon.getMutable(player)
+      mutable.mode = action.mode
+      mutable.readyAt = action.readyAt
+    }
   })
   engine.addSystem(() => {
     const now = Date.now() / 1000,
       match = getPractice()
     if (!match) return
-    const bodies = actors()
+    const bodies = canFight(match) ? actors() : []
     for (const actor of bodies) {
       const previous = positions.get(actor.address),
         span = previous ? now - previous.at : 0
@@ -384,6 +395,7 @@ export function initializeGrenades() {
       const player = playerEntities.get(address),
         weapon = player === undefined ? undefined : Weapon.getOrNull(player)
       if (
+        !canFight(match) ||
         player === undefined ||
         !weapon ||
         weapon.revision !== action.revision ||

@@ -46,11 +46,18 @@ export interface MenuButtonProps {
   enabled: boolean
   cursor?: MenuCursor
   action?: () => void
+  touch?: boolean
+  selected?: boolean
+  onPress?: () => void
 }
 
 // A row click can also reach the frame's backdrop handler (Unity fires both), so the backdrop close waits a
 // moment and yields to any button pressed in the meantime.
 const BACKDROP_GRACE = 0.12
+let pressedTouchButton: string | undefined
+export function clearTouchMenuPress() {
+  pressedTouchButton = undefined
+}
 let lastButtonClick = 0
 let pendingBackdrop: { at: number; action: () => void } | undefined
 function buttonClicked(action?: () => void) {
@@ -75,12 +82,34 @@ export function isMenuButtonHovered(props: MenuButtonProps) {
 
 // Hover is derived from the pointer position each render: onMouseEnter/Leave arrive too late in the explorer.
 export function MenuButton(props: MenuButtonProps) {
-  const active = isMenuButtonHovered(props)
+  const active = props.selected || isMenuButtonHovered(props)
   const color = props.enabled ? amber : disabled
   const detailWidth = props.detail === undefined ? 0 : bitmapTextWidth(props.detail, props.size)
   return (
     <UiEntity
-      onMouseDown={props.enabled ? () => buttonClicked(props.action) : undefined}
+      key={props.label}
+      onMouseDown={() => {
+        if (!props.touch) return buttonClicked(props.enabled ? props.action : undefined)
+        pressedTouchButton = props.label
+        props.onPress?.()
+        buttonClicked()
+      }}
+      onMouseUp={
+        props.touch
+          ? () => {
+              const pressed = pressedTouchButton === props.label
+              clearTouchMenuPress()
+              if (pressed) buttonClicked(props.enabled ? props.action : undefined)
+            }
+          : undefined
+      }
+      onMouseLeave={
+        props.touch
+          ? () => {
+              if (pressedTouchButton === props.label) clearTouchMenuPress()
+            }
+          : undefined
+      }
       uiTransform={{
         positionType: 'absolute',
         position: { left: props.left, top: props.top },
@@ -118,6 +147,7 @@ export function MenuFrame(props: {
   width: number
   height: number
   title: string
+  notice?: string
   layout: MenuLayout
   // Click anywhere that is not a button (backdrop or panel); the buy menu uses it to close.
   onBackdropClick?: () => void
@@ -180,21 +210,32 @@ export function MenuFrame(props: {
         }}
         uiBackground={{ color: border }}
       />
+      {props.notice && (
+        <BitmapText
+          value={props.notice}
+          left={x(76)}
+          top={y(80)}
+          width={size(484)}
+          height={size(28)}
+          size={props.layout.font}
+          color={amber}
+        />
+      )}
       {props.children}
     </UiEntity>
   )
 }
 
 // The right-hand panel used for the map briefing and the buy menu item info.
-export function MenuInfoPanel(props: { layout: MenuLayout; lines: readonly string[] }) {
+export function MenuInfoPanel(props: { layout: MenuLayout; lines: readonly string[]; top?: number }) {
   const { x, y, size, font } = props.layout
   return (
     <UiEntity
       uiTransform={{
         positionType: 'absolute',
-        position: { left: x(244), top: y(116) },
+        position: { left: x(244), top: y(props.top ?? 116) },
         width: size(316),
-        height: size(286),
+        height: size(402 - (props.top ?? 116)),
         borderWidth: 1,
         borderColor: border,
         pointerFilter: 'none'

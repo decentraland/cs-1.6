@@ -39,12 +39,13 @@ try {
   await t.capture()
   await selectKnife(ct)
   const selected = await ct.snapshot(),
-    knifeParts = Object.values(selected).filter(
-      (value) => value.MeshRenderer?.mesh?.box && value.VisibilityComponent?.visible
+    knifeModels = Object.values(selected).filter(
+      (value) =>
+        value.GltfContainer?.src === 'assets/scene/weapons/knife-view.glb' && value.VisibilityComponent?.visible
     )
   assert.equal(readHud(selected).clip, undefined)
   assert.equal(readHud(selected).reserve, undefined)
-  assert.ok(knifeParts.length >= 3, 'knife proxy is visible while gun proxies are hidden')
+  assert.equal(knifeModels.length, 1, 'original knife viewmodel is visible')
   evidence.checks.push('3 equips the visible knife and hides firearm ammunition')
 
   await stage(ct, t, 3)
@@ -53,11 +54,11 @@ try {
   assert.equal(readHud(await t.snapshot()).health, 100, 'out-of-range swing cannot damage')
   await stage(ct, t, 1)
   await ct.shoot()
-  await t.until((state) => readHud(state)?.health === 80, 'paused primary does 20')
+  await t.until((state) => readHud(state)?.health === 85, 'paused primary does 15')
   await ct.shoot(500)
-  await t.until((state) => readHud(state)?.health === 65, 'chained primary does 15')
-  evidence.primaryHealth = [100, 80, 65]
-  evidence.checks.push('server range rejects distant swing; primary damage is 20 then 15 while chained')
+  await t.until((state) => readHud(state)?.health === 70, 'chained primary does 15')
+  evidence.primaryHealth = [100, 85, 70]
+  evidence.checks.push('server range rejects distant swing; primary damage is 15 both after a pause and while chained')
 
   const ctFeet = (await ct.snapshot())['1'].Transform.position
   await t.aimAt({ x: ctFeet.x, y: ctFeet.y + 1.05, z: ctFeet.z })
@@ -65,7 +66,10 @@ try {
   const tFeet = (await t.snapshot())['1'].Transform.position
   await ct.aimAt({ x: tFeet.x, y: tFeet.y + 1.05, z: tFeet.z })
   await tap(ct, 'f', 'KeyF', 70)
-  await t.until((state) => readHud(state)?.health === 0, '65-damage front stab finishes target')
+  await t.until((state) => readHud(state)?.health === 5, '65-damage front stab leaves five health')
+  await pause(1200)
+  await tap(ct, 'f', 'KeyF', 70)
+  await t.until((state) => readHud(state)?.health === 0, 'second frontal stab finishes target')
   assert.ok(
     labels(await ct.snapshot()).some((value) => value.includes('Knife')),
     'knife kill feed'

@@ -1,0 +1,44 @@
+{
+  "src": "assets/ui/bullet-decals.png",
+  "width": 90,
+  "height": 18,
+  "frames": [
+    {
+      "name": "{shot1",
+      "x": 1,
+      "y": 1,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "{shot2",
+      "x": 19,
+      "y": 1,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "{shot3",
+      "x": 37,
+      "y": 1,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "{shot4",
+      "x": 55,
+      "y": 1,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "{shot5",
+      "x": 73,
+      "y": 1,
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "sourceSha256": "c9e852b60197177f1e6f54992c3f0e886425ab6e6cafe9f1b1e5e6b3bf80850c",
+  "sha256": "d457d7fa5a89ee13ad0fcc6e54bd1f045a73a89c94b60d682ea01b3f122206c8"
+}

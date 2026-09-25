@@ -1,0 +1,13 @@
+{
+  "shotgun": {
+    "before": 8,
+    "after": 7,
+    "holes": 9
+  },
+  "rifle": {
+    "before": 30,
+    "after": 29
+  },
+  "nativeBindings": false,
+  "phoneTouchVerified": false
+}

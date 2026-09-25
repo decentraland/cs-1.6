@@ -1,0 +1,121 @@
+✖ ordinary first, held and paused slashes use the audited 15 base damage (0.725958ms)
+✖ fallback contacts use the standing box and generic damage instead of expanded head regions (0.3055ms)
+✔ direct knife lines retain hit groups and take precedence over a nearer fallback box (0.325208ms)
+✖ fallback reach uses axis-aligned player bounds independently of animation and facing (0.115917ms)
+✔ a world line blocks fallback contacts and neither attack accepts an invalid direction (0.060375ms)
+✖ desktop and touch fallback stabs cross SDK Room without becoming lethal headshots (26.58875ms)
+✖ server slash cadence, revised damage and kill credit remain authoritative (5.221875ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 2
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 892.98025
+
+✖ failing tests:
+
+test at tests/knife-contact.test.mjs:18:1
+✖ ordinary first, held and paused slashes use the audited 15 base damage (0.725958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  20 !== 15
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-contact-check/tests/knife-contact.test.mjs:21:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 20,
+    expected: 15,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-contact.test.mjs:27:1
+✖ fallback contacts use the standing box and generic damage instead of expanded head regions (0.3055ms)
+  AssertionError [ERR_ASSERTION]: the head hull contact does not award a headshot
+  
+  'head' !== 'body'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-contact-check/tests/knife-contact.test.mjs:32:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'head',
+    expected: 'body',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-contact.test.mjs:43:1
+✖ fallback reach uses axis-aligned player bounds independently of animation and facing (0.115917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'enemy'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-contact-check/tests/knife-contact.test.mjs:47:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'enemy',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-contact.test.mjs:62:1
+✖ desktop and touch fallback stabs cross SDK Room without becoming lethal headshots (26.58875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 35
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-contact-check/tests/knife-contact.test.mjs:89:14)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 35,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-contact.test.mjs:98:1
+✖ server slash cadence, revised damage and kill credit remain authoritative (5.221875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  20 !== 85
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-contact-check/tests/knife-contact.test.mjs:108:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 20,
+    expected: 85,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,3 +1,4 @@
+import { canFight } from './round-rules'
 import { engine, Transform, PlayerIdentityData } from '@dcl/sdk/ecs'
 import { Dead, PlayerHealth } from './components'
 import { playerEntities, applyFallDamage } from './server'
@@ -28,7 +29,7 @@ export function resetPlayerFall(address: string) {
 
 export function initializeFalling() {
   room.onMessage('playerLanding', (data, context) => {
-    if (!context || data.round !== getPractice()?.round || getPractice()?.phase !== 'live') return
+    if (!context || data.round !== getPractice()?.round || !canFight(getPractice())) return
     const address = context.from.toLowerCase(),
       state = players.get(address)
     if (
@@ -45,7 +46,7 @@ export function initializeFalling() {
   engine.addSystem(() => {
     const match = getPractice(),
       now = Date.now() / 1000
-    if (!match || match.phase !== 'live' || round !== match.round) {
+    if (!match || !canFight(match) || round !== match.round) {
       players.clear()
       round = match?.round ?? -1
       return

@@ -126,7 +126,7 @@ test('pellet batches keep the last hit group and flush when a different player i
   )
 })
 test('knife stomach attacks use 125 percent damage including rear stabs', () => {
-  assert.equal(resolveKnifeAttack(freshKnifeCooldown(), 'swing', 100, true, 'stomach').damage, 25)
+  assert.equal(resolveKnifeAttack(freshKnifeCooldown(), 'swing', 100, true, 'stomach').damage, 18.75)
   assert.equal(resolveKnifeAttack(freshKnifeCooldown(), 'stab', 100, true, 'stomach', true).damage, 243.75)
 })
 test('original player voices distinguish armor coverage, helmet depletion and fatal hits', () => {

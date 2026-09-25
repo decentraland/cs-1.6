@@ -45,9 +45,17 @@ console.log(
 const practice = resolve(destination, 'src/practice.ts')
 const practiceSource = await readFile(practice, 'utf8')
 assert.ok(practiceSource.includes('  if (now > 0) return'))
-await writeFile(practice, practiceSource.replace('  if (now > 0) return', `  if (now - roundStarted > 10) {
+await writeFile(
+  practice,
+  practiceSource.replace(
+    '  if (now > 0) return',
+    `  if (now - roundStarted > 10) {
     const first = botEntities[0]
     if (first !== undefined && Bot.get(first).alive) hurtBot(first, 1000, { name: 'Render fixture', weapon: 'AWP', team: 2 }, 'head')
   }
-  if (now > 0) return`))
-console.log('Ten seconds into live play, the fixture applies one scripted lethal head hit through hurtBot. This checks the death presentation, not shooting input.')
+  if (now > 0) return`
+  )
+)
+console.log(
+  'Ten seconds into live play, the fixture applies one scripted lethal head hit through hurtBot. This checks the death presentation, not shooting input.'
+)

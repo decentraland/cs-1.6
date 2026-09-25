@@ -1,3 +1,4 @@
+import { rememberAttackTimers } from './weapon-modes'
 import { createBotCombat } from './bot-combat'
 import type { BotCombat } from './bot-combat'
 import { storeBotAmmo } from './bot-economy'
@@ -5,6 +6,7 @@ import type { BotAccount } from './bot-economy'
 import { weaponWeight } from './inventory-rules'
 import { deathGun } from './pickup-rules'
 import { gunProfile } from './weapon-profiles'
+import { deployGunAccuracy } from './gun-accuracy'
 
 export function switchEmptyBotGun(account: BotAccount, combat: BotCombat, now: number): BotCombat {
   const weapon = combat.weapon
@@ -16,7 +18,15 @@ export function switchEmptyBotGun(account: BotAccount, combat: BotCombat, now: n
     now < (weapon.readyAt ?? 0)
   )
     return combat
-  storeBotAmmo(account, combat.gun, weapon.ammoClip, weapon.ammoReserve)
+  storeBotAmmo(
+    account,
+    combat.gun,
+    weapon.ammoClip,
+    weapon.ammoReserve,
+    weapon.mode,
+    combat.accuracy,
+    rememberAttackTimers(weapon)
+  )
   const next = account.inventory.items
     .filter((item) => item.id !== combat.gun && gunProfile(item.id) && item.clip + item.reserve > 0)
     .sort((a, b) => weaponWeight(b.id) - weaponWeight(a.id))[0]
@@ -25,12 +35,21 @@ export function switchEmptyBotGun(account: BotAccount, combat: BotCombat, now: n
   account.inventory.active = gun.id
   const readyAt = now + gun.drawTime
   const selected = createBotCombat(Math.max(readyAt, combat.nextBurst), gun.id, next)
+  selected.accuracy = deployGunAccuracy(combat.accuracy, gun.id, now, next.accuracy)
   selected.weapon.readyAt = readyAt
   selected.visible = combat.visible
   return selected
 }
 
 export function botDeathGun(account: BotAccount, combat: BotCombat) {
-  storeBotAmmo(account, combat.gun, combat.weapon.ammoClip, combat.weapon.ammoReserve)
+  storeBotAmmo(
+    account,
+    combat.gun,
+    combat.weapon.ammoClip,
+    combat.weapon.ammoReserve,
+    combat.weapon.mode,
+    combat.accuracy,
+    rememberAttackTimers(combat.weapon)
+  )
   return deathGun(account.inventory)
 }

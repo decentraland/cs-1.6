@@ -13,7 +13,10 @@ export const PLAYER_SOUNDS = [
   'die3',
   'death6',
   'bodysplat',
-  'kit-pickup'
+  'kit-pickup',
+  'equip_nvg',
+  'nvg_on',
+  'nvg_off'
 ] as const
 export type PlayerSound = (typeof PLAYER_SOUNDS)[number]
 export function playerVoice(

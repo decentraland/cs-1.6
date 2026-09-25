@@ -1,0 +1,100 @@
+✖ desktop and touch shotguns report a target struck by later pellets when the first pellet misses (6.573167ms)
+✖ a later-pellet observation reaches the authoritative human rewind through SDK Room (20.401834ms)
+✖ client target observations follow weapon penetration through the actual Dust2 middle door (2.255542ms)
+✖ shotguns do not claim targets beyond their original pellet range (1.0605ms)
+✔ ordinary clear-sight targets remain reported for all 24 firearms (14.856666ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 1
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 829.576917
+
+✖ failing tests:
+
+test at tests/pellet-claims.test.mjs:64:1
+✖ desktop and touch shotguns report a target struck by later pellets when the first pellet misses (6.573167ms)
+  AssertionError [ERR_ASSERTION]: m3/true
+  + actual - expected
+  
+  + undefined
+  - 'target'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-pellet-claims/before/tests/pellet-claims.test.mjs:75:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'target',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/pellet-claims.test.mjs:82:1
+✖ a later-pellet observation reaches the authoritative human rewind through SDK Room (20.401834ms)
+  AssertionError [ERR_ASSERTION]: m3
+  
+  100 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-pellet-claims/before/tests/pellet-claims.test.mjs:114:12)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 100,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/pellet-claims.test.mjs:125:1
+✖ client target observations follow weapon penetration through the actual Dust2 middle door (2.255542ms)
+  AssertionError [ERR_ASSERTION]: ak47
+  + actual - expected
+  
+  + undefined
+  - 'target'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-pellet-claims/before/tests/pellet-claims.test.mjs:140:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'target',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/pellet-claims.test.mjs:144:1
+✖ shotguns do not claim targets beyond their original pellet range (1.0605ms)
+  AssertionError [ERR_ASSERTION]: m3
+  + actual - expected
+  
+  + 'target'
+  - undefined
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-pellet-claims/before/tests/pellet-claims.test.mjs:165:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'target',
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,4 +1,13 @@
+import {
+  predictBulletImpacts,
+  confirmBulletImpacts,
+  rejectBulletImpacts,
+  showBulletImpacts,
+  updateBulletImpacts
+} from './bullet-impacts'
+import { canFight, canHandleWeapons } from './round-rules'
 import { botBodyHitRegions } from './bot-model'
+import { initializeNightVisionView } from './nightvision-client'
 import { initializeCsMovement } from './cs-movement'
 import { initializeCombatEffects, receivedHit } from './combat-effects'
 import { initializePlayerSounds } from './player-sounds'
@@ -8,14 +17,13 @@ import { initializeFootsteps, resetFootsteps } from './footsteps'
 import { initializeGrenadeViews } from './grenade-view'
 import { initializeDroppedWeaponViews } from './dropped-weapon-view'
 import { grenadeInput } from './grenade-client'
-import { beginBurst, advanceBurst, BurstState } from './weapon-modes'
+import { beginBurst, advanceBurst, BurstState, EliteHandPrediction } from './weapon-modes'
 import { canInterruptReload } from './combat-rules'
+import { ReloadInput } from './reload-input'
 import {
   engine,
   Entity,
   Transform,
-  Material,
-  MeshRenderer,
   inputSystem,
   InputAction,
   PointerEventType,
@@ -38,20 +46,32 @@ import {
   DamageFeedback,
   PlayerAddress,
   Dead,
-  Bot
+  Bot,
+  ServerClock
 } from './components'
 import { delay } from './delaySystem'
 import { room } from './index'
 import { getPractice, canPlayRound } from './practice'
 import { attachWeaponModel, updateWeaponView, predictKnifeAttack, predictWeaponShot } from './weapon-view'
-import { bombInputSystem, hasBombSelected, isLocalBombBusy } from './bomb-client'
+import { bombInputSystem, hasBombSelected, isLocalBombBusy, getLocalDefuseState } from './bomb-client'
 import { locomotionSystem, isWalking } from './locomotion'
-import { gunProfile, modeStats, profileByName } from './weapon-profiles'
+import { GunProfile, gunProfile, modeStats, profileByName } from './weapon-profiles'
 import { spectatorSystem, isSpectating } from './spectator'
 import { isBuyMenuVisible } from './buy-client'
 import { buyMenuInputSystem } from './buy-ui'
 import { hasAimControl, isTouchPlatform } from './platform'
+import {
+  initializeCombatInput,
+  fireInputAction,
+  isCombatInputPressed,
+  isCombatInputTriggered,
+  updateTouchControlContext,
+  cancelTouchAction
+} from './combat-input'
 import { TouchScreenControls } from '@dcl/sdk/ecs'
+import { nativeTouchControls } from './touch-actions'
+import { isTouchWalking, toggleTouchWalking } from './touch-movement'
+import { touchOptions } from './menu-state'
 import { HorizontalMotion, updateMovementCrosshair } from './movement-feedback'
 import { worldWeaponSystem } from './world-weapons'
 import { botAnimationSystem } from './bot-animation'
@@ -73,9 +93,11 @@ import {
   pendingCameraShots
 } from './fps-camera'
 import { fadePainDirections, mergePainDirections, painDirections } from './damage-feedback'
-import type { KnifeAttack } from './knife-rules'
-import { fireSound, playLocalSound, playWorldSound } from './weapon-sounds'
-import { PLAYER_HIT_REGIONS, ShotPlan, ShotTarget, groundedAt, traceShot } from './ballistics'
+import { traceKnife, KnifeAttack, knifeDelays } from './knife-rules'
+import { knifeFeedback, isKnifeSound } from './knife-feedback-rules'
+import { fireSound, playLocalSound, playWorldSound, playShellReloadSound } from './weapon-sounds'
+import { emptyFireInterval, emptyFireSound } from './empty-fire'
+import { PLAYER_HIT_REGIONS, ShotPlan, ShotTarget, groundedAt, traceGunShot } from './ballistics'
 import { teamMenuInputSystem } from './team-menu-ui'
 import { isTeamMenuOpen, spectatorMenu } from './menu-state'
 
@@ -100,12 +122,16 @@ let spectatorCapturePending = false
 let isMouseButtonDown = false
 let isSecondaryActionDown = false
 let lastShotRequestTime = 0
+let lastShotInterval: number | undefined
 let nextShotId = 0
 let triggerSequence = 0
 let triggerHeld = false
 let knifeNextPrimary = 0
 let knifeNextSecondary = 0
-const knifeRequests = new Map<number, { at: number; attack: KnifeAttack }>()
+const knifeRequests = new Map<
+  number,
+  { at: number; attack: KnifeAttack; round: number; revision: number; contact: boolean; target: boolean }
+>()
 let lastFacing = { x: 0, y: 0, z: 0 }
 let lastFacingSentAt = 0
 
@@ -210,7 +236,30 @@ function expandCrosshair(player: Entity, amount: number) {
   crosshair.lastShotTime = Date.now() / 1000
 }
 
+export function requestWeaponAlternate() {
+  const player = getLocalPlayerEntity(),
+    match = getPractice()
+  const weapon = player === null ? undefined : Weapon.getOrNull(player)
+  if (
+    player === null ||
+    !weapon ||
+    !match ||
+    !canHandleWeapons(match) ||
+    Dead.has(player) ||
+    isBuyMenuVisible() ||
+    isTeamMenuOpen() ||
+    hasBombSelected() ||
+    isLocalBombBusy()
+  )
+    return
+  const profile = profileByName(weapon.name)
+  if (profile.kind === 'gun' && profile.alternate)
+    room.send('weaponAlternate', { round: match.round, revision: weapon.revision })
+}
+
 // Global shooting system - shoot while holding mouse button
+const reloadInput = new ReloadInput()
+const eliteHands = new EliteHandPrediction()
 let captureReleased = false
 export const isFireInputReady = () => hasAimControl() && !isBuyMenuVisible() && (isTouchPlatform() || captureReleased)
 let semiFired = false
@@ -219,18 +268,28 @@ let firingRevision = -1
 let localBurst: (BurstState & { spread: number }) | undefined
 export function globalShootingSystem() {
   const player = getLocalPlayerEntity()
-  if (!player || !isStateSyncronized()) return
+  if (!player || !isStateSyncronized()) {
+    reloadInput.reset()
+    return
+  }
 
   const equipped = Weapon.getOrNull(player)
-  if (!equipped) return
+  if (!equipped) {
+    reloadInput.reset()
+    return
+  }
   const profile = profileByName(equipped.name)
   if (equipped.revision !== firingRevision) {
+    reloadInput.reset()
     firingRevision = equipped.revision
+    eliteHands.reset()
     localBurst = undefined
     semiFired = false
+    dryFired = false
     lastShotRequestTime = 0
-    knifeNextPrimary = 0
-    knifeNextSecondary = 0
+    lastShotInterval = undefined
+    knifeNextPrimary = equipped.deployedTimers?.primary ?? 0
+    knifeNextSecondary = equipped.deployedTimers?.secondary ?? 0
     knifeRequests.clear()
     updateTrigger(false)
   }
@@ -239,6 +298,7 @@ export function globalShootingSystem() {
     captureReleased = false
     isMouseButtonDown = false
     isSecondaryActionDown = false
+    reloadInput.reset()
     updateTrigger(false)
     return
   }
@@ -249,7 +309,7 @@ export function globalShootingSystem() {
     if (
       (canPlayRound(myProfile.userId?.toLowerCase() ?? '') || isSpectating()) &&
       practice &&
-      (practice.phase === 'live' || practice.phase === 'freeze') &&
+      canHandleWeapons(practice) &&
       inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_DOWN)
     ) {
       const request = engine.addEntity()
@@ -258,6 +318,7 @@ export function globalShootingSystem() {
     }
     isMouseButtonDown = false
     isSecondaryActionDown = false
+    reloadInput.reset()
     updateTrigger(false)
     return
   }
@@ -268,6 +329,7 @@ export function globalShootingSystem() {
     isSecondaryActionDown = false
     semiFired = false
     localBurst = undefined
+    reloadInput.reset()
     updateTrigger(false)
     return
   }
@@ -278,31 +340,27 @@ export function globalShootingSystem() {
     captureReleased = !inputSystem.isPressed(InputAction.IA_POINTER)
     isMouseButtonDown = false
     isSecondaryActionDown = false
+    reloadInput.reset()
     updateTrigger(false)
     return
   }
 
-  if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_DOWN)) {
-    isMouseButtonDown = true
-  }
-  if (inputSystem.isTriggered(InputAction.IA_POINTER, PointerEventType.PET_UP)) {
-    isMouseButtonDown = false
-  }
+  isMouseButtonDown =
+    isCombatInputPressed(fireInputAction()) || isCombatInputTriggered(fireInputAction(), PointerEventType.PET_DOWN)
 
-  if (inputSystem.isTriggered(InputAction.IA_SECONDARY, PointerEventType.PET_DOWN)) {
-    isSecondaryActionDown = true
-    if (profile.kind === 'gun') room.send('playerReload', {})
-  }
-  if (inputSystem.isTriggered(InputAction.IA_SECONDARY, PointerEventType.PET_UP)) isSecondaryActionDown = false
+  isSecondaryActionDown =
+    isCombatInputPressed(InputAction.IA_SECONDARY) ||
+    isCombatInputTriggered(InputAction.IA_SECONDARY, PointerEventType.PET_DOWN)
 
   if (
     profile.kind === 'gun' &&
     profile.alternate &&
     !hasBombSelected() &&
     !isLocalBombBusy() &&
+    !isTouchPlatform() &&
     inputSystem.isTriggered(InputAction.IA_PRIMARY, PointerEventType.PET_DOWN)
   ) {
-    room.send('weaponAlternate', { round: getPractice()?.round ?? 0, revision: equipped.revision })
+    requestWeaponAlternate()
   }
 
   if (profile.kind === 'grenade') {
@@ -317,22 +375,36 @@ export function globalShootingSystem() {
     const now = Date.now() / 1000
     if (now < (attack === 'swing' ? knifeNextPrimary : knifeNextSecondary)) return
     for (const [id, request] of knifeRequests) if (now - request.at > 2) knifeRequests.delete(id)
-    if (attack === 'swing') {
-      knifeNextPrimary = now + 0.35
-      knifeNextSecondary = now + 0.5
-    } else {
-      knifeNextPrimary = now + 1
-      knifeNextSecondary = now + 1
-    }
+    const direction = getFpsAimDirection(),
+      feet = Transform.get(engine.PlayerEntity).position
+    const origin = { x: feet.x, y: feet.y + 1.6, z: feet.z }
+    const targets = localShotTargets()
+    const trace = traceKnife(origin, direction, targets, attack)
+    const observed = trace?.hit && targets.find((target) => target.id === trace.hit!.target)
+    const contact = trace?.contact ?? false,
+      target = !!trace?.hit
+    const delays = knifeDelays(attack, contact)
+    knifeNextPrimary = now + delays.primary
+    knifeNextSecondary = now + delays.secondary
     nextShotId = Math.max(nextShotId, equipped.lastShotId) + 1
-    knifeRequests.set(nextShotId, { at: now, attack })
-    predictKnifeAttack(attack)
-    playLocalSound('knife_swing')
+    const round = getPractice()!.round
+    knifeRequests.set(nextShotId, { at: now, attack, round, revision: equipped.revision, contact, target })
+    predictKnifeAttack(attack, contact)
+    const feedback = knifeFeedback(attack, contact, target)
+    if (!target) playLocalSound(feedback.sound, 1, feedback.pitch)
     room.send('knifeAttack', {
+      round,
       shotId: nextShotId,
       revision: equipped.revision,
       attack,
-      direction: getFpsAimDirection()
+      direction,
+      view: {
+        origin,
+        speed: localMotion.speed,
+        target: observed?.id,
+        targetPosition: observed?.center,
+        seenAt: serverClock()
+      }
     })
     return
   }
@@ -344,6 +416,24 @@ export function globalShootingSystem() {
   if (!firing) dryFired = false
   // Shoot continuously while the mouse button is held
   const currentTime = Date.now() / 1000
+  const match = getPractice()
+  if (
+    match &&
+    reloadInput.request(equipped, {
+      held: isSecondaryActionDown,
+      firing,
+      active:
+        !isSyncStale() &&
+        !hasBombSelected() &&
+        !isLocalBombBusy() &&
+        canHandleWeapons(match) &&
+        canPlayRound(myProfile.userId?.toLowerCase() ?? ''),
+      now: currentTime,
+      blockedUntil: Math.max(lastShotRequestTime + (lastShotInterval ?? equipped.fireRate), localBurst?.readyAt ?? 0),
+      round: match.round
+    })
+  )
+    room.send('playerReload', { round: match.round, revision: equipped.revision })
   const burstMode = profile.alternate === 'burst' && equipped.mode === 1
   const automatic = modeStats(profile, equipped.mode).automatic
   if (!burstMode || (localBurst && currentTime > localBurst.readyAt + 0.5)) localBurst = undefined
@@ -352,31 +442,56 @@ export function globalShootingSystem() {
     (continuation || (firing && (automatic || !semiFired))) &&
     (!localBurst || currentTime >= (continuation ? localBurst.nextAt : localBurst.readyAt))
   ) {
-    // Check if can shoot (ammo, reload, fire rate)
-    if (!canShoot(player, continuation)) {
-      if (equipped.ammoClip <= 0 && !equipped.isReloading && !dryFired) {
-        dryFired = true
-        playLocalSound('dryfire')
-      }
+    const empty = equipped.ammoClip <= 0
+    if (!canShoot(player, continuation, !continuation)) return
+    if (empty) {
+      lastShotRequestTime = nextClientShotTime(lastShotRequestTime, lastShotInterval ?? equipped.fireRate, currentTime)
+      lastShotInterval = emptyFireInterval(profile)
+      localBurst = undefined
+      if (!profile.shellReload || !dryFired) playLocalSound(emptyFireSound(profile), 0.8)
+      dryFired = true
+      if (!automatic) semiFired = true
+      nextShotId = Math.max(nextShotId, equipped.lastShotId) + 1
+      const feet = Transform.get(engine.PlayerEntity).position
+      room.send('playerShoot', {
+        burstIndex: 0,
+        shotId: nextShotId,
+        revision: equipped.revision,
+        direction: getFpsAimDirection(),
+        origin: { x: feet.x, y: feet.y + 1.6, z: feet.z },
+        speed: localMotion.speed,
+        grounded: groundedAt(feet),
+        seenAt: serverClock()
+      })
       return
     }
-
-    lastShotRequestTime = continuation
-      ? currentTime
-      : nextClientShotTime(lastShotRequestTime, Weapon.get(player).fireRate, currentTime)
+    dryFired = false
+    if (!continuation) {
+      lastShotRequestTime = nextClientShotTime(lastShotRequestTime, lastShotInterval ?? equipped.fireRate, currentTime)
+      lastShotInterval = equipped.fireRate
+    }
     nextShotId = Math.max(nextShotId, Weapon.get(player).lastShotId) + 1
     const shotId = nextShotId
     expandCrosshair(player, 0.15)
     const feet = Transform.get(engine.PlayerEntity).position
     const burstIndex = continuation ? (localBurst?.index ?? 0) : 0
-    const plan = predictCameraKick(shotId, localMotion.speed, continuation ? localBurst?.spread : undefined)
+    const firingMode = profile.id === 'elite' ? eliteHands.fire(equipped, match!.round, shotId) : equipped.mode
+    const plan = predictCameraKick(shotId, localMotion.speed, continuation ? localBurst?.spread : undefined, firingMode)
     if (!continuation)
       predictWeaponShot(
         Math.max(0, equipped.ammoClip - pendingCameraShots(equipped.lastFiredShotId)),
-        equipped.reloadStartTime
+        equipped.reloadStartTime,
+        firingMode
       )
     playLocalSound(fireSound(profile.id, equipped.mode))
-    const claim = plan ? predictShotImpact(shotId, plan) : undefined
+    const claim = plan
+      ? predictShotImpact(shotId, plan, {
+          gun: profile,
+          mode: equipped.mode,
+          zoom: equipped.zoom,
+          continuation
+        })
+      : undefined
 
     if (!automatic) semiFired = true
     // Tell the server what this client saw; it validates each value against recent samples (hit-claims.ts).
@@ -385,11 +500,12 @@ export function globalShootingSystem() {
       shotId,
       revision: equipped.revision,
       direction: getFpsAimDirection(),
-      origin: plan?.origin ?? { x: feet.x, y: feet.y + 1.6, z: feet.z },
+      origin: { x: feet.x, y: feet.y + 1.6, z: feet.z },
       speed: localMotion.speed,
       grounded: groundedAt(feet),
       target: claim?.target,
-      targetPosition: claim?.center
+      targetPosition: claim?.center,
+      seenAt: serverClock()
     })
     if (continuation && localBurst) advanceBurst(localBurst, currentTime)
     else if (burstMode) {
@@ -416,7 +532,7 @@ function canUseKnife(player: Entity): boolean {
   const practice = getPractice(),
     weapon = Weapon.getOrNull(player)
   return (
-    practice?.phase === 'live' &&
+    canFight(practice) &&
     canPlayRound(myProfile.userId?.toLowerCase() ?? '') &&
     !!weapon &&
     !weapon.isReloading &&
@@ -427,7 +543,7 @@ function canUseKnife(player: Entity): boolean {
 }
 
 // Check if player can shoot
-function canShoot(player: Entity, continuation = false): boolean {
+function canShoot(player: Entity, continuation = false, allowEmpty = false): boolean {
   if (
     !isStateSyncronized() ||
     isSyncStale() ||
@@ -439,7 +555,7 @@ function canShoot(player: Entity, continuation = false): boolean {
     return false
 
   const practice = getPractice()
-  if (practice?.phase !== 'live' || !canPlayRound(myProfile.userId?.toLowerCase() ?? '')) return false
+  if (!canFight(practice) || !canPlayRound(myProfile.userId?.toLowerCase() ?? '')) return false
   const weapon = Weapon.get(player)
   const currentTime = Date.now() / 1000
 
@@ -447,12 +563,16 @@ function canShoot(player: Entity, continuation = false): boolean {
   if ((weapon.isReloading && !canInterruptReload(weapon, currentTime)) || currentTime < weapon.readyAt) return false
 
   // Check if no ammo
-  if (weapon.ammoClip <= 0 || pendingCameraShots(weapon.lastFiredShotId) >= weapon.ammoClip) return false
+  if (weapon.ammoClip <= 0) {
+    if (!allowEmpty) return false
+  } else if (pendingCameraShots(weapon.lastFiredShotId) >= weapon.ammoClip) return false
+
+  if (!continuation && currentTime < (weapon.deployedTimers?.primary ?? 0)) return false
 
   // Check fire rate cooldown
   if (
     !continuation &&
-    currentTime - lastShotRequestTime < weapon.fireRate &&
+    currentTime - lastShotRequestTime < (lastShotInterval ?? weapon.fireRate) &&
     !(localBurst && currentTime >= localBurst.readyAt)
   )
     return false
@@ -493,15 +613,18 @@ function staleSyncSystem() {
   room.send('resync', { missedSpawn })
 }
 
+// Newest server time applied on this client, i.e. the state the bots are drawn at.
+function serverClock(): number | undefined {
+  for (const [, clock] of engine.getEntitiesWith(ServerClock)) return clock.now
+  return undefined
+}
+
 function avatarPositionOf(address: string): Vector3 | undefined {
   for (const [, identity, transform] of engine.getEntitiesWith(PlayerIdentityData, Transform)) {
     if (identity.address.toLowerCase() === address) return transform.position
   }
   return undefined
 }
-
-// Impact markers shown before the server confirms, keyed by shotId so the confirmation can move them.
-const predictedMarkers = new Map<number, Entity>()
 
 function localShotTargets(): ShotTarget<string>[] {
   const targets: ShotTarget<string>[] = []
@@ -530,53 +653,36 @@ function localShotTargets(): ShotTarget<string>[] {
   return targets
 }
 
-// Spread comes from the shared per-round seed, so this normally matches the server; the practiceShot
-// confirmation still snaps the marker in case the inputs (speed, position) diverged.
-function predictShotImpact(shotId: number, plan: ShotPlan): { target: string; center: Vector3 } | undefined {
+function predictShotImpact(
+  shotId: number,
+  plan: ShotPlan,
+  weapon: { gun: GunProfile; mode: number; zoom: number; continuation: boolean }
+): { target: string; center: Vector3 } | undefined {
   const targets = localShotTargets()
-  const trace = traceShot(plan.origin, plan.direction, targets)
-  // Outlives the server round trip so the confirmation moves this marker instead of drawing a second one.
-  predictedMarkers.set(shotId, createHitMarker(trace.position, false, PREDICTED_MARKER_MS))
-  delay(PREDICTED_MARKER_MS, () => predictedMarkers.delete(shotId))
-  const hit = trace.hit && targets.find((target) => target.id === trace.hit?.target)
-  return hit ? { target: hit.id, center: hit.center } : undefined
-}
-const PREDICTED_MARKER_MS = 600
-
-// Create visual feedback when shooting
-function createHitMarker(position: Vector3, isHit: boolean, lifetimeMs = 200): Entity {
-  const marker = engine.addEntity()
-  Transform.create(marker, {
-    position: position,
-    scale: Vector3.create(0.1, 0.1, 0.1)
+  const trace = traceGunShot({
+    gun: weapon.gun.id,
+    plan,
+    mode: weapon.mode,
+    zoom: weapon.zoom,
+    continuation: weapon.continuation,
+    damage:
+      weapon.continuation && weapon.gun.id === 'famas' ? 30 : modeStats(weapon.gun, weapon.mode, weapon.zoom).damage,
+    targets
   })
-  MeshRenderer.setSphere(marker)
-
-  // Different color for hit vs miss
-  if (isHit) {
-    // Yellow for hit
-    Material.setPbrMaterial(marker, {
-      albedoColor: { r: 1, g: 1, b: 0, a: 1 },
-      emissiveColor: { r: 1, g: 1, b: 0 },
-      emissiveIntensity: 2
-    })
-  } else {
-    // Gray for miss/environment impact
-    Material.setPbrMaterial(marker, {
-      albedoColor: { r: 0.5, g: 0.5, b: 0.5, a: 1 },
-      emissiveColor: { r: 0.3, g: 0.3, b: 0.3 },
-      emissiveIntensity: 1
-    })
-  }
-
-  delay(lifetimeMs, () => {
-    engine.removeEntity(marker)
-  })
-  return marker
+  predictBulletImpacts(shotId, trace.impacts)
+  const hit = trace.impacts.find((impact) => impact.hit && impact.damage > 0)?.hit
+  const target = hit && targets.find((target) => target.id === hit.target)
+  return target ? { target: target.id, center: target.center } : undefined
 }
 
 // Client message handlers
 export function setupClientMessageHandlers() {
+  engine.addSystem(() => updateBulletImpacts(getPractice()?.round ?? 0))
+  room.onMessage('latencyProbe', (data) => {
+    // Room authenticates server messages before invoking client callbacks without context.
+    if (!isStateSyncronized()) return
+    room.send('latencyEcho', { token: data.token })
+  })
   cursorRequest = engine.addEntity()
   engine.addSystem(() => {
     if (isTouchPlatform()) return
@@ -594,9 +700,10 @@ export function setupClientMessageHandlers() {
         (seat?.team === 0 || ['freeze', 'live', 'won', 'lost', 'draw'].includes(match.phase)),
       locked === true
     )
-    const menuOpen = isTeamMenuOpen()
+    const menuOpen = isTeamMenuOpen() || isBuyMenuVisible()
     if (menuOpen && (!cursorReleased || locked !== false)) {
       PointerLock.createOrReplace(cursorRequest!, { isPointerLocked: false })
+      requestCameraPointerLock(false)
       cursorReleased = true
     } else if (!menuOpen) {
       if (spectatorCapturePending && seat?.team === 0) {
@@ -635,45 +742,94 @@ export function setupClientMessageHandlers() {
     updateTrigger(false)
   })
   room.onMessage('practiceShot', (data) => {
+    if (data.round !== getPractice()?.round) return
     const mine = data.owner === myProfile.userId?.toLowerCase()
     if (mine) {
-      // Own shots were drawn at fire time; only snap that marker if it is still visible.
-      const predicted = predictedMarkers.get(data.shotId)
-      if (predicted !== undefined && Transform.has(predicted)) Transform.getMutable(predicted).position = data.position
+      if (data.impacts) confirmBulletImpacts(data.shotId, data.impacts)
       receiveCameraKick(data)
+      if (data.fire?.gun === 'elite') eliteHands.confirm(data.shotId, data.fire.mode)
     } else {
-      createHitMarker(data.position, false)
-      const shooter = avatarPositionOf(data.owner)
-      const weapon = playerEntities.get(data.owner)
-      const gun = weapon !== undefined ? profileByName(Weapon.getOrNull(weapon)?.name ?? 'AK-47') : undefined
-      if (shooter) playWorldSound(fireSound(gun?.kind === 'gun' ? gun.id : 'ak47'), shooter)
+      if (data.impacts) showBulletImpacts(data.impacts)
+      const entity = playerEntities.get(data.owner)
+      const weapon = entity === undefined ? undefined : Weapon.getOrNull(entity)
+      const gun = data.fire ? gunProfile(data.fire.gun) : weapon && profileByName(weapon.name)
+      const origin = data.fire?.origin ?? avatarPositionOf(data.owner)
+      if (origin && gun?.kind === 'gun') playWorldSound(fireSound(gun.id, data.fire?.mode ?? weapon?.mode ?? 0), origin)
     }
+  })
+  room.onMessage('weaponReloadSound', (data) => {
+    if (data.round !== getPractice()?.round || !Number.isInteger(data.volume) || data.volume <= 0 || data.volume > 255)
+      return
+    playLocalSound('reload', data.volume / 255)
+  })
+  room.onMessage('shellReloadSound', (data) => {
+    if (
+      data.round !== getPractice()?.round ||
+      (data.variant !== 1 && data.variant !== 3) ||
+      !Number.isInteger(data.pitch) ||
+      data.pitch < 85 ||
+      data.pitch > 116 ||
+      ![data.position.x, data.position.y, data.position.z].every(Number.isFinite)
+    )
+      return
+    playShellReloadSound(
+      data.owner,
+      data.variant,
+      data.position,
+      data.owner === myProfile.userId?.toLowerCase(),
+      data.pitch / 100
+    )
+  })
+  room.onMessage('weaponDryFire', (data) => {
+    if (data.owner === myProfile.userId?.toLowerCase() || data.round !== getPractice()?.round) return
+    const gun = gunProfile(data.gun)
+    if (gun) playWorldSound(emptyFireSound(gun), data.position, 0.8)
   })
   room.onMessage('shotRejected', (data) => {
     if (data.owner === myProfile.userId?.toLowerCase()) {
       rejectCameraKick(data)
-      const marker = predictedMarkers.get(data.shotId)
-      if (marker !== undefined) engine.removeEntity(marker)
-      predictedMarkers.delete(data.shotId)
+      if (data.round === getPractice()?.round) {
+        rejectBulletImpacts(data.shotId)
+        eliteHands.reject(data.shotId)
+      }
     }
   })
   room.onMessage('knifeResult', (data) => {
-    if (data.owner !== myProfile.userId?.toLowerCase()) return
-    const request = knifeRequests.get(data.shotId)
-    if (request) {
-      const primary = request.at + (data.attack === 'swing' ? (data.contact ? 0.4 : 0.35) : data.contact ? 1.1 : 1)
-      const secondary = request.at + (data.attack === 'swing' ? 0.5 : data.contact ? 1.1 : 1)
-      knifeNextPrimary = Math.max(knifeNextPrimary, primary)
-      knifeNextSecondary = Math.max(knifeNextSecondary, secondary)
-      knifeRequests.delete(data.shotId)
+    if (data.round !== getPractice()?.round || (data.attack !== 'swing' && data.attack !== 'stab')) return
+    const feedback = data.feedback
+    if (feedback && !isKnifeSound(feedback.sound)) return
+    if (data.owner !== myProfile.userId?.toLowerCase()) {
+      if (feedback && isKnifeSound(feedback.sound)) playWorldSound(feedback.sound, feedback.origin, 1, feedback.pitch)
+      return
     }
-    if (data.contact) playLocalSound('knife_hit')
-    createHitMarker(data.position, data.target)
+    const request = knifeRequests.get(data.shotId)
+    if (!request) return
+    knifeRequests.delete(data.shotId)
+    const player = getLocalPlayerEntity(),
+      weapon = player === null ? undefined : Weapon.getOrNull(player)
+    if (
+      player === null ||
+      Dead.has(player) ||
+      weapon?.name !== 'Knife' ||
+      weapon.revision !== request.revision ||
+      request.round !== data.round ||
+      request.attack !== data.attack ||
+      Date.now() / 1000 - request.at > 2
+    )
+      return
+    const delays = knifeDelays(data.attack, data.contact)
+    knifeNextPrimary = Math.max(knifeNextPrimary, request.at + delays.primary)
+    knifeNextSecondary = Math.max(knifeNextSecondary, request.at + delays.secondary)
+    if (request.target || request.contact !== data.contact || request.target !== data.target) {
+      const corrected = feedback ?? knifeFeedback(data.attack, data.contact, data.target)
+      if (isKnifeSound(corrected.sound)) playLocalSound(corrected.sound, 1, corrected.pitch)
+    }
   })
   room.onMessage('practiceAttack', (data) => {
-    playWorldSound(fireSound(gunProfile(data.gun ?? 'ak47')?.id ?? 'ak47'), data.origin)
-    createHitMarker(data.origin, true)
-    createHitMarker(data.target, false)
+    if (data.round !== undefined && data.round !== getPractice()?.round) return
+    const gun = gunProfile(data.fire?.gun ?? data.gun ?? 'ak47')
+    if (gun) playWorldSound(fireSound(gun.id, data.fire?.mode ?? 0), data.fire?.origin ?? data.origin)
+    if (data.impacts) showBulletImpacts(data.impacts)
   })
   let lastJoinAttempt = 0
   engine.addSystem(staleSyncSystem)
@@ -782,6 +938,7 @@ export function setupClientMessageHandlers() {
 
 // Add client systems to engine
 export function addClientSystems() {
+  initializeCombatInput()
   initializeCombatEffects()
   initializeDroppedWeaponViews()
   initializeGrenadeViews()
@@ -789,6 +946,7 @@ export function addClientSystems() {
   initializeFootsteps()
   engine.addSystem(touchControlsSystem)
   initializePlayerSounds()
+  initializeNightVisionView()
   initializeCsMovement()
   const gameArea = engine.addEntity()
   Transform.create(gameArea, { position: { x: 96, y: 64, z: 96 } })
@@ -829,7 +987,8 @@ export function addClientSystems() {
         equipped.revision,
         equipped.mode,
         hasBombSelected() ? 90 : equipped.zoom,
-        equipped.lastFiredShotId
+        equipped.lastFiredShotId,
+        equipped.deployedAccuracy
       )
     const reloading = equipped?.isReloading ?? false
     if (reloading && !wasReloading) {
@@ -854,11 +1013,36 @@ export function addClientSystems() {
   engine.addSystem(buyMenuInputSystem)
 }
 
-// Native mobile gamepad: the big central button fires (IA_POINTER); the scene draws its own crosshair.
-let touchControlsApplied = false
+let touchControlsApplied = ''
 function touchControlsSystem() {
-  if (touchControlsApplied || !isTouchPlatform()) return
-  touchControlsApplied = true
-  TouchScreenControls.setMainAction(InputAction.IA_POINTER)
-  TouchScreenControls.hideCrosshair()
+  if (!isTouchPlatform()) return
+  const player = getLocalPlayerEntity(),
+    match = getPractice(),
+    weapon = player === null ? undefined : Weapon.getOrNull(player)
+  const controls = hasBombSelected() ? 'c4' : weapon ? profileByName(weapon.name).kind : 'none'
+  updateTouchControlContext(
+    `${match?.round}:${canFight(match) ? 'combat' : match?.matchOver ? 'finished' : match?.phase}:${player === null || Dead.has(player)}:${isBuyMenuVisible()}:${isTeamMenuOpen()}:${!isStateSyncronized() || isSyncStale()}:${controls}:${touchOptions.open}`
+  )
+  const enabled =
+    player !== null &&
+    !!weapon &&
+    !Dead.has(player) &&
+    (PlayerHealth.getOrNull(player)?.current ?? 0) > 0 &&
+    !!match &&
+    canHandleWeapons(match) &&
+    !isBuyMenuVisible() &&
+    !isTeamMenuOpen() &&
+    !touchOptions.open &&
+    isStateSyncronized() &&
+    !isSyncStale()
+  if (enabled) {
+    if (isCombatInputTriggered(InputAction.IA_ACTION_3, PointerEventType.PET_DOWN)) toggleTouchWalking()
+    if (isCombatInputTriggered(InputAction.IA_ACTION_4, PointerEventType.PET_DOWN)) requestWeaponAlternate()
+  }
+  if (getLocalDefuseState() === 'none') cancelTouchAction(InputAction.IA_PRIMARY)
+  const config = nativeTouchControls(enabled, weapon, hasBombSelected(), isTouchWalking())
+  const key = JSON.stringify(config)
+  if (key === touchControlsApplied) return
+  touchControlsApplied = key
+  TouchScreenControls.createOrReplace(engine.RootEntity, config)
 }

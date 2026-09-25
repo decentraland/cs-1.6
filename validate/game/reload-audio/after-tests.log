@@ -1,0 +1,47 @@
+✔ Dual Elites deploy chooses left on even clips and preserves the stored hand on odd clips (3.038542ms)
+✔ Elites offset the bullet origin by five source units on the firing side, including pitched/recoiling aim (0.575375ms)
+✔ Elite animations use the firing hand and elapsed-shot thresholds instead of clip parity or random variants (0.129875ms)
+✔ authoritative Elite shots alternate once per accepted round and keep the hand through a partial reload (19.004708ms)
+✔ desktop and touch prediction choose hands around pending acknowledgements and send the unshifted eye claim (13.2005ms)
+✔ bot Elite hands alternate and survive into dropped weapon state (1.642208ms)
+✔ hand prediction reconciles acknowledgements, rejection, stale snapshots and new deployments (0.19275ms)
+✔ left and right Elite origins decide contact with an exposed head near cover (0.31075ms)
+✔ production desktop/touch clients and server keep matching Elite origins through SDK Room before CRDT catches up (27.365958ms)
+✔ all 24 empty firearms send an intent with the original pistol/rifle click and no predicted shot effects (135.597125ms)
+✔ empty clicks obey life, match, menu, synchronization, pose and draw gates (19.154708ms)
+✔ automatic empty triggers repeat at 0.2 seconds; semi-auto pistols require another press (39.431208ms)
+✔ empty feedback waits for the last live shot cycle and resets for a newly equipped weapon (5.740541ms)
+✔ server empty attempts advance only the primary deadline and never consume ammunition or damage a target (13.8645ms)
+✔ empty shotguns click once per hold, retry at one second and can start their shell reload (9.457584ms)
+✔ empty AWP and Scout unscope for the dry cycle without changing the alternate deadline (8.690042ms)
+✔ empty touch intents cross SDK Room without echoing the local click or producing a live shot (7.83425ms)
+✔ holding reload waits for each gun cooldown and caps retries while state is in flight (1.196916ms)
+✔ reload waits for draw, silencer and locally predicted burst deadlines and does not override fire (0.194708ms)
+✔ releasing reload cancels a waiting request; menus and weapon changes do not inherit its retry timer (0.152584ms)
+✔ actual desktop and touch client input reloads when cooldown ends without another press (15.941541ms)
+✔ actual client gates reload behind menus, firing, C4 and current match eligibility (16.274709ms)
+✔ actual server rejects stale reload requests and requests while C4 or match state forbids them (45.991417ms)
+✔ valid reload works during freeze, combat and results without duplicates restarting it (14.551959ms)
+✔ accepted primary magazine reloads notify nearby listeners once with source volume (55.033583ms)
+✔ accepted secondary magazine reloads notify nearby listeners once with source volume (13.972375ms)
+✔ rejected reloads and shell reloads do not emit the magazine cue (19.73175ms)
+✔ the production empty-magazine auto reload emits the same cue without a reload request (0.876833ms)
+✔ bot combat reports an accepted auto reload exactly once, including when its enemy is hidden (0.291ms)
+✔ bot reload audio uses its authoritative position without requiring an avatar identity (2.923083ms)
+✔ SDK Room delivers the private cue to the nearby client, preserving volume and excluding owner/far peers (16.13325ms)
+✔ the received cue plays the pinned original clip at the encoded gain on actual SDK AudioSource components (22.598375ms)
+✔ Scout deploy has the original 1.25-second lock; AWP retains 1.45 and other guns 0.75 (0.379375ms)
+✔ reload preserves the current camera punch and its natural decay (0.517916ms)
+✔ SG550 preserves its last accuracy through reload for the first post-reload shot (0.073417ms)
+✔ late shot confirmation replays reload without resetting SG550 accuracy (0.092333ms)
+✔ all 24 guns apply only their source reload accuracy changes and retain the last-fire clock (0.234ms)
+✔ the actual server reload handler preserves SG550 spread and ammunition across reload (21.012291ms)
+✔ bot reload uses the same source-specific accuracy reset and preserves residual punch (0.245708ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1169.699333

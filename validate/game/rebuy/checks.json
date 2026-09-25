@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "name": "selected-landscape",
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 30,
+        "reserve": 83,
+        "money": 12720,
+        "seconds": 3590
+      },
+      "notices": []
+    },
+    {
+      "name": "purchased-landscape",
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 30,
+        "reserve": 90,
+        "money": 12660,
+        "seconds": 3589
+      },
+      "notices": [
+        "Rebought 1 item for $60."
+      ]
+    },
+    {
+      "name": "selected-portrait",
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 30,
+        "reserve": 90,
+        "money": 12660,
+        "seconds": 3587
+      },
+      "notices": [
+        "You already have the saved equipment."
+      ]
+    }
+  ],
+  "roundsFired": 7,
+  "rebuyCost": 60,
+  "selectionCost": 0,
+  "repeatedCost": 0,
+  "nativeMobile": false
+}

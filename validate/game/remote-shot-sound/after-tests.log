@@ -1,0 +1,27 @@
+✔ surface feedback excludes actors, unknown collision faces, open space and sky (0.464833ms)
+✔ each M3 and XM1014 pellet carries the actual Dust2 surface normal and texture (1.561958ms)
+✔ SDK decals are textured planes aligned to walls, floor and ceiling without colliders (2.217208ms)
+✔ prediction draws all holes immediately and confirmation corrects them without replaying sound (1.092208ms)
+✔ rejects, missing acknowledgements and round changes remove predicted holes without touching reused pool slots (3.20275ms)
+✔ the authoritative shotgun event carries every surface contact through SDK Room (19.090208ms)
+✔ SDK Room delivers the real probe/echo round trip so a shot rewinds the moving human (24.487958ms)
+✔ SDK Room still rejects a peer probe and unsynchronized clients do not answer a server probe (2.6195ms)
+✔ desktop and touch shotguns report a target struck by later pellets when the first pellet misses (9.629167ms)
+✔ a later-pellet observation reaches the authoritative human rewind through SDK Room (31.886458ms)
+✔ client target observations follow weapon penetration through the actual Dust2 middle door (5.775625ms)
+✔ shotguns do not claim targets beyond their original pellet range (1.233334ms)
+✔ ordinary clear-sight targets remain reported for all 24 firearms (12.535625ms)
+✔ other players hear both silenced variants through the production server and SDK Room (29.201416ms)
+✔ queued gunfire retains the weapon, silencer and origin from firing before a switch or movement (10.02525ms)
+✔ every firearm supplies sound before its remote avatar or weapon has replicated (136.043875ms)
+✔ unsilenced snapshots stay unsilenced and bot events use their declared mode (1.457541ms)
+✔ own acknowledgements, wrong rounds, untrusted peers and unknown guns do not emit remote gunfire (1.48825ms)
+✔ legacy events retain available weapon-mode data without inventing a gun for a missing avatar (1.55875ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 956.495583

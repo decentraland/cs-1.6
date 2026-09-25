@@ -1,0 +1,53 @@
+{
+  "reference": "ReGameDLL_CS b0889847fe6d03898be88acc9e366660efb40ab5 original compatibility branches",
+  "referenceSha256": {
+    "weapons.cpp": "e6f0fb2a50ad2a43affd7c48e6d5d07085990af19f748b49df6d6c8571f70cae",
+    "weapons.h": "b266455df20267bebf7ccb9b449a005912c00464c566a45374d41629d9af7c7f",
+    "wpn_m4a1.cpp": "c4fb06ad6bf9b06b95af7e6652c654efcc9c8b35844a9f910f8771068a1ba18a",
+    "wpn_usp.cpp": "07fc795e12db8e767a5c30c6fda50cf47ed77ca5684ab3543e15ff22c5b396e1",
+    "wpn_awp.cpp": "1e5eb1f5a12bd18f7e2020987179fef5899098fe47b3d3c510d791f478402189",
+    "wpn_scout.cpp": "f9e313efa19f7cfad186002fff702e23939dcd496da5d799fecf95ddbf1c2995",
+    "wpn_knife.cpp": "7db100213953c20c04c55579503a4fe36e081472f363ca241f4a47e71e3931bb"
+  },
+  "beforeSourceSha256": {
+    "src/inventory.ts": "753c89bcb14fd79765008627878352eccfd8e9ecf49b5ad49a5e879b13b9262b",
+    "src/weapon-modes.ts": "7eefc955a1ea479fd9f9915e116cde5978a3c2eaf04379bab5b6c9928b9358c3",
+    "src/bot-loadout.ts": "bead5b7b026d7c2777d3f784641633020f097e3f5d3116e8c97db3eed10bb56e",
+    "src/combat-rules.ts": "bc275c271bb90dc23568510dfb5de6607bc460b07d9cdf6c1e23e12afc3f877a",
+    "src/bot-combat.ts": "725ab87f99d3f303d8d3efaf7c7080b320ad045cfd5db0bf9c997746d8e5b384",
+    "src/components.ts": "08be4df727cef3574bdd4f24b20fa3c075d19d5038c20e5ad66f4ec8b80b2e79",
+    "src/dropped-weapons.ts": "fc6189946b0842d4c98f9ad50205afbff23547d1dc2fae48d76736deebf43315",
+    "src/inventory-rules.ts": "3591257e60e6a032180c082ea4397df9fe25b6b3a7eae73e80d06d463ddc7824",
+    "src/practice.ts": "8814f1995f55160d6fc10d4aa3923c60b745b49272bad976d1f80d337a4c0661",
+    "src/client.ts": "e346600197a1d2e1bf78b78e1815c8684541f26d1d0ef1815ed4185e0020cab9",
+    "src/systems.ts": "0b9169276414706c53cb2934b7ceb72bdbdd77079e6e7149eff6548bdc988211",
+    "src/server.ts": "640753048fb323b9db0c20b89f870551efec074b29adcc13276ac96d3ae7b25b",
+    "src/bot-economy.ts": "fd23092323d31bf669637345d219b2e654c30e015dd91bd496c2cb809ac696e0",
+    "tests/bot-loadout.test.mjs": "2f438990338da61e38da8b80bbb9432811ce6e654a75a425d90a0970ec28e942"
+  },
+  "afterSourceSha256": {
+    "src/inventory.ts": "c93a99f935d299049589dd41a1870aba8eacf47c80569e66b33ddb8e0312b19f",
+    "src/weapon-modes.ts": "4d3634ca3e19fd7cf0c56dd989c525a57eb528b60cefe6cb1ec559c5e378fc8b",
+    "src/bot-loadout.ts": "36c19e73c627cb6d031a396526229c16de91ad1c3ff94206fe0e8856930d90ae",
+    "src/combat-rules.ts": "c4df289a738d4f4cdaddb614f683ead665ad8976f8f733793249ff5698b955ef",
+    "src/bot-combat.ts": "a583371427b5427cd29b45b13603df1614d179ed10b4f34c5bf31d546154f226",
+    "src/components.ts": "ad3372a3e4228829ec1da319a1e646348206928b48f9d2a6687116ff073f4fb9",
+    "src/dropped-weapons.ts": "d3f75e7bed339b31c7517707cd147ec77897972b7ac01be9949696d8863e9b05",
+    "src/inventory-rules.ts": "de9f2aee834d2236870f0dfd80b3e590b2bb44d9973a0e4d57a6e21b2b99e1e3",
+    "src/practice.ts": "50b8e5b83374dc500d074ed4d1bf3d1b659564afe97a3d39a4a1a2f529b723b3",
+    "src/client.ts": "bb77b6939f3410c4edc21618c3d4b33d1df60ad3ce061cb47ab635874133de52",
+    "src/systems.ts": "fba572c5b8befa9fc632471f33397978d2d65d15737237a5e9eb6c9b7316e434",
+    "src/server.ts": "1e786f2dd5e91400e34b017a544464598e2e4340910bf67c3980ce6ee70e038e",
+    "src/bot-economy.ts": "0952d05b937921a6106ff4563dfdc8a6d8d2fa4ff80368a9e380e55658849fae",
+    "tests/switch-timers.test.mjs": "e554cb31251169ce75935ce84f847469fcbbe8fafc761551a53bb14be00fc955",
+    "tests/bot-loadout.test.mjs": "52c34ef83ec82cf523687f2049107f8ed10aaa88e2bfa12e7aa90ed831204588"
+  },
+  "newRegressions": {
+    "total": 11,
+    "beforeFailures": 9,
+    "afterFailures": 0
+  },
+  "focusedPassed": 24,
+  "fullGatePassed": 532,
+  "runtime": "Controlled production handlers/input and real SDK serialization; no Explorer or original CS execution"
+}

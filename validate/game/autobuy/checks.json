@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "name": "selected-landscape",
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 12,
+        "reserve": 24,
+        "money": 16000,
+        "seconds": 1
+      },
+      "notices": []
+    },
+    {
+      "name": "purchased-landscape",
+      "hud": {
+        "health": 100,
+        "armor": 100,
+        "clip": 30,
+        "reserve": 90,
+        "money": 11345,
+        "seconds": 1
+      },
+      "notices": [
+        "Auto-bought equipment for $4655."
+      ]
+    },
+    {
+      "name": "selected-small-portrait",
+      "hud": {
+        "health": 100,
+        "armor": 100,
+        "clip": 30,
+        "reserve": 90,
+        "money": 11345,
+        "seconds": 3456
+      },
+      "notices": []
+    }
+  ],
+  "autoBuyCost": 4655,
+  "selectionCost": 0,
+  "repeatedCost": 0,
+  "quickBuysFirst": true,
+  "nativeMobile": false,
+  "portraitCorrectedTarget": true
+}

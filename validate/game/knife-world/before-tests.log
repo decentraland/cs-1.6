@@ -1,0 +1,127 @@
+✖ knife catches a nearby wall edge and refines its contact onto the actual surface (0.652833ms)
+✖ a nearer world hull blocks an otherwise reachable fallback player box (0.339417ms)
+✔ direct anatomical lines take priority over off-axis world hulls (0.32975ms)
+✖ the doubled center ray refines a wall beyond the original knife line length (0.07175ms)
+✖ the original Dust2 head hull catches an edge missed by its point hull (1.404334ms)
+✖ the production server acknowledges the Dust2 edge as a wall strike and applies contact cooldown (14.013125ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 1
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 845.05625
+
+✖ failing tests:
+
+test at tests/knife-world.test.mjs:18:1
+✖ knife catches a nearby wall edge and refines its contact onto the actual surface (0.652833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-world-check/tests/knife-world.test.mjs:21:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-world.test.mjs:29:1
+✖ a nearer world hull blocks an otherwise reachable fallback player box (0.339417ms)
+  AssertionError [ERR_ASSERTION]: nearby player behind the wall edge must not take damage
+  + actual - expected
+  
+  + {
+  +   group: 'body',
+  +   target: 'enemy'
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-world-check/tests/knife-world.test.mjs:32:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: { target: 'enemy', group: 'body' },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-world.test.mjs:41:1
+✖ the doubled center ray refines a wall beyond the original knife line length (0.07175ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-world-check/tests/knife-world.test.mjs:45:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-world.test.mjs:50:1
+✖ the original Dust2 head hull catches an edge missed by its point hull (1.404334ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-world-check/tests/knife-world.test.mjs:56:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/knife-world.test.mjs:61:1
+✖ the production server acknowledges the Dust2 edge as a wall strike and applies contact cooldown (14.013125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'knife_slash2'
+  - 'knife_hitwall1'
+           ^
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-knife-world-check/tests/knife-world.test.mjs:71:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'knife_slash2',
+    expected: 'knife_hitwall1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

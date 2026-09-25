@@ -1,0 +1,35 @@
+{
+  "sourceRevision": "6ad155c7a610a85cfd443fcace2c97f2afcb2866",
+  "files": [
+    {
+      "file": "assets/sounds/player/original/equip_nvg.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/items/equip_nvg.wav",
+      "sha256": "ee25642d00d071694c0ef8a89e75eb524ec90a79df8908df76911435571b6884",
+      "bytes": 11070,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 11025,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/nvg_on.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/items/nvg_on.wav",
+      "sha256": "9b437e9f2251c53e840584db826e2bbf0c1cca7c6f248f0cbf32da54f3a2e143",
+      "bytes": 38836,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 38792,
+      "sampleWidth": 1
+    },
+    {
+      "file": "assets/sounds/player/original/nvg_off.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/items/nvg_off.wav",
+      "sha256": "d0c23d677bbf16bf3b9a988d4d189f328c2b5f087600fc7928d515be0a843d57",
+      "bytes": 5848,
+      "channels": 1,
+      "sampleRate": 22050,
+      "frames": 5696,
+      "sampleWidth": 1
+    }
+  ]
+}

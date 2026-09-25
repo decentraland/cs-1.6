@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-22",
+  "method": "Static source and binary inspection; no original server execution",
+  "gameRevision": "b0889847fe6d03898be88acc9e366660efb40ab5",
+  "engineRevision": "550f2d62f13f4ebeb029c1d9d1c212133202611d",
+  "binary": {
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/dlls/cs.so",
+    "sha256": "fcbbf24f0e31d2e9018a20d5b3f306dafc207d6b63454a13181d0758bc8a6f1e",
+    "bytes": 11688663
+  },
+  "sourceHashes": {
+    "wpn_knife.cpp": "7db100213953c20c04c55579503a4fe36e081472f363ca241f4a47e71e3931bb",
+    "weapons.cpp": "e6f0fb2a50ad2a43affd7c48e6d5d07085990af19f748b49df6d6c8571f70cae",
+    "weapons.h": "b266455df20267bebf7ccb9b449a005912c00464c566a45374d41629d9af7c7f",
+    "world.cpp": "6551ee944a5aae8bf6664d66a6196101342fb360bdc6377a66fee9c0e4c78d89",
+    "r_studio.cpp": "e24089f077cba6dcca36b86c7fc2b7739449ef2b4c7f3f8ae1df74730e64fea5"
+  },
+  "modelFlags": {
+    "urban": 0,
+    "arctic": 0
+  },
+  "binaryAddresses": {
+    "nextAttackAssignment": "0x14f2cf",
+    "damagePredicate": "0x14f355",
+    "damage15": "0x14f8d9",
+    "damage20": "0x14f386",
+    "releaseResetsLastFire": "0x13522d",
+    "GetNextAttackDelay": "0x135f00",
+    "damagePredicateConstant": {
+      "address": "0x1d2f58",
+      "double": 0.4
+    },
+    "weaponTimeBaseConstant": {
+      "address": "0x1d1234",
+      "float": 0
+    }
+  }
+}

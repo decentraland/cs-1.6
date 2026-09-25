@@ -1,8 +1,4 @@
-// Client-reported shot context validated against what the server has seen recently.
-// Avatar positions and shot messages travel on different channels with different latency, so the
-// server cannot rewind to "the client's fire time". Instead the client says where it was, how fast it
-// moved, and where it saw its target; the server accepts each value only if it is close to a sample
-// from the last second, then re-runs the deterministic trace itself.
+// Origin/movement claims and the legacy bot-position fallback; human targets use server-owned rewind.
 export interface Point {
   x: number
   y: number
@@ -37,6 +33,10 @@ export interface AcceptedShot {
 
 export const HISTORY_SECONDS = 1
 export const ORIGIN_TOLERANCE = 1
+// The client is ahead of the server's last avatar sample by the comms delay; a running shooter is
+// legitimately this far from anything the server has seen.
+export const ORIGIN_LEAD_SECONDS = 0.5
+export const MAX_ORIGIN_LEAD_SPEED = 8
 export const TARGET_TOLERANCE = 1
 export const SPEED_TOLERANCE = 2
 
@@ -57,15 +57,19 @@ export function acceptShotClaim(claim: ShotClaim, context: ClaimContext): Accept
   const claimedFeet = finite(claim.origin)
     ? { x: claim.origin.x, y: claim.origin.y - context.eyeHeight, z: claim.origin.z }
     : undefined
+  const speedOk =
+    Number.isFinite(claim.speed) && claim.speed >= 0 && Math.abs(claim.speed - context.serverSpeed) <= SPEED_TOLERANCE
+  const claimedLead =
+    Number.isFinite(claim.speed) && claim.speed >= 0 && claim.speed <= MAX_ORIGIN_LEAD_SPEED ? claim.speed : 0
+  const lead = Math.min(MAX_ORIGIN_LEAD_SPEED, Math.max(0, context.serverSpeed, claimedLead))
+  const originAllowance = ORIGIN_TOLERANCE + lead * ORIGIN_LEAD_SECONDS
   const originOk =
     claimedFeet !== undefined &&
-    (distance(claimedFeet, context.serverFeet) <= ORIGIN_TOLERANCE ||
-      nearRecent(context.shooterHistory, claimedFeet, ORIGIN_TOLERANCE))
+    (distance(claimedFeet, context.serverFeet) <= originAllowance ||
+      nearRecent(context.shooterHistory, claimedFeet, originAllowance))
   if (!originOk) rejected.push('origin')
   const feet = originOk && claimedFeet ? claimedFeet : context.serverFeet
 
-  const speedOk =
-    Number.isFinite(claim.speed) && claim.speed >= 0 && Math.abs(claim.speed - context.serverSpeed) <= SPEED_TOLERANCE
   if (!speedOk) rejected.push('speed')
   const speed = speedOk ? claim.speed : context.serverSpeed
 

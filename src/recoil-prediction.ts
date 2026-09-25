@@ -1,7 +1,8 @@
+import type { GunAccuracyMemory } from './gun-accuracy'
 import { AccuracyState, recoverAccuracy, setTrigger } from './accuracy'
 
 import { GunId } from './weapon-profiles'
-import { freshGunAccuracy, gunSpread, gunKick } from './gun-accuracy'
+import { freshGunAccuracy, deployGunAccuracy, reloadGunAccuracy, gunSpread, gunKick } from './gun-accuracy'
 import { shotRandom } from './shared-random'
 
 export interface ConfirmedRecoil {
@@ -16,6 +17,7 @@ type RecoilEvent =
       kind: 'shot'
       at: number
       id: number
+      gun: GunId
       speed: number
       grounded: boolean
       mode: number
@@ -23,7 +25,8 @@ type RecoilEvent =
       continuation: boolean
     }
   | { kind: 'trigger'; at: number; held: boolean }
-  | { kind: 'reload'; at: number }
+  | { kind: 'reload'; at: number; gun: GunId }
+  | { kind: 'deploy'; at: number; gun: GunId; stored?: GunAccuracyMemory }
   | { kind: 'clearPitch'; at: number }
 
 export class RecoilPrediction {
@@ -39,6 +42,7 @@ export class RecoilPrediction {
   private events: RecoilEvent[] = []
   private acknowledged = 0
   private lastPredicted = 0
+  private deployedAfterShot = 0
   private correction = { pitch: 0, yaw: 0 }
   private renderedAt = 0
 
@@ -51,28 +55,32 @@ export class RecoilPrediction {
     return this.pendingAfter(0)
   }
   pendingAfter(id: number) {
-    return this.events.filter((event) => event.kind === 'shot' && event.id > id).length
+    return this.events.filter((event) => event.kind === 'shot' && event.id > Math.max(id, this.deployedAfterShot))
+      .length
+  }
+  private get unconfirmedShots() {
+    return this.events.filter((event) => event.kind === 'shot').length
   }
 
   private apply(state: AccuracyState, event: RecoilEvent) {
     if (event.kind === 'trigger') setTrigger(state, event.held, event.at)
-    else if (event.kind === 'reload')
-      Object.assign(state, freshGunAccuracy(this.gun, true), { updatedAt: event.at, held: state.held })
+    else if (event.kind === 'reload') reloadGunAccuracy(state, event.gun, event.at)
+    else if (event.kind === 'deploy') Object.assign(state, deployGunAccuracy(state, event.gun, event.at, event.stored))
     else if (event.kind === 'clearPitch') {
       recoverAccuracy(state, event.at)
       state.pitch = 0
     } else if (event.continuation) recoverAccuracy(state, event.at)
     else {
-      gunSpread(state, this.gun, event.at, event.speed, event.grounded, event.mode, event.zoom)
+      gunSpread(state, event.gun, event.at, event.speed, event.grounded, event.mode, event.zoom)
       // Same shared stream as the server, so the kick direction flips are predicted exactly.
-      gunKick(state, this.gun, event.speed, event.grounded, shotRandom(this.seed, event.id))
+      gunKick(state, event.gun, event.speed, event.grounded, shotRandom(this.seed, event.id))
     }
   }
 
   private add(event: RecoilEvent) {
     this.apply(this.predicted, event)
     this.events.push(event)
-    if (this.pendingShots === 0) {
+    if (this.unconfirmedShots === 0) {
       this.base = { ...this.predicted }
       this.events.length = 0
     }
@@ -83,7 +91,14 @@ export class RecoilPrediction {
   }
 
   reload(now: number) {
-    this.add({ kind: 'reload', at: now })
+    this.add({ kind: 'reload', gun: this.gun, at: now })
+  }
+
+  deploy(gun: GunId, now: number, stored?: Readonly<GunAccuracyMemory>) {
+    this.punch(now)
+    this.gun = gun
+    this.deployedAfterShot = this.lastPredicted
+    this.add({ kind: 'deploy', gun, at: now, stored: stored && { ...stored } })
   }
 
   clearPitch(now: number) {
@@ -100,10 +115,10 @@ export class RecoilPrediction {
     zoom = 90,
     continuation = false
   ): boolean {
-    if (id <= this.lastPredicted || this.pendingShots >= 30) return false
+    if (id <= this.lastPredicted || this.unconfirmedShots >= 30) return false
     this.lastPredicted = id
     this.punch(now)
-    this.add({ kind: 'shot', id, at: now, speed, grounded, mode, zoom, continuation })
+    this.add({ kind: 'shot', id, gun: this.gun, at: now, speed, grounded, mode, zoom, continuation })
     return true
   }
 
@@ -120,10 +135,12 @@ export class RecoilPrediction {
     if (id <= this.acknowledged) return false
     const index = this.events.findIndex((event) => event.kind === 'shot' && event.id === id)
     if (index < 0) return false
-    const at = this.events[index].at
+    const event = this.events[index]
+    if (event.kind !== 'shot') return false
+    const at = event.at
     this.acknowledged = id
     // Age the acknowledged kick from its local input time, not packet arrival time.
-    this.base = { ...freshGunAccuracy(this.gun), ...recoil, updatedAt: at, lastFire: at, held: true }
+    this.base = { ...freshGunAccuracy(event.gun), ...recoil, updatedAt: at, lastFire: at, held: true }
     this.events.splice(0, index + 1)
     this.rebuild(now)
     return true

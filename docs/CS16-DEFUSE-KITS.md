@@ -56,7 +56,8 @@ Floor placement uses the scene's original BSP point tracer, not GoldSrc's item
 collision hull. Edge/ledge and solid-sky cases can differ, as can pickup overlap
 with the native standing avatar. Water, moving brush entities and original
 character body-mounted kit visuals are not reproduced. Bots pick up overlapping
-kits; deliberate kit-seeking tactics and bot purchasing remain unfinished.
+kits and can buy them through the [round economy](CS16-BOT-ECONOMY.md);
+deliberate kit-seeking tactics remain unfinished.
 
 The green icon uses the source single-icon position. Full status-icon ordering
 with buy-zone/C4 icons is not yet implemented. Pickup text uses the scene's

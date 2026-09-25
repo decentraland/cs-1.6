@@ -10,7 +10,8 @@ Original third-person models, firing/animation sounds, scope textures and weapon
 rectangles come from the pinned
 [CS-Server mirror](https://github.com/u3games/CS-Server/tree/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike).
 `stock-media.json`, `animation-media.json` and `world-sources.json` record every URL,
-SHA-256, destination and byte size. Valve assets are not newly open-licensed here.
+SHA-256, destination and byte size. XM1014 shell-loading cues use the same
+pinned mirror's `server/valve/sound/weapons/reload1.wav` and `reload3.wav`. Valve assets are not newly open-licensed here.
 The supplied Dust2 model is unchanged.
 
 `goldsrc.py` reads embedded IDST v10 model data. Run `convert_blender.import_weapon`
@@ -42,6 +43,16 @@ cues are extracted from each model's event 5004 records by `extract_animation_ev
 Mechanics use [ReGameDLL_CS b0889847](https://github.com/rehlds/ReGameDLL_CS/tree/b0889847fe6d03898be88acc9e366660efb40ab5),
 original compatibility branches. See `docs/CS16-ARSENAL.md` for behavior and limits.
 
+## Shield preparation
+
+The [shield source set](shield/README.md) adds the original MDLs and buy/HUD
+resources from the same pinned mirror. `goldsrc.Model` and
+`convert_blender.import_weapon` now accept explicit `bodygroups` selections and
+report the chosen variants. Ambiguous multi-variant models still fail without a
+choice. Source checks pass; Blender conversion, glass rendering, shield collision
+and gameplay integration remain unfinished. These sources are excluded from
+scene deployment with the rest of this directory.
+
 
 ## Dropped weapons
 
@@ -72,3 +83,11 @@ through Blender MCP, then `validate_drop.validate_drop('thighpack', source, outp
 to compare every reimported triangle and its winding against the original rest
 pose. The asset gate checks every embedded palette pixel. The existing local-use
 authorization and publication/provenance notes apply.
+
+
+## Empty-trigger audio
+
+`stock-media.json` also records `weapons/dryfire_pistol.wav` from the same pinned
+CS-Server mirror. All six pistols use that clip; other firearms retain the
+original `dryfire_rifle.wav`, stored as `assets/sounds/weapons/dryfire.wav`.
+The asset gate verifies the new clip's source hash and byte size.

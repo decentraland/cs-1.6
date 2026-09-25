@@ -1,0 +1,32 @@
+✔ an exhausted bot draws its carried pistol after the final rifle shot and waits for deployment (3.863209ms)
+✔ bots retain a usable primary and reload a dry magazine when reserve ammo remains (0.130166ms)
+✔ MP5 exhaustion empties the shared reserve but preserves the Glock magazine (0.07825ms)
+✔ an empty pistol with reserve ammo cannot reload during its draw and uses its own reload duration (0.226708ms)
+✔ bots with no usable carried gun do not manufacture ammunition or cycle empty weapons (0.0755ms)
+✔ death after switching still drops the carried primary and clears the dead inventory (0.361167ms)
+✔ all 24 firearms preserve their item attack clocks except the explicit AWP/Scout draw resets (99.921375ms)
+✔ silencer changes survive knife switching until the original M4A1/USP deadline (14.140625ms)
+✔ a secondary-only stored deadline blocks mode changes without blocking ready primary fire (3.65ms)
+✔ a dropped silenced gun carries its remaining action lock to its next owner (5.847958ms)
+✔ holstering a magazine reload cancels its player lock without preserving the reload duration as an item timer (4.269292ms)
+✔ desktop and touch fire use the draw snapshot without letting later network updates stretch automatic cadence (12.051667ms)
+✔ knife attack cooldown survives a pistol switch and still expires at the original contact deadline (2.555459ms)
+✔ desktop and touch knife feedback wait for the retained draw timers (3.111208ms)
+✔ bots retain stored attack deadlines through combat and death pickup (0.335875ms)
+✔ SDK wire preserves zero and fractional epoch deadlines for held guns, knife, drops and draw snapshots (3.974417ms)
+✔ replacing a used item or starting a new life does not carry the previous weapon or knife lock (3.896417ms)
+✔ a rifle shot replaces the preceding zoom-action deadline with its firing cycle (81.162458ms)
+✔ Glock and FAMAS continuations do not postpone mode changes beyond the original burst deadline (17.1635ms)
+✔ switching to a slower fire mode does not delay a primary attack that is already ready (16.304709ms)
+✔ manual reload becomes ready at the first bullet burst deadline, including an empty final burst (28.987ms)
+✔ mode actions still obey draw, reload, revision, phase, life and bomb guards (16.220459ms)
+✔ desktop and touch prediction retain the firing interval captured before a mode change (20.175ms)
+✔ held client reload is ready when the burst ends without waiting again after the third bullet (3.681125ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1143.374292

@@ -60,14 +60,19 @@ the harness joins and buys through the scene UI. After an interrupted run, appen
 `--resume` with the same evidence directory to skip completed weapons.
 
 For scopes, equip an unscoped AWP, buy ammunition, close the buy menu and capture the
-mouse. Run `node validate/arsenal-scope.mjs <browser-CDP-websocket> /tmp/cs16-evidence cs16-arsenal-review`.
-It checks actual TextureCamera FOV at 40/10 degrees, then firing, bolt unscope and
+mouse. Run `node validate/arsenal-scope.mjs <browser-CDP-websocket> /tmp/cs16-evidence`.
+It checks active VirtualCamera FOV at 40/10 degrees, then firing, bolt unscope and
 automatic return to the scope. Compare its three captures to see real magnification.
 
 Stop the test browser and fixture server when finished. Keep the normal scene server
 separate from these review overrides.
 
-Close the preview before editing a scoped scene. Live reload while a texture
-camera was active triggered an upstream Bevy directional-light panic; restarting
-the isolated browser recovered. Normal scoped weapon switching has a separate
-[regression check](../penetration/README.md).
+The original TextureCamera review encountered a directional-light panic on live
+reload; this obsolete render target has since been removed. Normal scoped weapon
+switching has a separate [regression check](../penetration/README.md).
+
+
+The original captures above used the TextureCamera workaround. The current scene
+uses native VirtualCamera FOV in the hosted September 21 Bevy build; see
+[the newer scope evidence](../native-scope/README.md). The scope harness was updated
+to inspect the active camera and capture directly through CDP.

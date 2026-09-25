@@ -1,5 +1,6 @@
 import { engine, Schemas } from '@dcl/sdk/ecs'
 import { registerMessages, isServer } from '@dcl/sdk/network'
+import { initializeNightVision } from './nightvision'
 import { initializePractice } from './practice'
 import { weaponSystem } from './systems'
 import { setupUI } from './ui'
@@ -7,6 +8,16 @@ import { delaySystem } from './delaySystem'
 import { initializeFalling } from './falling'
 import { setupServerAuthoritative, initializeServerEntities, setupServerMessageHandlers } from './server'
 import { setupClientMessageHandlers, addClientSystems } from './client'
+
+// Optional scalar 0 is omitted by the pinned SDK; preserve it inside the map.
+const GunfireSchema = Schemas.Map({ gun: Schemas.String, mode: Schemas.Int, origin: Schemas.Vector3 })
+
+const SurfaceImpactSchema = Schemas.Map({
+  position: Schemas.Vector3,
+  normal: Schemas.Vector3,
+  material: Schemas.String,
+  texture: Schemas.String
+})
 
 // Define message schemas for client-server communication
 const Messages = {
@@ -26,16 +37,31 @@ const Messages = {
     speed: Schemas.Float,
     grounded: Schemas.Boolean,
     target: Schemas.Optional(Schemas.String),
-    targetPosition: Schemas.Optional(Schemas.Vector3)
+    targetPosition: Schemas.Optional(Schemas.Vector3),
+    // Server clock value of the newest state the client had drawn; bots are rewound to it.
+    seenAt: Schemas.Optional(Schemas.Double)
   }),
+  latencyProbe: Schemas.Map({ token: Schemas.Double }),
+  latencyEcho: Schemas.Map({ token: Schemas.Double }),
   playerFacing: Schemas.Map({ direction: Schemas.Vector3 }),
   knifeAttack: Schemas.Map({
+    round: Schemas.Int,
     shotId: Schemas.Int,
     revision: Schemas.Int,
     attack: Schemas.String,
-    direction: Schemas.Vector3
+    direction: Schemas.Vector3,
+    view: Schemas.Optional(
+      Schemas.Map({
+        origin: Schemas.Vector3,
+        speed: Schemas.Float,
+        target: Schemas.Optional(Schemas.String),
+        targetPosition: Schemas.Optional(Schemas.Vector3),
+        seenAt: Schemas.Optional(Schemas.Double)
+      })
+    )
   }),
   knifeResult: Schemas.Map({
+    feedback: Schemas.Optional(Schemas.Map({ sound: Schemas.String, pitch: Schemas.Float, origin: Schemas.Vector3 })),
     owner: Schemas.String,
     round: Schemas.Int,
     shotId: Schemas.Int,
@@ -45,7 +71,7 @@ const Messages = {
     target: Schemas.Boolean
   }),
 
-  playerReload: Schemas.Map({}),
+  playerReload: Schemas.Map({ round: Schemas.Int, revision: Schemas.Int }),
   playerLanding: Schemas.Map({
     round: Schemas.Int,
     sequence: Schemas.Double,
@@ -65,6 +91,8 @@ const Messages = {
   weaponSelect: Schemas.Map({ slot: Schemas.String, round: Schemas.Int, revision: Schemas.Int }),
   playerTrigger: Schemas.Map({ held: Schemas.Boolean, sequence: Schemas.Double }),
   practiceShot: Schemas.Map({
+    fire: Schemas.Optional(GunfireSchema),
+    impacts: Schemas.Optional(Schemas.Array(SurfaceImpactSchema)),
     owner: Schemas.String,
     position: Schemas.Vector3,
     round: Schemas.Int,
@@ -75,10 +103,25 @@ const Messages = {
     accuracy: Schemas.Float,
     right: Schemas.Boolean
   }),
+  weaponReloadSound: Schemas.Map({ round: Schemas.Int, volume: Schemas.Int }),
+  shellReloadSound: Schemas.Map({
+    owner: Schemas.String,
+    round: Schemas.Int,
+    position: Schemas.Vector3,
+    variant: Schemas.Int,
+    pitch: Schemas.Int
+  }),
+  weaponDryFire: Schemas.Map({
+    owner: Schemas.String,
+    round: Schemas.Int,
+    gun: Schemas.String,
+    position: Schemas.Vector3
+  }),
   shotRejected: Schemas.Map({ owner: Schemas.String, round: Schemas.Int, shotId: Schemas.Int }),
   teamJoin: Schemas.Map({ team: Schemas.Int }),
   teamSpectate: Schemas.Map({}),
   spectatorStart: Schemas.Map({ playerAddress: Schemas.String, round: Schemas.Int }),
+  nightVisionToggle: Schemas.Map({ enabled: Schemas.Boolean, round: Schemas.Int, sequence: Schemas.Double }),
   buyEquipment: Schemas.Map({ item: Schemas.String, round: Schemas.Int, sequence: Schemas.Double }),
   bombSelect: Schemas.Map({ selected: Schemas.Boolean, round: Schemas.Int }),
   bombDrop: Schemas.Map({ round: Schemas.Int, direction: Schemas.Vector3 }),
@@ -109,6 +152,9 @@ const Messages = {
     seed: Schemas.Int
   }),
   practiceAttack: Schemas.Map({
+    fire: Schemas.Optional(GunfireSchema),
+    round: Schemas.Optional(Schemas.Int),
+    impacts: Schemas.Optional(Schemas.Array(SurfaceImpactSchema)),
     origin: Schemas.Vector3,
     target: Schemas.Vector3,
     gun: Schemas.Optional(Schemas.String)
@@ -161,6 +207,7 @@ export function main() {
     initializeServerEntities() // Create leaderboard entity (server only)
     setupServerMessageHandlers()
     initializePractice()
+    initializeNightVision()
     initializeFalling()
   } else {
     setupClientMessageHandlers()

@@ -1,3 +1,4 @@
+import { chooseFire } from './weapon-fire-animation'
 import {
   Animator,
   VisibilityComponent,
@@ -14,7 +15,7 @@ import { profileByName, WeaponId } from './weapon-profiles'
 import { C4_MODEL, C4_ANIMATION_SOUNDS } from './c4-model'
 import { WEAPON_MODELS, WeaponModel } from './weapon-models'
 import { WEAPON_ANIMATION_SOUNDS } from './weapon-animation-sounds'
-import { playModelSound } from './weapon-sounds'
+import { playModelSound, playLocalSound } from './weapon-sounds'
 import { Weapon, Dead } from './components'
 import { getPainPunch, getViewPunch, getCameraZoom } from './fps-camera'
 import type { KnifeAttack } from './knife-rules'
@@ -25,6 +26,7 @@ interface View {
   visible: boolean
   lastClip: string
   idleAt: number
+  firedAt: number
 }
 type ViewId = WeaponId | 'c4'
 const views = new Map<ViewId, View>()
@@ -70,7 +72,7 @@ function viewFor(id: ViewId): View {
       }))
   })
   VisibilityComponent.create(entity, { visible: false })
-  const view: View = { entity, model, visible: false, lastClip: model.idle, idleAt: 0 }
+  const view: View = { entity, model, visible: false, lastClip: model.idle, idleAt: 0, firedAt: 0 }
   views.set(id, view)
   if (views.size > 3) {
     const oldest = [...views.keys()].find((key) => key !== id && key !== activeId)
@@ -81,7 +83,8 @@ function viewFor(id: ViewId): View {
   }
   return view
 }
-function idleClip(view: View) {
+function idleClip(view: View, remaining: number) {
+  if (activeId === 'elite' && remaining === 1) return 'idle_leftempty'
   return mode ? (view.model.clips.idle !== undefined ? 'idle' : view.model.idle) : view.model.idle
 }
 function play(clip: string, duration?: number) {
@@ -104,39 +107,21 @@ function play(clip: string, duration?: number) {
   view.lastClip = playingClip
   view.idleAt = clip.startsWith('idle') ? 0 : Date.now() / 1000 + (duration ?? seconds)
 }
-function chooseFire(view: View, remaining: number) {
-  const suffix = !mode && ['m4a1', 'usp'].includes(activeId ?? '') ? '_unsil' : ''
-  if (activeId === 'elite') {
-    const side = remaining % 2 === 0 ? 'left' : 'right'
-    return remaining < 2 ? `shoot_${side}last` : `shoot_${side}${1 + Math.floor(Math.random() * 5)}`
-  }
-  if (remaining === 0) {
-    const empty = ['shootlast' + suffix, 'shoot_empty', 'shootempty'].find(
-      (clip) => view.model.clips[clip] !== undefined
-    )
-    if (empty) return empty
-  }
-  if (activeId === 'glock18' && mode) return 'shoot3'
-  const clips = Object.keys(view.model.clips).filter((clip) => {
-    if (activeId === 'glock18') return clip === 'shoot' || clip === 'shoot2'
-    return new RegExp(`^shoot_?[0-9]*${suffix}$`).test(clip)
-  })
-  const candidates = clips.filter((clip) => clip !== view.lastClip)
-  return (candidates.length ? candidates : clips)[Math.floor(Math.random() * (candidates.length || clips.length))]
-}
-export function predictWeaponShot(remaining = 1, reloadStart = -1) {
+export function predictWeaponShot(remaining = 1, reloadStart = -1, firingMode = mode) {
   if (!activeId) return
   if (reloading) {
     interruptedReload = reloadStart
     reloading = false
   }
-  const clip = chooseFire(viewFor(activeId), remaining)
+  const view = viewFor(activeId)
+  const now = Date.now() / 1000
+  const clip = chooseFire(activeId, view.model, firingMode, remaining, view.lastClip, Math.random, now - view.firedAt)
+  view.firedAt = now
   if (clip) play(clip)
 }
-export function predictKnifeAttack(attack: KnifeAttack) {
+export function predictKnifeAttack(attack: KnifeAttack, contact = false) {
   if (activeId !== 'knife') return
-  lastKnife = 1 - lastKnife
-  play(attack === 'stab' ? 'stab_miss' : `midslash${lastKnife + 1}`)
+  play(attack === 'stab' ? (contact ? 'stab' : 'stab_miss') : `midslash${1 + (lastKnife++ % 2)}`)
 }
 export function predictGrenadeAnimation(next: number) {
   if (!activeId || !['hegrenade', 'flashbang', 'smokegrenade'].includes(activeId)) return
@@ -153,7 +138,7 @@ export function updateWeaponView(player: Entity) {
   activeId = selected
   if (selected) viewFor(selected)
   for (const [id, view] of views) {
-    const visible = id === selected && getCameraZoom() === 90
+    const visible = id === selected && getCameraZoom() > 40
     if (view.visible !== visible) {
       view.visible = visible
       VisibilityComponent.getMutable(view.entity).visible = visible
@@ -182,6 +167,10 @@ export function updateWeaponView(player: Entity) {
     return
   }
   if (changed) {
+    if (profile.kind === 'knife') {
+      lastKnife = 0
+      playLocalSound('knife_deploy1', 0.3)
+    }
     revision = weapon.revision
     mode = weapon.mode
     reloading = false
@@ -211,7 +200,7 @@ export function updateWeaponView(player: Entity) {
       )
     else if (reloading)
       play(!mode && view.model.clips.reload_unsil !== undefined ? 'reload_unsil' : 'reload', weapon.reloadTime)
-    else play(idleClip(view))
+    else play(idleClip(view, weapon.ammoClip))
   }
   while (sounds.length && sounds[0].at <= now) playModelSound(sounds.shift()!.sound)
   if (
@@ -221,6 +210,6 @@ export function updateWeaponView(player: Entity) {
     now >= view.idleAt
   ) {
     const lastEmpty = profile.kind === 'gun' && profile.slot === 'secondary' && weapon.ammoClip === 0
-    if (!lastEmpty) play(idleClip(view))
+    if (!lastEmpty) play(idleClip(view, weapon.ammoClip))
   }
 }

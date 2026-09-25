@@ -8,6 +8,8 @@ import { room } from './index'
 import { getMenuCursor, isTeamMenuOpen, spectatorMenu } from './menu-state'
 import { amber, disabled, MenuButton, MenuFrame, MenuInfoPanel, menuLayout } from './menu-ui'
 import { getPractice } from './practice'
+import { isTouchPlatform } from './platform'
+import { TouchMenu } from './touch-menu-ui'
 import { isBotAddress } from './team-rules'
 import { BOT_DIFFICULTIES, BOT_DIFFICULTY_PROFILES, BotDifficulty, parseBotDifficulty } from './bot-difficulty'
 
@@ -65,6 +67,7 @@ export function setBotDifficulty(level: BotDifficulty) {
 
 // Keys 1/2 mirror Teammenu.res; the explorer has no 5/6 keys so auto assign and spectate stay click-only.
 export function teamMenuInputSystem() {
+  if (isTouchPlatform()) return
   const one = inputSystem.isPressed(InputAction.IA_ACTION_3)
   const two = inputSystem.isPressed(InputAction.IA_ACTION_4)
   if (!one && !two) joinKeyDown = false
@@ -79,7 +82,7 @@ export function teamMenuInputSystem() {
   }
 }
 
-export function TeamMenu({ width, height }: { width: number; height: number }) {
+export function TeamMenu({ width, height, notice }: { width: number; height: number; notice?: string }) {
   const layout = menuLayout(width, height)
   const { x, y, size, font } = layout
   const match = getPractice()
@@ -89,6 +92,41 @@ export function TeamMenu({ width, height }: { width: number; height: number }) {
   const playingSeat = seat?.team === 1 || seat?.team === 2
   const cursor = getMenuCursor()
   const difficulty = parseBotDifficulty(match?.botDifficulty)
+  if (isTouchPlatform()) {
+    const row = (label: string, action: () => void, detail = '', enabled = ready) => ({
+      label,
+      action,
+      detail: ready ? detail : 'CONNECTING...',
+      enabled,
+      info: []
+    })
+    const rows = [
+      row('TERRORIST FORCES', () => joinTeam(1), `${teamCount(1)} players`),
+      row('CT FORCES', () => joinTeam(2), `${teamCount(2)} players`),
+      row('AUTO ASSIGN', autoAssignTeam),
+      row('SPECTATE', spectateTeam),
+      ...BOT_DIFFICULTIES.map((level) =>
+        row(
+          `BOTS: ${BOT_DIFFICULTY_PROFILES[level].label}`,
+          () => setBotDifficulty(level),
+          level === difficulty ? 'SELECTED' : '',
+          ready && level !== difficulty
+        )
+      )
+    ]
+    if (seat) rows.push(row(seat.team === 0 ? 'LEAVE SPECTATOR' : 'LEAVE TEAM', leaveTeam))
+    if (playingSeat && match?.matchOver) rows.push(row('PLAY AGAIN', restartTeamMatch))
+    return (
+      <TouchMenu
+        width={width}
+        height={height}
+        title="SELECT TEAM"
+        notice={notice}
+        rows={rows}
+        onClose={spectatorMenu.open ? () => spectatorMenu.close() : undefined}
+      />
+    )
+  }
   const row = (label: string, top: number, action: () => void, enabled = ready) => (
     <MenuButton
       label={label}
@@ -104,7 +142,7 @@ export function TeamMenu({ width, height }: { width: number; height: number }) {
   )
 
   return (
-    <MenuFrame width={width} height={height} title="SELECT TEAM" layout={layout}>
+    <MenuFrame width={width} height={height} title="SELECT TEAM" layout={layout} notice={notice}>
       {row('1 TERRORIST FORCES', 116, () => joinTeam(1))}
       {row('2 CT FORCES', 148, () => joinTeam(2))}
       {row('5 AUTO ASSIGN', 212, autoAssignTeam)}

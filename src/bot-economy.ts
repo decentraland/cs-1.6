@@ -1,3 +1,6 @@
+import type { AttackTimers } from './weapon-modes'
+import { rememberGunAccuracy } from './gun-accuracy'
+import type { AccuracyState } from './accuracy'
 import { armorDamage, creditedMoney, equipmentPrice, purchaseEquipment, START_MONEY } from './economy-rules'
 import type { BuyContext } from './economy-rules'
 import { bestGun, buyGun, buyGunAmmo, startingInventory, syncAmmoPool } from './inventory-rules'
@@ -41,10 +44,21 @@ export function creditBot(address: string, amount: number) {
   if (account) account.money = creditedMoney(account.money, amount)
 }
 
-export function storeBotAmmo(account: BotAccount, gun: GunId, clip: number, reserve: number) {
+export function storeBotAmmo(
+  account: BotAccount,
+  gun: GunId,
+  clip: number,
+  reserve: number,
+  mode?: number,
+  accuracy?: AccuracyState,
+  timing?: AttackTimers
+) {
   const stored = account.inventory.items.find((item) => item.id === gun)
   if (!stored) return
   stored.clip = clip
+  if (accuracy) stored.accuracy = rememberGunAccuracy(accuracy)
+  if (timing) stored.timing = { ...timing }
+  if (gun === 'elite' && mode !== undefined) stored.mode = mode
   syncAmmoPool(account.inventory, gun, reserve)
 }
 

@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "name": "aug-unzoomed",
+      "visible": true,
+      "zoomSelected": false,
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 30,
+        "reserve": 0,
+        "money": 12500,
+        "seconds": 3598
+      }
+    },
+    {
+      "name": "aug-zoomed",
+      "visible": true,
+      "zoomSelected": true,
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 30,
+        "reserve": 0,
+        "money": 12500,
+        "seconds": 3597
+      }
+    },
+    {
+      "name": "awp-scoped",
+      "visible": false,
+      "zoomSelected": true,
+      "hud": {
+        "health": 100,
+        "armor": 0,
+        "clip": 10,
+        "reserve": 0,
+        "money": 7750,
+        "seconds": 3590
+      }
+    }
+  ],
+  "augZoomedFire": true,
+  "awpUnzoomRestored": true,
+  "nativeMobile": false,
+  "magnificationVerified": false
+}

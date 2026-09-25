@@ -1,0 +1,53 @@
+✖ AUG and SG552 keep their real view entities and firing animations visible at 55-degree zoom (3.498417ms)
+✔ sniper viewmodels hide at each scope level and return during bolt unscope or manual unzoom (2.833416ms)
+✖ zoom visibility never exposes a cached inactive weapon or the dead player viewmodel (0.6475ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.383125
+
+✖ failing tests:
+
+test at tests/weapon-view-zoom.test.mjs:55:1
+✖ AUG and SG552 keep their real view entities and firing animations visible at 55-degree zoom (3.498417ms)
+  AssertionError [ERR_ASSERTION]: AUG FOV 55
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rifle-zoom/tests/weapon-view-zoom.test.mjs:63:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weapon-view-zoom.test.mjs:86:1
+✖ zoom visibility never exposes a cached inactive weapon or the dead player viewmodel (0.6475ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rifle-zoom/tests/weapon-view-zoom.test.mjs:95:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

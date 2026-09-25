@@ -1,0 +1,143 @@
+✖ Dual Elites deploy chooses left on even clips and preserves the stored hand on odd clips (1.318583ms)
+✖ Elites offset the bullet origin by five source units on the firing side, including pitched/recoiling aim (0.317292ms)
+✖ Elite animations use the firing hand and elapsed-shot thresholds instead of clip parity or random variants (0.172875ms)
+✖ authoritative Elite shots alternate once per accepted round and keep the hand through a partial reload (15.854125ms)
+✖ desktop and touch prediction choose hands around pending acknowledgements and send the unshifted eye claim (10.721666ms)
+✖ bot Elite hands alternate and survive into dropped weapon state (0.745959ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 0
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 863.800958
+
+✖ failing tests:
+
+test at tests/elite-hands.test.mjs:42:1
+✖ Dual Elites deploy chooses left on even clips and preserves the stored hand on odd clips (1.318583ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:46:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/elite-hands.test.mjs:52:1
+✖ Elites offset the bullet origin by five source units on the firing side, including pitched/recoiling aim (0.317292ms)
+  AssertionError [ERR_ASSERTION]: 95 != 95.12226845009172
+      at near (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:18:31)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:62:7)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/elite-hands.test.mjs:74:1
+✖ Elite animations use the firing hand and elapsed-shot thresholds instead of clip parity or random variants (0.172875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'shoot_left1'
+  - 'shoot_right1'
+           ^
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:78:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'shoot_left1',
+    expected: 'shoot_right1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/elite-hands.test.mjs:83:1
+✖ authoritative Elite shots alternate once per accepted round and keep the hand through a partial reload (15.854125ms)
+  AssertionError [ERR_ASSERTION]: 52 != 51.875
+      at near (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:18:31)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:97:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/elite-hands.test.mjs:117:1
+✖ desktop and touch prediction choose hands around pending acknowledgements and send the unshifted eye claim (10.721666ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   undefined,
+  +   undefined
+  -   1,
+  -   0
+    ]
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:140:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ undefined, undefined ],
+    expected: [ 1, 0 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/elite-hands.test.mjs:152:1
+✖ bot Elite hands alternate and survive into dropped weapon state (0.745959ms)
+  AssertionError [ERR_ASSERTION]: 52 != 51.875
+      at near (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:18:31)
+      at TestContext.<anonymous> (file:///private/tmp/cs16-elite-hands/before/tests/elite-hands.test.mjs:159:3)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

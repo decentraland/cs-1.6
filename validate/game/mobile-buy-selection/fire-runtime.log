@@ -1,0 +1,3 @@
+PASS direct FIRE with native bindings disabled: 30 -> 24; release stopped fire
+PASS walk/run toggle: 2.99 -> 5.75 m/s
+PASS icon controls rendered in both orientations; saved /private/tmp/cs16-buy-proof/fire

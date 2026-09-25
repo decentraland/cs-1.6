@@ -1,0 +1,234 @@
+{
+  "date": "2026-09-22",
+  "regamedllCommit": "b0889847fe6d03898be88acc9e366660efb40ab5",
+  "branch": "original compatibility; REGAMEDLL_FIXES disabled",
+  "deployAssignments": [
+    {
+      "weapon": "ak47",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_ak47.cpp",
+      "sha256": "1b0f64688da8c2a1e6cf88c735885a39dc13722c41fc36630ee5fc7f9d7cee6e",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "aug",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_aug.cpp",
+      "sha256": "246da4680ee235a97c4334f59ad48f1221edf9ebe2040e87511cca27634147cd",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "awp",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_awp.cpp",
+      "sha256": "1e5eb1f5a12bd18f7e2020987179fef5899098fe47b3d3c510d791f478402189",
+      "deployAccuracy": "preserve",
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "deagle",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_deagle.cpp",
+      "sha256": "b029ad9da958b333765e9d1f8c8e250730aed2c58538b3847ce265d90de7c8f4",
+      "deployAccuracy": 0.9,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "elite",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_elite.cpp",
+      "sha256": "073d2d703b99463bd3af03227cb25db9aa6580d5381565fc9f57586a28b122cb",
+      "deployAccuracy": 0.88,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "famas",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_famas.cpp",
+      "sha256": "0f7db14087633c75d92cf730ce13f4eb90e938c7e5eef1cb14d2767a192cabe7",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "fiveseven",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_fiveseven.cpp",
+      "sha256": "89dde69aaba2de9e84bc1f1c9d866c87348656065a706ccfbbf14069b002596c",
+      "deployAccuracy": 0.92,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "g3sg1",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_g3sg1.cpp",
+      "sha256": "b480112f00802f5b8ded08d6697b0e2eaf99cb52f9f9fdb117735b05c68c871f",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "galil",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_galil.cpp",
+      "sha256": "dee7d4a7d6fe3af924f89df57b5cc1de9213dfc1eeda0004820d879da73f2f66",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "glock18",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_glock18.cpp",
+      "sha256": "31c7e05032458cd6b707a2411628e98b4f0613a3953ffc95e7c34cfadd821a6b",
+      "deployAccuracy": 0.9,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "m249",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_m249.cpp",
+      "sha256": "d516448680eb0a054aaa096b2b923ea2725aa302e0c594f619483feb74a46a0b",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "m3",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_m3.cpp",
+      "sha256": "e693cf6d309dc7dedacb11652ccd670fa5813578b4dd4954bbc2724d233502af",
+      "deployAccuracy": "preserve",
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "m4a1",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_m4a1.cpp",
+      "sha256": "c4fb06ad6bf9b06b95af7e6652c654efcc9c8b35844a9f910f8771068a1ba18a",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "mac10",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_mac10.cpp",
+      "sha256": "6c499cbb94d03b9fa53bd1f3c04220ee4840642bbbe2408cb8e7aa3d7f0b7c79",
+      "deployAccuracy": 0.15,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "mp5",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_mp5navy.cpp",
+      "sha256": "5dfb1552569f3d526238aa6b791d120f2152e3ca515e5544ca771cac414d65fb",
+      "deployAccuracy": 0.0,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "p228",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_p228.cpp",
+      "sha256": "3112001f04151678b3af04d6a0215d35406bd52647385c15837fbf97c6c2d79d",
+      "deployAccuracy": 0.9,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "p90",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_p90.cpp",
+      "sha256": "14200ed50603048a4043e5ef5f242c3e38478de4992cf141410f63726a88f769",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "scout",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_scout.cpp",
+      "sha256": "f9e313efa19f7cfad186002fff702e23939dcd496da5d799fecf95ddbf1c2995",
+      "deployAccuracy": "preserve",
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "sg550",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_sg550.cpp",
+      "sha256": "acff81cd3b6a3509f4e32feb54863a7ed4a0c23c140e827de7d271e641eea80f",
+      "deployAccuracy": "preserve",
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "sg552",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_sg552.cpp",
+      "sha256": "cfd3125042335bb6a52345e65a3927696b1b050c5a8f5b7cce9946999d1d848e",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "tmp",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_tmp.cpp",
+      "sha256": "0476b7ea6812b949f3322900861d99afda3adcbbb8f2804f0a1f02c4345dcc0e",
+      "deployAccuracy": 0.2,
+      "resetShotCounter": true,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "ump45",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_ump45.cpp",
+      "sha256": "dea29d0d14b7595087cabf4d1158ae9537695a84b6ba5db369d9c00235752cb4",
+      "deployAccuracy": 0.0,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "usp",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_usp.cpp",
+      "sha256": "07fc795e12db8e767a5c30c6fda50cf47ed77ca5684ab3543e15ff22c5b396e1",
+      "deployAccuracy": 0.92,
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    },
+    {
+      "weapon": "xm1014",
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_xm1014.cpp",
+      "sha256": "92f4881be6a728aeed54786a261c586dea1b2ae39fa004c0095ad16a3a50bc96",
+      "deployAccuracy": "preserve",
+      "resetShotCounter": false,
+      "retainsLastFire": true,
+      "retainsDirection": true
+    }
+  ],
+  "originalServer": {
+    "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/dlls/cs.so",
+    "sha256": "fcbbf24f0e31d2e9018a20d5b3f306dafc207d6b63454a13181d0758bc8a6f1e",
+    "deploy": "0x157310",
+    "spawn": "0x157360",
+    "inspection": "static disassembly; no original game executed"
+  },
+  "allocator": {
+    "url": "https://raw.githubusercontent.com/rehlds/ReHLDS/550f2d62f13f4ebeb029c1d9d1c212133202611d/rehlds/engine/pr_edict.cpp",
+    "sha256": "a51799a81a0546ee1e89d9d715f0ce5020a313c978217c51e4f5ec96285dccc4"
+  }
+}

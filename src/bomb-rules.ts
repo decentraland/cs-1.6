@@ -214,9 +214,12 @@ export function bombBlastDamage(distanceMetres: number): number {
   return Math.max(0, 500 * (1 - distanceMetres / C4_BLAST_RADIUS))
 }
 
+export function canReachBomb(feet: BombPoint, bomb: BombPoint, team = 2): boolean {
+  return team === 2 && Math.hypot(feet.x - bomb.x, feet.y + 0.96 - bomb.y, feet.z - bomb.z) <= 64 * 0.025
+}
+
 export function canDefuseBomb(feet: BombPoint, bomb: BombPoint, aim: BombPoint, team = 2): boolean {
-  if (team !== 2) return false
-  if (Math.hypot(feet.x - bomb.x, feet.y + 0.96 - bomb.y, feet.z - bomb.z) > 64 * 0.025) return false
+  if (!canReachBomb(feet, bomb, team)) return false
   const x = bomb.x - feet.x,
     y = bomb.y - (feet.y + 1.6),
     z = bomb.z - feet.z

@@ -65,7 +65,10 @@ async function save(name) {
 try {
   await c.connect()
   let s = await c.snapshot()
-  assert.ok(state(s).health.current >= 45 && state(s).health.current <= 65, 'run after grenades.mjs in the same fixture')
+  assert.ok(
+    state(s).health.current >= 45 && state(s).health.current <= 65,
+    'run after grenades.mjs in the same fixture'
+  )
   const spawn = s['1'].Transform.position
   await throwNear('flashbang')
   await c.aimAt({ x: spawn.x, y: spawn.y + 100, z: spawn.z + 1 })

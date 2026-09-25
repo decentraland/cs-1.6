@@ -5,7 +5,7 @@ import struct
 
 
 class Model:
-    def __init__(self, path):
+    def __init__(self, path, bodygroups=None):
         self.path = Path(path)
         self.data = self.path.read_bytes()
         assert self.data[:4] == b'IDST' and self.unpack('i', 4)[0] == 10
@@ -30,12 +30,20 @@ class Model:
         assert families >= 1
         skins = self.unpack(f'{skin_count}h', skin_offset)
         self.meshes = []
+        self.bodygroups = []
         count, offset = self.unpack('2i', 204)
+        selected = {} if bodygroups is None else bodygroups
+        assert all(type(group) is int and 0 <= group < count for group in selected), 'Unknown bodygroup index'
         for i in range(count):
             at = offset + i * 76
             models, base, model_offset = self.unpack('3i', at + 64)
-            assert models == 1, 'Choose bodygroup variants explicitly before adding another model'
-            at = model_offset
+            assert models == 1 or i in selected, 'Choose bodygroup variants explicitly before adding another model'
+            variant = selected.get(i, 0)
+            assert type(variant) is int and 0 <= variant < models, 'Invalid bodygroup variant'
+            group_name = self.string(at, 64)
+            at = model_offset + variant * 112
+            self.bodygroups.append(dict(index=i, name=group_name, base=base, selected=variant,
+                                        variants=models, model=self.string(at, 64)))
             mesh_count, mesh_offset, vertex_count, vertex_bones, vertices, normal_count, normal_bones, normals = self.unpack('8i', at + 72)
             points = [self.unpack('3f', vertices + j * 12) for j in range(vertex_count)]
             vectors = [self.unpack('3f', normals + j * 12) for j in range(normal_count)]

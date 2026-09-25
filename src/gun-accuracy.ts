@@ -267,8 +267,42 @@ const PISTOLS: Partial<
   fiveseven: { air: 1.5, move: 0.255, crouch: 0.075, stand: 0.15, interval: 0.275, recovery: 0.25, minimum: 0.725 }
 }
 
-export function freshGunAccuracy(id: GunId, reload = false): AccuracyState {
-  return { ...freshAccuracy(), accuracy: reload && ['aug', 'famas', 'mac10'].includes(id) ? 0 : GUNS[id].accuracy }
+export interface GunAccuracyMemory {
+  shots: number
+  accuracy: number
+  lastFire: number
+  right: boolean
+}
+
+export function rememberGunAccuracy(state: AccuracyState): GunAccuracyMemory {
+  return { shots: state.shots, accuracy: state.accuracy, lastFire: state.lastFire, right: state.right }
+}
+
+export function freshGunAccuracy(id: GunId): AccuracyState {
+  return { ...freshAccuracy(), accuracy: GUNS[id].accuracy }
+}
+
+export function deployGunAccuracy(
+  previous: AccuracyState,
+  id: GunId,
+  now: number,
+  stored?: Readonly<GunAccuracyMemory>
+): AccuracyState {
+  const punch = { ...previous }
+  recoverAccuracy(punch, now)
+  const state = { ...freshGunAccuracy(id), ...stored }
+  if (!['sg550', 'awp', 'scout', 'm3', 'xm1014'].includes(id)) state.accuracy = GUNS[id].accuracy
+  if (['ak47', 'aug', 'famas', 'galil', 'm249', 'm4a1', 'p90', 'sg552', 'tmp'].includes(id)) state.shots = 0
+  return { ...state, held: previous.held, pitch: punch.pitch, yaw: punch.yaw, updatedAt: now, recoverAt: now }
+}
+
+export function reloadGunAccuracy(state: AccuracyState, id: GunId, now: number) {
+  recoverAccuracy(state, now)
+  // Reload changes weapon accuracy, not the player's punch or last-fire clock.
+  if (AUTOMATIC[id]) {
+    state.accuracy = ['aug', 'famas', 'mac10'].includes(id) ? 0 : GUNS[id].accuracy
+    state.shots = 0
+  } else if (PISTOLS[id] || id === 'g3sg1') state.accuracy = GUNS[id].accuracy
 }
 
 export function gunSpread(

@@ -1,0 +1,176 @@
+✖ all 24 empty firearms send an intent with the original pistol/rifle click and no predicted shot effects (2.400209ms)
+✖ empty clicks obey life, match, menu, synchronization, pose and draw gates (0.5795ms)
+✖ automatic empty triggers repeat at 0.2 seconds; semi-auto pistols require another press (3.559958ms)
+✖ empty feedback waits for the last live shot cycle and resets for a newly equipped weapon (0.487416ms)
+✖ server empty attempts advance only the primary deadline and never consume ammunition or damage a target (14.03725ms)
+✖ empty shotguns click once per hold, retry at one second and can start their shell reload (0.579791ms)
+✖ empty AWP and Scout unscope for the dry cycle without changing the alternate deadline (2.168459ms)
+✖ empty touch intents cross SDK Room without echoing the local click or producing a live shot (7.238084ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 406.393583
+
+✖ failing tests:
+
+test at tests/empty-trigger.test.mjs:37:1
+✖ all 24 empty firearms send an intent with the original pistol/rifle click and no predicted shot effects (2.400209ms)
+  AssertionError [ERR_ASSERTION]: true/glock18
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/empty-trigger.test.mjs:42:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/empty-trigger.test.mjs:51:1
+✖ empty clicks obey life, match, menu, synchronization, pose and draw gates (0.5795ms)
+  AssertionError [ERR_ASSERTION]: draw
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/empty-trigger.test.mjs:68:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/empty-trigger.test.mjs:73:1
+✖ automatic empty triggers repeat at 0.2 seconds; semi-auto pistols require another press (3.559958ms)
+  AssertionError [ERR_ASSERTION]: mac10
+  
+  1 !== 3
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/empty-trigger.test.mjs:78:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/empty-trigger.test.mjs:87:1
+✖ empty feedback waits for the last live shot cycle and resets for a newly equipped weapon (0.487416ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/empty-trigger.test.mjs:94:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/empty-trigger.test.mjs:102:1
+✖ server empty attempts advance only the primary deadline and never consume ammunition or damage a target (14.03725ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(f.weapon.nextPrimaryAt - 10.2) < 1e-6)
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/empty-trigger.test.mjs:106:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/empty-trigger.test.mjs:121:1
+✖ empty shotguns click once per hold, retry at one second and can start their shell reload (0.579791ms)
+  AssertionError [ERR_ASSERTION]: m3
+  
+  0 !== 3
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/empty-trigger.test.mjs:126:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/empty-trigger.test.mjs:143:1
+✖ empty AWP and Scout unscope for the dry cycle without changing the alternate deadline (2.168459ms)
+  AssertionError [ERR_ASSERTION]: awp
+  
+  40 !== 90
+  
+      at TestContext.<anonymous> (file:///Users/boedo/Documents/Decentraland/cs-1.6/tests/empty-trigger.test.mjs:149:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 40,
+    expected: 90,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/empty-trigger.test.mjs:159:1
+✖ empty touch intents cross SDK Room without echoing the local click or producing a live shot (7.238084ms)
+  TypeError: (0 , import_practice.playerHeartbeat) is not a function
+      at evalmachine.<anonymous>:2759:41
+      at evalmachine.<anonymous>:528:15

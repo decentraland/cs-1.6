@@ -1,0 +1,45 @@
+✔ a hit point near an avatar cannot award damage when the aim points away (2.896625ms)
+✔ the measured Dust2 east wall stops shots before an avatar behind it (0.257667ms)
+✔ the first avatar on the actual ray wins regardless of registry ordering (0.343417ms)
+✔ human head, body, and leg shots use distinct hit regions and range damage (0.576417ms)
+✔ bots share the avatar hit boxes, head at eye height above the feet (0.224584ms)
+✔ one shooter spray does not change another shooter first shot (2.247292ms)
+✔ shared firing retains walking accuracy, running and airborne spread penalties, and release recovery (0.709583ms)
+✔ invalid aim and nonfinite avatar positions leave recoil state untouched (0.083333ms)
+✔ client and server resolve the same bullet from the shared seed (0.511833ms)
+✔ all 24 empty firearms send an intent with the original pistol/rifle click and no predicted shot effects (24.952334ms)
+✔ empty clicks obey life, match, menu, synchronization, pose and draw gates (4.977292ms)
+✔ automatic empty triggers repeat at 0.2 seconds; semi-auto pistols require another press (10.0515ms)
+✔ empty feedback waits for the last live shot cycle and resets for a newly equipped weapon (0.584125ms)
+✔ server empty attempts advance only the primary deadline and never consume ammunition or damage a target (16.485292ms)
+✔ empty shotguns click once per hold, retry at one second and can start their shell reload (13.973916ms)
+✔ empty AWP and Scout unscope for the dry cycle without changing the alternate deadline (18.1595ms)
+✔ empty touch intents cross SDK Room without echoing the local click or producing a live shot (6.048416ms)
+✔ mobile FIRE starts and stops actual client shots with only UI callbacks and no native binding events (43.575209ms)
+✔ leaving an untouched FIRE button does not disable native firing (2.772917ms)
+✔ native FIRE can start a new gesture after a callback-controlled gesture ends (5.527708ms)
+✔ two FIRE buttons keep independent holds and ignore stale bound input after release (4.53775ms)
+✔ menu/death/round transitions cancel touch fire until a new press (2.600958ms)
+✔ native FIRE rearms after release across a menu transition without resuming a stale hold (2.29825ms)
+✔ ordinary icon taps do not fire and reload/defuse release without native bindings (2.570833ms)
+✔ combat buttons draw icons and walk toggles visibly after one tap and release (1.846917ms)
+✔ latched walk changes real locomotion speed, survives menus, and leaves desktop hold behavior intact (1.112458ms)
+✔ desktop and touch shotguns report a target struck by later pellets when the first pellet misses (8.336833ms)
+✔ a later-pellet observation reaches the authoritative human rewind through SDK Room (31.288209ms)
+✔ client target observations follow weapon penetration through the actual Dust2 middle door (5.74625ms)
+✔ shotguns do not claim targets beyond their original pellet range (1.166834ms)
+✔ ordinary clear-sight targets remain reported for all 24 firearms (12.899416ms)
+✔ GoldSrc starts inside solid: it can leave, then hits the next entry; an entirely solid segment blocks targets (0.481542ms)
+✔ rifles, Deagle and bolt snipers have their original penetration counts; ordinary pistols and SMGs stop at the first wall (0.447083ms)
+✔ surface materials preserve the original damage multipliers (0.133125ms)
+✔ a penetrating hit loses range and damage and may hit a second player only once (0.307041ms)
+✔ Dust2 point hull reproduces the existing courtyard and spawn walls with source textures (0.094375ms)
+✔ real Dust2 middle doors: AK/M4/AWP/Deagle deal reduced damage; USP and shotgun pellets stop (1.429583ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1089.394666

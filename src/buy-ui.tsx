@@ -6,16 +6,23 @@ import { getLocalPlayerEntity } from './client'
 import { buyEquipment, canOpenBuyMenu, closeBuyMenu, isBuyMenuVisible, openBuyMenu } from './buy-client'
 import { GunCategory, GunProfile, gunProfile, buyMenuGuns } from './weapon-profiles'
 import { equipmentPrice } from './economy-rules'
+import { ammoFillPrice } from './inventory-rules'
 import { GRENADES } from './grenade-profiles'
 import { grenadeCount } from './grenade-rules'
 import { getMenuCursor } from './menu-state'
+import { isTouchPlatform } from './platform'
+import { ClassicTouchBuyMenu, clearTouchBuySelection } from './touch-buy-ui'
 import { amber, isMenuButtonHovered, MenuButton, MenuFrame, MenuInfoPanel, menuLayout } from './menu-ui'
 
 // CS 1.6 BuyMenu.res flow: a category list, then a submenu per category; 6/7 buy ammo directly.
 type Category = 'root' | GunCategory | 'equipment'
 interface BuyRow {
   label: string
+  purchase?: boolean
+  quickBuy?: boolean
   price?: number
+  detail?: string
+  position?: { left: number; top: number; width: number }
   enabled: boolean
   info: readonly string[]
   action: () => void
@@ -63,10 +70,12 @@ function buyRows(): BuyRow[] {
     armor: health.armor,
     helmet: equipment.helmet,
     defuseKit: equipment.defuseKit,
+    nightVision: equipment.nightVision,
     reserve: weapon.ammoReserve
   }
   const priced = (label: string, price: number | undefined, info: readonly string[], action: () => void): BuyRow => ({
     label,
+    purchase: true,
     price,
     enabled: price !== undefined && funds >= price,
     info: [
@@ -91,7 +100,7 @@ function buyRows(): BuyRow[] {
     const gun = stored && gunProfile(stored.id)
     if (!stored || !gun) return undefined
     const reserve = inventory.active === stored.id ? weapon.ammoReserve : stored.reserve
-    return reserve < gun.reserve ? gun.ammoPrice : undefined
+    return reserve < gun.reserve ? Math.max(gun.ammoPrice, ammoFillPrice(gun, reserve, funds)) : undefined
   }
   const back = (): BuyRow => ({
     label: '0 BACK',
@@ -112,6 +121,7 @@ function buyRows(): BuyRow[] {
   if (category !== 'root' && category !== 'equipment')
     return [...buyMenuGuns(team, category).map((gun, index) => gunRow(index + 1, gun)), back()]
   if (category === 'equipment') {
+    const helmetPrice = equipmentPrice(account, 'assaultsuit', team)
     const rows = [
       priced(
         '1 KEVLAR',
@@ -121,8 +131,13 @@ function buyRows(): BuyRow[] {
       ),
       priced(
         '2 KEVLAR+HELMET',
-        equipmentPrice(account, 'assaultsuit', team),
-        ['KEVLAR VEST & HELMET', '', 'Price: $1000', 'Adds head protection to the vest.'],
+        helmetPrice,
+        [
+          'KEVLAR VEST & HELMET',
+          '',
+          helmetPrice === undefined ? 'Already equipped.' : `Price: ${money(helmetPrice)}`,
+          'Adds head protection to the vest.'
+        ],
         () => buyEquipment('assaultsuit')
       )
     ]
@@ -143,7 +158,14 @@ function buyRows(): BuyRow[] {
         )
       )
     }
-    rows.push(priced('6 NIGHTVISION', undefined, ['NIGHTVISION', '', 'Price: $1250'], () => {}))
+    rows.push(
+      priced(
+        '6 NIGHTVISION',
+        equipmentPrice(account, 'nightvision', team),
+        ['NIGHTVISION', '', 'Price: $1250', 'Use the goggles button to toggle.'],
+        () => buyEquipment('nightvision')
+      )
+    )
     if (team === 2)
       rows.push(
         priced(
@@ -162,14 +184,58 @@ function buyRows(): BuyRow[] {
     open('3 SUB-MACHINE GUNS', 'smgs', ['SUB-MACHINE GUNS', '', 'Close-range automatic weapons.']),
     open('4 RIFLES', 'rifles', ['RIFLES', '', 'Assault rifles and sniper rifles.']),
     open('5 MACHINE GUN', 'machineguns', ['MACHINE GUN', '', 'M249 light machine gun.']),
-    priced('6 PRIMARY AMMO', ammoPrice('primary'), ['PRIMARY AMMO', '', 'One ammo pack for your primary.'], () =>
-      buyEquipment('ammo')
+    priced(
+      '6 PRIMARY AMMO',
+      ammoPrice('primary'),
+      ['PRIMARY AMMO', '', 'Buy as much primary ammo as you can afford.'],
+      () => buyEquipment('ammo')
     ),
-    priced('7 SECONDARY AMMO', ammoPrice('secondary'), ['SECONDARY AMMO', '', 'One ammo pack for your pistol.'], () =>
-      buyEquipment('secondaryammo')
+    priced(
+      '7 SECONDARY AMMO',
+      ammoPrice('secondary'),
+      ['SECONDARY AMMO', '', 'Buy as much pistol ammo as you can afford.'],
+      () => buyEquipment('secondaryammo')
     ),
     open('8 EQUIPMENT', 'equipment', ['EQUIPMENT', '', 'Armor, grenades and defusal kit.']),
-    { label: '0 CANCEL', enabled: true, info: [], action: closeBuyMenu }
+    {
+      label: 'AUTO BUY',
+      purchase: true,
+      quickBuy: true,
+      enabled: true,
+      detail: 'Rifle, ammo, armor; may replace primary',
+      info: [
+        'AUTO BUY',
+        '',
+        'Buy the default CS loadout you can afford.',
+        'Rifle, ammo, defusal kit and armor.',
+        'May replace your current primary weapon.'
+      ],
+      position: { left: 249, top: 116, width: 160 },
+      action: () => buyEquipment('autobuy')
+    },
+    {
+      label: 'REBUY',
+      purchase: true,
+      quickBuy: true,
+      enabled: true,
+      detail: 'Repeat previous equipment',
+      info: [
+        'REBUY',
+        '',
+        'Restore the equipment from your last purchase.',
+        'Buys what you can afford.',
+        'Keeps your current primary weapon.'
+      ],
+      position: { left: 249, top: 148, width: 160 },
+      action: () => buyEquipment('rebuy')
+    },
+    {
+      label: '0 CANCEL',
+      enabled: true,
+      info: [],
+      action: closeBuyMenu,
+      position: { left: 76, top: ROW_TOP + 8 * ROW_PITCH, width: 148 }
+    }
   ]
 }
 
@@ -178,8 +244,10 @@ export function buyMenuInputSystem() {
   if (!isBuyMenuVisible()) {
     category = 'root'
     keyDown = false
+    clearTouchBuySelection()
     return
   }
+  if (isTouchPlatform()) return
   const keys = [InputAction.IA_ACTION_3, InputAction.IA_ACTION_4, InputAction.IA_ACTION_5, InputAction.IA_ACTION_6]
   if (!keys.some((key) => inputSystem.isPressed(key))) keyDown = false
   if (keyDown || inputSystem.isPressed(InputAction.IA_MODIFIER)) return
@@ -192,7 +260,7 @@ export function buyMenuInputSystem() {
   })
 }
 
-export function BuyHud({ width, height }: { width: number; height: number }) {
+export function BuyHud({ width, height, notice }: { width: number; height: number; notice?: string }) {
   const player = getLocalPlayerEntity()
   if (player === null) return null
   const equipment = PlayerEquipment.getOrNull(player)
@@ -201,12 +269,24 @@ export function BuyHud({ width, height }: { width: number; height: number }) {
   const layout = menuLayout(width, height)
   const cursor = getMenuCursor()
   const rows = visible ? buyRows() : []
+  if (isTouchPlatform())
+    return visible ? (
+      <ClassicTouchBuyMenu
+        width={width}
+        height={height}
+        title={`BUY${category === 'root' ? '' : ` / ${category.toUpperCase()}`}`}
+        funds={funds}
+        notice={notice}
+        rows={rows}
+        onClose={closeBuyMenu}
+      />
+    ) : null
   const buttons = rows.map((row, index) => ({
     label: row.label,
     detail: row.price === undefined ? undefined : money(row.price),
-    left: layout.x(76),
-    top: layout.y(ROW_TOP + index * ROW_PITCH),
-    width: layout.size(148),
+    left: layout.x(row.position?.left ?? 76),
+    top: layout.y(row.position?.top ?? ROW_TOP + index * ROW_PITCH),
+    width: layout.size(row.position?.width ?? 148),
     height: layout.size(20),
     size: layout.font,
     enabled: row.enabled,
@@ -216,7 +296,9 @@ export function BuyHud({ width, height }: { width: number; height: number }) {
   const hovered = buttons.findIndex((props) => isMenuButtonHovered(props))
   const info = [`MONEY: ${money(funds)}`, '', ...(hovered >= 0 ? rows[hovered].info : [])]
   return (
-    <UiEntity uiTransform={{ positionType: 'absolute', position: { left: 0, top: 0 }, width: 0, height: 0 }}>
+    <UiEntity
+      uiTransform={{ positionType: 'absolute', position: { left: 0, top: 0 }, width, height, pointerFilter: 'none' }}
+    >
       <UiEntity
         uiTransform={{
           positionType: 'absolute',
@@ -234,7 +316,6 @@ export function BuyHud({ width, height }: { width: number; height: number }) {
           onMouseDown={openBuyMenu}
           uiTransform={{
             positionType: 'absolute',
-            // The HUD root is 0x0, so anchor from the left; mirrors the touch SCORES button above it.
             position: { left: width - 132, top: 104 },
             width: 110,
             height: 36,
@@ -247,11 +328,18 @@ export function BuyHud({ width, height }: { width: number; height: number }) {
         </UiEntity>
       )}
       {visible && (
-        <MenuFrame width={width} height={height} title="BUY" layout={layout} onBackdropClick={closeBuyMenu}>
+        <MenuFrame
+          width={width}
+          height={height}
+          title="BUY"
+          layout={layout}
+          notice={notice}
+          onBackdropClick={closeBuyMenu}
+        >
           {buttons.map((props, index) => (
             <MenuButton key={String(index)} {...props} />
           ))}
-          <MenuInfoPanel layout={layout} lines={info} />
+          <MenuInfoPanel layout={layout} lines={info} top={category === 'root' ? 184 : undefined} />
         </MenuFrame>
       )}
     </UiEntity>

@@ -1,0 +1,77 @@
+✖ an open buy menu releases camera capture, including a repeated renderer or resync capture (6.832791ms)
+✖ the team menu releases the actual camera entity required by Unity, not only its request entity (1.134208ms)
+✖ a new-round spawn or same-round resync cannot leave a visible buy menu locked (0.769916ms)
+✔ closing BUY restores capture while its held click cannot shoot through the menu (1.48125ms)
+✔ ordinary spawns still capture gameplay and menu-free frames never steal an Escape release (1.225375ms)
+✔ mobile spawn and menu updates never request a pointer lock (0.679708ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 3
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 90.602958
+
+✖ failing tests:
+
+test at tests/buy-capture.test.mjs:26:1
+✖ an open buy menu releases camera capture, including a repeated renderer or resync capture (6.832791ms)
+  AssertionError [ERR_ASSERTION]: BUY must retain a usable cursor
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-buy-capture-check/tests/buy-capture.test.mjs:33:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/buy-capture.test.mjs:38:1
+✖ the team menu releases the actual camera entity required by Unity, not only its request entity (1.134208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-buy-capture-check/tests/buy-capture.test.mjs:43:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/buy-capture.test.mjs:46:1
+✖ a new-round spawn or same-round resync cannot leave a visible buy menu locked (0.769916ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-buy-capture-check/tests/buy-capture.test.mjs:55:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

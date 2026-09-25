@@ -1,0 +1,70 @@
+{
+  "revision": "6ad155c7a610a85cfd443fcace2c97f2afcb2866",
+  "files": [
+    {
+      "repo": "u3games/CS-Server",
+      "revision": "6ad155c7a610a85cfd443fcace2c97f2afcb2866",
+      "path": "server/cstrike/decals.wad",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/decals.wad",
+      "bytes": 960012,
+      "sha256": "c9e852b60197177f1e6f54992c3f0e886425ab6e6cafe9f1b1e5e6b3bf80850c",
+      "file": "asset-sources/cs16-weapons/impacts/decals.wad"
+    },
+    {
+      "path": "server/valve/sound/weapons/ric1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/weapons/ric1.wav",
+      "bytes": 6124,
+      "sha256": "97fd0207f230ec8bda965c4a241d23896ce4fe73ca816c1839c0a3a3d925c4a5",
+      "file": "assets/sounds/weapons/ric1.wav"
+    },
+    {
+      "path": "server/valve/sound/weapons/ric2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/weapons/ric2.wav",
+      "bytes": 7052,
+      "sha256": "3ae429f875f1a06fe9e001b38b2453bbaca20f4c4e638ce75c4064367df7ca93",
+      "file": "assets/sounds/weapons/ric2.wav"
+    },
+    {
+      "path": "server/valve/sound/weapons/ric3.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/weapons/ric3.wav",
+      "bytes": 5440,
+      "sha256": "0be68c0c96ca8fc62073c3c6643de5b3f1b464609da38ef111d1a8f5d779cc4d",
+      "file": "assets/sounds/weapons/ric3.wav"
+    },
+    {
+      "path": "server/valve/sound/weapons/ric4.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/weapons/ric4.wav",
+      "bytes": 6596,
+      "sha256": "52f4f955d738a6d32a236f81372835c9b132cce0afe685449e9753ac15423575",
+      "file": "assets/sounds/weapons/ric4.wav"
+    },
+    {
+      "path": "server/valve/sound/weapons/ric5.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/valve/sound/weapons/ric5.wav",
+      "bytes": 5352,
+      "sha256": "8506b07b44bba069559612438ea278153113586173c7036a2ddf242179f1e27c",
+      "file": "assets/sounds/weapons/ric5.wav"
+    },
+    {
+      "path": "server/cstrike/sound/weapons/ric_metal-1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ric_metal-1.wav",
+      "bytes": 16118,
+      "sha256": "e1fb440e88fac0680be54c5a8e82feaadeebbccdfaa3691f58bc454160093593",
+      "file": "assets/sounds/weapons/ric_metal-1.wav"
+    },
+    {
+      "path": "server/cstrike/sound/weapons/ric_metal-2.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ric_metal-2.wav",
+      "bytes": 12372,
+      "sha256": "6f9d545ae480c2f282df1fb266f8886989892a765285fe2a6ae86ebd1f7b4b48",
+      "file": "assets/sounds/weapons/ric_metal-2.wav"
+    },
+    {
+      "path": "server/cstrike/sound/weapons/ric_conc-1.wav",
+      "url": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/ric_conc-1.wav",
+      "bytes": 12802,
+      "sha256": "43a8ec357f9fdc7f7d16bec3d974d421342fdb7335376a56bac80761d9f11329",
+      "file": "assets/sounds/weapons/ric_conc-1.wav"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # CS 1.6 grenades
 
-HE, flashbang and smoke are server-owned inventory items with original view/held/thrown models. Buy them under **Equipment**, then use **Shift+3** to cycle Flash → HE → Smoke. Hold the left mouse button to pull the pin and release it to throw. They cannot be dropped with the firearm-drop key.
+HE, flashbang and smoke are server-owned inventory items with original view/held/thrown models. Buy them under **Equipment**, then use **Shift+3** to cycle Flash → HE → Smoke. Hold the left mouse button to pull the pin and release it to throw. They cannot be dropped with the firearm-drop key. On mobile, the grenade icon cycles available grenades and the THROW icon pulls/releases the pin. A ready quick tap also throws after the minimum pin-pull time.
 
 | Grenade | Price | Maximum carried | Equipped speed |
 | --- | ---: | ---: | ---: |
@@ -21,6 +21,13 @@ Rules were checked against the original compatibility branches of [ReGameDLL_CS 
 - Flashbangs retire to another weapon after a throw even when a second flash remains. Exhausted HE/smoke also retire. Selection follows source weapon weights and excludes the item being retired.
 - Smoke blocks bot sight through a 115-unit sphere when more than 70% of that radius is crossed. The source's endpoint cases are preserved. The canister emits for 21.1 seconds, bot visibility blocking lingers four more seconds, and visible smoke lasts up to 30 seconds. New rounds remove projectiles, clouds and whiteouts.
 
+Press/release messages can share a server update. The server records a valid,
+ready pin pull when the press arrives, then performs the throw on the regular
+system update after release and the 0.5-second minimum. A press released before
+draw readiness is cancelled; holding through readiness still primes normally.
+Repeated pressed messages do not reset the pull time. Revision, sequence, life,
+round, C4 and phase guards still apply.
+
 ## Models and effects
 
 The three `fixed_v_*.mdl` files are from the approved [GameBanana pack](https://gamebanana.com/mods/227246). Each viewmodel has 844 triangles, source textures, its original rig and idle/pin/throw/deploy clips. Original `p_` models add 52 triangles each; animated `w_` models add 40 each with seven roll/toss/idle clips. Blender conversion preserves original palette pixels and frame timing. View animation and pin-pull audio begin locally; server acknowledgments do not replay the predicted animation.
@@ -31,7 +38,7 @@ The smoke presentation follows [cs16-client 9c891b8e](https://github.com/Velaron
 
 ## Verification and limits
 
-Run `npm run validate`. `tests/grenades.test.mjs` covers prices/caps, selection weights, no cooking, flash retirement, pitch/speed/inherited velocity, floor settling, HE falloff, facing/stacked flash rules, smoke geometry/timings and death inventory. `validate/grenade-assets.mjs` checks all three projectile rigs/clips, nine sprite atlases against every original palette pixel, and 31 original source hashes. Existing model validation covers the three new view/held models too.
+Run `npm run validate`. `tests/grenades.test.mjs` covers prices/caps, selection weights, no cooking, flash retirement, pitch/speed/inherited velocity, floor settling, HE falloff, facing/stacked flash rules, smoke geometry/timings and death inventory. `validate/grenade-assets.mjs` checks all three projectile rigs/clips, nine sprite atlases against every original palette pixel, and 31 original source hashes. Existing model validation covers the three new view/held models too. `tests/grenade-taps.test.mjs` drives actual SDK pointer callbacks through the production client, SDK Room serialization, and production grenade server; batched press/release now creates exactly one authoritative projectile for each grenade. [Regression evidence](../validate/game/grenade-taps/README.md).
 
 The browser fixture and captures are in [grenade evidence](../validate/game/grenades/README.md). The fixture raises starting funds, provides an AWP, pauses bots and extends the buy/round periods. It preserves purchase deductions and grenade mechanics. Those controlled checks do not establish full match or moving-bot parity.
 

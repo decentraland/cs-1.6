@@ -4,6 +4,8 @@ import { getPractice } from './practice'
 import { isTouchPlatform, pointerScreenPoint } from './platform'
 import { SpectatorMenuState } from './spectator-rules'
 
+export const touchOptions = { open: false }
+
 export const spectatorMenu = new SpectatorMenuState()
 
 export interface MenuRect {

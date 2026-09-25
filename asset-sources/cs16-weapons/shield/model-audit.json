@@ -1,0 +1,1512 @@
+[
+  {
+    "path": "models/p_shield.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "longer"
+      }
+    ],
+    "bones": 17,
+    "triangles": 176,
+    "textures": 4,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_deagle.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_deagle"
+      }
+    ],
+    "bones": 18,
+    "triangles": 206,
+    "textures": 4,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_fiveseven.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_fiveseven"
+      }
+    ],
+    "bones": 18,
+    "triangles": 176,
+    "textures": 4,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_flashbang.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_flashbang"
+      }
+    ],
+    "bones": 17,
+    "triangles": 158,
+    "textures": 5,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_glock18.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_glock18"
+      }
+    ],
+    "bones": 18,
+    "triangles": 196,
+    "textures": 4,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_hegrenade.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_flashbang"
+      }
+    ],
+    "bones": 17,
+    "triangles": 158,
+    "textures": 5,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_knife.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_knife"
+      }
+    ],
+    "bones": 17,
+    "triangles": 190,
+    "textures": 6,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_p228.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_p228"
+      }
+    ],
+    "bones": 18,
+    "triangles": 198,
+    "textures": 4,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_smokegrenade.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_flashbang"
+      }
+    ],
+    "bones": 17,
+    "triangles": 158,
+    "textures": 5,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/p_shield_usp.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_usp"
+      }
+    ],
+    "bones": 18,
+    "triangles": 218,
+    "textures": 4,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_deagle.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "hands",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_de"
+      },
+      {
+        "index": 2,
+        "name": "shield",
+        "base": 1,
+        "selected": 0,
+        "variants": 2,
+        "model": "shield_ref_shieldonly"
+      }
+    ],
+    "bones": 38,
+    "triangles": 1106,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_deagle.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "hands",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_de"
+      },
+      {
+        "index": 2,
+        "name": "shield",
+        "base": 1,
+        "selected": 1,
+        "variants": 2,
+        "model": "shield_glass"
+      }
+    ],
+    "bones": 38,
+    "triangles": 714,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_fiveseven.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_fiveseven"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 2,
+        "model": "shield_ref_shieldonly"
+      }
+    ],
+    "bones": 40,
+    "triangles": 1219,
+    "textures": 7,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_fiveseven.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_fiveseven"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 1,
+        "variants": 2,
+        "model": "shield_glass"
+      }
+    ],
+    "bones": 40,
+    "triangles": 827,
+    "textures": 7,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_flashbang.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_flash"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 2,
+        "model": "shield_ref_shieldonly"
+      }
+    ],
+    "bones": 33,
+    "triangles": 910,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "pullpin",
+        "frames": 41,
+        "fps": 36.0
+      },
+      {
+        "name": "throw",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_flashbang.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_flash"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 1,
+        "variants": 2,
+        "model": "shield_glass"
+      }
+    ],
+    "bones": 33,
+    "triangles": 518,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "pullpin",
+        "frames": 41,
+        "fps": 36.0
+      },
+      {
+        "name": "throw",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_glock18.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_glock18"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 2,
+        "model": "shield_ref_shieldonly"
+      }
+    ],
+    "bones": 38,
+    "triangles": 948,
+    "textures": 9,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_glock18.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_glock18"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 1,
+        "variants": 2,
+        "model": "shield_glass"
+      }
+    ],
+    "bones": 38,
+    "triangles": 556,
+    "textures": 9,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_hegrenade.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_he"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 2,
+        "model": "shield_ref_shieldonly"
+      }
+    ],
+    "bones": 33,
+    "triangles": 910,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "pullpin",
+        "frames": 41,
+        "fps": 36.0
+      },
+      {
+        "name": "throw",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_hegrenade.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_he"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 1,
+        "variants": 2,
+        "model": "shield_glass"
+      }
+    ],
+    "bones": 33,
+    "triangles": 518,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "pullpin",
+        "frames": 41,
+        "fps": 36.0
+      },
+      {
+        "name": "throw",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_knife.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "reference",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "reference"
+      }
+    ],
+    "bones": 51,
+    "triangles": 1102,
+    "textures": 5,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "slash",
+        "frames": 56,
+        "fps": 45.0
+      },
+      {
+        "name": "hit",
+        "frames": 56,
+        "fps": 45.0
+      },
+      {
+        "name": "deploy",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 2,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_p228.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_p228"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 2,
+        "model": "shield_ref_shieldonly"
+      }
+    ],
+    "bones": 38,
+    "triangles": 1089,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_p228.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_p228"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 1,
+        "variants": 2,
+        "model": "shield_glass"
+      }
+    ],
+    "bones": 38,
+    "triangles": 697,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_smokegrenade.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_smoke"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 2,
+        "model": "shield_ref_shieldonly"
+      }
+    ],
+    "bones": 33,
+    "triangles": 910,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "pullpin",
+        "frames": 41,
+        "fps": 36.0
+      },
+      {
+        "name": "throw",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_smokegrenade.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_smoke"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 1,
+        "variants": 2,
+        "model": "shield_glass"
+      }
+    ],
+    "bones": 33,
+    "triangles": 518,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "pullpin",
+        "frames": 41,
+        "fps": 36.0
+      },
+      {
+        "name": "throw",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_usp.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_usp"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 2,
+        "model": "shield_ref_shieldonly"
+      }
+    ],
+    "bones": 38,
+    "triangles": 1136,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/shield/v_shield_usp.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "rhand",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_rhand"
+      },
+      {
+        "index": 1,
+        "name": "weapon",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "shield_ref_usp"
+      },
+      {
+        "index": 2,
+        "name": "studio",
+        "base": 1,
+        "selected": 1,
+        "variants": 2,
+        "model": "shield_glass"
+      }
+    ],
+    "bones": 38,
+    "triangles": 744,
+    "textures": 8,
+    "sequences": [
+      {
+        "name": "idle1",
+        "frames": 2,
+        "fps": 16.0
+      },
+      {
+        "name": "shoot1",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot2",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "shoot_empty",
+        "frames": 24,
+        "fps": 36.0
+      },
+      {
+        "name": "reload",
+        "frames": 97,
+        "fps": 30.0
+      },
+      {
+        "name": "draw",
+        "frames": 16,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_idle",
+        "frames": 31,
+        "fps": 15.0
+      },
+      {
+        "name": "shield_up",
+        "frames": 11,
+        "fps": 30.0
+      },
+      {
+        "name": "shield_down",
+        "frames": 11,
+        "fps": 30.0
+      }
+    ]
+  },
+  {
+    "path": "models/w_shield.mdl",
+    "bodygroups": [
+      {
+        "index": 0,
+        "name": "studio",
+        "base": 1,
+        "selected": 0,
+        "variants": 1,
+        "model": "w_shield"
+      }
+    ],
+    "bones": 1,
+    "triangles": 118,
+    "textures": 3,
+    "sequences": [
+      {
+        "name": "idle",
+        "frames": 1,
+        "fps": 30.0
+      }
+    ]
+  }
+]

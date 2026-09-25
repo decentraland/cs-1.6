@@ -33,10 +33,10 @@ const { armorDamage } = require(join(output, 'economy-rules.js'))
 after(() => rmSync(output, { recursive: true, force: true }))
 const near = (a, b) => assert.ok(Math.abs(a - b) < 1e-7, `${a} != ${b}`)
 
-test('knife primary uses the original paused and chained damage with hit-dependent cooldowns', () => {
+test('knife primary preserves audited base damage with hit-dependent cooldowns', () => {
   const state = freshKnifeCooldown()
   const first = resolveKnifeAttack(state, 'swing', 100, true)
-  assert.equal(first.damage, 20)
+  assert.equal(first.damage, 15)
   near(state.nextPrimary, 100.4)
   near(state.nextSecondary, 100.5)
   assert.equal(resolveKnifeAttack(state, 'swing', 100.399, true), undefined)
@@ -44,7 +44,7 @@ test('knife primary uses the original paused and chained damage with hit-depende
   assert.equal(chained.damage, 15)
   near(state.nextPrimary, 100.8)
   assert.equal(resolveKnifeAttack(state, 'stab', 100.89, false), undefined)
-  assert.equal(resolveKnifeAttack(state, 'swing', 101.21, true).damage, 20)
+  assert.equal(resolveKnifeAttack(state, 'swing', 101.21, true).damage, 15)
   const miss = freshKnifeCooldown()
   resolveKnifeAttack(miss, 'swing', 200, false)
   near(miss.nextPrimary, 200.35)
@@ -79,7 +79,7 @@ test('knife reach distinguishes swing and stab, respects walls, and uses the ori
     direction = { x: 0, y: 0, z: 1 }
   const target = {
     id: 'enemy',
-    center: { x: 0, y: 0, z: 1.4 },
+    center: { x: 0, y: 0, z: 1.8 },
     regions: [{ group: 'body', y: 1.6, half: { x: 0.05, y: 0.05, z: 0.05 } }]
   }
   const clear = (_origin, _direction, limit) => limit

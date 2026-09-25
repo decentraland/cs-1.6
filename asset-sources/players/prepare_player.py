@@ -2,23 +2,11 @@
 import json
 import struct
 from pathlib import Path
-from mathutils import Euler
-
-GAITS = {'idle1', 'walk', 'run', 'crouch_idle', 'crouchrun', 'jump'}
-DEATHS = {'death1','death2','death3','head','gutshot','left','back','right','forward','crouch_die'}
+from player_collision import GAITS, DEATHS, gait_bones, collision_data
 FAMILIES = {'carbine','onehanded','dualpistols','rifle','mp5','shotgun','m249','grenade','c4','knife','ak47'}
 
 def included(name):
     return name in GAITS | DEATHS or (name.startswith('ref_') and name.rsplit('_',1)[-1] in FAMILIES)
-
-def gait_bones(model):
-    selected=[]
-    copy=True
-    for i,bone in enumerate(model.bones):
-        if bone['name']=='Bip01 Spine': copy=False
-        elif bone['parent'] >= 0 and model.bones[bone['parent']]['name']=='Bip01 Pelvis': copy=True
-        if copy: selected.append(i)
-    return selected
 
 def prepare_player(path, model):
     path=Path(path)
@@ -57,40 +45,7 @@ def prepare_player(path, model):
     tail=data[20+length:]
     path.write_bytes(struct.pack('<4sIIII',b'glTF',2,20+len(chunk)+len(tail),len(chunk),0x4e4f534a)+chunk+tail)
 
-    count,offset=model.unpack('2i',156)
-    boxes=[]
-    for i in range(count):
-        bone,group,*bounds=model.unpack('2i6f',offset+i*32)
-        if group not in range(1,8): continue
-        boxes.append({'bone':bone,'group':group,'center':[(bounds[j]+bounds[j+3])*.0125 for j in range(3)],
-                      'half':[(bounds[j+3]-bounds[j])*.0125 for j in range(3)]})
-    wanted={box['bone'] for box in boxes}
-    for index in list(wanted):
-        while model.bones[index]['parent'] >= 0:
-            index=model.bones[index]['parent']
-            wanted.add(index)
-    poses={}
-    def compact(values):
-        values=[[round(v,7) for v in frame] for frame in values]
-        return values[:1] if all(frame==values[0] for frame in values) else values
-    for sequence in model.sequences:
-        name=sequence['name']
-        if name in DEATHS: continue
-        tracks={}
-        for index in sorted(wanted):
-            if (index in lower) != (name in GAITS): continue
-            frames=[model.pose(sequence,frame,index) for frame in range(sequence['frames'])]
-            positions=compact([[v*.025 for v in frame[:3]] for frame in frames])
-            rotations=[]
-            previous=None
-            for frame in frames:
-                q=Euler(frame[3:],'XYZ').to_quaternion()
-                if previous is not None and q.dot(previous)<0: q.negate()
-                previous=q.copy()
-                rotations.append([q.x,q.y,q.z,q.w])
-            tracks[str(index)]={'p':positions,'q':compact(rotations)}
-        poses[name]={'fps':sequence['fps'],'frames':sequence['frames'],'bones':tracks}
-    runtime={'hands':{side:paths['Bip01 '+side+' Hand'] for side in ['R','L']},'durations':durations,
-             'parents':[b['parent'] for b in model.bones], 'lower':sorted(lower),'boxes':boxes,'poses':poses}
+    runtime={'hands':{side:paths['Bip01 '+side+' Hand'] for side in ['R','L']},
+             'durations':durations, **collision_data(model)}
     (path.parent/(path.stem+'-runtime.json')).write_text(json.dumps(runtime,separators=(',',':'))+'\n')
     return {'hands':runtime['hands'],'durations':durations}

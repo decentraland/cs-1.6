@@ -13,13 +13,15 @@ interface Pose {
   frames: number
   bones: Record<string, Track>
 }
-interface PlayerModel {
-  hands: { R: string; L: string }
-  durations: Record<string, number>
+export interface PlayerCollision {
   parents: number[]
   lower: number[]
   boxes: { bone: number; group: number; center: number[]; half: number[] }[]
   poses: Record<string, Pose>
+}
+interface PlayerModel extends PlayerCollision {
+  hands: { R: string; L: string }
+  durations: Record<string, number>
 }
 export const PLAYER_MODELS: Record<string, PlayerModel> = { arctic, urban }
 export const PLAYER_ANIMATION_FAMILY: Record<GunId, string> = {
@@ -114,8 +116,17 @@ function sample(track: number[][], frame: number) {
   return a.map((value, i) => value + (b[i] - value) * t)
 }
 export function bodyHitRegions(modelName: string, state: BodyPose, now: number): HitRegion[] {
+  const groups: HitGroup[] = ['body', 'head', 'body', 'stomach', 'arms', 'arms', 'legs', 'legs']
+  return posedBodyBoxes(PLAYER_MODELS[modelName], state, now)
+    .filter((box) => box.group >= 1 && box.group <= 7)
+    .map((box) => ({ ...box, group: groups[box.group] }))
+}
+export function posedBodyBoxes(
+  model: PlayerCollision,
+  state: BodyPose,
+  now: number
+): (Omit<HitRegion, 'group'> & { group: number })[] {
   if (!state.lower) return []
-  const model = PLAYER_MODELS[modelName]
   const layers = [state.lower, state.upper].map((layer) => {
     const pose = model.poses[layer.clip]
     const raw = Math.max(0, now - layer.at) * layer.rate * pose.fps
@@ -140,13 +151,12 @@ export function bodyHitRegions(modelName: string, state: BodyPose, now: number):
   }
   // GoldSrc +X forward/Z up becomes SDK +Z forward/Y up; feet are 36 units below the origin.
   const toDcl = (v: Vector3) => Vector3.create(-v.y, v.z, v.x)
-  const groups: HitGroup[] = ['body', 'head', 'body', 'stomach', 'arms', 'arms', 'legs', 'legs']
   return model.boxes.map((box) => {
     const bone = world[box.bone]
     const point = toDcl(Vector3.add(bone.p, Vector3.rotate(Vector3.create(...tuple3(box.center)), bone.q)))
     const axes = [Vector3.Right(), Vector3.Up(), Vector3.Forward()].map((v) => toDcl(Vector3.rotate(v, bone.q)))
     return {
-      group: groups[box.group],
+      group: box.group,
       x: point.x,
       y: point.y + 0.9,
       z: point.z,

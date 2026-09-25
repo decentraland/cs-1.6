@@ -1,0 +1,808 @@
+{
+  "before": 8,
+  "after": 7,
+  "hud": {
+    "health": 100,
+    "armor": 0,
+    "clip": 7,
+    "reserve": 0,
+    "money": 14300,
+    "seconds": 3536
+  },
+  "decals": [
+    [
+      "66177",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.41111112,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.41111112,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.47555,
+            "y": 12.5828285,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ],
+    [
+      "66178",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.011111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.011111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.21429,
+            "y": 12.706908,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ],
+    [
+      "66179",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.011111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.011111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.45374,
+            "y": 12.558443,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ],
+    [
+      "66182",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.8111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.8111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.76368,
+            "y": 12.58044,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ],
+    [
+      "131673",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.21111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.21111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.316696,
+            "y": 12.751507,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ],
+    [
+      "131675",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.21111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.21111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.63231,
+            "y": 12.52681,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ],
+    [
+      "131680",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.21111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.21111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.23169,
+            "y": 12.432882,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ],
+    [
+      "131702",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.6111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.6111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.771225,
+            "y": 12.703565,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ],
+    [
+      "131711",
+      {
+        "Material": {
+          "gltf": null,
+          "material": {
+            "unlit": {
+              "alphaTest": null,
+              "alphaTexture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.21111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              },
+              "castShadows": false,
+              "diffuseColor": {
+                "a": 1,
+                "b": 1,
+                "g": 1,
+                "r": 1
+              },
+              "texture": {
+                "tex": {
+                  "texture": {
+                    "filterMode": null,
+                    "offset": {
+                      "x": 0.21111111,
+                      "y": -0.055555556
+                    },
+                    "src": "assets/ui/bullet-decals.png",
+                    "tiling": {
+                      "x": 0.17777778,
+                      "y": 0.8888889
+                    },
+                    "wrapMode": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MeshRenderer": {
+          "mesh": {
+            "plane": {
+              "uvs": []
+            }
+          }
+        },
+        "Transform": {
+          "parent": 0,
+          "position": {
+            "x": 96.708855,
+            "y": 12.672505,
+            "z": 57.793068
+          },
+          "rotation": {
+            "w": 6.123234000000001e-17,
+            "x": 0,
+            "y": -1,
+            "z": 0
+          },
+          "scale": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 1
+          }
+        },
+        "VisibilityComponent": {
+          "propagateToChildren": null,
+          "visible": true
+        }
+      }
+    ]
+  ],
+  "camera": {
+    "parent": 0,
+    "position": {
+      "x": 95,
+      "y": 11.836,
+      "z": 52
+    },
+    "rotation": {
+      "w": -0.988327,
+      "x": 0.07856649,
+      "y": -0.13011578,
+      "z": -0.01034348
+    },
+    "scale": {
+      "x": 1,
+      "y": 1,
+      "z": 0.99999994
+    }
+  },
+  "player": {
+    "parent": 0,
+    "position": {
+      "x": 95,
+      "y": 10.026001,
+      "z": 52
+    },
+    "rotation": {
+      "w": -0.9914448,
+      "x": 0,
+      "y": -0.13052635,
+      "z": 0
+    },
+    "scale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  }
+}

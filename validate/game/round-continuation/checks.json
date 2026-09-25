@@ -1,0 +1,502 @@
+{
+  "result": {
+    "match": {
+      "phase": "won",
+      "round": 8,
+      "timeLeft": 25,
+      "ctScore": 8,
+      "tScore": 0
+    },
+    "weapon": {
+      "name": "M4A1",
+      "revision": 2,
+      "mode": 0,
+      "zoom": 90,
+      "resumeZoom": 90,
+      "alternateAt": 0,
+      "readyAt": 1790042942.33,
+      "damage": 32,
+      "ammoClip": 30,
+      "maxAmmoClip": 30,
+      "ammoReserve": 90,
+      "maxAmmoReserve": 90,
+      "fireRate": 0.08749999850988388,
+      "lastShotTime": 0,
+      "lastShotId": 0,
+      "lastFiredShotId": 0,
+      "isReloading": false,
+      "reloadTime": 3.049999952316284,
+      "reloadStartTime": 0,
+      "reloadStage": 0,
+      "reloadStepAt": 0,
+      "reloadStep": 0
+    },
+    "health": {
+      "current": 100,
+      "max": 100,
+      "armor": 0,
+      "maxArmor": 100
+    },
+    "inventory": {
+      "active": "m4a1",
+      "items": [
+        {
+          "id": "usp",
+          "clip": 12,
+          "reserve": 24
+        },
+        {
+          "id": "m4a1",
+          "clip": 30,
+          "reserve": 90
+        },
+        {
+          "id": "hegrenade",
+          "clip": -1,
+          "reserve": 1
+        }
+      ]
+    },
+    "bots": [
+      {
+        "entity": 262716,
+        "position": {
+          "x": 108.82301330566406,
+          "y": 10.87933349609375,
+          "z": 90.53337097167969
+        },
+        "alive": true
+      },
+      {
+        "entity": 197228,
+        "position": {
+          "x": 67.6668930053711,
+          "y": 10.026000022888184,
+          "z": 90.4685287475586
+        },
+        "alive": true
+      },
+      {
+        "entity": 197156,
+        "position": {
+          "x": 108.86116027832031,
+          "y": 10.87933349609375,
+          "z": 92.3618392944336
+        },
+        "alive": true
+      }
+    ],
+    "grenades": [],
+    "position": {
+      "x": 51.61083,
+      "y": 6.6126676,
+      "z": 46.70173
+    },
+    "speed": 5.75
+  },
+  "fired": {
+    "match": {
+      "phase": "won",
+      "round": 8,
+      "timeLeft": 23,
+      "ctScore": 8,
+      "tScore": 0
+    },
+    "weapon": {
+      "name": "M4A1",
+      "revision": 2,
+      "mode": 0,
+      "zoom": 90,
+      "resumeZoom": 90,
+      "alternateAt": 0,
+      "readyAt": 1790042942.33,
+      "damage": 32,
+      "ammoClip": 24,
+      "maxAmmoClip": 30,
+      "ammoReserve": 90,
+      "maxAmmoReserve": 90,
+      "fireRate": 0.08749999850988388,
+      "lastShotTime": 1790043038.5235004,
+      "lastShotId": 6,
+      "lastFiredShotId": 6,
+      "isReloading": false,
+      "reloadTime": 3.049999952316284,
+      "reloadStartTime": 0,
+      "reloadStage": 0,
+      "reloadStepAt": 0,
+      "reloadStep": 0
+    },
+    "health": {
+      "current": 100,
+      "max": 100,
+      "armor": 0,
+      "maxArmor": 100
+    },
+    "inventory": {
+      "active": "m4a1",
+      "items": [
+        {
+          "id": "usp",
+          "clip": 12,
+          "reserve": 24
+        },
+        {
+          "id": "m4a1",
+          "clip": 24,
+          "reserve": 90
+        },
+        {
+          "id": "hegrenade",
+          "clip": -1,
+          "reserve": 1
+        }
+      ],
+      "ammo": [
+        {
+          "type": "556nato",
+          "amount": 90
+        }
+      ]
+    },
+    "bots": [
+      {
+        "entity": 262716,
+        "position": {
+          "x": 110.07477569580078,
+          "y": 10.87933349609375,
+          "z": 79.59676361083984
+        },
+        "alive": true
+      },
+      {
+        "entity": 197228,
+        "position": {
+          "x": 67.958984375,
+          "y": 10.026000022888184,
+          "z": 79.43185424804688
+        },
+        "alive": true
+      },
+      {
+        "entity": 197156,
+        "position": {
+          "x": 109.5081787109375,
+          "y": 10.87933349609375,
+          "z": 81.32720947265625
+        },
+        "alive": true
+      }
+    ],
+    "grenades": [],
+    "position": {
+      "x": 52.31906,
+      "y": 6.6126676,
+      "z": 49.34487
+    },
+    "speed": 5.75
+  },
+  "reloaded": {
+    "match": {
+      "phase": "won",
+      "round": 8,
+      "timeLeft": 19,
+      "ctScore": 8,
+      "tScore": 0
+    },
+    "weapon": {
+      "name": "M4A1",
+      "revision": 2,
+      "mode": 0,
+      "zoom": 90,
+      "resumeZoom": 90,
+      "alternateAt": 0,
+      "readyAt": 1790042942.33,
+      "damage": 32,
+      "ammoClip": 30,
+      "maxAmmoClip": 30,
+      "ammoReserve": 84,
+      "maxAmmoReserve": 90,
+      "fireRate": 0.08749999850988388,
+      "lastShotTime": 1790043038.5235004,
+      "lastShotId": 6,
+      "lastFiredShotId": 6,
+      "isReloading": false,
+      "reloadTime": 3.049999952316284,
+      "reloadStartTime": 1790043039.984,
+      "reloadStage": 0,
+      "reloadStepAt": 0,
+      "reloadStep": 0
+    },
+    "health": {
+      "current": 100,
+      "max": 100,
+      "armor": 0,
+      "maxArmor": 100
+    },
+    "inventory": {
+      "active": "m4a1",
+      "items": [
+        {
+          "id": "usp",
+          "clip": 12,
+          "reserve": 24
+        },
+        {
+          "id": "m4a1",
+          "clip": 30,
+          "reserve": 84
+        },
+        {
+          "id": "hegrenade",
+          "clip": -1,
+          "reserve": 1
+        }
+      ],
+      "ammo": [
+        {
+          "type": "556nato",
+          "amount": 84
+        }
+      ]
+    },
+    "bots": [
+      {
+        "entity": 262716,
+        "position": {
+          "x": 111.70364379882812,
+          "y": 10.026000022888184,
+          "z": 60.30361557006836
+        },
+        "alive": true
+      },
+      {
+        "entity": 197228,
+        "position": {
+          "x": 53.35457992553711,
+          "y": 11.732666969299316,
+          "z": 66.20830535888672
+        },
+        "alive": true
+      },
+      {
+        "entity": 197156,
+        "position": {
+          "x": 113.59980773925781,
+          "y": 10.026000022888184,
+          "z": 61.307411193847656
+        },
+        "alive": true
+      }
+    ],
+    "grenades": [],
+    "position": {
+      "x": 52.31906,
+      "y": 6.6126676,
+      "z": 49.34487
+    },
+    "speed": 5.75
+  },
+  "grenade": {
+    "match": {
+      "phase": "won",
+      "round": 8,
+      "timeLeft": 16,
+      "ctScore": 8,
+      "tScore": 0
+    },
+    "weapon": {
+      "name": "HE Grenade",
+      "revision": 4,
+      "mode": 2,
+      "zoom": 90,
+      "resumeZoom": 90,
+      "alternateAt": 0,
+      "readyAt": 1790043046.944,
+      "damage": 0,
+      "ammoClip": -1,
+      "maxAmmoClip": -1,
+      "ammoReserve": 0,
+      "maxAmmoReserve": 1,
+      "fireRate": 0.3499999940395355,
+      "lastShotTime": 0,
+      "lastShotId": 6,
+      "lastFiredShotId": 6,
+      "isReloading": false,
+      "reloadTime": 0,
+      "reloadStartTime": 0,
+      "reloadStage": 0,
+      "reloadStepAt": 0,
+      "reloadStep": 0
+    },
+    "health": {
+      "current": 100,
+      "max": 100,
+      "armor": 0,
+      "maxArmor": 100
+    },
+    "inventory": {
+      "active": "hegrenade",
+      "items": [
+        {
+          "id": "usp",
+          "clip": 12,
+          "reserve": 24
+        },
+        {
+          "id": "m4a1",
+          "clip": 30,
+          "reserve": 84
+        },
+        {
+          "id": "hegrenade",
+          "clip": -1,
+          "reserve": 0
+        }
+      ],
+      "ammo": [
+        {
+          "type": "556nato",
+          "amount": 84
+        }
+      ]
+    },
+    "bots": [
+      {
+        "entity": 262716,
+        "position": {
+          "x": 104.78227996826172,
+          "y": 10.026000022888184,
+          "z": 43.13473892211914
+        },
+        "alive": true
+      },
+      {
+        "entity": 197228,
+        "position": {
+          "x": 49.942867279052734,
+          "y": 12.586000442504883,
+          "z": 47.85526657104492
+        },
+        "alive": true
+      },
+      {
+        "entity": 197156,
+        "position": {
+          "x": 105.35918426513672,
+          "y": 10.026000022888184,
+          "z": 44.49143600463867
+        },
+        "alive": true
+      }
+    ],
+    "grenades": [
+      {
+        "entity": 131596,
+        "kind": "hegrenade",
+        "phase": "flight"
+      }
+    ],
+    "position": {
+      "x": 52.31906,
+      "y": 6.6126676,
+      "z": 49.34487
+    },
+    "speed": 6.25
+  },
+  "next-round": {
+    "match": {
+      "phase": "freeze",
+      "round": 9,
+      "timeLeft": 3,
+      "ctScore": 8,
+      "tScore": 0
+    },
+    "weapon": {
+      "name": "M4A1",
+      "revision": 5,
+      "mode": 0,
+      "zoom": 90,
+      "resumeZoom": 90,
+      "alternateAt": 0,
+      "readyAt": 1790043047.698,
+      "damage": 32,
+      "ammoClip": 30,
+      "maxAmmoClip": 30,
+      "ammoReserve": 84,
+      "maxAmmoReserve": 90,
+      "fireRate": 0.08749999850988388,
+      "lastShotTime": 0,
+      "lastShotId": 6,
+      "lastFiredShotId": 6,
+      "isReloading": false,
+      "reloadTime": 3.049999952316284,
+      "reloadStartTime": 0,
+      "reloadStage": 0,
+      "reloadStepAt": 0,
+      "reloadStep": 0
+    },
+    "health": {
+      "current": 100,
+      "max": 100,
+      "armor": 0,
+      "maxArmor": 100
+    },
+    "inventory": {
+      "active": "m4a1",
+      "items": [
+        {
+          "id": "usp",
+          "clip": 12,
+          "reserve": 24
+        },
+        {
+          "id": "m4a1",
+          "clip": 30,
+          "reserve": 84
+        }
+      ],
+      "ammo": [
+        {
+          "type": "556nato",
+          "amount": 84
+        }
+      ]
+    },
+    "bots": [
+      {
+        "entity": 262704,
+        "position": {
+          "x": 85.5,
+          "y": 13.439299583435059,
+          "z": 131
+        },
+        "alive": true
+      },
+      {
+        "entity": 197132,
+        "position": {
+          "x": 85.5,
+          "y": 13.439299583435059,
+          "z": 133.5
+        },
+        "alive": true
+      },
+      {
+        "entity": 197154,
+        "position": {
+          "x": 85.5,
+          "y": 13.488900184631348,
+          "z": 136.5
+        },
+        "alive": true
+      }
+    ],
+    "grenades": [],
+    "position": {
+      "x": 51.61083,
+      "y": 6.6126676,
+      "z": 46.70173
+    },
+    "speed": 0
+  }
+}

@@ -1,3 +1,4 @@
+import { canFight } from './round-rules'
 import { Entity } from '@dcl/sdk/ecs'
 import { Weapon } from './components'
 import { getFpsAimDirection } from './fps-camera'
@@ -25,7 +26,7 @@ export function grenadeInput(player: Entity, pressed: boolean) {
     throwConfirmed = false
     sent = 0
   }
-  const active = round?.phase === 'live' || round?.phase === 'end'
+  const active = canFight(round)
   pressed &&= active
   if (pressed !== held || (pressed && now - sent >= 0.1)) {
     held = pressed

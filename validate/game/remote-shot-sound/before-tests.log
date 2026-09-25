@@ -1,0 +1,129 @@
+✖ other players hear both silenced variants through the production server and SDK Room (20.403791ms)
+✖ queued gunfire retains the weapon, silencer and origin from firing before a switch or movement (5.400666ms)
+✖ every firearm supplies sound before its remote avatar or weapon has replicated (9.519792ms)
+✖ unsilenced snapshots stay unsilenced and bot events use their declared mode (1.61475ms)
+✖ own acknowledgements, wrong rounds, untrusted peers and unknown guns do not emit remote gunfire (1.585ms)
+✖ legacy events retain available weapon-mode data without inventing a gun for a missing avatar (1.335916ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 0
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 393.839625
+
+✖ failing tests:
+
+test at tests/remote-shot-sound.test.mjs:47:1
+✖ other players hear both silenced variants through the production server and SDK Room (20.403791ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'm4a1_fire'
+  - 'm4a1_silenced_fire'
+          ^
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-remote-shot-sound-check/tests/remote-shot-sound.test.mjs:55:12)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'm4a1_fire',
+    expected: 'm4a1_silenced_fire',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/remote-shot-sound.test.mjs:61:1
+✖ queued gunfire retains the weapon, silencer and origin from firing before a switch or movement (5.400666ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'deagle_fire'
+  - 'm4a1_silenced_fire'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-remote-shot-sound-check/tests/remote-shot-sound.test.mjs:71:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'deagle_fire',
+    expected: 'm4a1_silenced_fire',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/remote-shot-sound.test.mjs:75:1
+✖ every firearm supplies sound before its remote avatar or weapon has replicated (9.519792ms)
+  AssertionError [ERR_ASSERTION]: glock18
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-remote-shot-sound-check/tests/remote-shot-sound.test.mjs:82:12)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/remote-shot-sound.test.mjs:88:1
+✖ unsilenced snapshots stay unsilenced and bot events use their declared mode (1.61475ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'usp_fire'
+  - 'usp_silenced_fire'
+         ^
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-remote-shot-sound-check/tests/remote-shot-sound.test.mjs:94:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'usp_fire',
+    expected: 'usp_silenced_fire',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/remote-shot-sound.test.mjs:97:1
+✖ own acknowledgements, wrong rounds, untrusted peers and unknown guns do not emit remote gunfire (1.585ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-remote-shot-sound-check/tests/remote-shot-sound.test.mjs:107:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/remote-shot-sound.test.mjs:110:1
+✖ legacy events retain available weapon-mode data without inventing a gun for a missing avatar (1.335916ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'usp_fire'
+  - 'usp_silenced_fire'
+         ^
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-remote-shot-sound-check/tests/remote-shot-sound.test.mjs:114:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'usp_fire',
+    expected: 'usp_silenced_fire',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

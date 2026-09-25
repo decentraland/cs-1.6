@@ -1,3 +1,4 @@
+import { canHandleWeapons } from './round-rules'
 import { dropPlayerDefuseKit } from './defuse-kits'
 import { dropPrimedGrenade } from './grenades'
 import { weaponWeight } from './inventory-rules'
@@ -57,6 +58,8 @@ export function spawnDroppedGun(
     clip: item.clip,
     reserve: item.reserve,
     mode: item.mode ?? 0,
+    accuracy: item.accuracy,
+    timing: item.timing,
     position,
     yaw: Math.atan2(forward.x, forward.z),
     round: match.round,
@@ -110,7 +113,7 @@ export function initializeDroppedWeapons() {
     if (
       player === undefined ||
       !match ||
-      !['freeze', 'live', 'end'].includes(match.phase) ||
+      !canHandleWeapons(match) ||
       data.round !== match.round ||
       !livePlayer(address, player) ||
       isBombBusy(address) ||
@@ -175,7 +178,7 @@ export function initializeDroppedWeapons() {
         data.position = drop.motion.position
         data.settled = drop.motion.settled
       }
-      if (!drop.motion.settled || !['freeze', 'live', 'end'].includes(match.phase)) continue
+      if (!drop.motion.settled || !canHandleWeapons(match)) continue
       for (const { address, player, position } of live) {
         if (!touchesGun(position, drop.motion.position)) continue
         storeActiveGun(player)
@@ -185,7 +188,14 @@ export function initializeDroppedWeapons() {
         if (
           !pickupGun(
             inventory,
-            { id: data.gun, clip: data.clip, reserve: data.reserve, mode: data.mode },
+            {
+              id: data.gun,
+              clip: data.clip,
+              reserve: data.reserve,
+              mode: data.mode,
+              accuracy: data.accuracy,
+              timing: data.timing
+            },
             true,
             PlayerEquipment.get(player).bombSelected ? 'c4' : inventory.active
           )

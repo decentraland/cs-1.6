@@ -1,12 +1,17 @@
+import type { AttackTimers } from './weapon-modes'
+import type { GunAccuracyMemory } from './gun-accuracy'
 import { GrenadeId, grenadeProfile, GRENADE_SLOT_ORDER } from './grenade-profiles'
-import { GunId, GUNS, WeaponId, gunProfile } from './weapon-profiles'
+import { GunId, GUNS, GunProfile, WeaponId, gunProfile } from './weapon-profiles'
 export interface StoredGun {
   id: string
   mode?: number
+  accuracy?: GunAccuracyMemory
+  timing?: AttackTimers
   clip: number
   reserve: number
 }
 export interface GunInventory {
+  knifeTiming?: AttackTimers
   active: string
   ammo?: { type: string; amount: number }[]
   items: StoredGun[]
@@ -77,14 +82,26 @@ export function buyGun(
   if (weaponWeight(id) > weaponWeight(inventory.active)) inventory.active = id
   return { money: money - gun.price, ...(replaced ? { dropped: { ...replaced, reserve: 0 } } : {}) }
 }
-export function buyGunAmmo(inventory: GunInventory, slot: string, money: number): { money: number; error?: string } {
+export function ammoFillPrice(gun: GunProfile, reserve: number, money: number): number {
+  const missingPacks = Math.max(0, Math.ceil((gun.reserve - reserve) / gun.ammoPack))
+  const affordablePacks = Math.max(0, Math.floor(money / gun.ammoPrice))
+  return Math.min(missingPacks, affordablePacks) * gun.ammoPrice
+}
+export function buyGunAmmo(
+  inventory: GunInventory,
+  slot: string,
+  money: number,
+  fillReserve = false
+): { money: number; error?: string } {
   const item = inventory.items.find((item) => gunProfile(item.id)?.slot === slot),
     gun = item && gunProfile(item.id)
   if (!item || !gun) return { money, error: 'You do not own a weapon in that slot.' }
   if (item.reserve >= gun.reserve) return { money, error: 'You cannot carry any more ammunition.' }
   if (money < gun.ammoPrice) return { money, error: 'You have insufficient funds!' }
-  syncAmmoPool(inventory, item.id, Math.min(gun.reserve, item.reserve + gun.ammoPack))
-  return { money: money - gun.ammoPrice }
+  const cost = fillReserve ? ammoFillPrice(gun, item.reserve, money) : gun.ammoPrice
+  const rounds = (cost / gun.ammoPrice) * gun.ammoPack
+  syncAmmoPool(inventory, item.id, Math.min(gun.reserve, item.reserve + rounds))
+  return { money: money - cost }
 }
 export function selectWeapon(inventory: GunInventory, slot: string): WeaponId | undefined {
   if (slot === 'grenade') {

@@ -1,3 +1,4 @@
+import { cameraAtZoom } from './read-camera.mjs'
 import assert from 'node:assert/strict'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -21,8 +22,8 @@ try {
   }
   await c.until(scoped, 'AWP scope active')
   assert.ok(
-    Object.values(await c.snapshot()).some((v) => v.TextureCamera),
-    'scope render target exists'
+    cameraAtZoom(await c.snapshot(), 40) || cameraAtZoom(await c.snapshot(), 10),
+    'native camera magnifies the scoped view'
   )
   await c.key('keyDown', '2', 'Digit2', 50)
   await pause(50)
@@ -30,10 +31,7 @@ try {
   await pause(1500)
   const beforeSwitch = readHud(await c.snapshot())
   assert.ok(beforeSwitch.clip >= 3, 'USP has ammunition for the capture checks')
-  assert.ok(
-    !Object.values(await c.snapshot()).some((v) => v.TextureCamera),
-    'switching to USP releases the scope render target'
-  )
+  assert.ok(cameraAtZoom(await c.snapshot(), 90), 'switching to USP restores normal camera FOV')
   for (const duration of [10, 70, 250]) {
     await c.evaluate('document.exitPointerLock()')
     await c.until((s) => !s['2'].PointerLock?.isPointerLocked, 'pointer released')

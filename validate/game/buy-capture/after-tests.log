@@ -1,0 +1,40 @@
+✔ an open buy menu releases camera capture, including a repeated renderer or resync capture (7.090333ms)
+✔ the team menu releases the actual camera entity required by Unity, not only its request entity (1.558667ms)
+✔ a new-round spawn or same-round resync cannot leave a visible buy menu locked (2.261458ms)
+✔ closing BUY restores capture while its held click cannot shoot through the menu (1.9635ms)
+✔ ordinary spawns still capture gameplay and menu-free frames never steal an Escape release (0.736542ms)
+✔ mobile spawn and menu updates never request a pointer lock (0.741333ms)
+✔ touching or dragging across gun rows only selects; the fixed cart purchases the displayed gun (66.2865ms)
+✔ the cart respects updated funds and ownership, and unavailable rows never purchase (3.803333ms)
+✔ closing, changing category and automatic buy-menu closure clear the selection (3.783375ms)
+✔ the cart stays outside scrolling content and above notices within every tested safe area (3.107333ms)
+✔ mobile FIRE starts and stops actual client shots with only UI callbacks and no native binding events (28.212167ms)
+✔ leaving an untouched FIRE button does not disable native firing (4.253333ms)
+✔ native FIRE can start a new gesture after a callback-controlled gesture ends (5.010459ms)
+✔ two FIRE buttons keep independent holds and ignore stale bound input after release (2.290083ms)
+✔ menu/death/round transitions cancel touch fire until a new press (3.834459ms)
+✔ native FIRE rearms after release across a menu transition without resuming a stale hold (4.116125ms)
+✔ ordinary icon taps do not fire and reload/defuse release without native bindings (2.486792ms)
+✔ combat buttons draw icons and walk toggles visibly after one tap and release (1.527625ms)
+✔ latched walk changes real locomotion speed, survives menus, and leaves desktop hold behavior intact (0.91075ms)
+✔ round results keep combat and equipment usable; freeze and match end have separate rules (0.400542ms)
+✔ server shots after each result spend ammo and credit one kill without changing the round result (26.614584ms)
+✔ queued bullets may cross the result transition but cannot cross freeze, match end or a new round (10.389ms)
+✔ after-result gun and knife attacks still enforce death, eligibility, bomb actions and match end (21.688167ms)
+✔ server knife hits during results still damage nearby enemies exactly once (14.205917ms)
+✔ every firearm can request a shot and reload from the real client during the result countdown (24.559625ms)
+✔ knife swings, stabs and rifle alternate controls remain available during the result (8.790208ms)
+✔ mobile result screens retain combat icons and slots, and remove them for dead or finished players (18.084208ms)
+✔ a primed grenade can be released across the round result without losing its throw request (0.513ms)
+✔ replaced FIRE and RELOAD buttons cannot leave attacks held on knife, grenade or C4 controls (37.409833ms)
+✔ removing the left FIRE control cancels its hold, including a late native press (2.863083ms)
+✔ gun-to-gun changes retain the same FIRE gesture and release normally (3.775708ms)
+✔ C4 to gun and grenade to knife require a fresh press on the replacement control (8.629583ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 525.746792

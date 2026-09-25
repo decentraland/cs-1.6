@@ -127,5 +127,11 @@ test('death after switching still drops the carried primary and clears the dead 
   assert.equal(botDeathGun(bot, pistol), undefined, 'duplicate death cannot drop again')
   const pistolOnly = { ...account(), inventory: startingInventory(1) }
   const used = createBotCombat(0, 'glock18', { clip: 5, reserve: 12 })
-  assert.deepEqual(botDeathGun(pistolOnly, used), { id: 'glock18', clip: 5, reserve: 12 })
+  assert.deepEqual(botDeathGun(pistolOnly, used), {
+    id: 'glock18',
+    clip: 5,
+    reserve: 12,
+    accuracy: { shots: 0, accuracy: 0.9, lastFire: 0, right: false },
+    timing: { primary: 0, secondary: 0 }
+  })
 })

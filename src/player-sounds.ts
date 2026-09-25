@@ -12,7 +12,7 @@ export function initializePlayerSounds() {
   // Room already authenticates the server; client callbacks have no sender context.
   room.onMessage('playerVoice', (data) => {
     if (!PLAYER_SOUNDS.some((name) => name === data.clip)) return
-    const key = data.address + (data.clip === 'bodysplat' ? ':splat' : ':voice')
+    const key = data.address + (data.clip === 'bodysplat' ? ':splat' : data.clip.includes('nvg') ? ':item' : ':voice')
     let voice = voices.get(key)
     if (!voice) {
       voice = { entity: engine.addEntity(), expires: 0 }

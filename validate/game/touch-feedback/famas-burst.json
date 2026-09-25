@@ -1,0 +1,38 @@
+{
+  "canvas": {
+    "devicePixelRatio": 1,
+    "height": 720,
+    "interactableArea": {
+      "bottom": 43.2,
+      "left": 194.40001,
+      "right": 86.4,
+      "top": 43.2
+    },
+    "width": 1280
+  },
+  "hud": {
+    "health": 100,
+    "armor": 0,
+    "clip": 25,
+    "reserve": 90,
+    "money": 10295,
+    "seconds": 3586
+  },
+  "labels": [
+    "Enemies left: 3",
+    "KNIFE",
+    "GRENADE",
+    "Bought FAMAS.",
+    "WALK",
+    "DROP",
+    "PRIMARY",
+    "PISTOL",
+    "JUMP",
+    "FIRE",
+    "RELOAD",
+    "BUY",
+    "SCORES",
+    "TEAM",
+    "AUTO"
+  ]
+}

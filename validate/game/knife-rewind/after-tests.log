@@ -1,0 +1,48 @@
+✔ real server handler rewinds a moving human, consumes ammo and confirms a kill exactly once (21.804333ms)
+✔ without a measured ping the current-position baseline misses that same crossing human (6.74ms)
+✔ a client cannot override human history with a claimed target position or bot view clock (7.623667ms)
+✔ a queued shot keeps its receipt-time rewind when cadence defers execution (4.988167ms)
+✔ a queued old shot cannot damage a respawn after the history is reset (5.783209ms)
+✔ current eligibility excludes dead, disconnected, spectator and future-round humans from rewind (29.825291ms)
+✔ rewound teammates still block the bullet without taking friendly damage (4.914875ms)
+✔ a validated client head position resolves immediately despite a small avatar smoothing offset (7.606916ms)
+✔ maximum-latency shots still have history when cadence queues them for a later tick (4.637167ms)
+✔ knife cues distinguish misses, flesh, stabs and walls with original sound pitch (0.418875ms)
+✔ the original knife Animator selects stab-hit and restarts slash order only on deployment (2.738084ms)
+✔ desktop and touch predict a contacted stab immediately and wait its 1.1-second cooldown (30.050708ms)
+✔ a clear miss and a nearby actual Dust2 wall choose different local knife feedback (5.474333ms)
+✔ a real knife intent crosses SDK Room, damages once, sounds on both clients and keeps the local animation (23.927041ms)
+✔ correction sounds once, while old-round, expired and replaced-weapon acknowledgements stay silent (15.193833ms)
+✔ the server rejects a previous-round knife request before claiming its sequence (4.352584ms)
+✔ actual SDK audio sources carry knife pitch and reset it when their pooled emitter plays another sound (4.05375ms)
+✔ desktop and touch knife requests carry the traced target, origin, zero speed and drawn bot time through SDK Room (27.067083ms)
+✔ real desktop/touch knife attacks hit the crossing human where drawn and damage only once through SDK Room (49.44925ms)
+✔ client bot time and target claims cannot substitute a measured human latency (5.595083ms)
+✔ backstab damage uses the victim facing at the historical contact rather than its new direction (10.717958ms)
+✔ a running knife origin may lead sampled movement, while remote and nonfinite origins fall back (19.607584ms)
+✔ small target smoothing is accepted inside the unchanged bound; an invented nearby victim is rejected (11.271125ms)
+✔ rewound knife targets remain blocked by actual Dust2 walls (5.965875ms)
+✔ rewind does not revive dead, disconnected or respawned humans, and teammates still block without damage (26.470334ms)
+✔ knife bot traces select the bounded historical pose and facing through the practice adapter (15.045375ms)
+✔ desktop and touch shotguns report a target struck by later pellets when the first pellet misses (14.84575ms)
+✔ a later-pellet observation reaches the authoritative human rewind through SDK Room (35.925334ms)
+✔ client target observations follow weapon penetration through the actual Dust2 middle door (8.807375ms)
+✔ shotguns do not claim targets beyond their original pellet range (1.634125ms)
+✔ ordinary clear-sight targets remain reported for all 24 firearms (25.769833ms)
+✔ round results keep combat and equipment usable; freeze and match end have separate rules (0.408ms)
+✔ server shots after each result spend ammo and credit one kill without changing the round result (30.760375ms)
+✔ queued bullets may cross the result transition but cannot cross freeze, match end or a new round (12.807292ms)
+✔ after-result gun and knife attacks still enforce death, eligibility, bomb actions and match end (27.797959ms)
+✔ server knife hits during results still damage nearby enemies exactly once (19.062167ms)
+✔ every firearm can request a shot and reload from the real client during the result countdown (27.475ms)
+✔ knife swings, stabs and rifle alternate controls remain available during the result (9.266542ms)
+✔ mobile result screens retain combat icons and slots, and remove them for dead or finished players (23.334875ms)
+✔ a primed grenade can be released across the round result without losing its throw request (0.613708ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1118.266333

@@ -33,9 +33,13 @@ try {
   await client.aimAt({ ...bot.transform.position, y: bot.transform.position.y + 1.35 })
   await picture('standing')
   console.log('PASS: three original bodies and hand-node bindings loaded; standing capture saved')
-  const dead = await client.until(s => state(s)?.bots.some(b => b.bot.index === 0 && !b.bot.alive), 'scripted server death', 20000)
+  const dead = await client.until(
+    (s) => state(s)?.bots.some((b) => b.bot.index === 0 && !b.bot.alive),
+    'scripted server death',
+    20000
+  )
   evidence.scriptedDeath = state(dead)
-  assert.equal(evidence.scriptedDeath.bots.find(b => b.bot.index === 0).animator.states[0].clip, 'head')
+  assert.equal(evidence.scriptedDeath.bots.find((b) => b.bot.index === 0).animator.states[0].clip, 'head')
   await pause(2200)
   await picture('corpse')
   evidence.status = 'rendered; scripted death verified; shooting input unverified'

@@ -1,3 +1,4 @@
+import { sceneCommand } from './smoke-support.mjs'
 import { readHud } from './read-hud.mjs'
 import { mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -226,17 +227,25 @@ async function aimAt(id) {
 }
 try {
   const { targetInfos } = await send('Target.getTargets')
-  const target = targetInfos.find((t) => t.type === 'page' && t.url.includes('127.0.0.1:8123'))
+  const targetFlag = process.argv.indexOf('--target-id')
+  const targetId = targetFlag < 0 ? undefined : process.argv[targetFlag + 1]
+  const target = targetInfos.find(
+    (t) => t.type === 'page' && (targetId ? t.targetId === targetId : t.url.includes('127.0.0.1:8123'))
+  )
+  assert.ok(target, 'requested preview tab exists')
+  const sceneFlag = process.argv.indexOf('--scene-title')
+  const sceneTitle = sceneFlag < 0 ? 'Counter-Strike' : process.argv[sceneFlag + 1]
+  const selectScene = sceneCommand(sceneTitle)
   sessionId = (await send('Target.attachToTarget', { targetId: target.targetId, flatten: true })).sessionId
   await send('Page.bringToFront')
   await send('Runtime.enable')
   await send('Emulation.setFocusEmulationEnabled', { enabled: true })
-  await evaluate("window.engine_console_command('/set_scene Counter-Strike')")
+  await evaluate(`window.engine_console_command(${JSON.stringify(selectScene)})`)
   if (!process.argv.includes('--fresh-page')) {
     await evaluate("window.engine_console_command('/reload')")
     await pause(4000)
   }
-  await evaluate("window.engine_console_command('/set_scene Counter-Strike')")
+  await evaluate(`window.engine_console_command(${JSON.stringify(selectScene)})`)
   const initial = await startGame()
   console.log('LIVE', labels(initial))
   assert.equal(enemies(initial).length, 3, 'three CT bots spawn against the lone T')

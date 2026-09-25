@@ -30,6 +30,8 @@ export interface BulletImpact<T> {
   position: Point
   damage: number
   material: string
+  normal?: Point
+  texture?: string
 }
 export function traceBullet<T>(options: {
   gun: GunId
@@ -111,6 +113,8 @@ export function traceBullet<T>(options: {
       distance: travelled + distance,
       position,
       material,
+      normal: !hit ? wall.normal : undefined,
+      texture: !hit ? wall.texture : undefined,
       damage: hit ? damage * hitMultiplier(hit.group) : 0
     })
     if (hit) damaged.add(hit.target)

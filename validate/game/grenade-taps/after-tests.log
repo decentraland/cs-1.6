@@ -1,0 +1,13 @@
+✔ press and release received between server updates prime and throw each grenade exactly once (5.227375ms)
+✔ a held grenade still waits for release without cooking, and repeated press messages do not restart the pull (0.72225ms)
+✔ draw-blocked taps are cancelled, while holding through readiness pulls once the gun is ready (1.973125ms)
+✔ stale, invalid and replayed presses cannot prime; death, switching, C4 and freeze cancel throws (5.523166ms)
+✔ a real SDK UI tap reaches the production client and Room server as one thrown grenade even in one packet batch (35.944875ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 160.346042

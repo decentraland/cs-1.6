@@ -1,6 +1,11 @@
 ## Automated previews
 
 Use `npm run start:server -- --port <port>` (or explicit `--web --no-browser --no-client`).
+For mobile, `npm start -- --mobile --no-browser` prints the SDK QR without opening a client.
+Use its exact link (including `pulse-realm` and any `pulse-server`), also available
+at `/mobile-preview`; never handcraft a QR from only the LAN URL. Let the installed
+auth-server SDK choose the authority version; update SDK/runtime together and restart
+the process after upgrades. The former scene-specific server pin is obsolete.
 Plain `npm start -- --web` opens the default browser and must not be used by automation.
 Use one isolated muted headless browser, track its server and close both afterward.
 Do not launch Unity or native Explorer. Preserve the creator's port 8000 server.
@@ -33,17 +38,26 @@ npx prettier --check src tests validate     # formatting gate (.prettierignore s
 npm run deploy
 ```
 
-Browser regressions live in `validate/*.mjs` and need a CDP websocket; see `README.md`.
+Use `npm run test:smoke` for bounded Bevy readiness checks. It starts npm web preview
+from a temporary copy with its own multiplayer identity on a free port, and uses
+the official hosted decentraland.org/bevy-web build.
+Pass `--realm http://127.0.0.1:<port>` to reuse a creator-owned preview.
+It owns one muted headless browser, writes full evidence to disk, and prints a compact
+PASS/FAIL. Read that summary first; inspect only the relevant failure details. No
+automatic retries or broad browser checks for unrelated changes. The longer existing
+encounter regression is opt-in with `--scenario game --timeout 240` on an isolated
+scene/server identity. Other browser regressions in `validate/*.mjs` still accept a
+CDP websocket; see `README.md`. Native phone input/comfort needs a device check.
 
 ## Code Architecture
 
 Entry: `src/index.ts` registers the message schemas, then runs the server (`setupServerAuthoritative`, `initializePractice`) or the client (`setupClientMessageHandlers`, `addClientSystems`, `setupUI`) based on `isServer()`. `src/components.ts` defines all synced components with `Schemas`; server-owned ones use `validateBeforeChange` against `AUTH_SERVER_PEER_ID`.
 
 - **Match and bots (server):** `practice.ts` owns the `Practice` round state, team roster, bot spawning/AI loop and kill credit; rules in `team-rules.ts` (`fillBots`, `admitToTeam`, `teamRoundWinner`), `round-rules.ts`, `team-spawns.ts`, `bot-navigation.ts`/`navigation.ts` (movement state machine, string-pulled routes), `bot-motion.ts` (shared CS velocity/flinch plus authoritative map clipping), `bot-behavior.ts` (pure roam/hold/strafe/callout heuristics), `bot-combat.ts`, `bot-objective.ts`.
-- **Combat (server):** `server.ts` validates shots/knife attacks and applies damage; `ballistics.ts`, `combat-rules.ts`, `accuracy.ts`/`gun-accuracy.ts`, `knife-rules.ts`, `weapon-profiles.ts`, `world-query.ts`/`map-collision.ts`, `systems.ts` (reloads).
+- **Combat (server):** `server.ts` validates shots/knife attacks and applies damage; `ballistics.ts`, `combat-rules.ts`, `accuracy.ts`/`gun-accuracy.ts`, `knife-rules.ts`, `weapon-profiles.ts`, `world-query.ts`/`map-collision.ts`, `systems.ts` (reloads), `rewind-rules.ts` (bot lag compensation: per-bot one-second history, `ServerClock`, shot `seenAt`, bounded observed-position claim), `human-rewind.ts` (server-measured RTT, per-life human history, bounded observed-position claims; see `docs/CS16-HUMAN-REWIND.md`).
 - **Objective and economy (server):** `bomb.ts` + `bomb-rules.ts`/`bomb-sites.ts`; shared `weapon-box-rules.ts` for gun/C4 body-pitch tosses and grounded touch volumes; `economy.ts` + `economy-rules.ts`/`buy-zones.ts`; `inventory.ts` + `inventory-rules.ts`; `defuse-kits.ts`/`defuse-kit-rules.ts` for separate ground-kit pickup, bot/human ownership and round cleanup.
 - **Client input and view:** `client.ts` (shooting, reload, damage feedback, systems registration), `bomb-client.ts` (weapon slot keys, C4 select/drop/plant/defuse), `buy-client.ts`, `locomotion.ts`, `cs-movement.ts` + `cs-movement-rules.ts`/`movement-ground.ts` (Bevy velocity controller, native ground rays, bounded stair lift and bullet flinch), `fps-camera.ts` (live/death/chase `VirtualCamera` with punch, recoil prediction), `weapon-view.ts` (first-person viewmodel, `CameraModeArea`, punch tilt), `world-weapons.ts` (hand-attached weapon models on other players and bots via `AvatarAttach`; Dual Elites use both hands), `spectator.ts` + `spectator-rules.ts`, `damage-feedback.ts`, `movement-feedback.ts`, `recoil-prediction.ts`, `aim.ts`.
-- **UI (React ECS):** `ui.tsx` root; `hud.tsx`, `scoreboard-ui.tsx` + `scoreboard.ts`, `team-menu-ui.tsx` + `buy-ui.tsx` on the shared `menu-ui.tsx` frame + `menu-state.ts`, `bomb-ui.tsx`, `radar-ui.tsx` + `radar-rules.ts`, `pain-ui.tsx`, `bitmap-text.tsx`.
+- **UI (React ECS):** `ui.tsx` root; `touch-controls.tsx`, `touch-menu-ui.tsx` and `touch-layout.ts` for mobile controls/menus; `hud.tsx`, `scoreboard-ui.tsx` + `scoreboard.ts`, `team-menu-ui.tsx` + `buy-ui.tsx` on the shared `menu-ui.tsx` frame + `menu-state.ts`, `bomb-ui.tsx`, `radar-ui.tsx` + `radar-rules.ts`, `pain-ui.tsx`, `bitmap-text.tsx`.
 - **Shared:** `delaySystem.ts` (frame-based `delay()`; there is no `setTimeout`).
 
 ## Key Bindings
@@ -58,7 +72,24 @@ One match per realm. Picking a team starts the freeze immediately; a playing sid
 
 On desktop the live view is a scene-driven `VirtualCamera` at eye height (`fps-camera.ts`) so recoil and victim punch can rotate it like CS 1.6; the same camera does the death fall and spectator chase cam. It follows the avatar transform one frame late, so `client.ts` hides the local avatar with a client-only hide-avatars `AvatarModifierArea` (all other players and bots in `excludeIds`). The engine first-person camera cannot be rotated by the scene, so do not switch to it on desktop. Shots send mouse aim alone; the server applies punch.
 
-**Touch (Godot mobile):** the explorer reports `platform: 'mobile'` via `getExplorerInformation` and never sets `PointerLock.isPointerLocked`, and its `PrimaryPointerInfo.screenDelta` is not a look input. `src/platform.ts` exposes `isTouchPlatform()`/`hasAimControl()`; on touch the live view is the engine first-person camera (aim from the camera transform), every pointer-lock gate uses `hasAimControl()`, `TouchScreenControls` makes the big button fire, and the HUD adds BUY/SCORES buttons. Keep both paths working.
+**Touch (Godot mobile):** use the native first-person camera and `hasAimControl()`;
+mobile never locks the pointer. `touch-actions.ts` builds the root
+`TouchScreenControls`: FIRE is `mainAction: IA_ACTION_6`, jump is a satellite,
+F reloads/stabs, ACTION_3 toggles walk/run, ACTION_4 changes the weapon mode.
+Unused actions are explicitly hidden; keep at most five visible to avoid native
+overflow. `client.ts` updates the component only when its configuration changes.
+`touch-controls.tsx` draws the carried-weapon bar, buy-zone-only cart, OPTIONS
+utilities, defuse and spectator actions. Native controls hide during menus,
+death and lost sync; equipment-kind/context changes cancel held input. Keep
+root-event collection in `combat-input.ts` and the UI hold adapter for defuse and
+spectating. Never use IA_POINTER for mobile fire; ordinary UI taps emit it.
+Team/buy/slot keyboard shortcuts are disabled on touch. Mobile buying uses `touch-buy-ui.tsx`: the desktop numbered lists and separate
+Auto Buy/Rebuy buttons, with purchases on completed taps and slide-off cancellation.
+Defuse is hidden out of reach and turns green when in range and facing the C4;
+leaving range cancels its hold without cancelling FIRE. Native icons come from
+`asset-sources/touch-controls/icons.svg`, exported by `render-native.cjs` using
+`@resvg/resvg-js`; see `docs/CS16-TOUCH-CONTROLS.md`. Headless Bevy cannot prove
+native iOS gamepad layout or multitouch behavior.
 
 ## SDK7 Key Concepts
 
@@ -118,7 +149,7 @@ The same applies inside `for (const [entity, weapon] of engine.getEntitiesWith(W
 - **Scene Config:** `scene.json` defines scene metadata, parcels, spawn points, and feature toggles
 - **Build Output:** `bin/index.js` (specified in scene.json's `main` field)
 - **Prettier:** no semicolons, single quotes, 120 char width, no trailing commas; run `npx prettier --write` on files you touch
-- **SDK pin:** `@dcl/sdk` and `@dcl/js-runtime` are pinned to `7.27.1-33533530571.commit-451d001`; keep the exact pin
+- **SDK versions:** use the versions selected in `package.json`. Keep the installed root `@dcl/js-runtime` on the same build as `@dcl/sdk`; the compact runner checks this before launching. SDK 7.29 fixes the older cross-entity input scan bug, so tests must assert current input behavior rather than require that bug.
 
 ## Node Requirements
 
@@ -148,7 +179,7 @@ import { AUTH_SERVER_PEER_ID } from '@dcl/sdk/network/message-bus-sync'
 PlayerHealth.validateBeforeChange((value) => value.senderAddress === AUTH_SERVER_PEER_ID)
 ```
 
-Clients send intent only (aim direction, shot/knife sequence, trigger state, use held). The server resolves the ray against humans and bots, applies punch/spread, damage, deaths, round results, money and inventory, then broadcasts the result. Clients never choose the hit target, hit point, or shot origin.
+Clients send intent (aim, shot/knife sequence, trigger/use state) and observed shot context (origin, movement, target position and bot view time). These observations are bounded claims, not damage verdicts. The server validates them, resolves the ray against historical humans/bots, applies punch/spread, damage, deaths, round results, money and inventory, then broadcasts the result. See `docs/CS16-HUMAN-REWIND.md` for timing and trust limits.
 
 ### Message Schemas (Not Plain JSON)
 
@@ -202,9 +233,9 @@ if (isServer()) {
 }
 ```
 
-## Authoritative sound events
+## Authoritative client events
 
-Client `room.onMessage` callbacks receive only the payload; the SDK Room already discards senders other than `authoritative-server`. Sender context exists on server callbacks. Checking `context.from` on a client silently rejects every legitimate event. `player-sounds.ts` relies on Room authentication and limits clip names to the fixed original-player-sound list.
+Client `room.onMessage` callbacks receive only the payload; the SDK Room already discards senders other than `authoritative-server`. Sender context exists on server callbacks. Checking `context.from` on a client silently rejects every legitimate event. `player-sounds.ts` relies on Room authentication and limits clip names to the fixed original-player-sound list. The latency probe handler follows the same callback contract; `tests/latency-echo.test.mjs` uses SDK Room dispatch to catch accidentally requiring client sender context. Server handlers still require context to identify the responding player.
 
 ## Bevy movement controller
 
@@ -243,3 +274,8 @@ clients suppress gun/knife prediction and show the connection status.
 Bot hit prediction and server traces read the same synchronized `BotBodyPose`.
 Use `validate/prepare-combat-recovery.mjs` and `validate/combat-recovery.mjs` for
 real mouse fire, source-model bot death and finite USP clip/reserve checks.
+
+- The pinned SDK's `Schemas.Optional` drops falsy scalars (`0`, `false`, empty
+  strings). When zero/false must differ from absent legacy data, put required
+  fields inside an optional map. Gunfire's `fire` snapshot uses this so an
+  unsilenced mode 0 cannot fall back to a later mode 1. Keep its SDK Room wire test.

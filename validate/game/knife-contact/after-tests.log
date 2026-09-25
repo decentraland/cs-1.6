@@ -1,0 +1,36 @@
+✔ ordinary first, held and paused slashes use the audited 15 base damage (0.40475ms)
+✔ fallback contacts use the standing box and generic damage instead of expanded head regions (0.303042ms)
+✔ direct knife lines retain hit groups and take precedence over a nearer fallback box (0.322ms)
+✔ fallback reach uses axis-aligned player bounds independently of animation and facing (0.157ms)
+✔ a world line blocks fallback contacts and neither attack accepts an invalid direction (0.061458ms)
+✔ desktop and touch fallback stabs cross SDK Room without becoming lethal headshots (58.187583ms)
+✔ server slash cadence, revised damage and kill credit remain authoritative (11.210459ms)
+✔ knife cues distinguish misses, flesh, stabs and walls with original sound pitch (0.390917ms)
+✔ the original knife Animator selects stab-hit and restarts slash order only on deployment (2.671292ms)
+✔ desktop and touch predict a contacted stab immediately and wait its 1.1-second cooldown (28.953834ms)
+✔ a clear miss and a nearby actual Dust2 wall choose different local knife feedback (5.027167ms)
+✔ a real knife intent crosses SDK Room, damages once, sounds on both clients and keeps the local animation (22.761084ms)
+✔ correction sounds once, while old-round, expired and replaced-weapon acknowledgements stay silent (13.93925ms)
+✔ the server rejects a previous-round knife request before claiming its sequence (4.624083ms)
+✔ actual SDK audio sources carry knife pitch and reset it when their pooled emitter plays another sound (4.033792ms)
+✔ desktop and touch knife requests carry the traced target, origin, zero speed and drawn bot time through SDK Room (30.574208ms)
+✔ real desktop/touch knife attacks hit the crossing human where drawn and damage only once through SDK Room (48.857708ms)
+✔ client bot time and target claims cannot substitute a measured human latency (5.325ms)
+✔ backstab damage uses the victim facing at the historical contact rather than its new direction (10.99075ms)
+✔ a running knife origin may lead sampled movement, while remote and nonfinite origins fall back (14.85875ms)
+✔ small target smoothing is accepted inside the unchanged bound; an invented nearby victim is rejected (14.097167ms)
+✔ rewound knife targets remain blocked by actual Dust2 walls (4.129333ms)
+✔ rewind does not revive dead, disconnected or respawned humans, and teammates still block without damage (27.592667ms)
+✔ knife bot traces select the bounded historical pose and facing through the practice adapter (18.397125ms)
+✔ knife primary preserves audited base damage with hit-dependent cooldowns (0.411958ms)
+✔ knife stab uses 65 damage, triples a backstab, and shares its hit or miss lockout (0.07325ms)
+✔ knife backstab requires attacker and victim horizontal facing within the source dot threshold (0.0625ms)
+✔ knife reach distinguishes swing and stab, respects walls, and uses the original armor ratio (0.266625ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1129.944458

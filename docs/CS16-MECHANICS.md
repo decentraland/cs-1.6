@@ -5,6 +5,10 @@ revision: ReGameDLL_CS `b0889847fe6d03898be88acc9e366660efb40ab5`.
 ReGameDLL is a reverse-engineered implementation, so tests against an actual
 CS 1.6 client remain necessary before claiming parity.
 
+Implementation status was reconciled on 2026-09-21. Browser measurements below
+describe their recorded fixtures, not a new run of the current scene. See the
+[plan](../IMPLEMENTATION_PLAN.md) for outstanding acceptance checks.
+
 ## AK firing
 
 There are two different effects: punch angles move the firing direction upward
@@ -47,8 +51,8 @@ Punch magnitude decays by `(10 + magnitude * 0.5) * dt`; the scene samples this 
 100 Hz independent of request cadence. Shots use the decayed punch before the
 new shot adds its kick. Lateral direction changes use the profile's random chance.
 
-The configured AK movement cap is 221 units/s, with an initial meter conversion
-of 0.025 m/unit and a provisional Shift multiplier of 0.52. This puts configured
+The configured AK movement cap is 221 units/s, with a meter conversion
+of 0.025 m/unit and a walking multiplier of 0.52. This puts configured
 walking below the AK's 140-unit spread threshold. Verify actual movement in the
 browser; receiving Shift does not itself authorize better server-side accuracy.
 [Movement and punch decay](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/pm_shared/pm_shared.cpp).
@@ -57,10 +61,10 @@ browser; receiving Shift does not itself authorize better server-side accuracy.
 
 Implemented: server-owned cadence, magazine/reload, speed/airborne spread,
 punch-driven bullet trajectory, explicit trigger release, range damage, shared
-bot/human hit-region queries, and authoritative bullet impact feedback. Random samples use the server
-a shared per-round seed: the server picks it, sends it on spawn, and both sides derive each shot's stream from `seed + shotId` (`shared-random.ts`), so client prediction reproduces the server's kick flips and spread samples. GoldSrc only shares the seed for pistols and lets the client choose it; here every gun shares it and the server chooses it.
+bot/human hit-region queries, and authoritative bullet impact feedback. Random
+samples use a shared per-round seed: the server picks it, sends it on spawn, and both sides derive each shot's stream from `seed + shotId` (`shared-random.ts`), so client prediction reproduces the server's kick flips and spread samples. GoldSrc only shares the seed for pistols and lets the client choose it; here every gun shares it and the server chooses it.
 
-**Camera punch.** The live view is a scene-driven `VirtualCamera` at 1.6 m eye
+**Camera punch.** The desktop live view is a scene-driven `VirtualCamera` at 1.6 m eye
 height (`fps-camera.ts`), aimed from `PrimaryPointerInfo.screenDelta`. The
 predicted recoil punch (`getViewPunch`) and victim pain punch (`getPainPunch`)
 rotate that camera as in GoldSrc, so pulling the mouse down counters the punch;
@@ -69,8 +73,10 @@ mouse aim alone and the server applies its authoritative punch to each shot
 once. The virtual camera follows the avatar transform one frame late, so the
 client hides its own avatar with a local hide-avatars `AvatarModifierArea`
 (every other player and bot excluded) instead of using the engine's first-person
-camera, which the scene cannot rotate. Remaining gaps versus CS 1.6 are the
-sensitivity/FOV settings, not view handling.
+camera, which the scene cannot rotate. Mobile retains the native touch-look
+camera and currently has no camera punch or scope magnification. Desktop Bevy
+native FOV now works; see [scope proof](../validate/game/native-scope/README.md)
+and [client camera limitations](EXPLORER-INCONSISTENCIES.md#15-virtualcamerafov-support-differs-between-clients).
 
 Viewmodel tilt and weapon animation still respond to local input before server
 feedback. Acknowledgements are mapped back to their original local shot time,
@@ -82,17 +88,22 @@ events only, so other clients cannot inject kicks.
 
 The client predicts the current lateral kick direction; the server supplies its
 random direction changes. This is responsive presentation with reconciliation,
-reproduced on the client through the shared per-round seed. Matching CS sensitivity/FOV still needs work. The
-the browser checks of visible camera kick/recovery (`validate/camera.mjs`) were
+reproduced on the client through the shared per-round seed. Side-by-side
+sensitivity and recoil comparison remains open. The browser checks of visible camera kick/recovery (`validate/camera.mjs`) were
 rewritten to read the viewmodel during a brief engine-camera experiment and have
 not been re-run since the `VirtualCamera` view returned.
 
 The SDK maintainer confirmed that native crouch hulls, acceleration, friction,
 and gravity are not configurable through AvatarLocomotionSettings. Its supported
 controls are movement/gliding speeds, jump heights, falling-speed limits while
-gliding, and the hard-landing cooldown. Exact counter-strafing and air acceleration
-remain unimplemented. Penetration remains open. Weapon switching and knife
-combat are implemented; the remaining weapon presets have not yet received this reference pass.
+gliding, and the hard-landing cooldown. Desktop Bevy now supplies acceleration,
+friction, counter-strafing, gravity and flinch through its velocity components;
+native collision still prevents complete GoldSrc physics parity. Mobile retains
+the locomotion-settings fallback. See [movement](CS16-MOVEMENT.md).
+Penetration, weapon switching, knife combat and all 24 firearm profiles are
+implemented; see [arsenal rules and evidence](CS16-ARSENAL.md) and
+[reload parity](CS16-WEAPON-RELOAD.md). Exact in-client behavior remains a
+separate acceptance check from source-rule tests.
 
 Validation matrix: 30-round standing spray, moving spray, Shift-walking spray,
 release-and-refire before/after 0.4 seconds, jump shooting, reload, and
@@ -102,6 +113,14 @@ Browser checks must additionally cover real movement, visible bullet impacts,
 and complete scored rounds. See `validate/game.mjs`.
 
 ## Frame and network timing
+
+The 2026-09-22 [short M4A1 touch trace](../validate/game/cadence-trace/README.md)
+accepted eight consecutive request IDs. Scheduled intervals were 87.5 ms;
+actual execution followed server ticks (first-to-last 638 ms, versus 612.5 ms
+scheduled). The production-server regression replays these arrivals. This
+trace did not reproduce the prior missing request, so the 50 ms scheduling
+window remains unchanged. Rejection logs now identify which guard rejected a
+request; larger packet bursts and full-magazine/native-device parity remain open.
 
 Client firing retains fractional frame time between requests. Server arrival
 jitter previously rejected valid shots just before the cooldown ended. Requests
@@ -121,26 +140,26 @@ recovery passed; exact firing-rate and GoldSrc prediction parity remain open. Se
 
 ## Shared player ballistics
 
-`ballistics.ts` resolves all player-fired AK rounds. The server constructs the
-origin from observed avatar feet plus 1.6 m, applies the shooter's own stored
-punch and spread, then selects the nearest target region before map geometry.
-`playerShoot` carries the client's own eye position, horizontal speed, grounded
-flag and, when its local trace hit someone, that target and the target position it
-saw. The server does not rewind: avatar positions and scene messages arrive on
-different channels with different latency, so a timestamp rewind would not match
-what the client saw. Instead `hit-claims.ts` accepts each value only if it is
-within 1 m of a position the server sampled for that shooter/target in the last
-second (speed within 2 m/s of the server's estimate; "grounded" only when the
-server cannot see the shooter clearly airborne), then re-runs the deterministic
-trace itself from the accepted origin with the claimed target box at the accepted
-position. Rejected values fall back to the server's own samples. Misses still
-consume an accepted round. The same resolver runs for bots.
+`ballistics.ts` resolves firearm rays with weapon-specific punch, spread,
+penetration and damage. `playerShoot` carries aim, shot sequence, the client's
+eye position, speed, grounded flag, observed target position and server view time.
+`hit-claims.ts` validates origin/movement against recent server samples, including
+a bounded speed-dependent origin allowance for moving shooters. Rejected values
+fall back to server observations; a target claim alone never awards a hit.
 
-Humans and bots share one standing-avatar hit box set (head at 1.6 m, body at
-1.05 m, legs at 0.325 m above the feet); bots used to carry a lower head box that
-sat at the neck. They do not reproduce model-specific CS hitboxes or crouch
-geometry. Armor/helmet behavior is implemented for the current AK and bomb damage
-paths.
+Bots use one second of position/yaw/animation history and bounded `seenAt` time
+from the synchronized `ServerClock`, plus a claimed position accepted within
+35 cm of the bot's path from 300 ms before to 100 ms after that time. Humans use server-measured RTT plus an
+interpolation allowance and a tightly bounded observed-position correction;
+see [human rewind](CS16-HUMAN-REWIND.md) for limits, lifecycle guards and tests.
+Every accepted shot is re-traced through targets and map surfaces before damage
+is applied. Accepted misses still consume ammunition. Knife and blast queries
+use current targets.
+
+Human hitboxes remain oriented standing-avatar proxies. Bots use the original
+Arctic/Urban animated source hitboxes; see [player models](CS16-PLAYER-MODELS.md).
+Armor/helmet and hit-group rules are shared across firearm profiles and bot/human
+victims. Crouch geometry and original animated human bodies remain open.
 Every round is a T/CT match; a side with no connected human is filled with three
 bots, and shots are resolved against humans and bots through the same targets
 list. Do not infer complete PvP from passing geometric hit tests.
@@ -283,8 +302,10 @@ the planting button on completion does not accidentally fire a pistol shot.
 The pinned [knife implementation](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/wpn_shared/wpn_knife.cpp)
 and [knife constants](https://github.com/rehlds/ReGameDLL_CS/blob/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/weapons.h#L1176-L1185)
 set a 250-unit movement cap, a 48-unit primary reach, and a 32-unit stab reach.
-With the scene's 0.025 m/unit conversion these are 1.2 m and 0.8 m. The first or
-paused primary hit deals 20 damage; a chained hit deals 15. Primary miss/contact
+With the scene's 0.025 m/unit conversion these are 1.2 m and 0.8 m line lengths.
+Ordinary slashes deal 15 base damage, including first and paused hits. The
+[source and original-binary audit](../validate/game/knife-contact/README.md)
+corrects the previous 20-after-pause assumption. Primary miss/contact
 cooldowns are 0.35/0.4 seconds and lock the stab for 0.5 seconds. Stabs deal 65,
 miss/contact cooldowns are 1.0/1.1 seconds, and a horizontal facing dot product
 above 0.8 triples damage from behind.
@@ -300,10 +321,18 @@ the implemented 0.85 ratio.
 
 **3** equips the implicit knife (**1** primary, **2** pistol, as in CS 1.6). Left
 mouse swings. Bevy reserves right mouse for camera lock and does not expose it to
-this scene, so **F** currently performs the stab; with a gun the same key reloads. The first-person knife is a geometry proxy pending the asset
-pass. The two-client browser regression verifies range rejection, 20→15 chained
-damage, a 65-damage frontal stab, a 195-damage rear stab, Knife kill feed credit,
-and two scoreboard kills in `validate/game/knife.json`.
+this scene, so **F** currently performs the stab; with a gun the same key reloads.
+The original GameBanana knife model and source animations are installed. Touch
+has separate slash/stab controls. Direct knife lines retain hit-group multipliers;
+a missed line falls back to the standing axis-aligned player box and generic
+body damage. This avoids inflated headshots from expanded anatomical regions.
+The old browser recording in `validate/game/knife.json` predates these corrections.
+Current production-handler and SDK Room coverage is linked from the audit above.
+World-edge misses now use Dust2's original BSP head hull and the source
+center/corner-ray contact refinement. [World-contact evidence](../validate/game/knife-world/README.md)
+covers the actual Dust2 edge, server feedback/cooldown and independent BSP samples.
+Static brushes, mixed map/weapon scale, exact GoldSrc numerical trace behavior and
+native-device playtests remain limits.
 
 ## Death camera and chase spectator
 

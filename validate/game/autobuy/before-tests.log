@@ -1,0 +1,185 @@
+✖ default auto-buy purchases one team rifle, reserve, kit and armor for the original total price (3.145542ms)
+✖ auto-buy follows rifle fallback prices and buys only affordable ammo packs before equipment (0.789417ms)
+✖ pistol-round auto-buy keeps the pistol and honors ammo, CT kit and helmet-to-vest fallback order (0.940417ms)
+✖ auto-buy can replace a carried primary, but stops on an already-owned candidate even when its buy fails (2.588833ms)
+✖ auto-buy shares MP5/Glock ammo without charging twice and saves the final equipment for rebuy (0.763084ms)
+✖ auto-buy restores damaged armor, and neither invalid buy contexts nor a dead player can spend (1.101542ms)
+✖ SDK Room auto-buy authenticates the buyer and ignores stale-round and replayed requests (4.288334ms)
+✖ mobile quick buys appear first and selecting auto-buy only spends through the fixed cart (36.234833ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 191.471833
+
+✖ failing tests:
+
+test at ../../../../../private/tmp/cs16-autobuy/tests/autobuy.test.mjs:10:1
+✖ default auto-buy purchases one team rifle, reserve, kit and armor for the original total price (3.145542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'USP' !== 'M4A1'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-autobuy/tests/autobuy.test.mjs:14:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'USP',
+    expected: 'M4A1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-autobuy/tests/autobuy.test.mjs:32:1
+✖ auto-buy follows rifle fallback prices and buys only affordable ammo packs before equipment (0.789417ms)
+  AssertionError [ERR_ASSERTION]: 2/3250: m4a1
+      at TestContext.<anonymous> (file:///private/tmp/cs16-autobuy/tests/autobuy.test.mjs:45:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-autobuy/tests/autobuy.test.mjs:51:1
+✖ pistol-round auto-buy keeps the pistol and honors ammo, CT kit and helmet-to-vest fallback order (0.940417ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  800 !== 90
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-autobuy/tests/autobuy.test.mjs:63:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 800,
+    expected: 90,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-autobuy/tests/autobuy.test.mjs:70:1
+✖ auto-buy can replace a carried primary, but stops on an already-owned candidate even when its buy fails (2.588833ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(item(p, 'm4a1'))
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-autobuy/tests/autobuy.test.mjs:75:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-autobuy/tests/autobuy.test.mjs:94:1
+✖ auto-buy shares MP5/Glock ammo without charging twice and saves the final equipment for rebuy (0.763084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1999 !== 439
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-autobuy/tests/autobuy.test.mjs:98:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1999,
+    expected: 439,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-autobuy/tests/autobuy.test.mjs:109:1
+✖ auto-buy restores damaged armor, and neither invalid buy contexts nor a dead player can spend (1.101542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  16000 !== 10695
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-autobuy/tests/autobuy.test.mjs:114:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 16000,
+    expected: 10695,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-autobuy/tests/autobuy.test.mjs:134:1
+✖ SDK Room auto-buy authenticates the buyer and ignores stale-round and replayed requests (4.288334ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  16000 !== 11345
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-autobuy/tests/autobuy.test.mjs:143:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 16000,
+    expected: 11345,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-autobuy/tests/autobuy.test.mjs:152:1
+✖ mobile quick buys appear first and selecting auto-buy only spends through the fixed cart (36.234833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'PISTOLS'
+  - 'AUTO BUY'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-autobuy/tests/autobuy.test.mjs:157:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'PISTOLS',
+    expected: 'AUTO BUY',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

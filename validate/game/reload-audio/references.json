@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-22",
+  "regamedll_commit": "b0889847fe6d03898be88acc9e366660efb40ab5",
+  "references": [
+    {
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/weapons.cpp",
+      "sha256": "e6f0fb2a50ad2a43affd7c48e6d5d07085990af19f748b49df6d6c8571f70cae"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/rehlds/ReGameDLL_CS/b0889847fe6d03898be88acc9e366660efb40ab5/regamedll/dlls/weapons.h",
+      "sha256": "b266455df20267bebf7ccb9b449a005912c00464c566a45374d41629d9af7c7f"
+    }
+  ],
+  "existing_clip": {
+    "path": "assets/sounds/weapons/reload.wav",
+    "source": "https://raw.githubusercontent.com/u3games/CS-Server/6ad155c7a610a85cfd443fcace2c97f2afcb2866/server/cstrike/sound/weapons/generic_reload.wav",
+    "sha256": "95a9ab12ddf7af958f6021703610d55700d488757bcd9d0f6ed11971b69d5bfe",
+    "bytes": 34464
+  }
+}

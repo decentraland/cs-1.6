@@ -1,3 +1,16 @@
+interface RoundActivity {
+  phase: string
+  matchOver?: boolean
+}
+
+export function canFight(round: RoundActivity | undefined): boolean {
+  return !!round && !round.matchOver && ['live', 'won', 'lost', 'draw'].includes(round.phase)
+}
+
+export function canHandleWeapons(round: RoundActivity | undefined): boolean {
+  return !!round && !round.matchOver && (round.phase === 'freeze' || canFight(round))
+}
+
 export interface RoundState {
   phase: string
   ctScore: number

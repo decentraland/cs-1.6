@@ -58,6 +58,9 @@ export function traceShot<T>(origin: Point, direction: Point, targets: readonly 
   }
   return {
     hit,
+    normal: !hit && wall.solid ? wall.normal : undefined,
+    material: !hit && wall.solid ? wall.material : undefined,
+    texture: !hit && wall.solid ? wall.texture : undefined,
     distance,
     position: {
       x: origin.x + direction.x * distance,
@@ -117,6 +120,11 @@ export function aimShot(options: ShotAim): ShotPlan | undefined {
     y: horizontal,
     z: (-direction.y * direction.z) / horizontal
   }
+  if (gun === 'elite') {
+    const offset = (options.mode ? -1 : 1) * 5 * 0.025
+    origin.x += right.x * offset
+    origin.z += right.z * offset
+  }
   const directions: Point[] = []
   for (let pellet = 0; pellet < GUNS[gun].pellets; pellet++) {
     let x: number, y: number
@@ -135,16 +143,21 @@ export function aimShot(options: ShotAim): ShotPlan | undefined {
   return { origin, direction: directions[0], spread, directions }
 }
 
-export function fireGunShot<T>(options: ShotAim & { damage: number; targets: readonly ShotTarget<T>[] }) {
-  const plan = aimShot(options)
-  if (!plan) return undefined
-  const gun = options.gun ?? 'ak47'
-  const rangeModifier =
-    options.continuationSpread !== undefined
-      ? gun === 'glock18'
-        ? 0.9
-        : 0.96
-      : modeStats(GUNS[gun], options.mode, options.zoom).rangeModifier
+export function traceGunShot<T>(options: {
+  gun: GunId
+  plan: ShotPlan
+  damage: number
+  mode?: number
+  zoom?: number
+  continuation?: boolean
+  targets: readonly ShotTarget<T>[]
+}) {
+  const { gun, plan } = options
+  const rangeModifier = options.continuation
+    ? gun === 'glock18'
+      ? 0.9
+      : 0.96
+    : modeStats(GUNS[gun], options.mode, options.zoom).rangeModifier
   const pelletHits = (GUNS[gun].pellets > 1 ? (plan.directions ?? [plan.direction]) : []).map((direction) => {
     const hit = traceShot(plan.origin, direction, options.targets, GUNS[gun].range)
     const base = Math.floor(options.damage * Math.max(0, 1 - hit.distance / GUNS[gun].range))
@@ -175,10 +188,22 @@ export function fireGunShot<T>(options: ShotAim & { damage: number; targets: rea
           }
         ]
 
+  return { ...pellets[0], pellets, impacts }
+}
+
+export function fireGunShot<T>(options: ShotAim & { damage: number; targets: readonly ShotTarget<T>[] }) {
+  const plan = aimShot(options)
+  if (!plan) return undefined
   return {
-    ...pellets[0],
-    pellets,
-    impacts,
+    ...traceGunShot({
+      gun: options.gun ?? 'ak47',
+      plan,
+      damage: options.damage,
+      mode: options.mode,
+      zoom: options.zoom,
+      continuation: options.continuationSpread !== undefined,
+      targets: options.targets
+    }),
     spread: plan.spread,
     origin: plan.origin,
     pitch: options.accuracy.pitch,

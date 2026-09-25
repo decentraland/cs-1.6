@@ -1,3 +1,6 @@
+import { broadcastReloadSound, broadcastShellReloadSound } from './reload-audio'
+import { knifeFeedback } from './knife-feedback-rules'
+import { canFight, canHandleWeapons } from './round-rules'
 import { dropDeadPlayer } from './dropped-weapons'
 import { resetPlayerFall } from './falling'
 import { fallDamage, resolveFall } from './fall-rules'
@@ -18,7 +21,8 @@ import {
   PlayerStats,
   MatchLeaderboard,
   Weapon,
-  Bot
+  Bot,
+  ServerClock
 } from './components'
 import { room } from './index'
 import { armorDamage, START_MONEY } from './economy-rules'
@@ -35,6 +39,9 @@ import {
   rejoinPlayer,
   botEntityByAddress,
   botPositionHistory,
+  practiceTargetsAt,
+  acceptBotObservation,
+  rewindDisplacement,
   isBotAddress as isBotTarget
 } from './practice'
 import { shotRandom } from './shared-random'
@@ -45,18 +52,30 @@ import { armorCovers, damageBatches } from './hit-regions'
 import { playerVoice } from './player-sound-rules'
 import { HitGroup, fireAkShot, groundedAt, PLAYER_HIT_REGIONS, ShotTarget } from './ballistics'
 import { acceptShotClaim, recordSample } from './hit-claims'
+import { clampSeenAt } from './rewind-rules'
+import { HumanHistory, HumanLatency } from './human-rewind'
 import type { PositionSample } from './hit-claims'
 import { giveWeapon, storeActiveGun } from './systems'
-import { beginBurst, advanceBurst, BurstState, leaveScope, firedScope } from './weapon-modes'
+import { beginBurst, advanceBurst, BurstState, leaveScope, firedWeapon } from './weapon-modes'
+import { emptyFire } from './empty-fire'
+import { surfaceImpacts } from './bullet-impact-rules'
 import { GUNS, modeStats, profileByName } from './weapon-profiles'
-import { freshGunAccuracy } from './gun-accuracy'
+import { freshGunAccuracy, deployGunAccuracy, reloadGunAccuracy, rememberGunAccuracy } from './gun-accuracy'
 import { SemiAutoTrigger } from './inventory-rules'
-import { canReload, claimShot, fireShot, shotDeadline, SHOT_SCHEDULING_WINDOW, startReload } from './combat-rules'
+import {
+  canReload,
+  claimShot,
+  fireShot,
+  shotDeadline,
+  primaryDeadline,
+  SHOT_SCHEDULING_WINDOW,
+  startReload
+} from './combat-rules'
 import { isBombBusy, touchBomb } from './bomb'
 import { rankScores } from './scoreboard'
 import { victimPunch } from './damage-feedback'
-import { freshKnifeCooldown, isKnifeBackstab, KNIFE_ARMOR_RATIO, resolveKnifeAttack, traceKnife } from './knife-rules'
-import type { KnifeAttack, KnifeCooldown } from './knife-rules'
+import { isKnifeBackstab, KNIFE_ARMOR_RATIO, resolveKnifeAttack, traceKnife } from './knife-rules'
+import type { KnifeAttack } from './knife-rules'
 
 // Player registry: Maps player address to their entity
 export const playerEntities = new Map<string, Entity>()
@@ -71,6 +90,7 @@ interface PlayerMatchStats {
 export const matchStats = new Map<string, PlayerMatchStats>()
 
 interface PlayerShotState {
+  emptySoundPlayed?: boolean
   burst?: BurstState & { spread: number; revision: number }
   accuracy: AccuracyState
   triggerHeld: boolean
@@ -81,33 +101,75 @@ interface PlayerShotState {
   history: PositionSample[]
 }
 const shotStates = new Map<string, PlayerShotState>()
+const humanHistory = new HumanHistory()
+const humanLatency = new HumanLatency()
+
+export function resetPlayerRewind(address: string, disconnected = false) {
+  humanHistory.clear(address)
+  if (disconnected) humanLatency.forget(address)
+}
+
+function humanLife(entity: Entity): string {
+  return `${entity}:${getPractice()?.round ?? 0}:${PlayerTeam.getOrNull(entity)?.team ?? Team.NONE}`
+}
+
+function probePlayerLatency(now: number) {
+  const connected = new Set(
+    getPractice()
+      ?.roster.filter((seat) => seat.connected)
+      .map((seat) => seat.address)
+  )
+  for (const address of playerEntities.keys()) {
+    if (!connected.has(address)) {
+      humanLatency.forget(address)
+      continue
+    }
+    const token = humanLatency.probe(address, now)
+    if (token !== undefined) room.send('latencyProbe', { token }, { to: [address] })
+  }
+}
 
 export function isPlayerTriggerHeld(address: string): boolean {
   return shotStates.get(address)?.triggerHeld ?? false
 }
 
-const knifeStates = new Map<string, KnifeCooldown & { revision: number }>()
 const playerFacings = new Map<string, Vector3>()
 
+export function playerGunAccuracy(address: string) {
+  const state = shotStates.get(address)
+  return state && rememberGunAccuracy(state.accuracy)
+}
+
 export function resetPlayerAccuracy(address: string, newRound = false, reload = false) {
-  if (newRound) resetPlayerFall(address)
+  if (newRound) {
+    resetPlayerFall(address)
+    resetPlayerRewind(address)
+  }
   const player = playerEntities.get(address)
   const profile = profileByName(player === undefined ? 'AK-47' : (Weapon.getOrNull(player)?.name ?? 'AK-47'))
   const gun = profile.kind === 'gun' ? profile : GUNS.ak47
+  const inventory = player === undefined ? undefined : PlayerInventory.getOrNull(player)
+  const stored = profile.kind === 'gun' ? inventory?.items.find((item) => item.id === gun.id)?.accuracy : undefined
+  const now = Date.now() / 1000
   const state = shotStates.get(address)
   if (state && !newRound) {
-    state.accuracy = freshGunAccuracy(gun.id, reload)
+    if (reload) reloadGunAccuracy(state.accuracy, gun.id, Date.now() / 1000)
+    else state.accuracy = deployGunAccuracy(state.accuracy, gun.id, now, stored)
     state.burst = undefined
+    state.emptySoundPlayed = false
     state.semi.reset()
   } else
     shotStates.set(address, {
-      accuracy: freshGunAccuracy(gun.id),
+      accuracy: deployGunAccuracy(freshGunAccuracy(gun.id), gun.id, now, stored),
       triggerHeld: false,
       semi: new SemiAutoTrigger(),
       sampledAt: 0,
       speed: 0,
-      history: shotStates.get(address)?.history ?? []
+      history: newRound ? [] : (shotStates.get(address)?.history ?? [])
     })
+  if (!reload && player !== undefined && Weapon.has(player)) {
+    Weapon.getMutable(player).deployedAccuracy = playerGunAccuracy(address)
+  }
 }
 
 function shotState(address: string): PlayerShotState {
@@ -129,6 +191,7 @@ function setPlayerTrigger(address: string, held: boolean) {
   if (!playerEntities.has(address)) return
   const state = shotState(address)
   state.triggerHeld = held
+  if (!held) state.emptySoundPlayed = false
   state.semi.update(held)
   setTrigger(state.accuracy, held, Date.now() / 1000)
 }
@@ -140,12 +203,15 @@ function avatarPosition(address: string): Vector3 | undefined {
   return undefined
 }
 
+const SPEED_WINDOW = 0.05
 function samplePlayerMotion(now: number) {
   for (const [address, entity] of playerEntities) {
     const state = shotState(address)
-    if (now - state.sampledAt < 0.1) continue
+    if (now <= state.sampledAt) continue
     const position = avatarPosition(address)
     if (!position) {
+      humanHistory.clear(address)
+      state.history = []
       state.position = undefined
       state.speed = 0
       state.sampledAt = now
@@ -153,17 +219,26 @@ function samplePlayerMotion(now: number) {
       if (pose) pose.valid = false
       continue
     }
-    state.speed = state.position
-      ? Math.hypot(position.x - state.position.x, position.z - state.position.z) / (now - state.sampledAt)
+    if (canPlayRound(address) && !Dead.has(entity) && (PlayerHealth.getOrNull(entity)?.current ?? 0) > 0) {
+      const forward = avatarForward(address)
+      humanHistory.record(address, humanLife(entity), {
+        at: now,
+        position,
+        yaw: forward ? Math.atan2(forward.x, forward.z) : 0
+      })
+    } else humanHistory.clear(address)
+    recordSample(state.history, position, now)
+    const reference = state.history.filter((sample) => sample.at <= now - SPEED_WINDOW).pop()
+    state.speed = reference
+      ? Math.hypot(position.x - reference.position.x, position.z - reference.position.z) / (now - reference.at)
       : 0
     state.position = { ...position }
-    recordSample(state.history, position, now)
     PlayerPose.createOrReplace(entity, { position: state.position, valid: true })
     state.sampledAt = now
   }
 }
 
-function humanTargets(shooter: Entity): ShotTarget<Entity>[] {
+function humanTargets(shooter: Entity, seenAt?: number): ShotTarget<Entity>[] {
   const targets: ShotTarget<Entity>[] = []
   for (const [address, entity] of playerEntities) {
     if (
@@ -173,13 +248,15 @@ function humanTargets(shooter: Entity): ShotTarget<Entity>[] {
       (PlayerHealth.getOrNull(entity)?.current ?? 0) <= 0
     )
       continue
-    const center = avatarPosition(address)
+    const historical = seenAt === undefined ? undefined : humanHistory.at(address, humanLife(entity), seenAt)
+    if (seenAt !== undefined && !historical) continue
+    const center = historical?.position ?? avatarPosition(address)
     if (center) {
       const forward = avatarForward(address)
       targets.push({
         id: entity,
         center,
-        yaw: forward ? Math.atan2(forward.x, forward.z) : 0,
+        yaw: historical?.yaw ?? (forward ? Math.atan2(forward.x, forward.z) : 0),
         regions: PLAYER_HIT_REGIONS
       })
     }
@@ -220,8 +297,22 @@ function humanAttacker(address: string, shooter: Entity, weapon: string): Attack
   }
 }
 
-function shotTargets(shooter: Entity): ShotTarget<Entity>[] {
-  return [...humanTargets(shooter), ...practiceTargets()]
+function acceptHumanObservation(
+  humans: ShotTarget<Entity>[],
+  target: string | undefined,
+  position: Vector3 | undefined,
+  viewAt: number,
+  receivedAt: number
+): 'none' | 'accepted' | 'rejected' {
+  if (target === undefined || isBotTarget(target) || !position) return 'none'
+  const entity = playerEntities.get(target)
+  if (entity === undefined) return 'none'
+  const claimed = humans.find((candidate) => candidate.id === entity)
+  const observed = claimed && humanHistory.observed(target, humanLife(entity), viewAt, receivedAt, position)
+  if (!claimed || !observed) return 'rejected'
+  claimed.center = observed.position
+  claimed.yaw = observed.yaw
+  return 'accepted'
 }
 
 function routeDamage(
@@ -316,6 +407,7 @@ export function applyPlayerDamage(
 function killPlayer(target: Entity, attacker?: Attacker, headshot = false) {
   if (Dead.has(target)) return
   const address = PlayerAddress.get(target).address
+  resetPlayerRewind(address)
   dropDeadPlayer(target)
   Dead.create(target, { deathTime: Date.now() / 1000, respawnTime: 0 })
   if (attacker?.address === address) recordPracticeStats(address, -1, 0)
@@ -360,6 +452,7 @@ export function applyFallDamage(target: Entity, speed: number, position: Vector3
 
 // Singleton entity for match leaderboard
 let leaderboardEntity: Entity | null = null
+let clockEntity: Entity | null = null
 
 // Only the server installs incoming component validators.
 export function setupServerAuthoritative() {
@@ -368,6 +461,7 @@ export function setupServerAuthoritative() {
   if (!isServer()) return
   PlayerEquipment.validateBeforeChange((value) => value.senderAddress === AUTH_SERVER_PEER_ID)
   Weapon.validateBeforeChange((value) => value.senderAddress === AUTH_SERVER_PEER_ID)
+  ServerClock.validateBeforeChange((value) => value.senderAddress === AUTH_SERVER_PEER_ID)
   // Only server can modify health
   PlayerHealth.validateBeforeChange((value) => {
     return value.senderAddress === AUTH_SERVER_PEER_ID
@@ -409,6 +503,9 @@ export function initializeServerEntities() {
 
   // Sync leaderboard entity to clients
   syncEntity(leaderboardEntity, [MatchLeaderboard.componentId])
+  clockEntity = engine.addEntity()
+  ServerClock.create(clockEntity, { now: Date.now() / 1000 })
+  syncEntity(clockEntity, [ServerClock.componentId])
 
   console.log('[SERVER] Created match leaderboard entity')
 }
@@ -462,6 +559,12 @@ function getPlayerName(playerAddress: string): string {
 
 // Server message handlers
 export function setupServerMessageHandlers() {
+  room.onMessage('latencyEcho', (data, context) => {
+    if (!context) return
+    const address = context.from.toLowerCase()
+    if (!playerEntities.has(address)) return
+    humanLatency.acknowledge(address, data.token, Date.now() / 1000)
+  })
   // SERVER: Handle player join
   // Workaround for clients whose synced state went stale while suspended: decentraland/sdk#1198.
   room.onMessage('resync', (data, context) => {
@@ -525,6 +628,7 @@ export function setupServerMessageHandlers() {
     // Create entity for this player (data container)
     const playerEntity = engine.addEntity()
     playerEntities.set(playerAddress, playerEntity)
+    resetPlayerRewind(playerAddress, true)
 
     // Sync this entity (including PlayerAddress so clients can identify which entity is theirs)
     syncEntity(playerEntity, [
@@ -564,7 +668,13 @@ export function setupServerMessageHandlers() {
     })
 
     Dead.create(playerEntity, { deathTime: Date.now() / 1000, respawnTime: 0 })
-    PlayerEquipment.create(playerEntity, { bombSelected: false, defuseKit: false, helmet: false })
+    PlayerEquipment.create(playerEntity, {
+      bombSelected: false,
+      defuseKit: false,
+      helmet: false,
+      nightVision: false,
+      nightVisionOn: false
+    })
     PlayerMoney.create(playerEntity, { amount: START_MONEY })
     giveWeapon(playerEntity, 'AK47')
 
@@ -601,13 +711,24 @@ export function setupServerMessageHandlers() {
     })
   })
 
-  room.onMessage('playerReload', (_data, context) => {
+  room.onMessage('playerReload', (data, context) => {
     if (!context) return
-    const player = playerEntities.get(context.from.toLowerCase())
-    if (player === undefined) return
+    const address = context.from.toLowerCase(),
+      player = playerEntities.get(address),
+      match = getPractice()
+    if (
+      player === undefined ||
+      !match ||
+      data.round !== match.round ||
+      !canHandleWeapons(match) ||
+      !canPlayRound(address) ||
+      isBombBusy(address) ||
+      PlayerEquipment.getOrNull(player)?.bombSelected
+    )
+      return
     const weapon = Weapon.getOrNull(player)
     const health = PlayerHealth.getOrNull(player)
-    if (!weapon || !health) return
+    if (!weapon || !health || data.revision !== weapon.revision) return
     const alive = health.current > 0 && !Dead.has(player)
     if (!canReload(weapon, alive)) return
     const now = Date.now() / 1000
@@ -616,6 +737,7 @@ export function setupServerMessageHandlers() {
       const gun = profileByName(weapon.name)
       if (gun.kind === 'gun') leaveScope(Weapon.getMutable(player), gun)
       resetPlayerAccuracy(context.from.toLowerCase(), false, true)
+      broadcastReloadSound(address, weapon)
     }
   })
 
@@ -629,7 +751,9 @@ export function setupServerMessageHandlers() {
   }
   engine.addSystem(() => {
     const now = Date.now() / 1000
+    if (clockEntity !== null) ServerClock.getMutable(clockEntity).now = now
     samplePlayerMotion(now)
+    probePlayerLatency(now)
     for (const address of pendingShots.keys()) flushShot(address, now)
   })
 
@@ -646,30 +770,32 @@ export function setupServerMessageHandlers() {
     if (!Number.isFinite(directionLength) || Math.abs(directionLength - 1) > 0.01) return
     const weapon = Weapon.getMutable(shooter)
     if (claimShot(weapon, data.shotId)) return
-    const reject = () =>
+    const reject = (reason: string) => {
+      console.log('[SERVER] Shot rejected:', data.shotId, reason)
       room.send('shotRejected', { owner: shooterAddress, round: practice?.round ?? 0, shotId: data.shotId })
+    }
     if (data.revision !== weapon.revision) {
-      reject()
+      reject('revision')
       return
     }
     const profile = profileByName(weapon.name)
     if (profile.kind !== 'gun') {
-      reject()
+      reject('weapon')
       return
     }
     if (
-      practice?.phase !== 'live' ||
+      !canFight(practice) ||
       !canPlayRound(shooterAddress) ||
       isBombBusy(shooterAddress) ||
       PlayerEquipment.getOrNull(shooter)?.bombSelected
     ) {
-      reject()
+      reject('inactive')
       return
     }
     const now = Date.now() / 1000
     flushShot(shooterAddress, now)
     if (pendingShots.has(shooterAddress)) {
-      reject()
+      reject('pending')
       return
     }
     const state = shotState(shooterAddress)
@@ -683,7 +809,7 @@ export function setupServerMessageHandlers() {
       (burstIndex > 0 &&
         (!burstMode || !burst || burst.index !== burstIndex || burst.remaining <= 0 || now > burst.readyAt))
     ) {
-      reject()
+      reject('burst')
       return
     }
     const continuation = burstIndex > 0
@@ -694,56 +820,71 @@ export function setupServerMessageHandlers() {
           : shotDeadline(burst.nextAt, 0, now)
         : burstMode && burst
           ? shotDeadline(burst.readyAt, 0, now)
-          : shotDeadline(weapon.lastShotTime, weapon.fireRate, now)
+          : shotDeadline(primaryDeadline(weapon), 0, now)
     if (at === undefined || now < weapon.readyAt) {
-      reject()
+      reject(at === undefined ? 'cadence' : 'draw')
       return
     }
     if (!continuation && !modeStats(profile, weapon.mode).automatic && !state.semi.claim()) {
-      reject()
+      reject('trigger')
       return
     }
+    const humanView = humanLatency.viewTime(shooterAddress, now)
     const execute = (scheduledTime: number) => {
       const currentPractice = getPractice()
       if (
-        currentPractice?.phase !== 'live' ||
+        !canFight(currentPractice) ||
         !canPlayRound(shooterAddress) ||
         isBombBusy(shooterAddress) ||
         PlayerEquipment.getOrNull(shooter)?.bombSelected
       ) {
-        reject()
+        reject('inactive')
         return
       }
       const current = Weapon.getOrNull(shooter)
       if (!current || !PlayerHealth.has(shooter)) return
       const feet = avatarPosition(shooterAddress)
       if (!feet) {
-        reject()
+        reject('origin')
         return
       }
       if (current.revision !== data.revision || Date.now() / 1000 < current.readyAt) {
-        reject()
+        reject(current.revision !== data.revision ? 'revision' : 'draw')
         return
       }
       const weapon = Weapon.getMutable(shooter)
-      const fireRate = weapon.fireRate
-      if (burstMode) weapon.fireRate = Math.max(0, scheduledTime - weapon.lastShotTime)
       const rejected = fireShot(
         weapon,
         Date.now() / 1000,
         PlayerHealth.get(shooter).current > 0 && !Dead.has(shooter),
-        scheduledTime
+        scheduledTime,
+        continuation,
+        () => broadcastShellReloadSound(shooterAddress, weapon, feet)
       )
-      weapon.fireRate = fireRate
       if (rejected) {
-        reject()
-        console.log('[SERVER] Shot rejected:', data.shotId, rejected)
+        if (rejected === 'empty' && !continuation && emptyFire(weapon, profile, scheduledTime)) {
+          const emptyState = shotState(shooterAddress)
+          emptyState.burst = undefined
+          if (!profile.shellReload || !emptyState.emptySoundPlayed)
+            room.send('weaponDryFire', {
+              owner: shooterAddress,
+              round: currentPractice?.round ?? 0,
+              gun: profile.id,
+              position: feet
+            })
+          emptyState.emptySoundPlayed = true
+        }
+        reject(rejected)
         return
       }
       weapon.lastFiredShotId = data.shotId
       console.log('[SERVER] Shot accepted:', data.shotId, 'ammo:', weapon.ammoClip)
       const state = shotState(shooterAddress)
-      const targets = shotTargets(shooter)
+      state.emptySoundPlayed = false
+      const seenAt = clampSeenAt(data.seenAt, Date.now() / 1000)
+      const humans = humanTargets(shooter, humanView.at)
+      const targets = [...humans, ...(seenAt === undefined ? practiceTargets() : practiceTargetsAt(seenAt))]
+      const legacyBotClaim = seenAt === undefined && data.target !== undefined && isBotTarget(data.target)
       const claimedEntity =
         data.target === undefined
           ? undefined
@@ -755,8 +896,8 @@ export function setupServerMessageHandlers() {
           origin: data.origin,
           speed: data.speed,
           grounded: data.grounded,
-          target: data.target,
-          targetPosition: data.targetPosition
+          target: legacyBotClaim ? data.target : undefined,
+          targetPosition: legacyBotClaim ? data.targetPosition : undefined
         },
         {
           eyeHeight: 1.6,
@@ -764,22 +905,25 @@ export function setupServerMessageHandlers() {
           serverFeet: feet,
           serverSpeed: state.speed,
           serverAirborne: !groundedAt(feet, 0.6),
-          targetHistory:
-            data.target === undefined
-              ? undefined
-              : isBotTarget(data.target)
-                ? botPositionHistory(data.target)
-                : shotStates.get(data.target)?.history
+          targetHistory: legacyBotClaim && data.target !== undefined ? botPositionHistory(data.target) : undefined
         }
       )
       if (accepted.rejected.length) console.log('[SERVER] Shot claim rejected:', data.shotId, accepted.rejected)
-      if (accepted.targetPosition && claimedEntity !== undefined) {
+      if (accepted.targetPosition && claimedEntity !== undefined && legacyBotClaim) {
         const claimed = targets.find((target) => target.id === claimedEntity)
         if (claimed) claimed.center = accepted.targetPosition
       }
+      const humanClaim = acceptHumanObservation(humans, data.target, data.targetPosition, humanView.at, now)
+      const botClaim = acceptBotObservation(targets, data.target, data.targetPosition, seenAt, now)
+      const humanDisplacement = humans.reduce((maximum, target) => {
+        const address = PlayerAddress.getOrNull(target.id)?.address
+        const current = address === undefined ? undefined : avatarPosition(address)
+        return current ? Math.max(maximum, Vector3.distance(current, target.center)) : maximum
+      }, 0)
+      const firingMode = weapon.mode
       const result = fireAkShot({
         gun: profile.id,
-        mode: weapon.mode,
+        mode: firingMode,
         zoom: weapon.zoom,
         continuationSpread: continuation ? burst?.spread : undefined,
         feet: accepted.feet,
@@ -794,15 +938,28 @@ export function setupServerMessageHandlers() {
         random: shotRandom(getRoundSeed(), data.shotId)
       })
       if (!result) return
+      console.log(
+        `[SHOT] ${data.shotId} ${profile.id} dist=${result.distance.toFixed(1)} spread=${result.spread.toFixed(4)} ` +
+          `speed=${accepted.speed.toFixed(2)} ${accepted.grounded ? 'ground' : 'air'} claim=${accepted.rejected.join('|') || 'ok'} ` +
+          `seenAt=${seenAt === undefined ? 'none' : `-${Math.round((Date.now() / 1000 - seenAt) * 1000)}ms`} ` +
+          `rewind=${seenAt === undefined ? '-' : rewindDisplacement(seenAt).toFixed(2)} ` +
+          `humanRtt=${humanView.rtt === undefined ? 'pending' : Math.round(humanView.rtt * 1000)} ` +
+          `humanDelay=${Math.round(humanView.delay * 1000)}ms humanRewind=${humanDisplacement.toFixed(2)} humanClaim=${humanClaim} botClaim=${botClaim} ` +
+          `feet=${feet.x.toFixed(1)},${feet.z.toFixed(1)} claimed=${data.origin.x.toFixed(1)},${data.origin.z.toFixed(1)} ` +
+          `target=${data.target ?? '-'} punch=${result.pitch.toFixed(2)}/${result.yaw.toFixed(2)} shots=${state.accuracy.shots} ` +
+          (result.hit ? `hit=${result.hit.group}` : 'miss')
+      )
       if (continuation && burst) advanceBurst(burst, scheduledTime)
       else if (burstMode) {
         const next = beginBurst(profile, weapon.mode, weapon.ammoClip + 1, scheduledTime)
         if (next)
           state.burst = { ...next, revision: weapon.revision, spread: profile.id === 'glock18' ? 0.05 : result.spread }
       }
-      firedScope(weapon, profile)
+      if (!continuation) firedWeapon(weapon, profile)
       storeActiveGun(shooter)
       room.send('practiceShot', {
+        fire: { gun: profile.id, mode: firingMode, origin: result.origin },
+        impacts: surfaceImpacts(result.impacts),
         owner: shooterAddress,
         round: currentPractice?.round ?? 0,
         shotId: data.shotId,
@@ -836,7 +993,9 @@ export function setupServerMessageHandlers() {
       practice = getPractice()
     if (
       shooter === undefined ||
-      practice?.phase !== 'live' ||
+      !practice ||
+      data.round !== practice.round ||
+      !canFight(practice) ||
       !canPlayRound(shooterAddress) ||
       Dead.has(shooter) ||
       PlayerHealth.get(shooter).current <= 0 ||
@@ -860,22 +1019,37 @@ export function setupServerMessageHandlers() {
     const weapon = Weapon.getMutable(shooter)
     if (claimShot(weapon, data.shotId)) return
     const now = Date.now() / 1000
-    let state = knifeStates.get(shooterAddress)
-    if (!state || state.revision !== weapon.revision) {
-      state = { ...freshKnifeCooldown(), revision: weapon.revision }
-      knifeStates.set(shooterAddress, state)
-    }
-    const origin = { x: feet.x, y: feet.y + 1.6, z: feet.z }
-    const trace = traceKnife(origin, data.direction, shotTargets(shooter), attack)
+    const state = { nextPrimary: primaryDeadline(weapon), nextSecondary: weapon.alternateAt }
+    const humanView = humanLatency.viewTime(shooterAddress, now)
+    const humans = humanTargets(shooter, humanView.rtt === undefined ? undefined : humanView.at)
+    const seenAt = clampSeenAt(data.view?.seenAt, now)
+    const targets = [...humans, ...(seenAt === undefined ? practiceTargets() : practiceTargetsAt(seenAt))]
+    const humanClaim = acceptHumanObservation(humans, data.view?.target, data.view?.targetPosition, humanView.at, now)
+    const botClaim = acceptBotObservation(targets, data.view?.target, data.view?.targetPosition, seenAt, now)
+    const motion = shotState(shooterAddress)
+    const accepted = data.view
+      ? acceptShotClaim(
+          { origin: data.view.origin, speed: data.view.speed, grounded: false },
+          {
+            eyeHeight: 1.6,
+            shooterHistory: motion.history,
+            serverFeet: feet,
+            serverSpeed: motion.speed,
+            serverAirborne: false
+          }
+        )
+      : undefined
+    const originFeet = accepted?.feet ?? feet
+    const origin = { x: originFeet.x, y: originFeet.y + 1.6, z: originFeet.z }
+    const trace = traceKnife(origin, data.direction, targets, attack)
     if (!trace) return
     const target = trace.hit?.target
-    let backstab = false
-    if (target !== undefined && attack === 'stab') {
-      const victimForward = Bot.has(target)
-        ? rotationForward(Transform.get(target).rotation)
-        : avatarForward(PlayerAddress.get(target).address)
-      backstab = !!victimForward && isKnifeBackstab(data.direction, victimForward)
-    }
+    const victim = target === undefined ? undefined : targets.find((candidate) => candidate.id === target)
+    const yaw = victim?.yaw ?? 0
+    const backstab =
+      attack === 'stab' &&
+      victim !== undefined &&
+      isKnifeBackstab(data.direction, { x: Math.sin(yaw), y: 0, z: Math.cos(yaw) })
     const outcome = resolveKnifeAttack(
       state,
       attack,
@@ -886,8 +1060,18 @@ export function setupServerMessageHandlers() {
       target !== undefined
     )
     if (!outcome) return
+    weapon.nextPrimaryAt = outcome.nextPrimary
+    weapon.alternateAt = outcome.nextSecondary
+    storeActiveGun(shooter)
     weapon.lastFiredShotId = data.shotId
+    console.log(
+      `[KNIFE] ${data.shotId} ${attack} humanDelay=${Math.round(humanView.delay * 1000)}ms humanClaim=${humanClaim} botClaim=${botClaim} ` +
+        `seenAt=${seenAt === undefined ? 'none' : `-${Math.round((now - seenAt) * 1000)}ms`} ` +
+        `origin=${!accepted ? 'server' : accepted.rejected.includes('origin') ? 'rejected' : 'accepted'} ` +
+        `hit=${trace.hit?.group ?? 'none'} backstab=${backstab}`
+    )
     room.send('knifeResult', {
+      feedback: { ...knifeFeedback(attack, trace.contact, target !== undefined), origin },
       owner: shooterAddress,
       round: practice.round,
       shotId: data.shotId,

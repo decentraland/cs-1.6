@@ -1,9 +1,9 @@
 # Explorer and hosted-server inconsistencies
 
 Differences between Bevy (web), Unity (desktop), Godot (mobile) and the hosted
-multiplayer server observed while running this scene, with the evidence gathered
-on 2026-09-15 and the scene-side workaround (if any). Each entry is written so it
-can be pasted into an explorer or infra issue.
+multiplayer server, with dates and evidence noted per entry. Earlier runtime
+observations are not proof of behavior in newer builds; source inspections are
+labelled separately. Each entry records a scene-side workaround when available.
 
 ## 1. Hosted multiplayer server never receives Bevy web avatar transforms
 
@@ -91,6 +91,46 @@ can be pasted into an explorer or infra issue.
 - **Bundle checked offline (UnityPy on `usp-view`, `knife-view`, `urban` bundles):** one `SkinnedMeshRenderer` per GLTF primitive, bones in GLB joint order, opaque URP materials with their textures, clips for every animation. Rest pose, bind poses and idle keyframes match the GLB up to the handedness flip; skinning the gun with the bundle's own idle keyframe places it 0.26-0.45 m in front of the camera, so the data is right. Renderer AABBs are zero with `updateWhenOffscreen = true`, same as the bot body bundle, which animates and renders fine.
 - **What differs from the bots:** the viewmodel entity sits exactly at the camera position (partition marks it `IsBehind`), its GLB root has scale (-1,-1,-1) plus a 180-degree rotation (all 25 `*-view.glb`), and the parts are small. At the rest pose the whole model lies to the side of the camera; only the played clip brings it in front.
 - **Report:** ask the Unity team why a camera-parented skinned GLTF loaded from an asset bundle has all but one renderer culled while the same GLB loaded raw renders, starting with the `IsBehind` partition flag (throttled animator/renderer systems) and the culling bounds of those renderers.
+
+## 15. VirtualCamera.fov support differs between clients
+
+Checked 2026-09-21. The protocol exposes `VirtualCamera.fov`; these checks concern
+the client implementations, not a missing field in the SDK.
+
+| Client / version | Finding | Evidence |
+| --- | --- | --- |
+| Hosted Bevy `0.1.0-35345436542.commit-593f384` | Initial FOV and changes on the active camera work. | [Headless 90/40/10 scope captures and AWP bolt cycle](../validate/game/native-scope/README.md). |
+| Unity checkout `72998f99c` | Applies FOV when activating a camera. Updates on that same active camera appear to be skipped. | Source inspection only; Unity was not launched for this check. |
+| Godot checkout `b7fb012b0` | Drops the FOV value and uses a fixed 60-degree virtual camera. | Source inspection only; native mobile behavior was not tested. |
+
+Unity's [ConfigureVirtualCameraFOV](https://github.com/decentraland/unity-explorer/blob/72998f99c6ba6fd0534c1d132333dfabfb2a25ae/Explorer/Assets/DCL/SDKComponents/CameraControl/MainCamera/VirtualCameraUtils.cs#L111)
+assigns the protocol value to the Cinemachine lens. Its
+[MainCameraSystem](https://github.com/decentraland/unity-explorer/blob/72998f99c6ba6fd0534c1d132333dfabfb2a25ae/Explorer/Assets/DCL/SDKComponents/CameraControl/MainCamera/Systems/MainCameraSystem.cs#L69)
+calls that helper during activation, returns early for the same enabled camera,
+and separately updates only look-at. The active-camera update limitation is an
+inference from those paths, not a reproduced Unity failure.
+
+Godot's [DclVirtualCamera](https://github.com/decentraland/godot-explorer/blob/b7fb012b04f8a2b1243ef7ccb053814fe9c70861/lib/src/godot_classes/dcl_virtual_camera.rs#L40)
+copies look-at and transition fields without FOV. Its
+[camera controller](https://github.com/decentraland/godot-explorer/blob/b7fb012b04f8a2b1243ef7ccb053814fe9c70861/godot/src/decentraland_components/dcl_global_camera_controller.gd#L113)
+assigns `DEFAULT_VIRTUAL_CAMERA_FOV` (60) and switches to cinematic mode.
+
+Focused engine repro to run before filing:
+
+1. In an SDK7 test scene, activate a `VirtualCamera` at a fixed pose with `fov: 20`.
+   Keep a visible world object in view. Compare with an otherwise identical
+   camera initialized at `fov: 60`; the 20-degree view should magnify it.
+2. Keep the first camera active and change only its `fov` from 20 to 60 and back.
+   The visible world should change without replacing the camera entity.
+3. On mobile, separately check touch look during the camera and after restoring
+   the native camera. Passing FOV alone does not establish usable sniper aiming.
+
+The scene uses native FOV on desktop Bevy. Mobile still keeps native touch look
+and has no sniper magnification or scene-camera recoil/death/chase transitions.
+No engine patch was submitted for these source findings. The player-confirmed
+iOS second-zoom symptom is tracked in [godot-explorer#2977](https://github.com/decentraland/godot-explorer/issues/2977);
+its engine cause remains unconfirmed because this scene bypasses `VirtualCamera`
+on mobile. See [touch controls](CS16-TOUCH-CONTROLS.md) for the pending device checks.
 
 ## Earlier, already tracked
 

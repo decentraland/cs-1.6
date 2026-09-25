@@ -1,0 +1,22 @@
+{
+  "hud": {
+    "health": 100,
+    "armor": 0,
+    "clip": 24,
+    "reserve": 0,
+    "money": 12900,
+    "seconds": 3586
+  },
+  "labels": [],
+  "locomotion": {
+    "doubleJumpHeight": null,
+    "glidingFallingSpeed": null,
+    "glidingSpeed": null,
+    "hardLandingCooldown": 0,
+    "jogSpeed": 2.99,
+    "jumpHeight": 1.125,
+    "runJumpHeight": 1.125,
+    "runSpeed": 2.99,
+    "walkSpeed": 2.99
+  }
+}

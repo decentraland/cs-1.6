@@ -1,3 +1,4 @@
+import { canHandleWeapons } from './round-rules'
 import ReactEcs, { Label, UiEntity, ReactEcsRenderer } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
 import { engine, inputSystem, InputAction, UiCanvasInformation } from '@dcl/sdk/ecs'
@@ -26,6 +27,10 @@ import { AMMO_ICONS } from './weapon-hud'
 import { Hud } from './hud'
 import { Radar } from './radar-ui'
 import { BuyHud } from './buy-ui'
+import { isBuyMenuVisible } from './buy-client'
+import { NightVisionOverlay, NightVisionButton } from './nightvision-ui'
+import { TouchControls } from './touch-controls'
+import { touchNoticeText } from './touch-menu-ui'
 import { getObserverMode, getSpectatorTarget, isDeathTransitioning, isSpectating } from './spectator'
 import { PainCompass } from './pain-ui'
 import { profileByName } from './weapon-profiles'
@@ -93,8 +98,10 @@ function GameUI() {
   const gap = Math.round((5 + (player !== null ? (CrosshairState.getOrNull(player)?.spread ?? 0) : 0) * 15) * ui)
   const arm = Math.round(10 * ui)
   const thick = Math.max(2, Math.round(2 * ui))
-  const active = practice?.phase === 'live' || practice?.phase === 'freeze'
+  const active = canHandleWeapons(practice)
   const menuOpen = isTeamMenuOpen()
+  const activeNotice = Date.now() < noticeUntil ? notice : undefined
+  const anyMenuOpen = menuOpen || isBuyMenuVisible()
   const connectionNotice = isSyncStale()
     ? 'Reconnecting to the match...'
     : active &&
@@ -117,6 +124,7 @@ function GameUI() {
 
   return (
     <UiEntity uiTransform={{ width, height, positionType: 'absolute', position: { left: 0, top: 0 } }}>
+      <NightVisionOverlay width={width} height={height} />
       {active &&
         player !== null &&
         !Dead.has(player) &&
@@ -146,7 +154,7 @@ function GameUI() {
       />
       <Radar width={width} />
       <BombHud width={width} />
-      {active && !isSpectating() && (
+      {active && !isSpectating() && !isTouchPlatform() && (
         <Label
           value={`${weapon?.name ?? ''}${weaponProfile?.kind === 'gun' && weaponProfile.alternate ? ' (E: ' + (weaponProfile.alternate === 'scope' ? 'Zoom' : weaponProfile.alternate === 'silencer' ? 'Silencer' : 'Burst') + ')' : ''}   1: Primary   2: Pistol   3: Knife   4: C4   Shift+3: Grenades`}
           color={amber}
@@ -265,7 +273,9 @@ function GameUI() {
           value={
             seat?.team === 0 && !isTouchPlatform()
               ? 'Space: chase/free look / WASD: fly / Click: next / Shift+click: previous / Esc: menu'
-              : 'Click: next / Shift+click: previous / Esc: team menu'
+              : isTouchPlatform()
+                ? 'Arrows: change player   Team icon: choose a team'
+                : 'Click: next / Shift+click: previous / Esc: team menu'
           }
           color={amber}
           fontSize={15}
@@ -287,25 +297,7 @@ function GameUI() {
         />
       )}
       {scoreboard && <Scoreboard width={width} height={height} />}
-      {isTouchPlatform() && !menuOpen && (
-        <UiEntity
-          onMouseDown={() => {
-            touchScoreboard = !touchScoreboard
-          }}
-          uiTransform={{
-            positionType: 'absolute',
-            position: { right: 22, top: 60 },
-            width: 110,
-            height: 36,
-            borderWidth: 1,
-            borderColor: amber
-          }}
-          uiBackground={{ color: Color4.create(0, 0, 0, 0.6) }}
-        >
-          <Label value="SCORES" color={amber} fontSize={18} uiTransform={{ width: 110, height: 36 }} />
-        </UiEntity>
-      )}
-      {active && enemyBots && (
+      {active && enemyBots && !isTouchPlatform() && (
         <Label
           value={`Enemies left: ${practice?.remaining ?? 0}`}
           color={amber}
@@ -314,10 +306,19 @@ function GameUI() {
         />
       )}
       <GrenadeFade width={width} height={height} />
-      <BuyHud width={width} height={height} />
-      {notice && Date.now() < noticeUntil && (
+      <NightVisionButton width={width} />
+      <TouchControls
+        width={width}
+        height={height}
+        scores={touchScoreboard}
+        toggleScores={() => {
+          touchScoreboard = !touchScoreboard
+        }}
+      />
+      <BuyHud width={width} height={height} notice={menuOpen ? undefined : activeNotice} />
+      {activeNotice && !anyMenuOpen && (
         <Label
-          value={notice}
+          value={isTouchPlatform() ? touchNoticeText(activeNotice) : activeNotice}
           color={amber}
           fontSize={18}
           uiTransform={{
@@ -329,7 +330,7 @@ function GameUI() {
           }}
         />
       )}
-      {menuOpen && <TeamMenu width={width} height={height} />}
+      {menuOpen && <TeamMenu width={width} height={height} notice={activeNotice} />}
     </UiEntity>
   )
 }

@@ -1,0 +1,185 @@
+✖ rebuy restores a saved loadout after death and a new round with real ECS inventory and weapon updates (3.441166ms)
+✖ rebuy spends scarce funds in the original priority order and retains the full plan for a later retry (1.439333ms)
+✖ rebuy keeps a carried rifle and worn armor, fills reserve only when lower than saved, and replaces the pistol (1.040041ms)
+✖ rebuy snapshots current ammo at a buy command, fills beyond a partial saved amount, and does not reload clips (0.742625ms)
+✖ single buys replace the saved snapshot, failed affordable checks still snapshot, and match reset clears it (2.447708ms)
+✖ rebuy enforces life, eligibility, buy zone, time and team restrictions without losing the saved plan (1.7995ms)
+✖ SDK Room rebuy commands use the authenticated player and reject duplicate or stale-round spending (4.749875ms)
+✖ touch rebuy selection cannot spend until the fixed cart is tapped and includes a readable description (37.627333ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 163.785791
+
+✖ failing tests:
+
+test at ../../../../../private/tmp/cs16-rebuy/tests/rebuy.test.mjs:14:1
+✖ rebuy restores a saved loadout after death and a new round with real ECS inventory and weapon updates (3.441166ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'That item is unavailable or already full.'
+  - 'No previous purchase to rebuy.'
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rebuy/tests/rebuy.test.mjs:17:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.start (node:internal/test_runner/test:1177:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'That item is unavailable or already full.',
+    expected: 'No previous purchase to rebuy.',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-rebuy/tests/rebuy.test.mjs:34:1
+✖ rebuy spends scarce funds in the original priority order and retains the full plan for a later retry (1.439333ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3480 !== 0
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rebuy/tests/rebuy.test.mjs:39:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3480,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-rebuy/tests/rebuy.test.mjs:53:1
+✖ rebuy keeps a carried rifle and worn armor, fills reserve only when lower than saved, and replaces the pistol (1.040041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  30 !== 90
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rebuy/tests/rebuy.test.mjs:65:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 30,
+    expected: 90,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-rebuy/tests/rebuy.test.mjs:77:1
+✖ rebuy snapshots current ammo at a buy command, fills beyond a partial saved amount, and does not reload clips (0.742625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  10 !== 90
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rebuy/tests/rebuy.test.mjs:85:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 10,
+    expected: 90,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-rebuy/tests/rebuy.test.mjs:94:1
+✖ single buys replace the saved snapshot, failed affordable checks still snapshot, and match reset clears it (2.447708ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(gun(p, 'aug'))
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rebuy/tests/rebuy.test.mjs:109:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-rebuy/tests/rebuy.test.mjs:115:1
+✖ rebuy enforces life, eligibility, buy zone, time and team restrictions without losing the saved plan (1.7995ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(gun(p, 'deagle'))
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rebuy/tests/rebuy.test.mjs:143:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-rebuy/tests/rebuy.test.mjs:146:1
+✖ SDK Room rebuy commands use the authenticated player and reject duplicate or stale-round spending (4.749875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  16000 !== 8420
+  
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rebuy/tests/rebuy.test.mjs:154:10)
+      at async Test.run (node:internal/test_runner/test:1313:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 16000,
+    expected: 8420,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../private/tmp/cs16-rebuy/tests/rebuy.test.mjs:168:1
+✖ touch rebuy selection cannot spend until the fixed cart is tapped and includes a readable description (37.627333ms)
+  AssertionError [ERR_ASSERTION]: REBUY is available in the root buy menu
+      at TestContext.<anonymous> (file:///private/tmp/cs16-rebuy/tests/rebuy.test.mjs:173:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1306:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:897:18)
+      at Test.postRun (node:internal/test_runner/test:1447:19)
+      at Test.run (node:internal/test_runner/test:1372:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:897:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

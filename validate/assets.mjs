@@ -1,3 +1,8 @@
+import './knife-world-assets.mjs'
+import './knife-feedback-assets.mjs'
+import './bullet-impact-assets.mjs'
+import './nightvision-assets.mjs'
+import './touch-icon-assets.mjs'
 import './player-model-assets.mjs'
 import './defuse-kit-assets.mjs'
 import './kill-feed-assets.mjs'

@@ -1,0 +1,34 @@
+Static excerpts from the SHA-256-pinned original cs.so; addresses are virtual ELF addresses.
+
+Swing
+  14f2b5: c7 44 24 04 cd cc cc 3e      	movl	$0x3ecccccd, 0x4(%esp)  # imm = 0x3ECCCCCD
+  14f2bd: 89 1c 24                     	movl	%ebx, (%esp)
+  14f2c0: e8 fc ff ff ff               	calll	0x14f2c1 <CKnife::Swing(int)+0x151>
+  14f2c5: c7 83 cc 00 00 00 00 00 00 3f	movl	$0x3f000000, 0xcc(%ebx) # imm = 0x3F000000
+  14f2cf: d9 9b c8 00 00 00            	fstps	0xc8(%ebx)
+  14f350: 8b 06                        	movl	(%esi), %eax
+  14f352: 8b 50 2c                     	movl	0x2c(%eax), %edx
+  14f355: dd 05 58 2f 1d 00            	fldl	0x1d2f58
+  14f35b: d8 83 c8 00 00 00            	fadds	0xc8(%ebx)
+  14f361: a1 00 00 00 00               	movl	0x0, %eax
+  14f366: d9 ee                        	fldz
+  14f368: 8b 48 28                     	movl	0x28(%eax), %ecx
+  14f36b: df e9                        	fucompi	%st(1), %st
+  14f36d: dd d8                        	fstp	%st(0)
+  14f36f: 0f 86 53 05 00 00            	jbe	0x14f8c8 <CKnife::Swing(int)+0x758>
+  14f375: 89 8c 24 b0 00 00 00         	movl	%ecx, 0xb0(%esp)
+  14f37c: 8b 48 2c                     	movl	0x2c(%eax), %ecx
+  14f37f: 8b 40 30                     	movl	0x30(%eax), %eax
+  14f382: 89 7c 24 10                  	movl	%edi, 0x10(%esp)
+  14f386: c7 44 24 08 00 00 a0 41      	movl	$0x41a00000, 0x8(%esp)  # imm = 0x41A00000
+  14f8c8: 89 8c 24 bc 00 00 00         	movl	%ecx, 0xbc(%esp)
+  14f8cf: 8b 48 2c                     	movl	0x2c(%eax), %ecx
+  14f8d2: 8b 40 30                     	movl	0x30(%eax), %eax
+  14f8d5: 89 7c 24 10                  	movl	%edi, 0x10(%esp)
+  14f8d9: c7 44 24 08 00 00 70 41      	movl	$0x41700000, 0x8(%esp)  # imm = 0x41700000
+
+ItemPostFrame
+  135221: 8b 50 04                     	movl	0x4(%eax), %edx
+  135224: f6 82 80 01 00 00 01         	testb	$0x1, 0x180(%edx)
+  13522b: 75 0a                        	jne	0x135237 <CBasePlayerWeapon::ItemPostFrame()+0xc7>
+  13522d: c7 83 4c 01 00 00 00 00 00 00	movl	$0x0, 0x14c(%ebx)

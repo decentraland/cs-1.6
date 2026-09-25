@@ -1,0 +1,30 @@
+✔ accepted primary magazine reloads notify nearby listeners once with source volume (83.405583ms)
+✔ accepted secondary magazine reloads notify nearby listeners once with source volume (14.620542ms)
+✔ rejected reloads and shell reloads do not emit the magazine cue (18.745541ms)
+✔ the production empty-magazine auto reload emits the same cue without a reload request (1.083083ms)
+✔ bot combat reports an accepted auto reload exactly once, including when its enemy is hidden (0.395292ms)
+✔ bot reload audio uses its authoritative position without requiring an avatar identity (2.714625ms)
+✔ SDK Room delivers the private cue to the nearby client, preserving volume and excluding owner/far peers (15.192416ms)
+✔ the received cue plays the pinned original clip at the encoded gain on actual SDK AudioSource components (22.743583ms)
+✔ XM1014 sounds once at each shell insertion start, before that shell enters the tube (49.496083ms)
+✔ M3 retains model audio and magazine guns do not acquire XM1014 shell sounds (5.807ms)
+✔ holstering or death before insertion cancels shell audio; late updates do not replay completed insertions (9.453334ms)
+✔ a shot that advances reload before the weapon system cannot skip or duplicate its shell cue (5.1995ms)
+✔ bot auto reload reports shell starts even without a target and stops once dead (0.336541ms)
+✔ SDK Room routes source shell audio locally for the owner and positionally for others, rejecting forged or invalid cues (15.649416ms)
+✔ actual SDK audio replaces the previous shell variant on one item channel and bounds concurrent reloaders (3.287292ms)
+✔ Scout deploy has the original 1.25-second lock; AWP retains 1.45 and other guns 0.75 (0.375708ms)
+✔ reload preserves the current camera punch and its natural decay (1.121417ms)
+✔ SG550 preserves its last accuracy through reload for the first post-reload shot (0.104917ms)
+✔ late shot confirmation replays reload without resetting SG550 accuracy (0.126792ms)
+✔ all 24 guns apply only their source reload accuracy changes and retain the last-fire clock (0.24975ms)
+✔ the actual server reload handler preserves SG550 spread and ammunition across reload (72.664333ms)
+✔ bot reload uses the same source-specific accuracy reset and preserves residual punch (0.327541ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1071.745959

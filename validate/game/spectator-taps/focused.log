@@ -1,0 +1,44 @@
+✔ native combat presses survive a newer UI pointer event in the pinned SDK (4.0765ms)
+✔ native release cannot get stuck behind a newer UI pointer event (1.679875ms)
+✔ only native root actions drive mobile controls; old events never replay (0.392959ms)
+✔ desktop input continues to use the SDK including entity-bound actions (0.346375ms)
+✔ actual client starts and stops automatic fire across overlapping native/UI events (10.641416ms)
+✔ actual client reload starts from native press and stops retrying after release (2.912ms)
+✔ neutral observers can roam without a target and return to their selected mode when one appears (0.33425ms)
+✔ team observers cannot enable roaming, including after leaving neutral spectator mode (0.057417ms)
+✔ roaming applies original spectator friction then acceleration in scene meters (0.396791ms)
+✔ roaming caps diagonal wish speed and follows pitched look while strafing horizontally (0.083375ms)
+✔ menus, jumps to viewpoints and long frame stalls discard spectator velocity (0.12125ms)
+✔ all 24 firearms preserve a short FIRE tap for one update through real SDK UI callbacks and native input (283.98125ms)
+✔ a short RELOAD tap starts when ready and never retries after release (9.025292ms)
+✔ short knife slash and stab taps attack once instead of disappearing or repeating (7.830041ms)
+✔ a short grenade tap pulls the pin then releases the throw for all three grenades (8.918541ms)
+✔ a short burst-mode tap finishes exactly three rounds after the finger is released (6.247209ms)
+✔ real UI press dispatch and native binding together do not add a second automatic shot after release (2.955959ms)
+✔ short taps still obey menus, death, round phases, C4 ownership and weapon readiness (26.849083ms)
+✔ short spectator NEXT taps reach the next teammate through SDK callbacks and native/desktop input (48.065625ms)
+✔ short spectator PREVIOUS retains its reverse modifier after both actions release (17.412833ms)
+✔ spectator taps respect switch cooldown without delaying rejected taps (5.744625ms)
+✔ death, menu closure and respawn discard stale spectator input (4.815667ms)
+✔ held spectator inputs switch once and require release across menu capture (7.350292ms)
+✔ a short desktop mode tap toggles neutral roaming once (3.418958ms)
+✔ spectators reopen the team menu on Escape, resume without trapping capture, and clear it when joining (0.39ms)
+✔ spectating admits only living, connected, round-eligible teammates and excludes self (0.336208ms)
+✔ neutral spectators can chase living players from either side (0.058416ms)
+✔ neutral spectators cycle humans and bots together while respecting death and eligibility (0.06375ms)
+✔ team observers prefer teammates and only fall back to bots when none remain (0.066083ms)
+✔ a resume/capture click cannot also change the spectator target (0.068084ms)
+✔ automatic spectator capture arms without a release event and reverse clicks retain their cooldown (0.042209ms)
+✔ death/menu transitions discard armed spectator clicks until the held button is released (0.048833ms)
+✔ next and previous targets wrap, preserve a valid target, and recover from target loss (0.059958ms)
+✔ solo spectating follows living bots in stable index order (0.110792ms)
+✔ chase camera follows target feet at eye height and stays short of a wall (0.136167ms)
+✔ death camera falls and rolls before the three-second observer handoff (0.076833ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 779.76375
